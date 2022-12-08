@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="de-de">
+  <head><link rel="icon" href="/favicon_main.svg"><meta charset="utf-8" />
+<meta name="theme-color" content="#6495ed" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" /><title>Hackwiki - Home Lab</title>
+
+    
+<link href="/fonts/IBM_plex/IBM_Plex.css" rel="stylesheet">
+<link href="/fonts/Inter/Inter.css" rel="stylesheet">
+<link href="/fonts/Inter/Inter.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/style.min.3e564f6258d36942f5e0ba0e66447a4b1c70249c0031ae3d23f86ae0f35958c5.css" integrity="sha256-PlZPYljTaUL14LoOZkR6SxxwJJwAMa49I/hq4PNZWMU=">
+<link rel="stylesheet" type="text/css" href="/css/monokai-sublime.9.15.8.min.min.3a5d282f03108101d715e80fd4c07b55502ec4673fc063f2b6e415d4def5b354.css" integrity="sha256-Ol0oLwMQgQHXFegP1MB7VVAuxGc/wGPytuQV1N71s1Q=">
+<link rel="stylesheet" type="text/css" href="/css/all.min.min.78ba45f6dd079d837eaf09abe8339f2293ed8be1f18fd28d291cfb6ac207e7dc.css" integrity="sha256-eLpF9t0HnYN&#43;rwmr6DOfIpPti&#43;Hxj9KNKRz7asIH59w=">
+<link rel="stylesheet" type="text/css" href="/css/refresh.min.a2c55bdc9e9b7ef0d36e8bea10f714415e0534c59a956e5530f5e8f0e86a45d9.css" integrity="sha256-osVb3J6bfvDTbovqEPcUQV4FNMWalW5VMPXo8OhqRdk=">
+<link rel="stylesheet" type="text/css" href="/css/devicon.min.min.13fddf418611477a10293a87542de7703396184696bd8cf50642c4c72994c78a.css" integrity="sha256-E/3fQYYRR3oQKTqHVC3ncDOWGEaWvYz1BkLExymUx4o=">
+    
+
+  </head>
+  <body>
+     
+
+    <div id="preloader">
+      <div id="status"></div>
+    </div><nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+
+      
+      
+      
+      <a class="navbar-item">
+        <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+        <div class="navbar-item left-menu-icon-wrapper">
+          Tags
+        </div>
+      </a>
+
+      <div class="navbar-item is-expanded"></div>
+      <a class="navbar-item is-hidden-desktop">  
+        <div data-target="navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
+          Menu
+        </div>
+        <div data-target="navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+      </a>
+    </div><div id="navbar-menu" class="navbar-menu is-static">
+      
+      <div class="navbar-end">
+        
+          <a href="/en/" class="navbar-item is-secondary"><i class="fa fa-home" style="color:#6495ed;">&nbsp;</i>Homepage</a><a href="/en/about/" class="navbar-item is-secondary"><i class="fa fa-bookmark" style="color:#6495ed;">&nbsp;</i>About Me</a><a href="/en/blog/" class="navbar-item is-secondary"><i class="fa fa-book" style="color:#6495ed;">&nbsp;</i>Blog</a>
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+        
+          
+            
+          
+        
+        
+        
+        
+        
+        <div class="navbar-item">
+          <div class="dropdown is-hoverable is-centered" >
+            <div class="dropdown-trigger" >
+              <button class="button is-active" 
+              style="color:#999;  
+                    border-color:#6495ed; 
+                    box-shadow: none ;
+                    padding-right: 0.625em ; 
+                    padding-left: 0.625em  ;
+                    ">
+
+                <span>EN</span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu" style="min-width: 0em;">
+              <div class="dropdown-content" style="padding: 0rem;">
+                
+                
+                
+                  
+                
+                  
+                
+                
+                  
+                  <a href="https://hackwiki.de/tags/home-lab/" class="dropdown-item" 
+                      style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                    DE
+                  </a>
+                
+                
+                  
+                    
+                  
+                
+                  
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+      <div class="navbar-brand">
+  
+        
+        
+        
+        <a class="navbar-item">
+          <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+          <div class="navbar-item left-menu-icon-wrapper">
+            Tags
+          </div>
+        </a>
+  
+        <div class="navbar-item is-expanded"></div>
+        <a class="navbar-item is-hidden-desktop">  
+          <div data-target="cloned-navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
+            Menu
+          </div>
+          <div data-target="cloned-navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+        </a>
+      </div><div id="cloned-navbar-menu" class="navbar-menu is-static">
+        <div class="navbar-end"><a href="/en/" class="navbar-item is-secondary"><i class="fa fa-home" style="color:#6495ed;">&nbsp;</i>Homepage</a><a href="/en/about/" class="navbar-item is-secondary"><i class="fa fa-bookmark" style="color:#6495ed;">&nbsp;</i>About Me</a><a href="/en/blog/" class="navbar-item is-secondary"><i class="fa fa-book" style="color:#6495ed;">&nbsp;</i>Blog</a>
+          
+            
+              
+            
+          
+            
+              
+            
+          
+          
+          
+            
+              
+            
+          
+
+          
+          
+          
+          <div class="navbar-item">
+            <div class="dropdown is-hoverable is-centered" >
+              <div class="dropdown-trigger" >
+                <button class="button is-active" 
+                style="color:#999;  
+                      border-color:#6495ed; 
+                      box-shadow: none ;
+                      padding-right: 0.625em ; 
+                      padding-left: 0.625em  ;
+                      ">
+  
+                  <span>EN</span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu" style="min-width: 0em;">
+                <div class="dropdown-content" style="padding: 0rem;">
+                  
+                  
+                  
+                    
+                  
+                    
+                  
+                  
+                    
+                    <a href="https://hackwiki.de/tags/home-lab/" class="dropdown-item" 
+                        style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                      DE
+                    </a>
+                  
+                  
+                    
+                      
+                    
+                  
+                    
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        
+        </div>
+      </div>
+    </div>
+  </nav>
+<section class="section is-medium">
+        <div class="container">
+          
+            
+              <h1 class="title section-title">Home Lab</h1>
+              <h5 class="subtitle is-5 is-muted"></h5>
+              <div class="divider"></div>        
+              <div class="section is-small">
+                <div class="columns">
+                    <div class="column is-4"><div class="box">
+      <figure class="image is-3by2">
+        <a href="/en/blog/homelab_vs_homeserver/">
+        
+           
+           
+          
+            <img src="/en/blog/homelab_vs_homeserver/img/homelab_hu08978efc3c0ea5e5c9cc92ccab40cf86_56242_600x0_resize_q75_box.jpg" style="width: auto; margin:auto" alt="">
+          
+        
+        </a>
+      </figure>
+      <h3 class="title is-5 refresh-summary-title">
+        Home Lab vs Home Server 💻
+      </h3>
+      <p class="refresh-summary">Differences between Home Lab and Home Server.</p> 
+      <div class="action has-text-right">
+        <a href="/en/blog/homelab_vs_homeserver/" class="button is-primary">
+                Read more
+            </a>
+      </div>
+    </div>
+  </div>
+
+                  </div>
+                
+              </div>
+            
+          
+        </div>
+    </section><footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <img src="/footer.svg" alt="">
+        
+      </div>
+      
+    <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Website</h3>
+          </div>
+          <ul class="link-list"><li>
+              <a href="/en/"><span class="icon"><i class="fa fa-home"></i></span> Homepage</a>
+            </li><li><a href="/en/credits/">
+                  <span class="icon"><i class="fa fa-cube"></i></span>
+                  Credits
+                </a></li>
+            <li><a href="/en/tags/">
+                <span class="icon"><i class="fa fa-tag"></i></span> 
+                All Tags
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    
+      
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Contacts</h3>
+          </div>
+          <ul class="link-list">
+            
+            <li>
+              <a href="https://www.linkedin.com/in/sebastian-feustel-842a1a1ab" target="_blank">
+                <span class="icon"><i class="fab fa-linkedin"></i></span>
+                
+                  LinkedIn
+                
+              </a>
+            </li>
+            
+            
+            <li>
+              <a href="https://github.com/53845714nF" target="_blank">
+                <span class="icon"><i class="fab fa-github-square"></i></span>
+                
+                  Github
+                
+              </a>
+            </li>
+                         
+            
+            <li>
+              <a href="mailto:hackwiki2.0@gmail.com" target="_blank">
+                <span class="icon"><i class="fa fa-envelope"></i></span>
+                
+                  Hack Wiki
+                
+              </a>
+            </li>
+            
+                   
+            
+            <li>
+              <a href="https://twitter.com/53845714nF" target="_blank">
+                <span class="icon"><i class="fab fa-twitter"></i></span>
+                
+                  Twitter
+                
+              </a>
+            </li>
+                   
+            
+                   
+          </ul>
+        </div>
+      </div>
+      
+
+      
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Copyright</h3>
+          </div>
+          <ul class="link-list">
+            <li>
+              <a>
+                <span class="icon"><i class="fa fa-copyright"></i></span>
+                Sebastian Feustel - 2022
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+</footer>
+    <div id="backtotop"><a href="#"></a></div><div class="sidebar scroll">
+  <div class="sidebar-header"><img src="/sidebar.svg" alt="">
+    
+    <a class="sidebar-close" href="javascript:void(0);">
+      <i data-feather="x"></i>
+    </a>
+  </div>
+  <div class="inner">
+    <ul class="sidebar-menu">
+      <li class="no-children"><a href="/en/tags/"><div class="columns">
+              <table width="100%">  
+                <tr>
+                  <td class="">
+                    <span class="icon"><i class="fa fa-cubes"></i></span>
+                    All Tags
+                  </td>
+                  <td class="has-text-right" >
+                      
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </a>
+      <li class="no-children">
+          <a href="/en/tags/c">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>C</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/home-lab">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Home Lab</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/home-server">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Home Server</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/java">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Java</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/programming">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>programming</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/python">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Python</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li></ul>
+  </div>
+</div>
+<script src="/js/jquery-2.2.4.min.9905f735619722ceaee707531dbce48d85dc03730eeec5377e640ad222fc7564.js" integrity="sha256-mQX3NWGXIs6u5wdTHbzkjYXcA3MO7sU3fmQK0iL8dWQ="></script>
+  <script src="/js/feather.4.22.0.min.60f99c81ecaf159163820d5a01c6a3341afc02fbb64a51d21b685c79a3130217.js" integrity="sha256-YPmcgeyvFZFjgg1aAcajNBr8Avu2SlHSG2hceaMTAhc="></script>
+  <script src="/js/modernizr-3.6.0.min.7d44f7a93c82d33b0fe07bdb55abc91922e5c7644a5977c358ab47cc54d5d08f.js" integrity="sha256-fUT3qTyC0zsP4HvbVavJGSLlx2RKWXfDWKtHzFTV0I8="></script>
+  <script src="/js/refresh.min.bdd8c6701d25938ef80886aa03d1cfc7add83f9f73ef825d6d0a6bea81aa639b.js" integrity="sha256-vdjGcB0lk474CIaqA9HPx63YP59z74JdbQpr6oGqY5s="></script><script>
+  window.MathJax = {
+    loader: {
+      load: ['core', 'input/tex-base', 'output/chtml'],  
+      source: {
+        'core': '\/js\/mathjax\/core.min.453b78d6e9400804f3829994cd949e89a3d52f71bc462e9feb4f2e085d1ec28d.js',
+        'input/tex-base': '\/js\/mathjax\/tex-base.min.85d454cb00e3d6a642e26de52330db3e67d4d3681a6a717b381d3feb98179117.js',
+        'output/chtml': '\/js\/mathjax\/chtml.min.dccd5b6890826a8451fbb3b66c1ebd9591cc812ec35c56bf2c21ee64187bbea7.js',
+        'output/chtml/fonts/tex': '\/js\/mathjax\/tex_out.min.8e1302fafc1e5059c23b65acc70c9bff60c3309f7f39f8cd1808e32733617a8f.js'
+      },
+    },
+    chtml: {
+      fontURL: '/fonts' 
+    },
+  };
+</script><script src="/js/mathjax/startup.min.5b715e39e0a107a45e1a57215e8cb6e021770cf9b6a24fb8bd87b6e92894ea96.js" integrity="sha256-W3FeOeChB6ReGlchXoy24CF3DPm2ok&#43;4vYe26SiU6pY="></script>
+  <script src="/js/highlight.9.18.1.min.742dd18e65b9849352dc274e786a8e5e2604a45e7db320672a74d92f2edf37d3.js" integrity="sha256-dC3RjmW5hJNS3CdOeGqOXiYEpF59syBnKnTZLy7fN9M="></script>
+  <script src="/js/highlightjs-line-numbers.2.7.0.min.min.ab0a1913aad94db8bd4a89ef028e52ef4c895e8c641275ad2f344f77df47289f.js" integrity="sha256-qwoZE6rZTbi9SonvAo5S70yJXoxkEnWtLzRPd99HKJ8="></script><script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('.codeinline').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+</body>
+</html>

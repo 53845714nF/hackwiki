@@ -1,0 +1,38 @@
+{{ $id := delimit (seq 15 | shuffle) "" "" }}
+
+{{ $content  := readFile (.Get "file") }}
+{{ $title    := .Get "title" }}
+{{ $icon      := "" }}
+{{ $language := "" }}
+
+{{ if .Get "language" }}
+  {{ $language = .Get "language" }}
+{{ end }}
+
+{{ if .Get "icon" }}
+  {{ $icon = printf "%s" (.Get "icon") }}
+{{ end }}
+
+
+
+<div class="container">
+<div class="tabs is-medium is-marginless"> <!-- is-boxed is-toggle -->
+    <ul class="is-marginless">
+      <li class="is-active" data-target="{{ $id }}">
+        <a>
+          {{- partial "icon.html" (dict "context" . "icon" $icon ) -}}
+          <span>{{ $title }}</span>
+        </a>
+      </li>
+    </ul>
+</div>
+    <div id="{{ $id }}">
+      <pre class="pre-colorless">
+        {{- if not (eq $language "") -}}
+        <code class="code-highlight language-{{ $language }}">{{ $content }}</code>
+        {{- else -}}
+        <code class="code-highlight">{{ $content }}</code>
+        {{- end -}}
+      </pre>
+    </div>
+</div>

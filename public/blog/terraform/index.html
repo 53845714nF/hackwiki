@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="de-de">
+  <head><link rel="icon" href="/favicon_main.svg"><meta charset="utf-8" />
+<meta name="theme-color" content="#6495ed" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" /><meta property="og:url"  content="https://hackwiki.de/blog/terraform/" />
+    <meta property="og:type" content="article" /><meta property="og:title" content="Terraform ☁️" /><meta property="og:description" content="Terraform ist ein Tool zum Wolken bauen. Ein erster Einblick im Zusammenspiel mit Digital Ocean" /><meta property="og:image:width"  content="600" />
+        <meta property="og:image:height" content="400" /><meta property="og:image" content="https://hackwiki.de/blog/terraform/img/terraform_hu2c8a99bb523f5ce01361cf855e621d76_430337_600x0_resize_box_3.png" /><title>Hackwiki - Terraform ☁️</title>
+
+    
+<link href="/fonts/IBM_plex/IBM_Plex.css" rel="stylesheet">
+<link href="/fonts/Inter/Inter.css" rel="stylesheet">
+<link href="/fonts/Inter/Inter.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/style.min.3e564f6258d36942f5e0ba0e66447a4b1c70249c0031ae3d23f86ae0f35958c5.css" integrity="sha256-PlZPYljTaUL14LoOZkR6SxxwJJwAMa49I/hq4PNZWMU=">
+<link rel="stylesheet" type="text/css" href="/css/monokai-sublime.9.15.8.min.min.3a5d282f03108101d715e80fd4c07b55502ec4673fc063f2b6e415d4def5b354.css" integrity="sha256-Ol0oLwMQgQHXFegP1MB7VVAuxGc/wGPytuQV1N71s1Q=">
+<link rel="stylesheet" type="text/css" href="/css/all.min.min.78ba45f6dd079d837eaf09abe8339f2293ed8be1f18fd28d291cfb6ac207e7dc.css" integrity="sha256-eLpF9t0HnYN&#43;rwmr6DOfIpPti&#43;Hxj9KNKRz7asIH59w=">
+<link rel="stylesheet" type="text/css" href="/css/refresh.min.a2c55bdc9e9b7ef0d36e8bea10f714415e0534c59a956e5530f5e8f0e86a45d9.css" integrity="sha256-osVb3J6bfvDTbovqEPcUQV4FNMWalW5VMPXo8OhqRdk=">
+<link rel="stylesheet" type="text/css" href="/css/devicon.min.min.13fddf418611477a10293a87542de7703396184696bd8cf50642c4c72994c78a.css" integrity="sha256-E/3fQYYRR3oQKTqHVC3ncDOWGEaWvYz1BkLExymUx4o=">
+    
+
+  </head>
+  <body>
+     
+
+    <div id="preloader">
+      <div id="status"></div>
+    </div><nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+
+      
+      
+      
+      <a class="navbar-item">
+        <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+        <div class="navbar-item left-menu-icon-wrapper">
+          Stichworte
+        </div>
+      </a>
+
+      <div class="navbar-item is-expanded"></div>
+      <a class="navbar-item is-hidden-desktop">  
+        <div data-target="navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
+          Menü
+        </div>
+        <div data-target="navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+      </a>
+    </div><div id="navbar-menu" class="navbar-menu is-static">
+      
+      <div class="navbar-end">
+        
+          <a href="/" class="navbar-item is-secondary"><i class="fa fa-home" style="color:#6495ed;">&nbsp;</i>Startseite</a><a href="/about/" class="navbar-item is-secondary"><i class="fa fa-bookmark" style="color:#6495ed;">&nbsp;</i>Über mich</a><a href="/blog/" class="navbar-item is-secondary"><i class="fa fa-book" style="color:#6495ed;">&nbsp;</i>Blog</a>
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+        
+        
+        
+        
+        
+        <div class="navbar-item">
+          <div class="dropdown is-hoverable is-centered" >
+            <div class="dropdown-trigger" >
+              <button class="button is-active" 
+              style="color:#999;  
+                    border-color:#6495ed; 
+                    box-shadow: none ;
+                    padding-right: 0.625em ; 
+                    padding-left: 0.625em  ;
+                    ">
+
+                <span>DE</span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu" style="min-width: 0em;">
+              <div class="dropdown-content" style="padding: 0rem;">
+                
+                
+                
+                  
+                
+                  
+                
+                
+                
+                  
+                
+                  
+                    
+                    <a href="https://hackwiki.de/en/" class="dropdown-item" 
+                        style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                        EN
+                    </a>
+                    
+                  
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+      <div class="navbar-brand">
+  
+        
+        
+        
+        <a class="navbar-item">
+          <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+          <div class="navbar-item left-menu-icon-wrapper">
+            Stichworte
+          </div>
+        </a>
+  
+        <div class="navbar-item is-expanded"></div>
+        <a class="navbar-item is-hidden-desktop">  
+          <div data-target="cloned-navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
+            Menü
+          </div>
+          <div data-target="cloned-navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+        </a>
+      </div><div id="cloned-navbar-menu" class="navbar-menu is-static">
+        <div class="navbar-end"><a href="/" class="navbar-item is-secondary"><i class="fa fa-home" style="color:#6495ed;">&nbsp;</i>Startseite</a><a href="/about/" class="navbar-item is-secondary"><i class="fa fa-bookmark" style="color:#6495ed;">&nbsp;</i>Über mich</a><a href="/blog/" class="navbar-item is-secondary"><i class="fa fa-book" style="color:#6495ed;">&nbsp;</i>Blog</a>
+          
+            
+              
+            
+          
+            
+              
+            
+          
+          
+          
+
+          
+          
+          
+          <div class="navbar-item">
+            <div class="dropdown is-hoverable is-centered" >
+              <div class="dropdown-trigger" >
+                <button class="button is-active" 
+                style="color:#999;  
+                      border-color:#6495ed; 
+                      box-shadow: none ;
+                      padding-right: 0.625em ; 
+                      padding-left: 0.625em  ;
+                      ">
+  
+                  <span>DE</span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu" style="min-width: 0em;">
+                <div class="dropdown-content" style="padding: 0rem;">
+                  
+                  
+                  
+                    
+                  
+                    
+                  
+                  
+                  
+                    
+                  
+                    
+                      
+                      <a href="https://hackwiki.de/en/" class="dropdown-item" 
+                          style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                          EN
+                      </a>
+                      
+                    
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        
+        </div>
+      </div>
+    </div>
+  </nav>
+<section class="section is-medium">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title is-2 section-title">Terraform ☁️</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+        
+        <section class="section content has-text-justified">
+          <p>Terraform ermöglicht es, seine Infrastruktur als Code abzubilden. Und ist gedacht für große Cloud Instanzen.
+Hier ein kleiner Erfahrungsbericht vom ersten mal Terraform.</p>
+<p>Ich werde hier zeigen, wie man VMs bei Digital Ocean anlegt und auf ihr dann <a href="https://owasp.org/www-project-juice-shop/">Juice Shop</a> zum laufen bringt und das mit Hilfe von Terraform.
+Hinweis: Juice Shop ist ein Projekt das Web Schwachstellen in sich drin hat, dies ist ein Produkt zum Lernen und nicht für den produktiven Einsatz gedacht.</p>
+<h2 id="instalation">Instalation</h2>
+<p>Terraform zu installieren ist wohl das einfachste, unter Ubuntu einfach folgendes:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo &#34;deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg]https://apt.releases.hashicorp.com $(lsb_release -cs) main&#34; | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update &amp;&amp; sudo apt install terraform</code></pre></div>
+</div>
+<h2 id="aufbau-eines-terraform-files">Aufbau eines Terraform Files</h2>
+<p>Der Aufbau sieht wie folgt aus, wir schreiben Code in ein File den Terraform dann ausführt.</p>
+<h3 id="provider-festlegen">Provider festlegen</h3>
+<p>Der wohl &ldquo;schwierigste&rdquo; Part ist den Provider einzurichten. Es ist wichtig mit wem Terraform dann redet, die bekanntesten Anbieter für Cloud sind wahrscheinlich Amazon&rsquo;s aws und Microsofts Azure.
+Neben diesen gibt es aber auch viele weitere Provider, es ist auch möglich mit seiner eigenen Cloud zu reden z.B. mir K8S, VMware oder auch Proxmox.</p>
+<p>Ich habe mich in meinem Test für <a href="https://www.digitalocean.com">Digital Ocean</a> entschieden. Es ist nicht sehr günstig, aber ab und zu gibt es Rabatt Codes, um deren Produkte zu testen.
+Es ist ein recht kleiner Cloud Anbieter der nicht so ein Komplexe Struktur wie AWS hat.</p>
+<p>Nun zu Terraform, zu Beginn legen wir eine <code>main.tf</code> an.
+Den Provider Code findet man dann in der Terraform Doku. Für Digital Ocean sieht der erst mal so aus:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">terraform {
+  required_providers {
+    digitalocean = {
+      source = &#34;digitalocean/digitalocean&#34;
+      version = &#34;~&gt; 2.0&#34;
+    }
+  }
+}</code></pre></div>
+</div>
+<p>Danach müssen wir einen Token in Digital Ocean  erstellen, dieser erlaubt es Terraform dann unter euren Account, auf die Cloud zuzugreifen.
+Natürlich müssen wir diesen Token dann auch Terraform mitteilen, hierfür gibt es verschiedene Methoden, da so sensible Daten nicht direkt im Code stehen sollten.
+Der einfach halt halber hab ich ihn erst mal in den Code geschrieben:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">provider &#34;digitalocean&#34; {
+  token = &#34;&#34;
+}</code></pre></div>
+</div>
+<p>Bei &quot;&quot; dann den Token eintragen.</p>
+<h3 id="ressourcen-anlegen">Ressourcen anlegen</h3>
+<p>Nun können wir unsere Ressourcen bestimmen, hier ist es ein Droplet, was der Bergriff für VM bei Digital Ocean ist.</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">resource &#34;digitalocean_droplet&#34; &#34;web&#34; {
+  count  = 1
+  image  = &#34;ubuntu-22-04-x64&#34;
+  name   = &#34;saftig.${count.index}&#34;
+  region = &#34;fra1&#34;
+  size   = &#34;s-1vcpu-1gb&#34;
+  ssh_keys = [&#34;&#34;]</code></pre></div>
+</div>
+<p>Der <code>count</code> gibt an wie viele VMs erzeugt werden sollen, dies ist optional. Ich habe das ergänzt, um mal zu sehen, wie es ist mehre VWs gleichzeitig zu erstellen. So wie ich das sehe, ist hier eine
+der Stärken von Terraform, es macht genauso viel Aufwand zwei WMs zu erzeugen wie 200.</p>
+<p>Bei den <code>ssh_keys</code> müssen die Fingerprints der ssh keys eingetragen werden. diese müssen aber schon bei Digital Ocean hinterlegt sein.</p>
+<h3 id="connection-definieren">Connection definieren</h3>
+<p>Um nun Commands auf den Servern auszuführen, muss die Verbindung aufgebaut werden, dies passiert über ssh.</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">connection {
+    host = self.ipv4_address
+    user = &#34;root&#34;
+    type = &#34;ssh&#34;
+    private_key = file(&#34;&#34;)
+    timeout = &#34;2m&#34;
+  }</code></pre></div>
+</div>
+<p>Bei <code>private_key</code> muss der Path zum File eingetragen werden.</p>
+<p>Es folgen nun die Commands, die nach dem Erstellen der VM ausgeführt werden.</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">provisioner &#34;remote-exec&#34; {
+    inline = [
+      &#34;export PATH=$PATH:/usr/bin&#34;,
+      # install Juice Shop
+      &#34;sudo apt install -y podman&#34;,
+      &#34;sudo podman pull docker.io/bkimminich/juice-shop&#34;,
+      &#34;sudo podman run -d --rm -p 3000:3000 bkimminich/juice-shop&#34;
+    ]
+  }
+}</code></pre></div>
+</div>
+<p>Hier wird mit <code>podman</code> der Container von Juice Shop geladen und ausgeführt.</p>
+<h2 id="terraform-commands">Terraform Commands</h2>
+<p>Die Terraform Commands sind ähnlich wie git aufgebaut. Es gibt der <code>terraform</code> command und dieser hat verschiedene sub commands.</p>
+<p>Mit <code>apply</code> können wir nun unseren Code ausrollen:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">terraform apply</code></pre></div>
+</div></p>
+<p>Unser aktuelles Deployment können wir <code>show</code> ansehen:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">terraform show</code></pre></div>
+</div></p>
+<p>Mit <code>destroy</code> können wir unser Werk auch wieder schnell zerstören.
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">terraform destroy</code></pre></div>
+</div></p>
+<h2 id="fazit">Fazit</h2>
+<p>Ich war sehr positiv beeindruckt, wie einfach der Einstieg in Terraform ist. Ich kann mir vorstellen, daß ich das in Zukunft noch öfter für Projekte einsetzen werde.</p>
+
+        </section>
+      </div>
+    </div>
+  </div>  
+  </section>
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <img src="/footer.svg" alt="">
+        
+      </div>
+      
+    <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Webseite</h3>
+          </div>
+          <ul class="link-list"><li>
+              <a href="/"><span class="icon"><i class="fa fa-home"></i></span> Startseite</a>
+            </li><li><a href="/credits/">
+                  <span class="icon"><i class="fa fa-cube"></i></span>
+                  Danksagung
+                </a></li>
+            <li><a href="/tags/">
+                <span class="icon"><i class="fa fa-tag"></i></span> 
+                Alle Stichworte
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    
+      
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Kontakte</h3>
+          </div>
+          <ul class="link-list">
+            
+            <li>
+              <a href="https://www.linkedin.com/in/sebastian-feustel-842a1a1ab" target="_blank">
+                <span class="icon"><i class="fab fa-linkedin"></i></span>
+                
+                  My LinkedIn
+                
+              </a>
+            </li>
+            
+            
+            <li>
+              <a href="https://github.com/53845714nF" target="_blank">
+                <span class="icon"><i class="fab fa-github-square"></i></span>
+                
+                  Github
+                
+              </a>
+            </li>
+                         
+            
+            <li>
+              <a href="mailto:hackwiki2.0@gmail.com" target="_blank">
+                <span class="icon"><i class="fa fa-envelope"></i></span>
+                
+                  Hack Wiki
+                
+              </a>
+            </li>
+            
+                   
+            
+            <li>
+              <a href="https://twitter.com/53845714nF" target="_blank">
+                <span class="icon"><i class="fab fa-twitter"></i></span>
+                
+                  Twitter
+                
+              </a>
+            </li>
+                   
+            
+                   
+          </ul>
+        </div>
+      </div>
+      
+
+      
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Copyright</h3>
+          </div>
+          <ul class="link-list">
+            <li>
+              <a>
+                <span class="icon"><i class="fa fa-copyright"></i></span>
+                Sebastian Feustel - 2022
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+</footer>
+    <div id="backtotop"><a href="#"></a></div><div class="sidebar scroll">
+  <div class="sidebar-header"><img src="/sidebar.svg" alt="">
+    
+    <a class="sidebar-close" href="javascript:void(0);">
+      <i data-feather="x"></i>
+    </a>
+  </div>
+  <div class="inner">
+    <ul class="sidebar-menu">
+      <li class="no-children"><a href="/tags/"><div class="columns">
+              <table width="100%">  
+                <tr>
+                  <td class="">
+                    <span class="icon"><i class="fa fa-cubes"></i></span>
+                    Alle Stichworte
+                  </td>
+                  <td class="has-text-right" >
+                      
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </a>
+      <li class="no-children">
+          <a href="/tags/programmieren">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Programmieren</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">6</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/hacking">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Hacking</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">5</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/c">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>C</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/home-lab">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Home Lab</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/home-server">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Home Server</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/ctf">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>CTF</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/forensik">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Forensik</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/mikrocontroller">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Mikrocontroller</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/python">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Python</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/sicherheit">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Sicherheit</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/assembler">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Assembler</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/cloud">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Cloud</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/elektronik">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Elektronik</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/git">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Git</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/hardware">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Hardware</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/java">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Java</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/mathematik">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Mathematik</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/proxmox">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Proxmox</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/smart-home">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Smart Home</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li></ul>
+  </div>
+</div>
+<script src="/js/jquery-2.2.4.min.9905f735619722ceaee707531dbce48d85dc03730eeec5377e640ad222fc7564.js" integrity="sha256-mQX3NWGXIs6u5wdTHbzkjYXcA3MO7sU3fmQK0iL8dWQ="></script>
+  <script src="/js/feather.4.22.0.min.60f99c81ecaf159163820d5a01c6a3341afc02fbb64a51d21b685c79a3130217.js" integrity="sha256-YPmcgeyvFZFjgg1aAcajNBr8Avu2SlHSG2hceaMTAhc="></script>
+  <script src="/js/modernizr-3.6.0.min.7d44f7a93c82d33b0fe07bdb55abc91922e5c7644a5977c358ab47cc54d5d08f.js" integrity="sha256-fUT3qTyC0zsP4HvbVavJGSLlx2RKWXfDWKtHzFTV0I8="></script>
+  <script src="/js/refresh.min.bdd8c6701d25938ef80886aa03d1cfc7add83f9f73ef825d6d0a6bea81aa639b.js" integrity="sha256-vdjGcB0lk474CIaqA9HPx63YP59z74JdbQpr6oGqY5s="></script><script>
+  window.MathJax = {
+    loader: {
+      load: ['core', 'input/tex-base', 'output/chtml'],  
+      source: {
+        'core': '\/js\/mathjax\/core.min.453b78d6e9400804f3829994cd949e89a3d52f71bc462e9feb4f2e085d1ec28d.js',
+        'input/tex-base': '\/js\/mathjax\/tex-base.min.85d454cb00e3d6a642e26de52330db3e67d4d3681a6a717b381d3feb98179117.js',
+        'output/chtml': '\/js\/mathjax\/chtml.min.dccd5b6890826a8451fbb3b66c1ebd9591cc812ec35c56bf2c21ee64187bbea7.js',
+        'output/chtml/fonts/tex': '\/js\/mathjax\/tex_out.min.8e1302fafc1e5059c23b65acc70c9bff60c3309f7f39f8cd1808e32733617a8f.js'
+      },
+    },
+    chtml: {
+      fontURL: '/fonts' 
+    },
+  };
+</script><script src="/js/mathjax/startup.min.5b715e39e0a107a45e1a57215e8cb6e021770cf9b6a24fb8bd87b6e92894ea96.js" integrity="sha256-W3FeOeChB6ReGlchXoy24CF3DPm2ok&#43;4vYe26SiU6pY="></script>
+  <script src="/js/highlight.9.18.1.min.742dd18e65b9849352dc274e786a8e5e2604a45e7db320672a74d92f2edf37d3.js" integrity="sha256-dC3RjmW5hJNS3CdOeGqOXiYEpF59syBnKnTZLy7fN9M="></script>
+  <script src="/js/highlightjs-line-numbers.2.7.0.min.min.ab0a1913aad94db8bd4a89ef028e52ef4c895e8c641275ad2f344f77df47289f.js" integrity="sha256-qwoZE6rZTbi9SonvAo5S70yJXoxkEnWtLzRPd99HKJ8="></script><script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('.codeinline').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+  {{- $articlesPerRow := .Site.Params.articlesPerRow -}}
+  {{- if (eq $articlesPerRow 2) -}}
+  <div class="column is-6">
+  {{- else if (eq $articlesPerRow 3) -}}
+  <div class="column is-4">
+  {{- else if (eq $articlesPerRow 4) -}}
+  <div class="column is-3">
+  {{- else if (eq $articlesPerRow 5) -}}
+  <div class="column is-one-fifth">
+  {{- else if (eq $articlesPerRow 6) -}}
+  <div class="column is-2">
+  {{- else -}}
+  <div class="column is-4">
+  {{- end -}}
+    <div class="box">
+      <figure class="image is-3by2">
+        {{- $image := "" -}}
+        {{- $imgWidth := 0 -}}
+        {{- $imgHeight := 0 -}}
+        {{- if .Params.summaryImage -}} 
+          {{- $image = .Page.Resources.GetMatch .Params.summaryImage -}}
+          {{- $imgWidth = $image.Width -}}
+          {{- $imgHeight = $image.Height -}}
+          {{- .Scratch.Set "image" ($image.Resize "600x") -}}
+          {{- $image = .Scratch.Get "image" -}}
+        {{- else -}}
+          {{- $image = resources.Get .Site.Params.summary.defaultImage -}}
+          {{- $imgWidth = $image.Width -}}
+          {{- $imgHeight = $image.Height -}}
+          {{- .Scratch.Set "image" ($image.Resize "600x") -}}
+          {{- $image = .Scratch.Get "image" -}}
+        {{- end }}
+        <a href="{{- .Permalink | relURL -}}">
+        {{ if .Page.Params.keepImageRatio }}
+          {{ $w := mul (div $imgWidth 3) 2 }} {{/* is-3by2*/}}
+          {{ $h := $imgHeight }} 
+          {{ if not (gt $w $h) }}
+            <img src="{{- $image.Permalink | relURL -}}" style="width: auto; margin:auto" alt="">
+          {{ else }}
+            <img src="{{- $image.Permalink | relURL -}}" style="height: auto; margin:auto" alt="">
+          {{ end }}
+        {{ else }}
+          <img src="{{- $image.Permalink | relURL -}}" alt="">
+        {{ end }}
+        </a>
+      </figure>
+      <h3 class="title is-5 refresh-summary-title">
+        {{ .Params.title }}
+      </h3>
+      <p class="refresh-summary">
+        {{- if .Params.summary -}}
+          {{- .Params.summary -}}
+        {{- else }}
+          {{- .Plain -}}
+        {{- end -}}
+      </p> 
+      <div class="action has-text-right">
+        <a href="{{- .Permalink | relURL -}}" class="button is-primary">
+                {{ i18n "readMore" }}
+            </a>
+      </div>
+    </div>
+  </div>
