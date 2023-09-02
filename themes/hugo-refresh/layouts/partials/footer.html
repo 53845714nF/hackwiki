@@ -1,0 +1,171 @@
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <!-- <div class="footer-logo"> -->
+            {{- $out_fo  := "footer.svg" -}}
+            {{- $img_n   := .Site.Params.footer.logo -}}
+            {{- $home    := .Site.Params.homepage.linkPosition -}}
+            {{- $type    := lower (substr $img_n (sub (len $img_n) 3) (len $img_n)) -}}
+            {{- $img     := resources.Get $img_n -}}
+            {{- if eq $type "svg" -}}
+              {{- $img    = $img | resources.ExecuteAsTemplate $out_fo . }}
+            {{- end -}}
+            <img src="{{- $img.Permalink | relURL -}}" alt="">
+        <!-- </div> -->
+      </div>
+      
+    <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>{{ i18n "website" }}</h3>
+          </div>
+          <ul class="link-list">
+            {{- if or (eq $home "footer") (eq $home "menu+footer") -}}
+            <li>
+              <a href="{{ "/" | relLangURL }}"><span class="icon"><i class="fa fa-home"></i></span> 
+                {{- if .Site.Params.homepage.linkText -}}
+                  {{- printf " %s" .Site.Params.homepage.linkText -}}
+                {{- else -}}
+                  {{ printf " %s" (i18n "homepage") }}
+                {{- end -}}
+              </a>
+            </li>
+            {{- end -}}
+            <li>
+                {{- with .Site.GetPage "/credits/index" -}}
+                <a href="{{- .RelPermalink -}}">
+                  <span class="icon"><i class="fa fa-cube"></i></span>
+                  {{ i18n "credits" }}
+                </a>
+                {{- end -}}
+              </li>
+            <li>
+              {{- with .Site.GetPage "tags" -}}
+              <a href="{{- .RelPermalink -}}">
+                <span class="icon"><i class="fa fa-tag"></i></span> 
+                {{ i18n "allTags" }}
+              </a>
+              {{- end -}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    
+      {{ if (or (or (or (or (or (or (isset .Site.Params.footer "linkedin") (isset .Site.Params.footer "email")) (isset .Site.Params.footer "facebook")) (isset .Site.Params.footer "twitter")) (isset .Site.Params.footer "instagram")) (isset .Site.Params.footer "github")) (isset .Site.Params.footer "telegram")) }}
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>{{ i18n "contacts" }}</h3>
+          </div>
+          <ul class="link-list">
+            {{ if isset .Site.Params.footer.linkedin "link" }}
+            <li>
+              <a href="https://www.linkedin.com/{{ .Site.Params.footer.linkedin.link }}" target="_blank">
+                <span class="icon"><i class="fab fa-linkedin"></i></span>
+                {{ if isset .Site.Params.footer.linkedin "title" }}
+                  {{ .Site.Params.footer.linkedin.title }}
+                {{ else }}
+                  LinkedIn
+                {{ end }}
+              </a>
+            </li>
+            {{ end }}
+            {{ if isset .Site.Params.footer.github "link" }}
+            <li>
+              <a href="https://github.com/{{ .Site.Params.footer.github.link }}" target="_blank">
+                <span class="icon"><i class="fab fa-github-square"></i></span>
+                {{ if isset .Site.Params.footer.github "title" }}
+                  {{ .Site.Params.footer.github.title }}
+                {{ else }}
+                  Github
+                {{ end }}
+              </a>
+            </li>
+            {{ end }}             
+            {{ if isset .Site.Params.footer.email "link" }}
+            <li>
+              <a href="mailto:{{ .Site.Params.footer.email.link }}" target="_blank">
+                <span class="icon"><i class="fa fa-envelope"></i></span>
+                {{ if isset .Site.Params.footer.email "title" }}
+                  {{ .Site.Params.footer.email.title }}
+                {{ else }}
+                  Email
+                {{ end }}
+              </a>
+            </li>
+            {{ end }}
+            {{ if isset .Site.Params.footer.facebook "link" }}
+            <li>
+              <a href="https://facebook.com/{{ .Site.Params.footer.facebook.link }}" target="_blank">
+                <span class="icon"><i class="fab fa-facebook"></i></span>
+                {{ if isset .Site.Params.footer.facebook "title" }}
+                  {{ .Site.Params.footer.facebook.title }}
+                {{ else }}
+                  Facebook
+                {{ end }}
+              </a>
+            </li>
+            {{ end }}       
+            {{ if isset .Site.Params.footer.twitter "link" }}
+            <li>
+              <a href="https://twitter.com/{{ .Site.Params.footer.twitter.link }}" target="_blank">
+                <span class="icon"><i class="fab fa-twitter"></i></span>
+                {{ if isset .Site.Params.footer.twitter "title" }}
+                  {{ .Site.Params.footer.twitter.title }}
+                {{ else }}
+                  Twitter
+                {{ end }}
+              </a>
+            </li>
+            {{ end }}       
+            {{ if isset .Site.Params.footer.instagram "link" }}
+            <li>
+              <a href="https://instagram.com/{{ .Site.Params.footer.instagram.link }}" target="_blank">
+                <span class="icon"><i class="fab fa-instagram"></i></span>
+                {{ if isset .Site.Params.footer.instagram "title" }}
+                  {{ .Site.Params.footer.instagram.title }}
+                {{ else }}
+                  Instagram
+                {{ end }}
+              </a>
+            </li>
+            {{ end }}
+            {{ if isset .Site.Params.footer.telegram "link" }}
+            <li>
+              <a href="https://t.me/{{ .Site.Params.footer.telegram.link }}" target="_blank">
+                <span class="icon"><i class="fab fa-telegram"></i></span>
+                {{ if isset .Site.Params.footer.telegram "title" }}
+                  {{ .Site.Params.footer.telegram.title }}
+                {{ else }}
+                  Telegram
+                {{ end }}
+              </a>
+            </li>
+            {{ end }}       
+          </ul>
+        </div>
+      </div>
+      {{ end }}
+
+      {{ if isset .Site.Params.footer "copyright" }}
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>{{ i18n "copyright" }}</h3>
+          </div>
+          <ul class="link-list">
+            <li>
+              <a>
+                <span class="icon"><i class="fa fa-copyright"></i></span>
+                {{ .Site.Params.footer.copyright }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {{ end }}
+
+    </div>
+  </div>
+</footer>

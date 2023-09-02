@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="de-de">
+  <head><link rel="icon" href="/favicon_main.svg"><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" /><meta property="og:url"  content="https://hackwiki.de/blog/volatility/" />
+    <meta property="og:type" content="article" /><meta property="og:title" content="Volatility 📂" /><meta property="og:description" content="Analyse des Arbeitsspeicher mit Volatility" /><meta property="og:image:width"  content="600" />
+        <meta property="og:image:height" content="400" /><meta property="og:image" content="https://hackwiki.de/blog/volatility/img/vol_hu817fb8e2b565fbc01c550b687776bd38_85535_600x0_resize_box_3.png" /><title>Hackwiki - Volatility 📂</title>
+
+    <link href="/fonts/IBM_plex/IBM_Plex.css" rel="stylesheet">
+<link href="/fonts/Inter/Inter.css" rel="stylesheet">
+<link href="/fonts/Inter/Inter.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/style.min.bf45c1cd081ea2ac3d76954c69b1f13c6d9fc5c3aa1c499d351616b37854603d.css" integrity="sha256-v0XBzQgeoqw9dpVMabHxPG2fxcOqHEmdNRYWs3hUYD0=">
+<link rel="stylesheet" type="text/css" href="/css/monokai-sublime.9.15.8.min.min.3a5d282f03108101d715e80fd4c07b55502ec4673fc063f2b6e415d4def5b354.css" integrity="sha256-Ol0oLwMQgQHXFegP1MB7VVAuxGc/wGPytuQV1N71s1Q=">
+<link rel="stylesheet" type="text/css" href="/css/all.min.min.78ba45f6dd079d837eaf09abe8339f2293ed8be1f18fd28d291cfb6ac207e7dc.css" integrity="sha256-eLpF9t0HnYN&#43;rwmr6DOfIpPti&#43;Hxj9KNKRz7asIH59w=">
+<link rel="stylesheet" type="text/css" href="/css/refresh.min.a2c55bdc9e9b7ef0d36e8bea10f714415e0534c59a956e5530f5e8f0e86a45d9.css" integrity="sha256-osVb3J6bfvDTbovqEPcUQV4FNMWalW5VMPXo8OhqRdk=">
+<link rel="stylesheet" type="text/css" href="/css/devicon.min.min.13fddf418611477a10293a87542de7703396184696bd8cf50642c4c72994c78a.css" integrity="sha256-E/3fQYYRR3oQKTqHVC3ncDOWGEaWvYz1BkLExymUx4o=">
+    
+
+  </head>
+  <body>
+     
+
+    <div id="preloader">
+      <div id="status"></div>
+    </div><nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+
+      
+      
+      
+      <a class="navbar-item">
+        <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+        <div class="navbar-item left-menu-icon-wrapper">
+          Stichworte
+        </div>
+      </a>
+
+      <div class="navbar-item is-expanded"></div>
+      <a class="navbar-item is-hidden-desktop">  
+        <div data-target="navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
+          Menü
+        </div>
+        <div data-target="navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+      </a>
+    </div><div id="navbar-menu" class="navbar-menu is-static">
+      
+      <div class="navbar-end">
+        
+          <a href="/" class="navbar-item is-secondary"><i class="fa fa-home" style="color:#6495ed;">&nbsp;</i>Startseite</a><a href="/about/" class="navbar-item is-secondary"><i class="fa fa-bookmark" style="color:#6495ed;">&nbsp;</i>Über mich</a><a href="/blog/" class="navbar-item is-secondary"><i class="fa fa-book" style="color:#6495ed;">&nbsp;</i>Blog</a>
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+        
+        
+        
+        
+        
+        <div class="navbar-item">
+          <div class="dropdown is-hoverable is-centered" >
+            <div class="dropdown-trigger" >
+              <button class="button is-active" 
+              style="color:#999;  
+                    border-color:#6495ed; 
+                    box-shadow: none ;
+                    padding-right: 0.625em ; 
+                    padding-left: 0.625em  ;
+                    ">
+
+                <span>DE</span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu" style="min-width: 0em;">
+              <div class="dropdown-content" style="padding: 0rem;">
+                
+                
+                
+                  
+                
+                  
+                
+                
+                
+                  
+                
+                  
+                    
+                    <a href="https://hackwiki.de/en/" class="dropdown-item" 
+                        style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                        EN
+                    </a>
+                    
+                  
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+      <div class="navbar-brand">
+  
+        
+        
+        
+        <a class="navbar-item">
+          <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+          <div class="navbar-item left-menu-icon-wrapper">
+            Stichworte
+          </div>
+        </a>
+  
+        <div class="navbar-item is-expanded"></div>
+        <a class="navbar-item is-hidden-desktop">  
+          <div data-target="cloned-navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
+            Menü
+          </div>
+          <div data-target="cloned-navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+        </a>
+      </div><div id="cloned-navbar-menu" class="navbar-menu is-static">
+        <div class="navbar-end"><a href="/" class="navbar-item is-secondary"><i class="fa fa-home" style="color:#6495ed;">&nbsp;</i>Startseite</a><a href="/about/" class="navbar-item is-secondary"><i class="fa fa-bookmark" style="color:#6495ed;">&nbsp;</i>Über mich</a><a href="/blog/" class="navbar-item is-secondary"><i class="fa fa-book" style="color:#6495ed;">&nbsp;</i>Blog</a>
+          
+            
+              
+            
+          
+            
+              
+            
+          
+          
+          
+
+          
+          
+          
+          <div class="navbar-item">
+            <div class="dropdown is-hoverable is-centered" >
+              <div class="dropdown-trigger" >
+                <button class="button is-active" 
+                style="color:#999;  
+                      border-color:#6495ed; 
+                      box-shadow: none ;
+                      padding-right: 0.625em ; 
+                      padding-left: 0.625em  ;
+                      ">
+  
+                  <span>DE</span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu" style="min-width: 0em;">
+                <div class="dropdown-content" style="padding: 0rem;">
+                  
+                  
+                  
+                    
+                  
+                    
+                  
+                  
+                  
+                    
+                  
+                    
+                      
+                      <a href="https://hackwiki.de/en/" class="dropdown-item" 
+                          style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                          EN
+                      </a>
+                      
+                    
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        
+        </div>
+      </div>
+    </div>
+  </nav>
+<section class="section is-medium">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title is-2 section-title">Volatility 📂</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+        
+        <section class="section content has-text-justified">
+          <p>Wer nach einem Einbruch den Arbeitsspeicher eines Rechners untersuchen
+muss, darf sich der tatkräftigen Unterstützung des Python-Framework
+Volatility erfreuen. In diesem Post geht es noch um Volatility 2 mittlerweile gibt es die dreier Version.
+Hier hat sich einiges verändert, so ist zum Beispiel das Erstellen von Profilen nicht mehr notwendig.</p>
+<p>Vorerst muss jedoch der Arbeitsspeicher des betroffenen Systems gespeichert werden.</p>
+<h2 id="memory-speicherauszug-dump-erstellen">Memory Speicherauszug (Dump) erstellen</h2>
+<p>Um den Arbeitsspeicher zu untersuchen, brauchen wir erst einmal ein
+Abbild des aktuellen Arbeitsspeichers. Hier gib es verschiedene Tools
+unter Linux z.B.: LiMe oder Img. Diese Tools brauchen Root bzw.
+Administratorrechte um zu funktionieren. Bedenke auch, dass RAM
+heutzutage groß sein kann, hier muss natürlich genügend Speicherplatz
+zur Verfügung stehen. Bei Desktop Systemen sind 16 GB keine Seltenheit
+mehr und bei Servern kommen wir schnell an die ein bis mehrere Terabyte
+ran.</p>
+<h3 id="integritätsprüfung">Integritätsprüfung</h3>
+<p>Auch wichtig zu beachten ist, dass wir kein Hash vom RAM machen können,
+da dieser sich kontinuierlich ändert (sollte logisch sein, nur so zur
+Info). Nach dem Erstellen eines Abbildes, ist es möglich eine Checksumme
+über dieses zu bilden.</p>
+<h3 id="direct-memory-access-dma">Direct Memory Access (DMA)</h3>
+<p>Eine Methode die vielleicht nicht unerwähnt bleiben solle, ist die des
+DMA. Hierbei werden Schwachstellen der Hardware ausgenutzt, um an den
+Inhalt des Arbeitsspeicher zu gelangen, in der Vergangenheit häufig bei
+Thunderbold3, PCIe und USB-C.</p>
+<p>Guter Vortrag von Ulf Frisk auf dem 34C3:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=XcEYkcwbRX8">Vortrag auf dem 34C3</a></li>
+<li><a href="https://www.youtube.com/watch?v=DJSRVaj4nQc">Deutsche Übersetzung von Vortrag auf dem 34C3</a></li>
+<li><a href="https://github.com/ufrisk">Github von Ulf Frisk</a></li>
+</ul>
+<p>Die deutsche Übersetzung stockt ein wenig, wer des Englischen mächtig ist, sollte lieber diese gucken.</p>
+<h3 id="lime">LiME</h3>
+<p>Das Tool muss selbst kompiliert werden, das kann den Zustand des
+Arbeitsspeichers, des zu testenden System verändern, darum sollte es
+extern kompiliert werden (Sofern möglich).</p>
+<p><a href="https://github.com/504ensicsLabs/LiME">Link zum Github: LiME</a></p>
+<p>Herunterladen des Tools:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">cd /opt
+sudo git clone https://github.com/504ensicsLabs/LiME.git</code></pre></div>
+</div>
+<p>Kompilieren des Tools:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">cd LiMe/src
+sudo make </code></pre></div>
+</div>
+<p>Der Output sollte dann so ähnlich aussehen:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">sudo make                                              
+make -C /lib/modules/4.15.0-88-generic/build M=&#34;/opt/LiME/src&#34; modules
+make[1]: Entering directory &#39;/usr/src/linux-headers-4.15.0-88-generic&#39;
+  CC [M]  /opt/LiME/src/tcp.o
+  CC [M]  /opt/LiME/src/disk.o
+  CC [M]  /opt/LiME/src/main.o
+  CC [M]  /opt/LiME/src/hash.o
+  CC [M]  /opt/LiME/src/deflate.o
+  LD [M]  /opt/LiME/src/lime.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /opt/LiME/src/lime.mod.o
+  LD [M]  /opt/LiME/src/lime.ko
+make[1]: Leaving directory &#39;/usr/src/linux-headers-4.15.0-88-generic&#39;
+strip --strip-unneeded lime.ko
+mv lime.ko lime-4.15.0-88-generic.ko</code></pre></div>
+</div>
+<p>Für das Nutzen von LiMe wird also ein Kernel Modul erstellt. Dies Modul
+richtet sich nach dem aktuellen Kernel der Maschine, auf dem es gebaut
+wurde. Das Modul läuft also nicht unter anderen Kernel Versionen.</p>
+<h4 id="kernel-modul-laden-und-memory-abbild-erstellen">Kernel Modul laden und Memory Abbild erstellen:</h4>
+<p>Format ist hier raw:</p>
+<p><code>sudo insmod lime-4.15.0-88-generic.ko 'path=../Linux64.mem format=raw'</code></p>
+<p>Besser ist das Format <code>lime</code> dies kann auch von Volatility interpretiert werden:</p>
+<p><code>sudo insmod lime-4.15.0-88-generic.ko 'path=../Linux64.mem format=lime'</code></p>
+<p>Das <code>path</code> gibt an wo das Memory Abbild hin soll.</p>
+<h3 id="img">Img</h3>
+<p><a href="https://github.com/halpomeranz/lmg">Link zum Github: Img</a></p>
+<p>Ich habe das Tool noch nicht getestet, doch es soll recht gut sein.</p>
+<h3 id="dumpitexe">DumpIt.exe</h3>
+<p>Ein einfaches Command Line Tool unter Windows nennt sich DumpIt, mit ihm
+lässt sich auch der gesammte Arbeitsspeicher eines Systems abbilden.</p>
+<p><a href="https://github.com/thimbleweed/All-In-USB/tree/master/utilities/DumpIt">Link zum Github DumpIt.exe</a></p>
+<h2 id="volatility-zur-analyse">Volatility zur Analyse</h2>
+<p>Volatility kann als Stand-Alone Version und als Git-Version installiert werden.
+Unter Linux ist es zu empfehlen, die Git Version zu nehmen (Macht das Erstellen von Profilen einfacher).</p>
+<p><a href="https://www.volatilityfoundation.org/releases">Stand-Alone Versin auf der Webseite</a></p>
+<p><a href="https://github.com/volatilityfoundation/volatility">Link zum Github Volatility</a></p>
+<h3 id="installation-unter-linux">Installation unter Linux</h3>
+<p>Einfach das Git Repository klonen:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">cd /opt 
+sudo git clone https://github.com/volatilityfoundation/volatility.git&gt;</code></pre></div>
+</div></p>
+<p>Hinweis, es wird distorm3 benötigt, einfach mit pip Installieren: <code>pip2 install distorm3</code></p>
+<h3 id="erstellen-von-profilen">Erstellen von Profilen</h3>
+<p>Um zu verstehen, was all die Daten bedeuten, braucht Volatility einige
+Informationen über das System von dem das Memory Abbild stammt. Diese
+nennen sich dann Profile. Unter Linux müssen diese Profile selbst
+erstellt werden.<a href="https://github.com/volatilityfoundation/volatility/wiki/Linux#Linux-Profiles">Link zum Volatility Wiki</a></p>
+<p>Unter Debian und Ubuntu wird <code>dwarfdump</code> benötigt:<code>sudo apt install dwarfdump</code></p>
+<p>Erstmal den aktuellen Kernel auslesen mit: <code>uname -r</code></p>
+<p>Erstellen der <code>modules</code> Datei. (Wichtig: Command im Ordner <code>/volatility/tools/linux</code> ausführen)
+<code>sudo make -C /lib/modules/&lt;Kernel Vesion&gt;/build/ CONFIG_DEBUG_INFO=y M=$PWD modules</code></p>
+<p>Es kommt ein ähnlicher Output:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">make: Entering directory &#39;/usr/src/linux-headers-4.15.0-88-generic&#39;
+  CC [M]  /home/sebastian/Documents/volatility/tools/linux/module.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+WARNING: modpost: missing MODULE_LICENSE() in /home/sebastian/Documents/volatility/tools/linux/module.o
+see include/linux/module.h for more information
+  CC      /home/sebastian/Documents/volatility/tools/linux/module.mod.o
+  LD [M]  /home/sebastian/Documents/volatility/tools/linux/module.ko
+make: Leaving directory &#39;/usr/src/linux-headers-4.15.0-88-generic&#39;</code></pre></div>
+</div>
+<p>Nochmal gucken, ob die <code>module.o</code> Datei da ist und dann die <code>module.dwarf</code> Datei erstellen.</p>
+<p><code>dwarfdump -di ./module.o &gt; module.dwarf</code></p>
+<p>Zusammenfassen der module.dwarf und er <code>/boot/System.map....</code> zu einer .zip Datei</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">sudo zip Test-Rechner.zip module.dwarf /boot/System.map-&lt;Kernel Version&gt;
+adding: module.dwarf (deflated 91%)
+adding: boot/System.map-4.15.0-88-generic (deflated 79%)</code></pre></div>
+</div>
+<p>Die erstellte .zip Datei dann in das Verzeichnis: <code>/volatility/plugins/overlays/linux</code></p>
+<p>Gucken, ob das Profil von volatility erkannt wurde:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">python vol.py --info | grep  Linux                                                                                                                                
+Volatility Foundation Volatility Framework 2.6.1
+LinuxMint-Sebastian-x250x64 - A Profile for Linux Mint-Sebastian-x250 x64
+LinuxAMD64PagedMemory          - Linux-specific AMD 64-bit address space.
+linux_aslr_shift           - Automatically detect the Linux ASLR shift
+linux_banner               - Prints the Linux banner information
+linux_yarascan             - A shell in the Linux memory image</code></pre></div>
+</div>
+<h3 id="mögliche-befehle-unter-volatility">Mögliche Befehle unter volatility</h3>
+<p>Mit dem <code>python vol.py --info</code> lassen sich alle Befehle anzeigen, die
+volatility kennt.</p>
+<h4 id="hier-ein-kleiner-auszug">Hier ein kleiner Auszug</h4>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">    Plugins
+    -------
+    amcache                    - Print AmCache information
+    apihooks                   - Detect API hooks in process and kernel memory
+    apihooksdeep               - Detect API hooks in process and kernel memory, with ssdeep for whitelisting
+    atoms                      - Print session and window station atom tables
+    atomscan                   - Pool scanner for atom tables
+    auditpol                   - Prints out the Audit Policies from HKLM\SECURITY\Policy\PolAdtEv
+    bigpools                   - Dump the big page pools using BigPagePoolScanner
+    bioskbd                    - Reads the keyboard buffer from Real Mode memory
+    cachedump                  - Dumps cached domain hashes from memory
+    callbacks                  - Print system-wide notification routines
+    chromecookies              - Scans for and parses potential Chrome cookie data
+    chromedownloadchains       - Scans for and parses potential Chrome download chain records
+    chromedownloads            - Scans for and parses potential Chrome download records
+    chromehistory              - Scans for and parses potential Chrome url history
+    chromesearchterms          - Scans for and parses potential Chrome keyword search terms
+    chromevisits               - Scans for and parses potential Chrome url visits data -- VERY SLOW, see -Q option
+    clipboard                  - Extract the contents of the windows clipboard
+    cmdline                    - Display process command-line arguments
+    cmdscan                    - Extract command history by scanning for _COMMAND_HISTORY
+    connections                - Print list of open connections [Windows XP and 2003 Only]
+    connscan                   - Pool scanner for tcp connections
+    consoles                   - Extract command history by scanning for _CONSOLE_INFORMATION
+    crashinfo                  - Dump crash-dump information</code></pre></div>
+</div>
+<h4 id="befehle-für-linux-und-mac">Befehle für Linux und Mac</h4>
+<p>Bei volatility gibt es Befehle, die sind speziell auf Linux oder Mac
+Memory Abbilder spezialisiert.
+Diese lassen sich mit: <code>python vol.py --info | grep -i linux</code> anzeigen.</p>
+<h4 id="auch-hier-ein-kleiner-auszug">Auch hier ein kleiner Auszug</h4>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">    linux_apihooks             - Checks for userland apihooks
+    linux_arp                  - Print the ARP table
+    linux_aslr_shift           - Automatically detect the Linux ASLR shift
+    linux_banner               - Prints the Linux banner information
+    linux_bash                 - Recover bash history from bash process memory
+    linux_bash_env             - Recover a process&#39; dynamic environment variables
+    linux_bash_hash            - Recover bash hash table from bash process memory
+    linux_check_afinfo         - Verifies the operation function pointers of network protocols
+    linux_check_creds          - Checks if any processes are sharing credential structures
+    linux_check_evt_arm        - Checks the Exception Vector Table to look for syscall table hooking
+    linux_check_fop            - Check file operation structures for rootkit modifications
+    linux_check_idt            - Checks if the IDT has been altered
+    linux_check_inline_kernel  - Check for inline kernel hooks
+    linux_check_modules        - Compares module list to sysfs info, if available
+    linux_check_syscall        - Checks if the system call table has been altered
+    linux_check_syscall_arm    - Checks if the system call table has been altered
+    linux_check_tty            - Checks tty devices for hooks
+    linux_cpuinfo              - Prints info about each active processor
+    linux_dentry_cache         - Gather files from the dentry cache
+    linux_dmesg                - Gather dmesg buffer
+    linux_dump_map             - Writes selected memory mappings to disk
+    linux_dynamic_env          - Recover a process&#39; dynamic environment variables
+    linux_elfs                 - Find ELF binaries in process mappings
+    linux_enumerate_files      - Lists files referenced by the filesystem cache
+    linux_find_file            - Lists and recovers files from memory
+    linux_getcwd               - Lists current working directory of each process
+    linux_hidden_modules       - Carves memory to find hidden kernel modules
+    linux_ifconfig             - Gathers active interfaces</code></pre></div>
+</div>
+<h3 id="struktur-des-volatility-aufrufes">Struktur des volatility Aufrufes</h3>
+<p><code>python vol.py --file=/opt/LiME/Linux64.mem --profile=Test-Rechnerx64 linux_psaux</code></p>
+<p>Mit <code>--file</code> wird das Memory Abbild angegeben.
+Mit <code>--profile</code> wird das Profil des Rechners angegeben für Linux und Mac müssen diese erstellt werden.
+Für Windows bringt volatility viele Profile mit.
+Das letzte ist der Befehl, der ausgeführt werden soll. Wichtig ist, dass die Reihenfolge der Parameter eine Rolle spielt.</p>
+<p>Grundsätzlich kann man sagen das nutzen des Tools ist nicht schwer, nur die Auswertung, der zu bekommenden Ergebnisse ist schwer.</p>
+<h3 id="profil-erkennen">Profil erkennen</h3>
+<p>Mit diesem Command versucht volatility zu erkennen, um was für ein Profil es sich handelt.
+<code>sudo python vol.py --file=/opt/volatility/test_memory/windows/sample001.bin imageinfo </code></p>
+<p>Der Output von diesem sieht dann in etwa so aus:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">    Volatility Foundation Volatility Framework 2.6.1
+    INFO    : volatility.debug    : Determining profile based on KDBG search...
+              Suggested Profile(s) : WinXPSP2x86, WinXPSP3x86 (Instantiated with WinXPSP2x86)
+                         AS Layer1 : IA32PagedMemory (Kernel AS)
+                         AS Layer2 : FileAddressSpace (/opt/volatility/test_memory/windows/sample001.bin)
+                          PAE type : No PAE
+                               DTB : 0x39000L
+                              KDBG : 0x8054cde0L
+              Number of Processors : 1
+         Image Type (Service Pack) : 3
+                    KPCR for CPU 0 : 0xffdff000L
+                 KUSER_SHARED_DATA : 0xffdf0000L
+               Image date and time : 2012-11-27 01:57:28 UTC&#43;0000
+         Image local date and time : 2012-11-26 19:57:28 -0600</code></pre></div>
+</div></p>
+<p>Damit können wir annehmen, dass es sich hier um ein WinXPSP2x86 handelt.
+Sprich ein Windows XP Service pack 2 auf einer x86 Prozessorarchitektur.</p>
+<h3 id="plugins">Plugins</h3>
+<p>Bei volatility handelt es sich um ein Framework, dass heißt das Tool lässt sich einfach erweitern. Es müssen nur .py Dateien in
+<code>/volatility/plugins</code> kopiert werden.</p>
+<p>Beispiel von volatility-plugins</p>
+<p><a href="https://github.com/superponible/volatility-plugins">Link zu Github volatility-plugins</a></p>
+<p>Hier handelt es sich um eine kleine Sammlung von Plugins. Diese
+funktionieren leider nur unter Windows Profilen und unterstützen keine
+Linux Profile.</p>
+<p>Es gibt noch viele weitere Plugins, es ist jedoch ein wenig schwer, diese zu finden. Eine gute Anlaufstelle ist des weiteren der
+Volatility Contest, bei dem werden plugins der letzten Zeit ausgezeichnet wurden.</p>
+<p><a href="https://www.volatilityfoundation.org/contest">Website zum Volatility Contest</a></p>
+<h3 id="rootkits-unter-linux-erkennen">Rootkits unter Linux erkennen</h3>
+<p>Ein Überblick zu verschaffen, ob der Rechner mit einem Rootkit infiziert
+ist, kann Volatility manchmal ganz hilfreich sein. Auch hierfür bietet Volatility
+einige Möglichkeiten, dies zu erkennen. Der Command <code>linux_check_idt</code>.
+Es zeigt die Interrupt-Descriptor-Tabelle, wenn hier ein Eintrag umgeleitet (Hooked) ist, spricht einiges für ein manipuliertes System.</p>
+<h4 id="test-auf-ubuntu-1404-mit-rootkit">Test auf Ubuntu 14.04 mit Rootkit</h4>
+<p>Test System ist ein Ubuntu 14.04 in der Server Version mit einem 4.4.0-142-generic Linux Kernel.</p>
+<p>Auf diesem wurde dieses Rootkit installiert: <a href="https://github.com/nurupo/rootkit">Test Rootkit von Github</a></p>
+<p>Danach wurde ein Memory Abbild mit LiMe erstellt sowie das entsprechende Profil.</p>
+<p>Mit <code>linux_hidden_modules</code> können wir jetzt nach versteckten Kernel Modulen suchen:</p>
+<p><code>vol -f test_memory/linux_rootkit.mem --profile=Linuxubuntu14x64 linux_hidden_modules</code></p>
+<p>In diesem Fall fällt das rootkit natürlich sehr schnell auf:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">    Volatility Foundation Volatility Framework 2.6.1
+    Offset (V)         Name
+    ------------------ ----
+    0xffffffffc00ad040 rootkit</code></pre></div>
+</div></p>
+<h3 id="maleware-unter-windows-erkennen">Maleware unter Windows erkennen</h3>
+<p>Das Erkennen von Windows Maleware ist nochmal ein wenig aufwendiger, da
+man sich sehr gut, mit der Internen Struktur von Windows auskennen muss.</p>
+<h4 id="beispiel-eines-stuxnet-befalls-an-einem-windows-xp-rechner">Beispiel eines Stuxnet Befalls an einem Windows XP Rechner</h4>
+<p>Stuxnet ist ein Computerwurm, der mutmaßlich von der NSA in Zusammenarbeit mit Israel geschaffen wurde, um das Iranisches Atomprogramm zu schwächen.
+Dieser benutze mehrere Schwachstellen in Windows und er ist auf das Befallen von Steuerungssysteme von Industrieanlagen der Firmen Siemens und Simatic S7 ausgelegt.
+Eine tiefgehende Analyse würde hier jedoch zu weit führen, hier nur kurz gezeigt, wie dieser erkannt werden kann.</p>
+<p>Um raus zu kriegen, um welches OS, es sich handelt, benutzen wir
+<code>imageinfo</code>: <code>vol -f test_memory/stuxnet.vmem imageinfo </code></p>
+<p>Wir wissen jetzt, dass es sich um Windows XP Service Pack 2 auf einem x86 Prozessor handelt, dies wird in der späteren Analyse noch wichtig sein.</p>
+<p>Mit dem Befehl <code>pstree</code> lassen wir uns alle laufenden Prozesse anzeigen.
+In diesem Fall sieht der auszuführende Command so aus:
+<code>vol -f test_memory/stuxnet.vmem --profile=WinXPSP2x86 pstree</code></p>
+<p>Der Output sieht dann so aus:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">    Volatility Foundation Volatility Framework 2.6.1
+    Name                                                  Pid   PPid   Thds   Hnds Time
+    -------------------------------------------------- ------ ------ ------ ------ ----
+     0x823c8830:System                                      4      0     59    403 1970-01-01 00:00:00 UTC&#43;0000
+    . 0x820df020:smss.exe                                 376      4      3     19 2010-10-29 17:08:53 UTC&#43;0000
+    .. 0x821a2da0:csrss.exe                               600    376     11    395 2010-10-29 17:08:54 UTC&#43;0000
+    .. 0x81da5650:winlogon.exe                            624    376     19    570 2010-10-29 17:08:54 UTC&#43;0000
+    ... 0x82073020:services.exe                           668    624     21    431 2010-10-29 17:08:54 UTC&#43;0000
+    .... 0x81fe52d0:vmtoolsd.exe                         1664    668      5    284 2010-10-29 17:09:05 UTC&#43;0000
+    ..... 0x81c0cda0:cmd.exe                              968   1664      0 ------ 2011-06-03 04:31:35 UTC&#43;0000
+    ...... 0x81f14938:ipconfig.exe                        304    968      0 ------ 2011-06-03 04:31:35 UTC&#43;0000
+    .... 0x822843e8:svchost.exe                          1032    668     61   1169 2010-10-29 17:08:55 UTC&#43;0000
+    ..... 0x822b9a10:wuauclt.exe                          976   1032      3    133 2010-10-29 17:12:03 UTC&#43;0000
+    ..... 0x820ecc10:wscntfy.exe                         2040   1032      1     28 2010-10-29 17:11:49 UTC&#43;0000
+    .... 0x81e61da0:svchost.exe                           940    668     13    312 2010-10-29 17:08:55 UTC&#43;0000
+    .... 0x81db8da0:svchost.exe                           856    668     17    193 2010-10-29 17:08:55 UTC&#43;0000
+    ..... 0x81fa5390:wmiprvse.exe                        1872    856      5    134 2011-06-03 04:25:58 UTC&#43;0000
+    .... 0x821a0568:VMUpgradeHelper                      1816    668      3     96 2010-10-29 17:09:08 UTC&#43;0000
+    .... 0x81fee8b0:spoolsv.exe                          1412    668     10    118 2010-10-29 17:08:56 UTC&#43;0000
+    .... 0x81ff7020:svchost.exe                          1200    668     14    197 2010-10-29 17:08:55 UTC&#43;0000
+    .... 0x81c47c00:lsass.exe                            1928    668      4     65 2011-06-03 04:26:55 UTC&#43;0000
+    .... 0x81e18b28:svchost.exe                          1080    668      5     80 2010-10-29 17:08:55 UTC&#43;0000
+    .... 0x8205ada0:alg.exe                               188    668      6    107 2010-10-29 17:09:09 UTC&#43;0000
+    .... 0x823315d8:vmacthlp.exe                          844    668      1     25 2010-10-29 17:08:55 UTC&#43;0000
+    .... 0x81e0eda0:jqs.exe                              1580    668      5    148 2010-10-29 17:09:05 UTC&#43;0000
+    .... 0x81c498c8:lsass.exe                             868    668      2     23 2011-06-03 04:26:55 UTC&#43;0000
+    .... 0x82279998:imapi.exe                             756    668      4    116 2010-10-29 17:11:54 UTC&#43;0000
+    ... 0x81e70020:lsass.exe                              680    624     19    342 2010-10-29 17:08:54 UTC&#43;0000
+     0x820ec7e8:explorer.exe                             1196   1728     16    582 2010-10-29 17:11:49 UTC&#43;0000
+    . 0x81c543a0:Procmon.exe                              660   1196     13    189 2011-06-03 04:25:56 UTC&#43;0000
+    . 0x81e86978:TSVNCache.exe                            324   1196      7     54 2010-10-29 17:11:49 UTC&#43;0000
+    . 0x81e6b660:VMwareUser.exe                          1356   1196      9    251 2010-10-29 17:11:50 UTC&#43;0000
+    . 0x8210d478:jusched.exe                             1712   1196      1     26 2010-10-29 17:11:50 UTC&#43;0000
+    . 0x81fc5da0:VMwareTray.exe                          1912   1196      1     50 2010-10-29 17:11:50 UTC&#43;0000</code></pre></div>
+</div></p>
+<p>Es fällt auf, dass die <code>lsass.exe</code> dreimal vorhanden ist, mit den Pids 680, 868 und 1928. Das <code>lsass</code> steht für Local Security Authority
+Subsystem Service diese Prozess ist für Authentifizierung von Nutzern in Windows zuständig. Er sorgt dafür, die Gültigkeit des Benutzeraccounts
+an dem Windows zu prüfen. Er darf nur einmal ausgeführt werden. Daran merken wir, dass hier was nicht stimmt. Nicht selten versuchen Schadcode
+Hersteller, sich hinter interne Prozesse zu verstecken. Das macht das
+Erkennen selbst für erfahrene Nutzer schwer und kann gleichzeitig für
+Verunsicherungen bei unerfahrenen Nutzern sorgen.</p>
+<p>Wichtig ist es jetzt, zu wissen, dass <code>lass</code> ein parent process (dt.
+Elternprozess) mit dem Namen <code>winlogon</code> hat, dies gilt für Windows XP.
+Ab Windows Vista und folgende heißt dieser Prozess <code>wininit</code>.</p>
+<p>Zur Übersicht sind die betroffenen Prozesse nochmal dargestellt:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">    System(4)
+     ↳smss(376)
+      ↳winlogon(624)
+       ↳lass(680)
+       ↳services(668)
+         ↳lsass(868)
+         ↳lsass(1928)</code></pre></div>
+</div></p>
+<p>Der <code>lass</code> Prozess mit der Pid 680 ist, wie erwartet ein Kindprozess von <code>winlogon</code>, dies sieht so aus, als wäre es ein normaler Prozess vom
+Windows aus. Die anderen beide Prozesse mit den Pids 868 und 1928 sind keine Kindprozesse von <code>winlogon</code> sondern von <code>services</code>, hier ist also was faul.</p>
+<p>Cooles Feature von Volatility ist das Executables von Prozessen
+exportiert werden kann, dies geht mit <code>procdump</code>.</p>
+<p><code>vol -f test_memory/stuxnet.vmem --profile=WinXPSP2x86 procdump -p 668,1928 --dump-dir=test_memory/program/</code></p>
+<p>Diese Dateien können dann auch noch mal auf VirusTotal hochgeladen werden.
+VirusTotal ist ein Dienst bei dem Files hoch geladen werden können und diese dann durch mehrer Anti-Viren scanns durchläuft.</p>
+
+        </section>
+      </div>
+    </div>
+  </div>  
+  </section>
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <img src="/footer.svg" alt="">
+        
+      </div>
+      
+    <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Webseite</h3>
+          </div>
+          <ul class="link-list"><li>
+              <a href="/"><span class="icon"><i class="fa fa-home"></i></span> Startseite</a>
+            </li><li><a href="/credits/">
+                  <span class="icon"><i class="fa fa-cube"></i></span>
+                  Danksagung
+                </a></li>
+            <li><a href="/tags/">
+                <span class="icon"><i class="fa fa-tag"></i></span> 
+                Alle Stichworte
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    
+      
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Kontakte</h3>
+          </div>
+          <ul class="link-list">
+            
+            <li>
+              <a href="https://www.linkedin.com/in/sebastian-feustel-842a1a1ab" target="_blank">
+                <span class="icon"><i class="fab fa-linkedin"></i></span>
+                
+                  My LinkedIn
+                
+              </a>
+            </li>
+            
+            
+            <li>
+              <a href="https://github.com/53845714nF" target="_blank">
+                <span class="icon"><i class="fab fa-github-square"></i></span>
+                
+                  Github
+                
+              </a>
+            </li>
+                         
+            
+            <li>
+              <a href="mailto:hackwiki2.0@gmail.com" target="_blank">
+                <span class="icon"><i class="fa fa-envelope"></i></span>
+                
+                  Hack Wiki
+                
+              </a>
+            </li>
+            
+                   
+            
+            <li>
+              <a href="https://twitter.com/53845714nF" target="_blank">
+                <span class="icon"><i class="fab fa-twitter"></i></span>
+                
+                  Twitter
+                
+              </a>
+            </li>
+                   
+            
+                   
+          </ul>
+        </div>
+      </div>
+      
+
+      
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Copyright</h3>
+          </div>
+          <ul class="link-list">
+            <li>
+              <a>
+                <span class="icon"><i class="fa fa-copyright"></i></span>
+                Sebastian Feustel - 2022
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+</footer>
+    <div id="backtotop"><a href="#"></a></div><div class="sidebar scroll">
+  <div class="sidebar-header"><img src="/sidebar.svg" alt="">
+    
+    <a class="sidebar-close" href="javascript:void(0);">
+      <i data-feather="x"></i>
+    </a>
+  </div>
+  <div class="inner">
+    <ul class="sidebar-menu">
+      <li class="no-children"><a href="/tags/"><div class="columns">
+              <table width="100%">  
+                <tr>
+                  <td class="">
+                    <span class="icon"><i class="fa fa-cubes"></i></span>
+                    Alle Stichworte
+                  </td>
+                  <td class="has-text-right" >
+                      
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </a>
+      <li class="no-children">
+          <a href="/tags/programmieren">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Programmieren</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">6</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/hacking">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Hacking</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">5</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/c">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>C</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/home-lab">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Home Lab</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/home-server">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Home Server</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/ctf">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>CTF</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/forensik">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Forensik</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/mikrocontroller">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Mikrocontroller</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/python">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Python</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/sicherheit">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Sicherheit</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/assembler">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Assembler</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/cloud">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Cloud</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/elektronik">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Elektronik</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/git">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Git</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/hardware">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Hardware</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/java">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Java</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/mathematik">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Mathematik</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/proxmox">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Proxmox</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/smart-home">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Smart Home</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li></ul>
+  </div>
+</div>
+<script src="/js/jquery-2.2.4.min.cc1cade18c999752b7befe111634889dca8d89b24923775954ecebc68c54fcd3.js" integrity="sha256-zByt4YyZl1K3vv4RFjSIncqNibJJI3dZVOzrxoxU/NM="></script>
+  <script src="/js/feather.4.22.0.min.b727453f71f98f148f18fee3e3e0dbcbdbcb85e2e4c348062cedea5a3aac8e50.js" integrity="sha256-tydFP3H5jxSPGP7j4&#43;Dby9vLheLkw0gGLO3qWjqsjlA="></script>
+  <script src="/js/modernizr-3.6.0.min.41ca4decbf2fa4d2cc4912eec36ec791fd722cb2ed8cc7fa276cf47fd1c1c1c3.js" integrity="sha256-QcpN7L8vpNLMSRLuw27Hkf1yLLLtjMf6J2z0f9HBwcM="></script>
+  <script src="/js/refresh.min.aa9223d82746d0d3993b5365b0ae8059aef4f02a76cf889f905a2548af58c3db.js" integrity="sha256-qpIj2CdG0NOZO1NlsK6AWa708Cp2z4ifkFolSK9Yw9s="></script><script>
+  window.MathJax = {
+    loader: {
+      load: ['core', 'input/tex-base', 'output/chtml'],  
+      source: {
+        'core': '\/js\/mathjax\/core.min.747cbc6e68df3414f95b14e501dc133dac6dbcc1c8ee7b9bcff2512b615ca9b1.js',
+        'input/tex-base': '\/js\/mathjax\/tex-base.min.d6185aeb684c18e75962dabf0c024ca736e8f476318ae09db79e5fa68d1c7fd0.js',
+        'output/chtml': '\/js\/mathjax\/chtml.min.fea4e4dba3cd8b20f19bac743ec3a612b130c6b427fbc4c5841bb8b9af7e00e4.js',
+        'output/chtml/fonts/tex': '\/js\/mathjax\/tex_out.min.292d92b1100452a91a085e7d2516ba9eadc49fbf8ebde7eca2ca8fbd9a45822a.js'
+      },
+    },
+    chtml: {
+      fontURL: '/fonts' 
+    },
+  };
+</script><script src="/js/mathjax/startup.min.dc0565e353d0d52b80adb89e89e2ceb4b432dbde885d68aac26945798dfc5b5c.js" integrity="sha256-3AVl41PQ1SuArbieieLOtLQy296IXWiqwmlFeY38W1w="></script>
+  <script src="/js/highlight.9.18.1.min.de48c3b870005de703f42af3351a9303fbdae73e95fd84edd0384a422bb9ad8e.js" integrity="sha256-3kjDuHAAXecD9CrzNRqTA/va5z6V/YTt0DhKQiu5rY4="></script>
+  <script src="/js/highlightjs-line-numbers.2.7.0.min.min.8574389d72591abad80c2df1ff35f6f82330a6aa7a036e8f5363f79a66bb1797.js" integrity="sha256-hXQ4nXJZGrrYDC3x/zX2&#43;CMwpqp6A26PU2P3mma7F5c="></script><script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('.codeinline').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+</body>
+</html>
