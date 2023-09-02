@@ -1,0 +1,70 @@
+<div class="sidebar scroll">
+  <div class="sidebar-header">
+    {{- $out_fo  := "sidebar.svg" -}}
+    {{- $img_n   := .Site.Params.sidebar.logo -}}
+    {{- $type    := lower (substr $img_n (sub (len $img_n) 3) (len $img_n)) -}}
+    {{- $img     := resources.Get $img_n -}}
+    {{- if eq $type "svg" -}}
+      {{- $img    = $img | resources.ExecuteAsTemplate $out_fo . }}
+    {{- end -}}
+    <img src="{{- $img.Permalink | relURL -}}" alt="">
+    {{/*  <img src="{{- printf "/images/%s" $logo | absURL -}}">  */}}
+    <a class="sidebar-close" href="javascript:void(0);">
+      <i data-feather="x"></i>
+    </a>
+  </div>
+  <div class="inner">
+    <ul class="sidebar-menu">
+      <li class="no-children">
+          {{- with .Site.GetPage "tags" -}}
+          <a href="{{- .RelPermalink -}}">
+          {{- end -}}
+            <div class="columns">
+              <table width="100%"> <!-- class="is-fullwidth" --> 
+                <tr>
+                  <td class="">
+                    <span class="icon"><i class="fa fa-cubes"></i></span>
+                    {{ i18n "allTags" }}
+                  </td>
+                  <td class="has-text-right" >
+                      {{/*  <div class="tag-number">{{- .Site.Taxonomies.tags.Alphabetical.Count -}}</div>  */}}
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </a>
+      {{- range .Site.Taxonomies.tags.ByCount -}}
+      {{/*  {{- range .Site.Taxonomies.tags.Alphabetical -}}  */}}
+      <li class="no-children">
+          <a href="{{- printf "tags/%s" .Name | relLangURL -}}">
+            <div class="columns">
+              {{/*  <div class="is-fullwidth">
+                <div>{{- .Name | humanize -}}</div>
+                <div class="has-text-right" >{{- .Count -}}</div>
+              </div>  */}}
+              <table width="100%"> <!-- class="is-fullwidth" --> 
+                  <tr>
+                    <td class="">
+                    {{- if eq (.Name) "xxxxx" -}}
+                      <span class="icon"><i class="fa fa-tag"></i></span>
+                    {{- else -}}
+                      <span class="icon"><i class="fa fa-cube"></i></span>
+                    {{- end -}}
+                      {{- .Page.Title -}}
+                    </td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">{{- .Count -}}</div>
+                      <!-- <span class="badge badge-notification clicks" title="32 clicks">{{- .Count -}}</span> -->
+                    </td>
+                    <!-- <span class="badge badge-notification clicks" title="32 clicks">32</span> -->
+                  </tr>
+              </table>
+              {{/*  <div class="column">{{- .Name | humanize -}}</div>
+              <div class="column has-text-right">{{- .Count -}}</div>  */}}
+            </div>
+          </a>
+      </li>
+      {{- end -}}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    {{- $out  := "favicon_main.svg" -}}
+    {{- $icon := .Site.Params.favicon -}}
+    {{- $type    := lower (substr $icon (sub (len $icon) 3) (len $icon)) -}}
+    {{- $img  := resources.Get $icon -}}
+    {{- if eq $type "svg" -}}
+      {{- $img    = $img | resources.ExecuteAsTemplate $out . }}
+    {{- end -}}
+    <link rel="icon" href="{{- $img.Permalink | relURL -}}">
+    {{- partial "meta.html" . -}}
+
+    <title>{{- block "title" . -}}
+    {{- if .IsHome -}}
+    {{- .Site.Title -}}
+    {{- else -}}
+    {{- .Site.Title -}}{{- " - " -}}{{- .Page.Title -}}
+    {{- end -}}
+    {{- end -}}</title>
+
+    {{ partial "css.html" . }}
+    {{ partial "custom_head.html" . }}
+  </head>
+  <body>
+    <!-- Counter -->
+    {{- partial "counter.html" -}}
+    <!-- Preloader -->
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+
+    {{- block "main" . -}} {{- end -}}
+
+    {{- partial "javascript.html" . -}}
+  </body>
+</html>

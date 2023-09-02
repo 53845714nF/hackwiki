@@ -1,0 +1,169 @@
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+      <div class="navbar-brand">
+  
+        <!-- <div class="navbar-start"> -->
+        <!-- <div class="columns"> -->
+        
+        <a class="navbar-item">
+          <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+          <div class="navbar-item left-menu-icon-wrapper">
+            {{ i18n "tags" }}
+          </div>
+        </a>
+  
+        <div class="navbar-item is-expanded"></div>
+        <a class="navbar-item is-hidden-desktop">  
+          <div data-target="cloned-navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
+            {{ i18n "mainMenu" }}
+          </div>
+          <div data-target="cloned-navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+        </a>
+      </div>
+  
+      
+      {{- $showIcons := false -}}
+      {{- if .Site.Params.navbar.showIcons -}}
+        {{- $showIcons = .Site.Params.navbar.showIcons -}}
+      {{- end -}}
+      {{- $mainColour := .Site.Params.mainColour -}}
+      <div id="cloned-navbar-menu" class="navbar-menu is-static">
+        <div class="navbar-end">
+          {{- $home    := .Site.Params.homepage.linkPosition -}}
+          {{- if or (eq $home "menu") (eq $home "menu+footer") -}}
+            <a href="{{ "/" | relLangURL }}" class="navbar-item is-secondary">
+            {{- if $showIcons -}}
+              <i class="fa fa-home" style="color:{{- print $mainColour -}};">&nbsp;</i>
+            {{- end -}}
+              {{- if .Site.Params.homepage.linkText -}}
+                {{- print .Site.Params.homepage.linkText -}}
+              {{- else -}}
+                {{ i18n "homepage" }}
+              {{- end -}}
+            </a>
+          {{- end -}}
+          {{ range .Site.RegularPages }}
+          {{- if eq .Params.showInMenu true -}}
+          <a href="{{- .Permalink | relURL -}}" class="navbar-item is-secondary">
+            {{- if $showIcons -}}
+              <i class="fa fa-bookmark" style="color:{{- print $mainColour -}};">&nbsp;</i>
+            {{- end -}}
+            {{- .Title -}}
+          </a>
+          {{- end -}}
+        {{- end -}}
+          {{- range .Site.Sections -}}
+            {{- $shmenu := true -}}
+            {{- if (isset .Params "showinmenu") -}}
+              {{- $shmenu = .Params.showinmenu -}}
+            {{- end -}}
+            {{- if $shmenu -}}
+              {{- $secCount := len .Sections -}}
+              {{- if (ne $secCount 0) -}}
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a href="{{- .Permalink | relURL -}}" class="navbar-link">
+                {{- if $showIcons -}}
+                  <i class="fa fa-book" style="color:{{- print $mainColour -}};">&nbsp;</i>
+                {{- end -}}
+                  {{- .Title -}}
+                </a>
+                <div class="navbar-dropdown">
+                  <!-- <a href="{{- .Permalink -}}" class="navbar-item">
+                    > All
+                  </a> -->
+                  {{- range .Sections -}}
+                  <a href="{{- .Permalink | relURL -}}" class="navbar-item">
+                    {{- .Title -}}
+                  </a>
+                  {{- end -}}
+                </div>
+              </div>
+              {{- else -}}
+              <a href="{{- .Permalink | relURL -}}" class="navbar-item is-secondary">
+                {{- if $showIcons -}}
+                  <i class="fa fa-book" style="color:{{- print $mainColour -}};">&nbsp;</i>
+                {{- end -}}
+                {{- .Title -}}
+              </a>
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        
+          {{ $allTranslations := slice }}
+          {{ range $.Site.Home.AllTranslations }}
+            {{ if not (in .Site.Params.hideLanguages .Language.Lang) }}
+              {{ $allTranslations = $allTranslations | append . }}
+            {{ end }}
+          {{ end }}
+          {{ $translations := slice }}
+          {{ range .Translations }}
+            {{ if not (in .Site.Params.hideLanguages .Language.Lang) }}
+              {{ $translations = $translations | append . }}
+            {{ end }}
+          {{ end }}
+
+          {{ $currentLang := .Site.Language.Lang }}
+          {{ $languageNumber := len $allTranslations }}
+          {{ if gt $languageNumber 1 }}
+          <div class="navbar-item">
+            <div class="dropdown is-hoverable is-centered" >
+              <div class="dropdown-trigger" >
+                <button class="button is-active" 
+                style="color:#999;  
+                      border-color: {{- print $mainColour -}}; 
+                      box-shadow: none ;
+                      padding-right: 0.625em ; 
+                      padding-left: 0.625em  ;
+                      ">
+  
+                  <span>{{ upper $currentLang }}</span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu" style="min-width: 0em;">
+                <div class="dropdown-content" style="padding: 0rem;">
+                  {{ $allLanguage := slice }}
+                  {{ $translatedLanguage := slice }}
+                  {{ range $allTranslations }}
+                    {{ $allLanguage = $allLanguage | append .Language.Lang }}
+                  {{ end }}
+                  {{ range $translations }}
+                    {{ $translatedLanguage = $translatedLanguage | append .Language.Lang }}
+                    <a href="{{ .Permalink }}" class="dropdown-item" 
+                        style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                      {{ upper .Language.Lang }}
+                    </a>
+                  {{ end }}
+                  {{ range $allTranslations }}
+                    {{ if ne $currentLang .Language.Lang }}
+                      {{ if not (in $translatedLanguage .Language.Lang) }}
+                      <a href="{{ .Permalink }}" class="dropdown-item" 
+                          style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                          {{ upper .Language.Lang }}
+                      </a>
+                      {{ end }}
+                    {{ end }}
+                  {{ end }}  
+                </div>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        
+        </div>
+      </div>
+    </div>
+  </nav>
