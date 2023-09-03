@@ -22,7 +22,7 @@ jobs:
 
     - name: Build Hugo Site
       run: |
-        hugo --minify
+        hugo -D
         find public -name "*.html" | xargs  sed -i '4i<meta name="theme-color" content="#6495ed" />'
         
 
