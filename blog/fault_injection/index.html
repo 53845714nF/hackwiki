@@ -4,7 +4,7 @@
 <meta name="theme-color" content="#6495ed" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" /><meta property="og:url"  content="https://hackwiki.de/blog/fault_injection/" />
-    <meta property="og:type" content="article" /><meta property="og:title" content="Einfache Fault Injection ⚡" /><meta property="og:description" content="Lösung des RHME2 Hardware CTF mit Hilfe einer einfachen Fault Injection." /><meta property="og:image:width"  content="600" />
+    <meta property="og:type" content="article" /><meta property="og:title" content="Einfache Fault Injection ⚡" /><meta property="og:description" content="Lösung der RHME2 Hardware CTF Challange &#39;Fiesta&#39; mit Hilfe einer einfachen Fault Injection." /><meta property="og:image:width"  content="600" />
         <meta property="og:image:height" content="401" /><meta property="og:image" content="https://hackwiki.de/blog/fault_injection/img/fault_injection_huc535c26531cc525c3dc6172d59b1f204_17264_600x0_resize_q75_box.jpg" /><title>Hackwiki - Einfache Fault Injection ⚡</title>
 
     
@@ -74,6 +74,10 @@
         
         
         
+          
+            
+          
+        
         
         
         
@@ -102,15 +106,16 @@
                   
                 
                 
+                  
+                  <a href="https://hackwiki.de/en/blog/fault_injection/" class="dropdown-item" 
+                      style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                    EN
+                  </a>
+                
                 
                   
                 
                   
-                    
-                    <a href="https://hackwiki.de/en/" class="dropdown-item" 
-                        style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
-                        EN
-                    </a>
                     
                   
                 
@@ -171,6 +176,10 @@
           
           
           
+            
+              
+            
+          
 
           
           
@@ -199,15 +208,16 @@
                     
                   
                   
+                    
+                    <a href="https://hackwiki.de/en/blog/fault_injection/" class="dropdown-item" 
+                        style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                      EN
+                    </a>
+                  
                   
                     
                   
                     
-                      
-                      <a href="https://hackwiki.de/en/" class="dropdown-item" 
-                          style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
-                          EN
-                      </a>
                       
                     
                     
@@ -230,8 +240,8 @@
         <div class="divider"></div>
         
         <section class="section content has-text-justified">
-          <p>Vor einiger Zeit habe ich schon mal die Aufgabe Photo Manager vom rhme2 (2016) CTF gelöst. <a href="https://gist.github.com/53845714nF/7ad4c6eb0c38aae9a725e54859f1b8f2">Link Github Gist</a></p>
-<p>Nun wollte ich mich mal an was mit mehr Hardware Bezug wagen.</p>
+          <p>Vor einiger Zeit habe ich schon einmal die Aufgabe &ldquo;Photo Manager&rdquo; vom RHME2 (2016) CTF gelöst. <a href="https://gist.github.com/53845714nF/7ad4c6eb0c38aae9a725e54859f1b8f2">Link Github Gist</a></p>
+<p>Nun wollte ich mich mal an etwas mit mehr Hardwarebezug wagen.</p>
 <h2 id="meine-inspiration-">Meine Inspiration 🤔</h2>
 <p><iframe src="https://www.youtube.com/embed/6Pf3pY3GxBM?start="
         style="width: 560; height: 315;"
@@ -242,30 +252,29 @@
         allowfullscreen frameborder="0"
         title="YouTube Video">
 </iframe></p>
-<p>Das erste Video stammt von LiveOverflow, er zeigt, wie man mit Hilfe- eines FPGA Bordes eine Fault Injection auf das Challenge Fiesta vom rhme2 CTF durchführt.
-Das zweite stammt von Stacksmashing, hier zeigt er, wie er mit Hilfe von einem Raspberry Pico eine Fault Injection auf ein Apple AirTag durchführt, um damit, an die Firmware des Tag zu gelangen.</p>
-<p>In mir kam die Idee auf, man könnte ja beides verbinden, also Raspberry Pico gegen den Ardunio Nano. ⚔️</p>
+<p>Das erste Video stammt von LiveOverflow. Er zeigt, wie man mit Hilfe eines FPGA Boards eine Fault Injection auf das Challenge &ldquo;Fiesta&rdquo; vom RHME2 CTF durchführt. Das zweite stammt von Stacksmashing. Hier zeigt er, wie er mit Hilfe eines Raspberry Pico eine Fault Injection auf ein Apple AirTag durchführt, um an die Firmware des Tags zu gelangen.</p>
+<p>In mir kam die Idee auf, man könnte ja beides verbinden, also den Raspberry Pico gegen den Arduino Nano antreten lassen. ⚔️</p>
 <h2 id="kurze-theorie-">Kurze Theorie 👨‍🏫</h2>
-<p>Die Grundidee ist es der CPU, für wenige Augenblicke den Strom zu klauen und zu hoffen, dass sie sich während dieser Zeit verrechnet bzw. das sie einzelne Instruktions überspringt.</p>
+<p>Die Grundidee ist es, der CPU für wenige Augenblicke den Strom zu entziehen und zu hoffen, dass sie sich während dieser Zeit verrechnet bzw. dass sie einzelne Instruktionen überspringt.</p>
 <h2 id="aufsetzen-des-zielsystem-">Aufsetzen des Zielsystem 🎯</h2>
-<p>Das Ziel ist ein Arduino Nano, das Herzstück ist der Mikrocontroller ATmega328. Also der Chip, der auch auf dem Arduino Uno verwendet wurde und mittlerweile in Hunderten von Projekten benutzt wurde.</p>
-<p>Für das CTF werden die Hex Files direkt auf den Arduino geflasht mit folgenden Befehl:</p>
+<p>Das Ziel ist ein Arduino Nano. Das Herzstück ist der Mikrocontroller ATmega328, derselbe Chip, der auch auf dem Arduino Uno verwendet wurde und mittlerweile in Hunderten von Projekten Verwendung findet.</p>
+<p>Für das CTF werden die Hex-Dateien direkt auf den Arduino geflasht mit folgendem Befehl:</p>
 <p><code>avrdude -c arduino -p atmega328p -P /dev/ttyUSB* -b115200 -u -V -U flash:w:CHALLENGE.hex</code></p>
-<p>Leider ging das bei mir nicht auf Anhieb mit dem eingebauten USB Port. Ich habe dann die ISP Schnittstellen verwendet. Um mit diesem zu reden, habe ich ein USBasp benutzt.</p>
+<p>Leider funktionierte das bei mir nicht auf Anhieb mit dem eingebauten USB-Port. Ich habe dann die ISP-Schnittstellen verwendet. Um damit zu kommunizieren, habe ich einen USBasp benutzt.</p>
 <p><img src="img/usbasp.jpg" alt="Ein USBasp verbunden mit dem Arduino Nano"></p>
-<p>Um diesen zu verwenden, muss die noch folgende Änderung im Betriebssystem vorgenommen werden:</p>
+<p>Um diesen zu verwenden, muss die folgende Änderung im Betriebssystem vorgenommen werden:</p>
 <p><code>vim /etc/udev/rules.d/60-objdev.rules</code></p>
-<p>Und folgenden Inhalt einfügen:</p>
+<p>Fügen Sie dann den folgenden Inhalt ein:</p>
 <div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">SUBSYSTEM==&#34;usb&#34;, ENV{DEVTYPE}==&#34;usb_device&#34;, SYSFS{idVendor}==&#34;16c0&#34;, SYSFS{idProduct}==&#34;05dc&#34;, MODE=&#34;0666&#34;</code></pre></div>
 </div>
-<p>dann noch:</p>
-<p><code>sudo /etc/init.d/udev restart</code> oder rechner Neustarten.</p>
-<p>Dies ist nötig, damit der USB Stick vom Betriebssystem erkannt wird und wir mit diesen interagieren können.</p>
-<p>Man kann nun das Hex File mit folgenden Befehl flashen:</p>
+<p>Führen Sie dann Folgendes aus:</p>
+<p><code>sudo /etc/init.d/udev restart</code> oder den Rechner Neustarten.</p>
+<p>Dies ist notwendig, damit das Betriebssystem den USB-Stick erkennt und wir mit ihm interagieren können.
+Man kann nun das Hex File mit folgenden Befehl flashen:</p>
 <p><code>avrdude -c usbasp -p atmega328p -P usb -b115200 -u -V -U flash:w:fiesta.hex</code></p>
-<p>Nun kann der Arduino mit dem Rechner via USB verbunden werden. Mit folgendem Befehl können wir sehen, was dieser schreibt:</p>
+<p>Nun kann der Arduino über USB mit dem Rechner verbunden werden. Mit folgendem Befehl können wir sehen, was er ausgibt:</p>
 <p><code>screen /dev/ttyUSB0 19200</code></p>
-<p>Ist eine ganz normale Kommunikation über UART. Ich fand die Baudrate ein wenig ungewöhnlich, aber vielleicht mache ich, so was auch einfach zu selten. 😅</p>
+<p>Das ist eine ganz normale Kommunikation über <a href="https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter">UART</a>.</p>
 <p>Uns begrüßt nun folgender Text:</p>
 <div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">RHME2 FI level 1.
 
@@ -273,7 +282,7 @@ Chip status: LockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLoc
 ckLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockL
 ockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLock</code></pre></div>
 </div>
-<p>Man kann sich ja mal grob im Kopf überlegen, was für ein Code hier ausgeführt wird:</p>
+<p>Man kann sich grob vorstellen, was für ein Code hier ausgeführt wird:</p>
 <div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">Serial.println(&#34;RHME2 FI level 1.&#34;);
 Serial.print(&#34;Chip status:&#34;);
 
@@ -283,48 +292,57 @@ while(true) {
 
 Serial.print(&#34;FLAG&#34;);</code></pre></div>
 </div>
-<p>Das geht so ungefähr in meinem Kopf vor, man als Programmierer, würde sehen, dass wir durch das <code>while(true)</code> in einer Endlosschleife sind und diese kann nicht verlassen werden.
-Aber da in dem CTF immer von Fault Injection gesprochen wird, heißt es, dass wir an dieser Stelle glitchen müssen. Ich denke, dass die Entwickler noch ein paar Mechanismen benutzen, die das Glitchen erleichtern, da
-es eine einfache Challenge ist.</p>
+<p>Das geht so ungefähr in meinem Kopf vor. Ein Programmierer würde sehen, dass wir durch das <code>while(true)</code> in einer Endlosschleife stecken und diese nicht verlassen können. Da in dem CTF jedoch immer von Fault Injection die Rede ist, heißt es, dass wir an dieser Stelle glitchen müssen. Ich denke, die Entwickler des CTFs haben noch einige Mechanismen verwendet, die das Glitchen erleichtern, da es eine einfache Challenge ist.</p>
 <h2 id="aufsetzen-des-angreifersystem-">Aufsetzen des Angreifersystem 🏹</h2>
-<p>Eigentlich wollte ich mich selbst mal wagen den Pico zu programmieren, aber durch ein wenig rumgoogel bin ich auf folgenden Blog gestoßen: <a href="https://deralchemist.wordpress.com/2021/05/28/raspberry-pico-voltage-glitcher/">Link zum Blog</a></p>
-<p>Anscheinend hatte schon mal Einer die selbe Idee wie ich und er hat seine Software auch auf <a href="https://github.com/MKesenheimer/PicoGlitcher">Github</a> veröffentlicht. Sie besteht aus einer Firmware für den Pico und einen Python Script mit dem der Puls gesteuert werden kann.</p>
+<p>Eigentlich wollte ich mich selbst einmal daran versuchen, den Pico zu programmieren. Aber durch ein wenig Recherche bin ich auf folgenden Blog gestoßen: <a href="https://deralchemist.wordpress.com/2021/05/28/raspberry-pico-voltage-glitcher/">Deralchemist Blog</a></p>
+<p>Anscheinend hatte jemand bereits die gleiche Idee wie ich und er hat seine Software auch auf <a href="https://github.com/MKesenheimer/PicoGlitcher">Github</a> veröffentlicht. Sie besteht aus einer Firmware für den Pico und einem Python-Skript, mit dem der Puls gesteuert werden kann.</p>
 <h3 id="firmware">Firmware</h3>
-<p>Hier nochmal kurz beschrieben, wie das Erstellen und Aufbringen der Firmware funktioniert:
-Ich empfehle, bevor man selbst los legt, noch mal folgendes <a href="https://www.youtube.com/watch?v=JhajoAyP8e4">Video</a> zu gucken. Es stammt von Low Level Learning und er gibt kurz einen Überblick, wie der Pico mit C++ programmiert werden kann.</p>
-<p>Für uns heißt es Repo Klonen:</p>
+<p>Hier ist kurz beschrieben, wie man die Firmware erstellt und auf den Pico überträgt:</p>
+<p>Ich empfehle, bevor man selbst loslegt, sich folgendes <a href="https://www.youtube.com/watch?v=JhajoAyP8e4">Video</a> anzusehen. Es stammt von Low Level Learning, und er gibt einen kurzen Überblick darüber, wie der Pico mit C++ programmiert werden kann.</p>
+<p>Für uns heißt es, das Repo zu klonen:</p>
 <p><code>git clone https://github.com/MKesenheimer/PicoGlitcher.git</code></p>
 <p>Ein <code>build</code> Ordner erstellen dann <code>cmake ..</code> und dann <code>make</code> .</p>
-<p>Ich hatte in kleines Problem mit dem Pico Sdk. Ich musste einmal ins pico-sdk wechseln.</p>
+<p>Ich hatte ein kleines Problem mit dem Pico SDK. Ich musste einmal ins pico-sdk Verzeichnis wechseln:</p>
 <p><code>cd /home/rar/Dokumente/pico/pico-sdk</code></p>
 <p>und dann Folgendes ausführen:</p>
 <p><code>git submodule update --init</code></p>
-<p>Danach gab es beim Kompilieren auch keine Fehler mehr. Am Ende entsteht ein <code>.uf2</code> File.</p>
-<p>Dieses <code>.uf2</code> File kann dann auf den Pico kopiert werden, dass sich dieser als Speicher Laufwerk in den Rechner einhängt.</p>
-<p>Hier ein erster Test am Pin des Picos:</p>
+<p>Danach gab es beim Kompilieren auch keine Fehler mehr. Am Ende entsteht eine <code>.uf2</code> Datei.</p>
+<p>Diese <code>.uf2</code> Datei kann dann auf den Pico kopiert werden, der sich als Speicherlaufwerk am Computer anhängt.</p>
+<p>Hier ist ein erster Test am Pin des Picos:</p>
 <p><a href="img/test_pico.mp4"><img src="img/test_pico.png" alt="Video zeigt ein Oszilloskop darauf zu sehen, wie die Spannung kurze Zeit hoch geht."></a></p>
-<p>In dem Video ist zu sehen, wie die Spannung einen kurzen Moment hoch schnellt. Genau das, was erreicht werden soll.
-Das wird über das Python Script gesteuert:</p>
+<p>Im Video ist zu sehen, wie die Spannung einen kurzen Moment ansteigt, genau das, was erreicht werden soll. Das wird über das Python-Skript gesteuert:</p>
 <p><code>./controller.py /dev/ttyACM0 --timeout 0.01 -p 10 10 1 -d 10 15 1</code></p>
 <h2 id="verbindung-der-beiden-mikrocontroller-">Verbindung der beiden Mikrocontroller 👫</h2>
-<p>Der für mich wahrscheinlich schwierigste Part. Zu Glück hatte ich hier Hilfe aus dem <a href="https://www.ccc-p.org/">Potsdammer Chaostreff</a>.</p>
+<p>Der für mich wahrscheinlich schwierigste Part. Zu Glück hatte ich hier Hilfe aus dem
+Das war wahrscheinlich der schwierigste Teil für mich. Glücklicherweise hatte ich hier Hilfe aus dem <a href="https://www.ccc-p.org/">Potsdammer Chaostreff</a>.</p>
 <p>Danke an <a href="https://github.com/chsterz">Christoph</a>, der mir einen seiner Transistoren gesponsert hat. Und großes Dankeschön an <a href="https://github.com/123TzTz321">tz</a>, der mir kräftig beim Verbauen und Messen der Transistoren geholfen hat.</p>
 <p>Es wurde ein <code>BC547C</code> NPN Bipolartransistor verwendet. Beim Aufbau mussten wir sehr viel messen, hier ein paar Bilder:</p>
 <p><img src="img/messen.jpg" alt="Aufbau beim Messen"> | <img src="img/messen2.jpg" alt="Oszilloskop während der Messung"></p>
-<p>Das linke Bild zeigt die beiden Messspitzen unseres Versuches. Das gelbe Kabel geht in den Pin von Pico, hier wird der Puls gemessen.
-Der blaue Jumper geht an den Ausgang des Transistors. Auf dem rechten Bild sieht man nun, dass der gelbe Graph nach oben geht und damit den Transistor schaltet.
-Dieser hier in blau eingezeichnete Graph geht kurzzeitig nach Ground.</p>
+<p>Das linke Bild zeigt die beiden Messspitzen unseres Versuchs. Das gelbe Kabel geht an den Pin des Pico, hier wird der Puls gemessen.
+Der blaue Jumper geht an den Ausgang des Transistors. Auf dem rechten Bild sieht man, dass der gelbe Graph nach oben geht und damit den Transistor schaltet.
+Der hier in blau eingezeichnete Graph geht kurzzeitig auf Ground.</p>
 <p>Hier noch einmal der komplette Aufbau:</p>
-<p>In Real:</p>
-<p><img src="img/aufbau.jpg" alt="Aufbau Real"></p>
+<p>(Auf der Linken Seite ist ein Widerstand mit 1KΩ die andern beiden betragen 15Ω)</p>
+<p>In der Realität:</p>
+<p><img src="img/aufbau.jpg" alt="Aufbau in der Realität"></p>
 <p>Am Computer:</p>
-<p><img src="img/aufbau2.png" alt="Aufbau Computer"></p>
-<p><strong>Hinweis 1: das orange Kabel vom Transistor sollte nicht so lange an dem 5V Pin des Arduino liegen.</strong></p>
-<p>Da der Arduino sich neu startet und dann der Glitch noch einmal wiederholt wird, kann hierbei die Firmware beschädigt werden.</p>
+<p><img src="img/aufbau2.png" alt="Aufbau am Computer"></p>
+<p><strong>Hinweis 1: Das orange Kabel vom Transistor sollte nicht so lange am 5V-Pin des Arduino liegen.</strong></p>
+<p>Da der Arduino sich neu startet und der Glitch dann wiederholt wird, könnte die Firmware beschädigt werden.</p>
 <p><strong>Hinweis 2: Es wird ein externer USB-UART-Wandler verwendet.</strong></p>
-<p>Die Power Leitung wird nicht verwendet da der Arduino Nano sonst zu viel Strom bekommen könnte.</p>
-<p>Ach so das wichtigste &hellip; die Flagge 🚩</p>
-<p><img src="img/win.png" alt="Aufbau Real"></p>
+<p>Die Stromleitung wird nicht verwendet, da der Arduino Nano sonst zu viel Strom bekommen könnte.</p>
+<h2 id="das-ergebnis-">Das Ergebnis 🎉</h2>
+<p>Ach ja, das Wichtigste&hellip; die Flagge 🚩</p>
+<p><img src="img/win.png" alt="Bekommen der Flagge"></p>
+<h2 id="leseranmerkungen-">Leseranmerkungen 📝</h2>
+<p>Mich hat es sehr gefreut, dass mich Feedback von <a href="https://www.linkedin.com/in/fikretgaripay/">Fikret Garipay</a> erreicht hat.</p>
+<p>Er den Versuch nachgebaut und hat folgende Anmerkungen:</p>
+<p>Als glitch output hat er den GPIO26 am Pico verwendet. Er hat den glitch output mit einem 47Ω Widerstand mit dem Base von <code>BC548</code> (sehr ähnlich zum <code>BC547C</code>) verbunden. Er hat den Emitter mit Ground verbunden und den Collector mit dem 5V input. Als er den 5V input vom Pico verwendet hat, hat er auch einen 47Ω Widerstand verwendet.</p>
+<p><img src="img/fikret_construction.jpg" alt="Aufbau von Fikret"></p>
+<p>Er hat auch ein andere Software verwendet, den <a href="https://github.com/kholia/PicoGlitcher">PicoGlitcher von kholia</a> diese ist ein fork von dem Tool was ich verwendet habe.</p>
+<p>Er hat die Software mit folgendem Befehl gestartet:</p>
+<p><img src="img/fikret_flag.jpg" alt="Flagge von Fikret"></p>
+<p>Damit ist es ihm gelungen, die Flagge zu bekommen. 🚩</p>
 
         </section>
       </div>

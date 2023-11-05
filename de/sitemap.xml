@@ -106,9 +106,29 @@
   </url><url>
     <loc>https://hackwiki.de/tags/ctf/</loc>
     <lastmod>2022-03-03T02:24:45+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/ctf/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/ctf/"
+                />
   </url><url>
     <loc>https://hackwiki.de/blog/fault_injection/</loc>
     <lastmod>2022-03-03T02:24:45+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/blog/fault_injection/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/blog/fault_injection/"
+                />
   </url><url>
     <loc>https://hackwiki.de/tags/elektronik/</loc>
     <lastmod>2022-03-03T02:24:45+01:00</lastmod>

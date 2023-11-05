@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head><link rel="icon" href="/favicon_main.svg"><meta charset="utf-8" />
 <meta name="theme-color" content="#6495ed" />
-	<meta name="generator" content="Hugo 0.117.0"><link rel="icon" href="/favicon_main.svg"><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta http-equiv="x-ua-compatible" content="ie=edge" /><title>Hackwiki</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge" /><meta property="og:url"  content="https://hackwiki.de/en/blog/fault_injection/" />
+    <meta property="og:type" content="article" /><meta property="og:title" content="Simple Fault Injection ⚡" /><meta property="og:description" content="Solving the RHME2 Hardware CTF Challenge &#39;Fiesta&#39; with the help of a simple fault injection." /><meta property="og:image:width"  content="600" />
+        <meta property="og:image:height" content="401" /><meta property="og:image" content="https://hackwiki.de/en/blog/fault_injection/img/fault_injection_huc535c26531cc525c3dc6172d59b1f204_17264_600x0_resize_q75_box.jpg" /><title>Hackwiki - Simple Fault Injection ⚡</title>
 
     
 <link href="/fonts/IBM_plex/IBM_Plex.css" rel="stylesheet">
@@ -22,7 +23,7 @@
 
     <div id="preloader">
       <div id="status"></div>
-    </div><section class="hero is-fullheight is-default is-bold"><nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+    </div><nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
 
@@ -106,7 +107,7 @@
                 
                 
                   
-                  <a href="https://hackwiki.de/" class="dropdown-item" 
+                  <a href="https://hackwiki.de/blog/fault_injection/" class="dropdown-item" 
                       style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
                     DE
                   </a>
@@ -208,7 +209,7 @@
                   
                   
                     
-                    <a href="https://hackwiki.de/" class="dropdown-item" 
+                    <a href="https://hackwiki.de/blog/fault_injection/" class="dropdown-item" 
                         style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
                       DE
                     </a>
@@ -230,23 +231,122 @@
       </div>
     </div>
   </nav>
-<div class="hero-body">
-        <div class="container">
-            <div class="columns is-vcentered">
-            <div class="column is-5 is-offset-1 landing-caption">
-                <h1 class="title is-1 is-bold is-spaced">HACKWIKI</h1><h2 class="subtitle is-5 is-muted">
-                Personal blog from Sebastian Feustel
-                </h2>
-            </div>
-            <div class="column is-5 is-offset-1">
-                <figure class="image"><img src="/images/hackwiki_klein.png" 
-                     style="width:500px" alt="Hackwiki">
-                </figure>
-            </div>
-            </div>
-        </div>
-        </div>
-    </section><footer class="footer footer-dark">
+<section class="section is-medium">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title is-2 section-title">Simple Fault Injection ⚡</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+        
+        <section class="section content has-text-justified">
+          <p>Some time ago, I solved the &ldquo;Photo Manager&rdquo; task from the RHME2 (2016) CTF. <a href="https://gist.github.com/53845714nF/7ad4c6eb0c38aae9a725e54859f1b8f2">Link Github Gist</a></p>
+<p>Now, I wanted to try something with more hardware involvement.</p>
+<h2 id="my-inspiration-">My Inspiration 🤔</h2>
+<p><iframe src="https://www.youtube.com/embed/6Pf3pY3GxBM?start="
+        style="width: 560; height: 315;"
+        allowfullscreen frameborder="0"
+        title="YouTube Video">
+</iframe> | <iframe src="https://www.youtube.com/embed/_E0PWQvW-14?start="
+        style="width: 560; height: 315;"
+        allowfullscreen frameborder="0"
+        title="YouTube Video">
+</iframe></p>
+<p>The first video is from LiveOverflow. It shows how to perform a fault injection on the &ldquo;Fiesta&rdquo; challenge from the RHME2 CTF using an FPGA board. The second one is from Stacksmashing, where he demonstrates performing fault injection on an Apple AirTag using a Raspberry Pico to access the tag&rsquo;s firmware.</p>
+<p>I had the idea of combining both approaches, pitting the Raspberry Pico against the Arduino Nano. ⚔️</p>
+<h2 id="brief-theory-">Brief Theory 👨‍🏫</h2>
+<p>The basic idea is to momentarily deprive the CPU of power and hope that it miscalculates or skips individual instructions during that time.</p>
+<h2 id="setting-up-the-target-system-">Setting Up the Target System 🎯</h2>
+<p>The target is an Arduino Nano. The heart of it is the ATmega328 microcontroller, the same chip used in the Arduino Uno and now used in hundreds of projects.</p>
+<p>For the CTF, the hex files are flashed directly onto the Arduino using the following command:</p>
+<p><code>avrdude -c arduino -p atmega328p -P /dev/ttyUSB* -b115200 -u -V -U flash:w:CHALLENGE.hex</code></p>
+<p>Unfortunately, this didn&rsquo;t work for me with the built-in USB port. So, I used the ISP interfaces. To communicate with them, I used a USBasp.</p>
+<p><img src="img/usbasp.jpg" alt="A USBasp connected to the Arduino Nano"></p>
+<p>To use this, you need to make the following change in the operating system:</p>
+<p><code>vim /etc/udev/rules.d/60-objdev.rules</code></p>
+<p>Then, insert the following content:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">SUBSYSTEM==&#34;usb&#34;, ENV{DEVTYPE}==&#34;usb_device&#34;, SYSFS{idVendor}==&#34;16c0&#34;, SYSFS{idProduct}==&#34;05dc&#34;, MODE=&#34;0666&#34;</code></pre></div>
+</div>
+<p>Then, run the following:</p>
+<p><code>sudo /etc/init.d/udev restart</code> or restart the computer.</p>
+<p>This is necessary so that the operating system recognizes the USB stick and we can interact with it.</p>
+<p>You can now flash the hex file with the following command:</p>
+<p><code>avrdude -c usbasp -p atmega328p -P usb -b115200 -u -V -U flash:w:fiesta.hex</code></p>
+<p>Now, the Arduino can be connected to the computer via USB. With the following command, we can see what it outputs:</p>
+<p><code>screen /dev/ttyUSB0 19200</code></p>
+<p>This is a standard communication over <a href="https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter">UART</a>.</p>
+<p>You&rsquo;ll be greeted with the following text:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">RHME2 FI level 1.
+
+Chip status: LockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLo
+ckLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockL
+ockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLockLock</code></pre></div>
+</div>
+<p>One can roughly imagine what code is being executed here:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">Serial.println(&#34;RHME2 FI level 1.&#34;);
+Serial.print(&#34;Chip status:&#34;);
+
+while(true) {
+  Serial.print(&#34;Lock&#34;);
+}
+
+Serial.print(&#34;FLAG&#34;);</code></pre></div>
+</div>
+<p>That&rsquo;s roughly what&rsquo;s happening in my head. A programmer would see that we&rsquo;re stuck in an infinite loop due to the <code>while(true)</code> and can&rsquo;t exit it. However, since the CTF always mentions fault injection, it means that we have to glitch at this point. I believe the CTF developers have incorporated some mechanisms to make glitching easier since this is a beginner-level challenge.</p>
+<h2 id="setting-up-the-attacker-system-">Setting Up the Attacker System 🏹</h2>
+<p>I initially wanted to try programming the Pico myself, but I came across this blog: <a href="https://deralchemist.wordpress.com/2021/05/28/raspberry-pico-voltage-glitcher">Deralchemist Blog</a></p>
+<p>Apparently, someone had the same idea as me and also released their software on <a href="https://github.com/MKesenheimer/PicoGlitcher">Github</a>. It consists of firmware for the Pico and a Python script to control the pulse.</p>
+<h3 id="firmware">Firmware</h3>
+<p>Here is a brief description of how to build the firmware and transfer it to the Pico:</p>
+<p>I recommend watching this <a href="https://www.youtube.com/watch?v=JhajoAyP8e4">video</a> before you start. It&rsquo;s from Low Level Learning, and it gives a brief overview of how to program the Pico with C++.</p>
+<p>For us, it means cloning the repo:</p>
+<p><code>git clone https://github.com/MKesenheimer/PicoGlitcher.git</code></p>
+<p>Create a <code>build</code> folder, then <code>cmake ..</code>, and then <code>make</code>.</p>
+<p>I had a small issue with the Pico SDK. I had to navigate to the pico-sdk directory once:</p>
+<p><code>cd /home/rar/Documents/pico/pico-sdk</code></p>
+<p>and then run:</p>
+<p><code>git submodule update --init</code></p>
+<p>After that, there were no more errors during compilation. In the end, you&rsquo;ll get a <code>.uf2</code> file.</p>
+<p>You can copy this <code>.uf2</code> file to the Pico, which appears as a storage drive on your computer.</p>
+<p>Here&rsquo;s an initial test on the Pico&rsquo;s pin:</p>
+<p><a href="img/test_pico.mp4"><img src="img/test_pico.png" alt="Video shows an oscilloscope displaying a brief voltage increase."></a></p>
+<p>In the video, you can see the voltage briefly increasing, which is exactly what you&rsquo;re trying to achieve. This is controlled by the Python script:</p>
+<p><code>./controller.py /dev/ttyACM0 --timeout 0.01 -p 10 10 1 -d 10 15 1</code></p>
+<h2 id="connecting-the-two-microcontrollers-">Connecting the Two Microcontrollers 👫</h2>
+<p>This was probably the most challenging part for me. Fortunately, I received help from the <a href="https://www.ccc-p.org/">Potsdammer Chaostreff</a>.</p>
+<p>Thanks to <a href="https://github.com/chsterz">Christoph</a> for providing me with one of his transistors. And a big thanks to <a href="https://github.com/123TzTz321">tz</a>, who helped me a lot with assembling and measuring the transistors.</p>
+<p>We used a <code>BC547C</code> NPN bipolar transistor. During the setup, we had to do a lot of measurements, here are some pictures:</p>
+<p><img src="img/messen.jpg" alt="Setup during measurement"> | <img src="img/messen2.jpg" alt="Oscilloscope during measurement"></p>
+<p>The left image shows the two measurement probes of our experiment. The yellow cable is connected to the Pico&rsquo;s pin where the pulse is measured. The blue jumper goes to the transistor&rsquo;s output. In the right image, you can see that the yellow graph goes up, which means the transistor is switching. The blue graph briefly goes to ground.</p>
+<p>Here&rsquo;s the complete setup again:</p>
+<p>(On the left side, there&rsquo;s a 1KΩ resistor, and the other two are 15Ω)</p>
+<p>In reality:</p>
+<p><img src="img/aufbau.jpg" alt="Setup in reality"></p>
+<p>On the computer:</p>
+<p><img src="img/aufbau2.png" alt="Setup on the computer"></p>
+<p><strong>Note 1: The orange cable from the transistor should not remain connected to the 5V pin of the Arduino for too long.</strong></p>
+<p>Since the Arduino will restart, and the glitch will be repeated, it could damage the firmware.</p>
+<p><strong>Note 2: An external USB-UART converter is used.</strong></p>
+<p>The power line is not used because it might provide too much power to the Arduino Nano.</p>
+<h2 id="the-result-">The Result 🎉</h2>
+<p>Oh, and the most important part&hellip; the flag 🚩</p>
+<p><img src="img/win.png" alt="Getting the Flag"></p>
+<h2 id="readers-comments-">Reader&rsquo;s Comments 📝</h2>
+<p>I was pleased to receive feedback from <a href="https://www.linkedin.com/in/fikretgaripay">Fikret Garipay</a>.</p>
+<p>He recreated the experiment and had the following comments:</p>
+<p>He used GPIO26 on the Pico as the glitch output. He connected the glitch output to the base of a <code>BC548</code> transistor (very similar to <code>BC547C</code>) using a 47Ω resistor. He connected the emitter to ground and the collector to the 5V input. When using the Pico&rsquo;s 5V input, he also used a 47Ω resistor.</p>
+<p><img src="img/fikret_construction.jpg" alt="Fikret&rsquo;s setup"></p>
+<p>He also used different software, <a href="https://github.com/kholia/PicoGlitcher">PicoGlitcher by kholia</a>, which is a fork of the tool I used.</p>
+<p>He started the software with the following command:</p>
+<p><img src="img/fikret_flag.jpg" alt="Fikret&rsquo;s flag"></p>
+<p>With this setup, he successfully obtained the flag. 🚩</p>
+
+        </section>
+      </div>
+    </div>
+  </div>  
+  </section>
+<footer class="footer footer-dark">
   <div class="container">
     <div class="columns">
       <div class="column">

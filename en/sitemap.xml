@@ -2,21 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hackwiki.de/en/blog/hacker/</loc>
-    <lastmod>2022-02-11T22:06:16+01:00</lastmod>
+    <loc>https://hackwiki.de/en/tags/c/</loc>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/blog/hacker/"
+                href="https://hackwiki.de/tags/c/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/blog/hacker/"
+                href="https://hackwiki.de/en/tags/c/"
                 />
   </url><url>
+    <loc>https://hackwiki.de/en/tags/ctf/</loc>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/ctf/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/ctf/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/en/tags/electronics/</loc>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
+  </url><url>
     <loc>https://hackwiki.de/en/tags/hacking/</loc>
-    <lastmod>2022-02-11T22:06:16+01:00</lastmod>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
@@ -29,7 +45,7 @@
                 />
   </url><url>
     <loc>https://hackwiki.de/en/</loc>
-    <lastmod>2022-02-11T22:06:16+01:00</lastmod>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
@@ -41,8 +57,27 @@
                 href="https://hackwiki.de/en/"
                 />
   </url><url>
+    <loc>https://hackwiki.de/en/tags/microcontrollers/</loc>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
+  </url><url>
+    <loc>https://hackwiki.de/en/tags/programming/</loc>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
+  </url><url>
+    <loc>https://hackwiki.de/en/blog/fault_injection/</loc>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/blog/fault_injection/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/blog/fault_injection/"
+                />
+  </url><url>
     <loc>https://hackwiki.de/en/tags/</loc>
-    <lastmod>2022-02-11T22:06:16+01:00</lastmod>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
@@ -52,6 +87,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://hackwiki.de/en/tags/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/en/blog/hacker/</loc>
+    <lastmod>2022-02-11T22:06:16+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/blog/hacker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/blog/hacker/"
                 />
   </url><url>
     <loc>https://hackwiki.de/en/blog/kleine_gau%C3%9F/</loc>
@@ -158,19 +206,6 @@
                 href="https://hackwiki.de/en/credits/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/c/</loc>
-    <lastmod>2021-08-27T16:29:12+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hackwiki.de/tags/c/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hackwiki.de/en/tags/c/"
-                />
-  </url><url>
     <loc>https://hackwiki.de/en/blog/hallowelt/</loc>
     <lastmod>2021-08-27T16:29:12+02:00</lastmod>
     <xhtml:link
@@ -196,9 +231,6 @@
                 hreflang="en"
                 href="https://hackwiki.de/en/tags/java/"
                 />
-  </url><url>
-    <loc>https://hackwiki.de/en/tags/programming/</loc>
-    <lastmod>2021-08-27T16:29:12+02:00</lastmod>
   </url><url>
     <loc>https://hackwiki.de/en/blog/</loc>
     <lastmod>2021-08-25T00:37:23+02:00</lastmod>
