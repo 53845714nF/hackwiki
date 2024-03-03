@@ -2,6 +2,123 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://hackwiki.de/en/tags/debian/</loc>
+    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/debian/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/debian/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/en/</loc>
+    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/en/tags/meilisearch/</loc>
+    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/meilisearch/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/meilisearch/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/en/blog/meilisearch/</loc>
+    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/blog/meilisearch/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/blog/meilisearch/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/en/tags/postgres/</loc>
+    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/postgres/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/postgres/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/en/tags/python/</loc>
+    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/python/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/en/tags/saltstack/</loc>
+    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/saltstack/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/saltstack/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/en/tags/search/</loc>
+    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/search/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/en/tags/</loc>
+    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/"
+                />
+  </url><url>
     <loc>https://hackwiki.de/en/tags/c/</loc>
     <lastmod>2022-03-03T02:24:45+01:00</lastmod>
     <xhtml:link
@@ -44,19 +161,6 @@
                 href="https://hackwiki.de/en/tags/hacking/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/</loc>
-    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hackwiki.de/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hackwiki.de/en/"
-                />
-  </url><url>
     <loc>https://hackwiki.de/en/tags/microcontrollers/</loc>
     <lastmod>2022-03-03T02:24:45+01:00</lastmod>
   </url><url>
@@ -74,19 +178,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://hackwiki.de/en/blog/fault_injection/"
-                />
-  </url><url>
-    <loc>https://hackwiki.de/en/tags/</loc>
-    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hackwiki.de/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hackwiki.de/en/tags/"
                 />
   </url><url>
     <loc>https://hackwiki.de/en/blog/hacker/</loc>
@@ -139,19 +230,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://hackwiki.de/en/tags/programmieren/"
-                />
-  </url><url>
-    <loc>https://hackwiki.de/en/tags/python/</loc>
-    <lastmod>2021-09-26T15:22:24+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hackwiki.de/tags/python/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hackwiki.de/en/tags/python/"
                 />
   </url><url>
     <loc>https://hackwiki.de/en/tags/home-lab/</loc>

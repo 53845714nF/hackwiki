@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><link rel="icon" href="/favicon_main.svg"><meta charset="utf-8" />
+<meta name="theme-color" content="#6495ed" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" /><meta property="og:url"  content="https://hackwiki.de/en/blog/meilisearch/" />
+    <meta property="og:type" content="article" /><meta property="og:title" content="Meilisearch 🔎" /><meta property="og:description" content="A brief insight into Meilisearch and the synchronisation of Postgres data." /><meta property="og:image:width"  content="600" />
+        <meta property="og:image:height" content="393" /><meta property="og:image" content="https://hackwiki.de/en/blog/meilisearch/img/meilisearch_hucecf0ac4970f843d894598be03c9eddc_6071_600x0_resize_box_3.png" /><title>Hackwiki - Meilisearch 🔎</title>
+
+    
+<link href="/fonts/IBM_plex/IBM_Plex.css" rel="stylesheet">
+<link href="/fonts/Inter/Inter.css" rel="stylesheet">
+<link href="/fonts/Inter/Inter.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/style.min.3e564f6258d36942f5e0ba0e66447a4b1c70249c0031ae3d23f86ae0f35958c5.css" integrity="sha256-PlZPYljTaUL14LoOZkR6SxxwJJwAMa49I/hq4PNZWMU=">
+<link rel="stylesheet" type="text/css" href="/css/monokai-sublime.9.15.8.min.min.3a5d282f03108101d715e80fd4c07b55502ec4673fc063f2b6e415d4def5b354.css" integrity="sha256-Ol0oLwMQgQHXFegP1MB7VVAuxGc/wGPytuQV1N71s1Q=">
+<link rel="stylesheet" type="text/css" href="/css/all.min.min.78ba45f6dd079d837eaf09abe8339f2293ed8be1f18fd28d291cfb6ac207e7dc.css" integrity="sha256-eLpF9t0HnYN&#43;rwmr6DOfIpPti&#43;Hxj9KNKRz7asIH59w=">
+<link rel="stylesheet" type="text/css" href="/css/refresh.min.a2c55bdc9e9b7ef0d36e8bea10f714415e0534c59a956e5530f5e8f0e86a45d9.css" integrity="sha256-osVb3J6bfvDTbovqEPcUQV4FNMWalW5VMPXo8OhqRdk=">
+<link rel="stylesheet" type="text/css" href="/css/devicon.min.min.13fddf418611477a10293a87542de7703396184696bd8cf50642c4c72994c78a.css" integrity="sha256-E/3fQYYRR3oQKTqHVC3ncDOWGEaWvYz1BkLExymUx4o=">
+    
+
+  </head>
+  <body>
+     
+
+    <div id="preloader">
+      <div id="status"></div>
+    </div><nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+
+      
+      
+      
+      <a class="navbar-item">
+        <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+        <div class="navbar-item left-menu-icon-wrapper">
+          Tags
+        </div>
+      </a>
+
+      <div class="navbar-item is-expanded"></div>
+      <a class="navbar-item is-hidden-desktop">  
+        <div data-target="navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
+          Menu
+        </div>
+        <div data-target="navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+      </a>
+    </div><div id="navbar-menu" class="navbar-menu is-static">
+      
+      <div class="navbar-end">
+        
+          <a href="/en/" class="navbar-item is-secondary"><i class="fa fa-home" style="color:#6495ed;">&nbsp;</i>Homepage</a><a href="/en/about/" class="navbar-item is-secondary"><i class="fa fa-bookmark" style="color:#6495ed;">&nbsp;</i>About Me</a><a href="/en/blog/" class="navbar-item is-secondary"><i class="fa fa-book" style="color:#6495ed;">&nbsp;</i>Blog</a>
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+        
+          
+            
+          
+        
+        
+        
+        
+        
+        <div class="navbar-item">
+          <div class="dropdown is-hoverable is-centered" >
+            <div class="dropdown-trigger" >
+              <button class="button is-active" 
+              style="color:#999;  
+                    border-color:#6495ed; 
+                    box-shadow: none ;
+                    padding-right: 0.625em ; 
+                    padding-left: 0.625em  ;
+                    ">
+
+                <span>EN</span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu" style="min-width: 0em;">
+              <div class="dropdown-content" style="padding: 0rem;">
+                
+                
+                
+                  
+                
+                  
+                
+                
+                  
+                  <a href="https://hackwiki.de/blog/meilisearch/" class="dropdown-item" 
+                      style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                    DE
+                  </a>
+                
+                
+                  
+                    
+                  
+                
+                  
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+      <div class="navbar-brand">
+  
+        
+        
+        
+        <a class="navbar-item">
+          <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+          <div class="navbar-item left-menu-icon-wrapper">
+            Tags
+          </div>
+        </a>
+  
+        <div class="navbar-item is-expanded"></div>
+        <a class="navbar-item is-hidden-desktop">  
+          <div data-target="cloned-navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
+            Menu
+          </div>
+          <div data-target="cloned-navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+        </a>
+      </div><div id="cloned-navbar-menu" class="navbar-menu is-static">
+        <div class="navbar-end"><a href="/en/" class="navbar-item is-secondary"><i class="fa fa-home" style="color:#6495ed;">&nbsp;</i>Homepage</a><a href="/en/about/" class="navbar-item is-secondary"><i class="fa fa-bookmark" style="color:#6495ed;">&nbsp;</i>About Me</a><a href="/en/blog/" class="navbar-item is-secondary"><i class="fa fa-book" style="color:#6495ed;">&nbsp;</i>Blog</a>
+          
+            
+              
+            
+          
+            
+              
+            
+          
+          
+          
+            
+              
+            
+          
+
+          
+          
+          
+          <div class="navbar-item">
+            <div class="dropdown is-hoverable is-centered" >
+              <div class="dropdown-trigger" >
+                <button class="button is-active" 
+                style="color:#999;  
+                      border-color:#6495ed; 
+                      box-shadow: none ;
+                      padding-right: 0.625em ; 
+                      padding-left: 0.625em  ;
+                      ">
+  
+                  <span>EN</span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu" style="min-width: 0em;">
+                <div class="dropdown-content" style="padding: 0rem;">
+                  
+                  
+                  
+                    
+                  
+                    
+                  
+                  
+                    
+                    <a href="https://hackwiki.de/blog/meilisearch/" class="dropdown-item" 
+                        style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                      DE
+                    </a>
+                  
+                  
+                    
+                      
+                    
+                  
+                    
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        
+        </div>
+      </div>
+    </div>
+  </nav>
+<section class="section is-medium">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title is-2 section-title">Meilisearch 🔎</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+        
+        <section class="section content has-text-justified">
+          <p>I discovered Meilisearch a few weeks ago and I&rsquo;m delighted with it. It&rsquo;s a fast, open-source search engine. I&rsquo;ve often considered whether I should use Elasticsearch in my projects, but it always seemed too complicated and bloated for my needs. Meilisearch is easy to install and use. It&rsquo;s written in Rust and provides a REST API, making it easy to integrate into any application. (No Java required, unlike Elasticsearch!)</p>
+<p>Especially when you already have your database ready and just need a quick search, Meilisearch is a great choice.</p>
+<h2 id="installation-">Installation ✨</h2>
+<p>The installation of Meilisearch is simple. On Debian/Ubuntu, simply add the repository and install it.</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">echo &#34;deb [trusted=yes] https://apt.fury.io/meilisearch/ /&#34; | sudo tee /etc/apt/sources.list.d/fury.list
+sudo apt update &amp;&amp; sudo apt install meilisearch</code></pre></div>
+</div>
+<p>Or, like I did, automate its installation with Saltstack:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">meilisearch_repo:
+  pkgrepo.managed:
+    - name: deb [trusted=yes] https://apt.fury.io/meilisearch/ /
+    - file: /etc/apt/sources.list.d/meilisearch.list
+
+meilisearch_pkg:
+  pkg.installed:
+    - name: meilisearch
+    - require:
+      - pkgrepo: meilisearch_repo</code></pre></div>
+</div>
+<h2 id="starting-meilisearch-">Starting Meilisearch 🚀</h2>
+<p>Then, Meilisearch can be easily started:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">meilisearch --http-addr &lt;your-ip&gt;:7700</code></pre></div>
+</div>
+<p>Note: Meilisearch in this mode is unsecured by default. So, it&rsquo;s advisable to use it in a secure environment or protect it. (I might touch on this later in the blog, as it would be appropriate.)</p>
+<h2 id="synchronising-postgres-data-">Synchronising Postgres Data 🗣️</h2>
+<p>I have a project based on Postgres and I wanted to use Meilisearch in it. Fortunately, there&rsquo;s a tool that makes syncing Postgres data with Meilisearch easy. It&rsquo;s called <a href="https://github.com/long2ice/meilisync">meilisync</a>.</p>
+<p>During the installation of meilisync, there are a few things to consider, and I wanted to highlight them here.</p>
+<h3 id="postgres-prerequisites-">Postgres Prerequisites 🐘</h3>
+<p>t&rsquo;s important that the database is configured to support Write-Ahead Logging (WAL). This means the database must be configured to log the changes made to the data. This is necessary for meilisync to track changes to the databases.</p>
+<p>To do this, the <code>postgresql.conf</code> file must be modified:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">vim /etc/postgresql/15/main/postgresql.conf</code></pre></div>
+</div>
+<p>The following must be added:</p>
+<ul>
+<li>wal_level = logical</li>
+<li>max_replication_slots = 10</li>
+<li>max_wal_senders = 10</li>
+</ul>
+<h3 id="installing-wal2json-">Installing wal2json 📦</h3>
+<p>The wal2json plugin must also be installed. This is a plugin that logs changes to the databases in JSON format. This is necessary for meilisync to track changes to the databases.</p>
+<p>I had to search a bit to find the package, but on Debian 12, it&rsquo;s <code>postgresql-15-wal2json</code>. It can be installed easily with apt: <code>apt install postgresql-15-wal2json</code></p>
+<p>Then, Postgres must be restarted: <code>systemctl restart postgresql</code></p>
+<h3 id="installing-meilisync">Installing meilisync</h3>
+<p>I want to install meilisync in a virtual environment to manage dependencies. To do this, I need to ensure Python 3.11 and venv are installed.</p>
+<p>Python 3.11 can be installed on Debian 12 with: <code>apt install python3.11-venv</code></p>
+<p>Now I can install meilisync, for which I go to the <code>opt</code> directory, create a directory for meilisync, create a virtual environment, and install meilisync.</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">cd opt
+mkdir meilisync
+python3 -m venv venv
+source venv/bin/activate
+pip3 install meilisync</code></pre></div>
+</div>
+<p>For the initial runs of meilisync, I had to install a few more dependencies:</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">pip3 install motor
+pip3 install asyncmy
+pip install psycopg2-binary
+pip3 install redis</code></pre></div>
+</div>
+<p>Now the most important thing is to configure meilisync. For this, I create a <code>config.yaml</code> file in the <code>opt/meilisync</code> directory.</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">progress:
+  type: file
+source:
+  type: postgres
+  host: 127.0.0.1
+  port: 5432
+  user: &lt;your-postgres-user&gt;
+  password: &lt;your-postgres-password&gt;
+  database: &lt;your-database-name&gt;
+meilisearch:
+  api_url: http://&lt;meilisearch-url&gt;:7700
+  api_key:
+  insert_size: 2000
+  insert_interval: 10
+sync:
+  - table: users
+    pk: id
+    full: true
+    fields:
+      id:
+      name:
+      email:</code></pre></div>
+</div>
+<h3 id="starting-the-sync-">Starting the Sync 🔄</h3>
+<p>Now I can start meilisync: <code>meilisync start</code>
+The tool automatically creates the necessary indexes on Meilisearch and starts syncing the data.</p>
+<p>The indexes are the data that Meilisearch will search. In this case, it&rsquo;s the <code>users</code> table and the fields <code>id</code>, <code>name</code>, and <code>email</code>.</p>
+<h2 id="testing-the-search-">Testing the Search 🔍</h2>
+<p>At the URL http://<!-- raw HTML omitted -->:7700, I can now test the search and see if it works as I expect.</p>
+
+        </section>
+      </div>
+    </div>
+  </div>  
+  </section>
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <img src="/footer.svg" alt="">
+        
+      </div>
+      
+    <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Website</h3>
+          </div>
+          <ul class="link-list"><li>
+              <a href="/en/"><span class="icon"><i class="fa fa-home"></i></span> Homepage</a>
+            </li><li><a href="/en/credits/">
+                  <span class="icon"><i class="fa fa-cube"></i></span>
+                  Credits
+                </a></li>
+            <li><a href="/en/tags/">
+                <span class="icon"><i class="fa fa-tag"></i></span> 
+                All Tags
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    
+      
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Contacts</h3>
+          </div>
+          <ul class="link-list">
+            
+            <li>
+              <a href="https://www.linkedin.com/in/sebastian-feustel-842a1a1ab" target="_blank">
+                <span class="icon"><i class="fab fa-linkedin"></i></span>
+                
+                  LinkedIn
+                
+              </a>
+            </li>
+            
+            
+            <li>
+              <a href="https://github.com/53845714nF" target="_blank">
+                <span class="icon"><i class="fab fa-github-square"></i></span>
+                
+                  Github
+                
+              </a>
+            </li>
+                         
+            
+            <li>
+              <a href="mailto:hackwiki2.0@gmail.com" target="_blank">
+                <span class="icon"><i class="fa fa-envelope"></i></span>
+                
+                  Hack Wiki
+                
+              </a>
+            </li>
+            
+                   
+            
+            <li>
+              <a href="https://twitter.com/53845714nF" target="_blank">
+                <span class="icon"><i class="fab fa-twitter"></i></span>
+                
+                  Twitter
+                
+              </a>
+            </li>
+                   
+            
+                   
+          </ul>
+        </div>
+      </div>
+      
+
+      
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Copyright</h3>
+          </div>
+          <ul class="link-list">
+            <li>
+              <a>
+                <span class="icon"><i class="fa fa-copyright"></i></span>
+                Sebastian Feustel - 2022
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+</footer>
+    <div id="backtotop"><a href="#"></a></div><div class="sidebar scroll">
+  <div class="sidebar-header"><img src="/sidebar.svg" alt="">
+    
+    <a class="sidebar-close" href="javascript:void(0);">
+      <i data-feather="x"></i>
+    </a>
+  </div>
+  <div class="inner">
+    <ul class="sidebar-menu">
+      <li class="no-children"><a href="/en/tags/"><div class="columns">
+              <table width="100%">  
+                <tr>
+                  <td class="">
+                    <span class="icon"><i class="fa fa-cubes"></i></span>
+                    All Tags
+                  </td>
+                  <td class="has-text-right" >
+                      
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </a>
+      <li class="no-children">
+          <a href="/en/tags/python">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Python</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/c">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>C</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/hacking">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Hacking</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/programming">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Programming</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/ctf">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>CTF</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/debian">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Debian</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/electronics">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Electronics</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/home-lab">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Home Lab</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/home-server">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Home Server</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/java">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Java</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/mathematik">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Mathematik</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/meilisearch">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Meilisearch</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/microcontrollers">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Microcontrollers</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/postgres">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Postgres</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/programmieren">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Programmieren</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/saltstack">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Saltstack</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/search">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Search</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li></ul>
+  </div>
+</div>
+<script src="/js/jquery-2.2.4.min.cc1cade18c999752b7befe111634889dca8d89b24923775954ecebc68c54fcd3.js" integrity="sha256-zByt4YyZl1K3vv4RFjSIncqNibJJI3dZVOzrxoxU/NM="></script>
+  <script src="/js/feather.4.22.0.min.b727453f71f98f148f18fee3e3e0dbcbdbcb85e2e4c348062cedea5a3aac8e50.js" integrity="sha256-tydFP3H5jxSPGP7j4&#43;Dby9vLheLkw0gGLO3qWjqsjlA="></script>
+  <script src="/js/modernizr-3.6.0.min.41ca4decbf2fa4d2cc4912eec36ec791fd722cb2ed8cc7fa276cf47fd1c1c1c3.js" integrity="sha256-QcpN7L8vpNLMSRLuw27Hkf1yLLLtjMf6J2z0f9HBwcM="></script>
+  <script src="/js/refresh.min.aa9223d82746d0d3993b5365b0ae8059aef4f02a76cf889f905a2548af58c3db.js" integrity="sha256-qpIj2CdG0NOZO1NlsK6AWa708Cp2z4ifkFolSK9Yw9s="></script><script>
+  window.MathJax = {
+    loader: {
+      load: ['core', 'input/tex-base', 'output/chtml'],  
+      source: {
+        'core': '\/js\/mathjax\/core.min.43336576424ba4b50395fe0d04d3da13f3c2fc591f18266c8543d82008ae5b3c.js',
+        'input/tex-base': '\/js\/mathjax\/tex-base.min.23b7c5e0a78e456b5a3d1194d96e2dbad86910508989dfb29e8eb6ae3dfd6e65.js',
+        'output/chtml': '\/js\/mathjax\/chtml.min.1e600d03b382b316d206aa32522d369456ed3a457345a6531bbbb2065857c57f.js',
+        'output/chtml/fonts/tex': '\/js\/mathjax\/tex_out.min.292d92b1100452a91a085e7d2516ba9eadc49fbf8ebde7eca2ca8fbd9a45822a.js'
+      },
+    },
+    chtml: {
+      fontURL: '/fonts' 
+    },
+  };
+</script><script src="/js/mathjax/startup.min.dc0565e353d0d52b80adb89e89e2ceb4b432dbde885d68aac26945798dfc5b5c.js" integrity="sha256-3AVl41PQ1SuArbieieLOtLQy296IXWiqwmlFeY38W1w="></script>
+  <script src="/js/highlight.9.18.1.min.de48c3b870005de703f42af3351a9303fbdae73e95fd84edd0384a422bb9ad8e.js" integrity="sha256-3kjDuHAAXecD9CrzNRqTA/va5z6V/YTt0DhKQiu5rY4="></script>
+  <script src="/js/highlightjs-line-numbers.2.7.0.min.min.8574389d72591abad80c2df1ff35f6f82330a6aa7a036e8f5363f79a66bb1797.js" integrity="sha256-hXQ4nXJZGrrYDC3x/zX2&#43;CMwpqp6A26PU2P3mma7F5c="></script><script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('.codeinline').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+</body>
+</html>
