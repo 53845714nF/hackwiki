@@ -2,6 +2,149 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://hackwiki.de/</loc>
+    <lastmod>2024-03-07T21:22:09+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/tags/homelab/</loc>
+    <lastmod>2024-03-07T21:22:09+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/homelab/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/homelab/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/tags/lldp/</loc>
+    <lastmod>2024-03-07T21:22:09+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/lldp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/lldp/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/tags/mapp/</loc>
+    <lastmod>2024-03-07T21:22:09+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/mapp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/mapp/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/tags/network/</loc>
+    <lastmod>2024-03-07T21:22:09+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/network/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/network/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/tags/proxmox/</loc>
+    <lastmod>2024-03-07T21:22:09+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/proxmox/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/proxmox/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/tags/saltstack/</loc>
+    <lastmod>2024-03-07T21:22:09+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/saltstack/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/saltstack/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/tags/</loc>
+    <lastmod>2024-03-07T21:22:09+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/tags/unifi/</loc>
+    <lastmod>2024-03-07T21:22:09+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/unifi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/unifi/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/blog/proxmox_in_unifi_map/</loc>
+    <lastmod>2024-03-07T21:22:09+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/blog/proxmox_in_unifi_map/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/blog/proxmox_in_unifi_map/"
+                />
+  </url><url>
+    <loc>https://hackwiki.de/tags/virtualization/</loc>
+    <lastmod>2024-03-07T21:22:09+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hackwiki.de/en/tags/virtualization/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hackwiki.de/tags/virtualization/"
+                />
+  </url><url>
     <loc>https://hackwiki.de/tags/debian/</loc>
     <lastmod>2024-03-02T22:37:35+01:00</lastmod>
     <xhtml:link
@@ -13,19 +156,6 @@
                 rel="alternate"
                 hreflang="de"
                 href="https://hackwiki.de/tags/debian/"
-                />
-  </url><url>
-    <loc>https://hackwiki.de/</loc>
-    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hackwiki.de/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hackwiki.de/"
                 />
   </url><url>
     <loc>https://hackwiki.de/tags/meilisearch/</loc>
@@ -80,19 +210,6 @@
                 href="https://hackwiki.de/tags/python/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/tags/saltstack/</loc>
-    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hackwiki.de/en/tags/saltstack/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hackwiki.de/tags/saltstack/"
-                />
-  </url><url>
     <loc>https://hackwiki.de/tags/search/</loc>
     <lastmod>2024-03-02T22:37:35+01:00</lastmod>
     <xhtml:link
@@ -104,19 +221,6 @@
                 rel="alternate"
                 hreflang="de"
                 href="https://hackwiki.de/tags/search/"
-                />
-  </url><url>
-    <loc>https://hackwiki.de/tags/</loc>
-    <lastmod>2024-03-02T22:37:35+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hackwiki.de/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hackwiki.de/tags/"
                 />
   </url><url>
     <loc>https://hackwiki.de/tags/cloud/</loc>
@@ -260,9 +364,6 @@
                 hreflang="de"
                 href="https://hackwiki.de/tags/home-lab/"
                 />
-  </url><url>
-    <loc>https://hackwiki.de/tags/proxmox/</loc>
-    <lastmod>2022-02-16T16:51:35+01:00</lastmod>
   </url><url>
     <loc>https://hackwiki.de/blog/proxmox/</loc>
     <lastmod>2022-02-16T16:51:35+01:00</lastmod>
