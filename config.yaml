@@ -98,7 +98,7 @@ params:
     github: 
       link: 53845714nF
       title: Github
-    copyright: Sebastian Feustel - 2022
+    copyright: Sebastian Feustel - 2024
 
 ###################################################################
 ################## multilanguage support options ##################
@@ -143,4 +143,4 @@ languages:
         github: 
           link: 53845714nF
           title: Github
-        copyright: Sebastian Feustel - 2022
+        copyright: Sebastian Feustel - 2024
