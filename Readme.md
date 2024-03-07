@@ -7,11 +7,6 @@
 hugo new blog/neuereintrag/index.md
 ```
 
-## Blog neu veröffentlichen:
-```
-./publish
-```
-
 ### Metadaten von Bildern entfernen
 ```
 exiftool -all= bild.png
