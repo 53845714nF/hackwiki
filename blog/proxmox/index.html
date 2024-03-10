@@ -74,6 +74,10 @@
         
         
         
+          
+            
+          
+        
         
         
         
@@ -102,15 +106,16 @@
                   
                 
                 
+                  
+                  <a href="https://hackwiki.de/en/blog/proxmox/" class="dropdown-item" 
+                      style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                    EN
+                  </a>
+                
                 
                   
                 
                   
-                    
-                    <a href="https://hackwiki.de/en/" class="dropdown-item" 
-                        style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
-                        EN
-                    </a>
                     
                   
                 
@@ -171,6 +176,10 @@
           
           
           
+            
+              
+            
+          
 
           
           
@@ -199,15 +208,16 @@
                     
                   
                   
+                    
+                    <a href="https://hackwiki.de/en/blog/proxmox/" class="dropdown-item" 
+                        style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                      EN
+                    </a>
+                  
                   
                     
                   
                     
-                      
-                      <a href="https://hackwiki.de/en/" class="dropdown-item" 
-                          style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
-                          EN
-                      </a>
                       
                     
                     
@@ -230,133 +240,107 @@
         <div class="divider"></div>
         
         <section class="section content has-text-justified">
-          <p>Während meiner Arbeitszeit sollte ich mich mit dem Thema Proxmox auseinander setzten. Doch irgendwie hat das Thema auch privat bei mir Einzug gehalten.
-Meine Hardware habe ich ja schon in einem vorherigen Post beschrieben, nun ja auf dieser läuft oh Wunder: Proxmox. 🤯</p>
-<h2 id="virtualisierung">Virtualisierung</h2>
-<p>Ein paar Vorteile der Virtualisierung:</p>
+          <p>Während meiner Ausbildung sollte ich mich mit dem Thema Proxmox auseinandersetzen.
+Doch irgendwie hat dieses Thema auch privat bei mir Einzug gehalten. Nun läuft es sogar auf meiner eigenen Hardware – ein wahres Wunder! 🤯</p>
+<h2 id="virtualisierung-">Virtualisierung 🖥️</h2>
+<p>Die Virtualisierung bietet zahlreiche Vorteile:</p>
 <ul>
-<li>Die vorhandene Hardware kann besser ausgelastet werden.</li>
-<li>Mehrerer Betriebssysteme auf einem Host</li>
-<li>Trennung verschiedener Aufgabenbereiche</li>
-<li>Besseres Handling bei Notfällen – Desaster Recovery</li>
-<li>Kann Verfügbarkeiten erhöhen</li>
-<li>Zentralisierte Verwaltung und Kontrolle</li>
-<li>Fehler- und Sicherheitsisolation</li>
-<li>Migrieren von VM’s auf beliebigen Host</li>
+<li><strong>Bessere Auslastung der Hardware</strong>: Existierende Hardware kann effizienter genutzt werden.</li>
+<li><strong>Mehrere Betriebssysteme auf einem Host</strong>: Verschiedene Betriebssysteme können auf einem einzigen Host ausgeführt werden. Linux, Windows, BSD, etc.</li>
+<li><strong>Trennung verschiedener Aufgabenbereiche</strong>: Isolierte Umgebungen für unterschiedliche Zwecke.</li>
+<li><strong>Verbessertes Handling bei Notfällen</strong>: Schnellere Wiederherstellung (Desaster Recovery).</li>
+<li><strong>Erhöhung der Verfügbarkeit</strong>: Durch Failover-Mechanismen und Hochverfügbarkeitslösungen.</li>
+<li><strong>Zentralisierte Verwaltung und Kontrolle</strong>: Einfache Verwaltung mehrerer virtueller Maschinen.</li>
+<li><strong>Fehler- und Sicherheitsisolation</strong>: Probleme in einer VM beeinträchtigen andere nicht.</li>
+<li><strong>Migrieren von VMs auf beliebige Hosts</strong>: Flexibilität bei der Ressourcennutzung.</li>
 </ul>
-<h2 id="das-unternehmen">Das Unternehmen</h2>
-<p>Die Proxmox Server Solutions GmbH ist ein Unternehmen in Österreich, welches drei wesentliche Produkte anbietet:</p>
+<h2 id="über-proxmox-server-solutions-gmbh--">Über Proxmox Server Solutions GmbH  🏢</h2>
+<p>Die Proxmox Server Solutions GmbH ist ein österreichisches Unternehmen, das drei wesentliche Produkte anbietet:</p>
 <ul>
-<li>Proxmox Virtual Environment (Um dies geht es heute 🙂)</li>
-<li>Proxmox Mail Gateway</li>
-<li>Proxmox Backup Server (Komm ich bestimmt auch noch irgendwann drauf zu sprechen 😉)</li>
+<li><strong>Proxmox Virtual Environment</strong>: Unser heutiges Thema.</li>
+<li><strong>Proxmox Mail Gateway</strong></li>
+<li><strong>Proxmox Backup Server</strong></li>
 </ul>
-<h2 id="subscription">Subscription</h2>
-<p>Vorab Proxmox ist eine Open source Lösung und lässt sich ganz ohne jegliche Lizenzkosten betreiben. Dennoch ist es ein Unternehmen, dass natürlich Geld verdienen möchte.</p>
-<p>Darum gibt es ein vier stufiges Subscription Modell, dass einen Zugriff auf ein Repository bietet, in denen extra getestete Pakete zur Verfügung stehen.
-Des weiteren gibt es je nach Stufe unterschiedlichen Support.</p>
-<p>Ich denke, für die privat betriebenen Home Labs sind dies nicht wirkliche Dinge, die man braucht. Aber als mittleres bis großes Unternehmen will man schon das die Software getestet ist und bei Fragen einer angerufen werden kann.</p>
-<h2 id="system-requirements">System Requirements</h2>
-<p>Welche Vorraussetzungen muss man erfüllen, um seine eigene Promxox Umgebung zu betreiben?</p>
+<h2 id="abo-modell-">Abo-Modell 📜</h2>
+<p>Obwohl Proxmox eine Open-Source-Lösung ist und ohne Lizenzkosten betrieben werden kann, bietet das Unternehmen ein vierstufiges Abonnementmodell an.
+Dieses bietet Zugriff auf ein Repository mit extra getesteten Paketen sowie unterschiedlichen Support je nach Abonnementsstufe.
+Während dies für Privatnutzer möglicherweise nicht erforderlich ist, bietet es mittleren bis großen Unternehmen zusätzliche Sicherheit und Unterstützung.</p>
+<h2 id="systemanforderungen-">Systemanforderungen 📋</h2>
+<p>Um eine eigene Proxmox-Umgebung zu betreiben, müssen bestimmte Anforderungen erfüllt sein:</p>
 <ul>
-<li>CPU: 64bit (Intel EMT64 or AMD64) ( Also normale Computer CPU und keine Raspberry Pi)</li>
-<li>Intel VT/AMD-V capable CPU/Mainboard for KVM full virtualization support</li>
-<li>RAM: 1 GB RAM, plus additional RAM used for guests</li>
-<li>Hard drive (Es sollten über 3GB sein, gibt Fälle, da ist das wichtig.)</li>
-<li>One NIC (Muss idealerweise statische IP vergeben.)</li>
+<li><strong>CPU</strong>: 64-Bit (Intel EMT64 oder AMD64)</li>
+<li><strong>Arbeitsspeicher</strong>: Mindestens 1 GB RAM, zuzüglich des RAMs, der von den Gastsystemen verwendet wird</li>
+<li><strong>Festplatte</strong>: Mindestens 3 GB freier Speicherplatz</li>
+<li><strong>Eine Netzwerkkarte mit statischer IP-Adresse</strong></li>
 </ul>
-<h2 id="installation">Installation</h2>
-<p>Die Installation ähnelt sehr stark einer normalen Linux Installation, was klar ist, da es sich um ein Debian mit vielen Erweiterungen handelt.
-Wichtig ist, wie oben schon geschrieben das bei der Installation nach einer statischen IP Adresse gefragt wird. Sonst ist es einfaches durch klicken.</p>
-<h2 id="webinterface">Webinterface</h2>
-<p>Nach der erfolgreichen Einrichtung begrüßt einen auch schon das Webinterface von Proxmox.
-Zu beachten ist hier, dass https und der Port 8006 verwendet werden muss.</p>
-<p><code>https://&lt;Statische IP&gt;:8006 </code></p>
+<h2 id="installation-">Installation ✨</h2>
+<p>Die Installation von Proxmox ähnelt stark einer normalen Linux-Installation, da es auf Debian basiert.
+Wichtig ist, während der Installation eine statische IP-Adresse zuzuweisen.</p>
+<h2 id="webinterface-">Webinterface 🌐</h2>
+<p>Nach der erfolgreichen Installation begrüßt Sie das übersichtliche Webinterface von Proxmox.
+Beachten Sie, dass HTTPS und der Port 8006 verwendet werden müssen: <code>https://&lt;Statische IP&gt;:8006 </code></p>
 <p><img src="img/webinterface.png" alt="Zeigt das Webinterface von Proxmox"></p>
-<p>Das Webinterface ist recht strukturiert aufgebaut. Auf der linken Seite sind die Virtuellen Maschinen und Container aufgelistet.
-Wenn auf diese klickt wird, bekommt man mehr Informationen über diese Maschinen angezeigt.</p>
+<p>Auf der linken Seite sind die virtuellen Maschinen und Container aufgelistet.
+Ein Klick auf eine Maschine liefert weitere Informationen.</p>
 <h2 id="container-vs-vms">Container vs VMs</h2>
 <p><img src="img/lxc_vs_kvm.png" alt="Zeigt die Unterschiede zwischen KVM und Containern"></p>
-<p>Der große Unterschied zu normalen Virtuelllen Maschinen ist, dass die Virtualisierung auf Kernel Ebenen von statten geht.
-Es wird also keine Hardware vorgespielt, auf dem dann das eigentliche Betriebssystem installiert wird.</p>
-<h3 id="lxc">LXC</h3>
+<p>Die Virtualisierung mit Proxmox kann entweder auf Container- oder auf VM-Ebene erfolgen.</p>
+<h3 id="lxc-container-">LXC (Container) 📦</h3>
 <p>Eine kurze Auflistung die LXC besonders machen:</p>
 <ul>
-<li>Nur Linux 🐧</li>
-<li>kein Windows/BSD</li>
-<li>brauchen weniger Ram</li>
-<li>teilweise unsicher (&rsquo;lxd&rsquo; Privilege Escalation)</li>
-<li>kein eingebautes snapshot werden höstens vom File System übernommen</li>
-<li>keine live Migration</li>
-<li>einzelne Features müssen</li>
+<li>Nur für Linux geeignet</li>
+<li>Geringerer RAM-Bedarf</li>
+<li>Teilweise Sicherheitsbedenken</li>
+<li>Keine eingebauten Snapshots</li>
+<li>Keine Live-Migration</li>
 </ul>
-<h3 id="kvm">KVM</h3>
+<h3 id="kvm-vms">KVM (VMs)🖥️</h3>
 <p>Sind klassische WMs</p>
 <ul>
-<li>Kann alle Betriebssysteme installieren</li>
-<li>brauchen oft mehr Ram</li>
-<li>Die Technologie ist älter und es gibt weniger Sicherheitslücken, die aufgedeckt werden</li>
-<li>Es sind Snapshots in das mit eingebaut 📸</li>
-<li>Live Migration ist möglich</li>
-<li>Templates</li>
+<li>Kann alle Betriebssysteme hosten</li>
+<li>Höherer RAM-Bedarf</li>
+<li>Weniger Sicherheitslücken</li>
+<li>Eingebaute Snapshots</li>
+<li>Live-Migration möglich</li>
 </ul>
-<h2 id="cluster">Cluster</h2>
-<p>Ein Thema was wohl wenige privat Anwender betrifft, aber ich will kurz ein paar Worte los werden.
-Es gibt die Möglichkeit Proxmox auf mehren Servern zu installieren und diese dann miteinander zu verbinden.
-Die zwei großen Vorteile liegen auf der Hand: Ressourcen zu teilen und Ausfall Sicherheit herzustellen.</p>
+<h2 id="cluster-">Cluster 🤝</h2>
+<p>Proxmox ermöglicht die Einrichtung von Clustern, um Ressourcen zu teilen und Ausfallsicherheit zu gewährleisten.
+Dies ist besonders für Unternehmen interessant, die eine hohe Verfügbarkeit (englisch high availability, HA) benötigen.</p>
 <h2 id="netzwerke-">Netzwerke 🌐</h2>
-<p>Kann an jedem Proxmox Host konfiguriert werden:</p>
-<h3 id="klassise-linux-netzwerk-konfiguration">Klassise Linux Netzwerk Konfiguration</h3>
+<p>Proxmox unterstützt verschiedene Netzwerkkonfigurationen, darunter klassische Linux-Konfigurationen sowie Open vSwitch (OVS).</p>
+<h2 id="speicher-">Speicher 💾</h2>
+<p>Verschiedene Speicheranbindungen sind möglich, darunter <code>CIFS</code>, <code>NFS</code>, <code>iSCSI</code> und <code>Ceph</code>.</p>
 <ul>
-<li>Brige</li>
-<li>Bonds</li>
-<li>VLAN</li>
-</ul>
-<h3 id="open-vswitch-ovs">Open vSwitch (OVS)</h3>
-<ul>
-<li>Command Line =  ovs-vsctl</li>
-<li>Brige</li>
-<li>Bond</li>
-<li>VLAN</li>
-</ul>
-<h2 id="storage-">Storage 💾</h2>
-<p>Speicheranbindung ist für einige ein Thema, gerade wenn man vielleicht schon ein NAS im Betrieb hat.
-Ich habe jedoch alle meine Platten lokal auf meinen Host eingebaut. Ein Terabyte als LVM-Thin für meine VMs.
-Aber hier die besten Möglichkeiten shared Storage einzubinden.</p>
-<h3 id="cifs">CIFS</h3>
-<p>Proxmox unterstützt SMB Version 2 und 3. Es wird aber als langsam beschrieben.</p>
-<h3 id="nfs">NFS</h3>
-<p>Es werden alle NFS (Network File System) Versionen unterstützt. Die vierte soll am schnellsten sein.
-Ich finde es einfach, schnell und praktisch.</p>
-<h3 id="iscsi">ISCSI</h3>
-<p>Bei ISCSI gibt es zwei Wege dies einzurichten:</p>
+<li><strong>CIFS</strong>:Proxmox unterstützt SMB Version 2 und 3. Es wird aber als langsam beschrieben.</li>
+<li><strong>NFS</strong>: Es werden alle NFS (Network File System) Versionen unterstützt. Die vierte soll am schnellsten sein. Ich finde es einfach, schnell und praktisch.</li>
+<li><strong>ISCSI</strong>: Bei ISCSI gibt es zwei Wege dies einzurichten:
 <ul>
 <li>Der erste ist, die LUN (Logical Unit Number) an die VMs durch zu reichen.</li>
 <li>Der zweite Weg ist es das ISCSI einzubinden und dann im LVM, ZFS oder Directory zu formatieren. Dies ist aufwändiger.</li>
 </ul>
-<h2 id="migration-von-esxi">Migration von ESXi</h2>
+</li>
+<li><strong>Ceph</strong>: Ceph ist ein verteiltes Dateisystem, das auf Objektspeicher basiert. Es ist sehr komplex und wird eher in großen Umgebungen eingesetzt.</li>
+</ul>
+<h2 id="migration-von-esxi-">Migration von ESXi 🚚</h2>
 <p>Ein Punkt, der auch selten für Privat Anwender interessant ist. Aber ab und zu kommt es vor, dass Dienste, die man betreiben möchte als virtuelle Appliances zur Verfügung stehen.
 Diese muss man dann umwandeln. Hier eine kurzer Ablauf:</p>
 <ol>
-<li>.vmdk Dateien kopieren zum Proxmox</li>
-<li>Die .vmdk Dateien in qcow2 Format umwandeln:
+<li><code>.vmdk</code> Dateien kopieren zum Proxmox</li>
+<li>Die <code>.vmdk</code> Dateien in <code>qcow2</code> Format umwandeln:
 <code>qemu-img convert -f vmdk ten4sg.vmdk -O qcow2 /var/lib/vz/images/123/ten4sg</code></li>
 <li>VM erstellen am Besten im Webinterface</li>
-<li>Einbinden mit:
-<code>qm importdisk 123 ten4sg local-1-HDD --format qcow2 </code></li>
+<li>Einbinden mit:<code>qm importdisk 123 ten4sg local-1-HDD --format qcow2 </code></li>
 <li>Einhängen und alte Platte löschen auch im Webinterface.</li>
 </ol>
+<p>Ich habe ein Script geschrieben, welches VMs von <a href="https://www.vulnhub.com/">vulnhub</a>
+herunterlädt und in Proxmox importiert.
+Es heißt <a href="https://github.com/53845714nF/vuln2pve">vuln2pve</a>. Dies bedient sich ähnlicher technicken. Da auf Vulnhub die VMs meistens im verschiedenen Formaten vorliegen, werden diese auch umgewandelt.</p>
+<h2 id="api-">API 🤖</h2>
+<p>Proxmox bietet eine API an, die es ermöglicht, Proxmox über ein Skript zu steuern.
+Das ist besonders für größere Umgebungen interessant. Gibt auch ein <code>Terraform</code> Provider für diese API.</p>
 <h2 id="app-">App 📱</h2>
 <p>Proxmox bietet eine App, mit der man auch per Smartphone sein Proxmox Instanz administrieren kann.
 Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende ich sie eher selten.</p>
-<h2 id="andere-features">Andere Features</h2>
-<ul>
-<li>ZFS (Zettabyte File System)</li>
-<li>Ceph</li>
-<li>Vlan/Vxlan</li>
-<li>API</li>
-<li>Hochverfügbarkeit (englisch high availability, HA)</li>
-</ul>
 
         </section>
       </div>
@@ -580,6 +564,24 @@ Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende
           </a>
       </li>
       <li class="no-children">
+          <a href="/tags/proxmox">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Proxmox</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
           <a href="/tags/python">
             <div class="columns">
               
@@ -588,6 +590,42 @@ Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende
                     <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Python</td>
                     <td class="has-text-right" >
                         <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/virtualization">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Virtualization</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/containers">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>containers</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
                       
                     </td>
                     
@@ -634,6 +672,42 @@ Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende
           </a>
       </li>
       <li class="no-children">
+          <a href="/tags/linux">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Linux</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/lxc">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>lxc</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
           <a href="/tags/mikrocontroller">
             <div class="columns">
               
@@ -652,12 +726,12 @@ Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende
           </a>
       </li>
       <li class="no-children">
-          <a href="/tags/proxmox">
+          <a href="/tags/network">
             <div class="columns">
               
               <table width="100%">  
                   <tr>
-                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Proxmox</td>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Network</td>
                     <td class="has-text-right" >
                         <div class="tag-number">2</div>
                       
@@ -706,6 +780,24 @@ Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende
           </a>
       </li>
       <li class="no-children">
+          <a href="/tags/app">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>App</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
           <a href="/tags/assembler">
             <div class="columns">
               
@@ -742,12 +834,48 @@ Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende
           </a>
       </li>
       <li class="no-children">
+          <a href="/tags/cluster">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Cluster</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
           <a href="/tags/debian">
             <div class="columns">
               
               <table width="100%">  
                   <tr>
                     <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Debian</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/distrobuilder">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Distrobuilder</td>
                     <td class="has-text-right" >
                         <div class="tag-number">1</div>
                       
@@ -784,6 +912,24 @@ Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende
               <table width="100%">  
                   <tr>
                     <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Git</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/golang">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>golang</td>
                     <td class="has-text-right" >
                         <div class="tag-number">1</div>
                       
@@ -838,6 +984,24 @@ Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende
               <table width="100%">  
                   <tr>
                     <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Java</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/kvm">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>KVM</td>
                     <td class="has-text-right" >
                         <div class="tag-number">1</div>
                       
@@ -922,12 +1086,30 @@ Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende
           </a>
       </li>
       <li class="no-children">
-          <a href="/tags/network">
+          <a href="/tags/migration">
             <div class="columns">
               
               <table width="100%">  
                   <tr>
-                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Network</td>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Migration</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/tags/openwrt">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>OpenWrt</td>
                     <td class="has-text-right" >
                         <div class="tag-number">1</div>
                       
@@ -994,12 +1176,12 @@ Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende
           </a>
       </li>
       <li class="no-children">
-          <a href="/tags/unifi">
+          <a href="/tags/storage">
             <div class="columns">
               
               <table width="100%">  
                   <tr>
-                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Unifi</td>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Storage</td>
                     <td class="has-text-right" >
                         <div class="tag-number">1</div>
                       
@@ -1012,12 +1194,12 @@ Ist recht gut, um mal zu gucken, ob und wie die Maschinen laufen, sonst verwende
           </a>
       </li>
       <li class="no-children">
-          <a href="/tags/virtualization">
+          <a href="/tags/unifi">
             <div class="columns">
               
               <table width="100%">  
                   <tr>
-                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Virtualization</td>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Unifi</td>
                     <td class="has-text-right" >
                         <div class="tag-number">1</div>
                       
