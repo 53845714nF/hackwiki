@@ -44,6 +44,11 @@ install_lldpd:
 
 This automation makes it easy for me to ensure that all my machines have a running LLDP daemon.
 
+Very helpful command: 
+{{< codeWide >}}
+lldpcli show neighbors
+{{< /codeWide >}}
+
 Another issue was that all VMs and LXC containers are connected to a Linux bridge. This bridge filters the LLDP packet and doesn't forward it. However, there is a solution, which is detailed here: [MAC Bridge Filtered MAC Group Addresses](https://interestingtraffic.nl/2017/11/21/an-oddly-specific-post-about-group_fwd_mask/)
 
 In short, you need to run `echo 16384 > /sys/class/net/vmbr0/bridge/group_fwd_mask`, replacing `vmbr0` with the appropriate bridge. I also installed `lldpd` on the Proxmox host, which is important.

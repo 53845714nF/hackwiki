@@ -48,6 +48,12 @@ install_lldpd:
 
 Diese Automatisierung erleichtert es mir, sicherzustellen, dass alle meine Maschinen einen laufenden LLDP-Daemon haben.
 
+Sehr hilfreicher command: 
+{{< codeWide >}}
+lldpcli show neighbors
+{{< /codeWide >}}
+
+
 Ein weiteres Problem bestand darin, dass alle VMs und LXC-Container an einer Linux Bridge hängen. Diese filtert das LLDP-Paket und leitet es nicht weiter. Es gibt jedoch eine Lösung, die hier ausführlich beschrieben wird: [MAC Bridge Filtered MAC Group Addresses](https://interestingtraffic.nl/2017/11/21/an-oddly-specific-post-about-group_fwd_mask/)
 
 Kurz gesagt, muss man `echo 16384 > /sys/class/net/vmbr0/bridge/group_fwd_mask` ausführen, wobei `vmbr0` durch die entsprechende Bridge ersetzt werden muss.
