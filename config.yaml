@@ -1,4 +1,4 @@
-baseURL: https://hackwiki.de
+baseURL: https://www.hackwiki.de
 languageCode: de-de
 title: Hackwiki
 theme: hugo-refresh
