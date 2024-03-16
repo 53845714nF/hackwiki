@@ -2,611 +2,611 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hackwiki.de/en/tags/containers/</loc>
+    <loc>https://www.hackwiki.de/en/tags/containers/</loc>
     <lastmod>2024-03-10T19:16:43+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/containers/"
+                href="https://www.hackwiki.de/tags/containers/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/containers/"
+                href="https://www.hackwiki.de/en/tags/containers/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/distrobuilder/</loc>
+    <loc>https://www.hackwiki.de/en/tags/distrobuilder/</loc>
     <lastmod>2024-03-10T19:16:43+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/distrobuilder/"
+                href="https://www.hackwiki.de/tags/distrobuilder/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/distrobuilder/"
+                href="https://www.hackwiki.de/en/tags/distrobuilder/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/blog/distrobuilder/</loc>
+    <loc>https://www.hackwiki.de/en/blog/distrobuilder/</loc>
     <lastmod>2024-03-10T19:16:43+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/blog/distrobuilder/"
+                href="https://www.hackwiki.de/blog/distrobuilder/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/blog/distrobuilder/"
+                href="https://www.hackwiki.de/en/blog/distrobuilder/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/golang/</loc>
+    <loc>https://www.hackwiki.de/en/tags/golang/</loc>
     <lastmod>2024-03-10T19:16:43+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/golang/"
+                href="https://www.hackwiki.de/tags/golang/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/golang/"
+                href="https://www.hackwiki.de/en/tags/golang/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/</loc>
+    <loc>https://www.hackwiki.de/en/</loc>
     <lastmod>2024-03-10T19:16:43+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/"
+                href="https://www.hackwiki.de/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/"
+                href="https://www.hackwiki.de/en/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/linux/</loc>
+    <loc>https://www.hackwiki.de/en/tags/linux/</loc>
     <lastmod>2024-03-10T19:16:43+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/linux/"
+                href="https://www.hackwiki.de/tags/linux/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/linux/"
+                href="https://www.hackwiki.de/en/tags/linux/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/lxc/</loc>
+    <loc>https://www.hackwiki.de/en/tags/lxc/</loc>
     <lastmod>2024-03-10T19:16:43+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/lxc/"
+                href="https://www.hackwiki.de/tags/lxc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/lxc/"
+                href="https://www.hackwiki.de/en/tags/lxc/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/openwrt/</loc>
+    <loc>https://www.hackwiki.de/en/tags/openwrt/</loc>
     <lastmod>2024-03-10T19:16:43+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/openwrt/"
+                href="https://www.hackwiki.de/tags/openwrt/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/openwrt/"
+                href="https://www.hackwiki.de/en/tags/openwrt/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/proxmox/</loc>
+    <loc>https://www.hackwiki.de/en/tags/proxmox/</loc>
     <lastmod>2024-03-10T19:16:43+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/proxmox/"
+                href="https://www.hackwiki.de/tags/proxmox/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/proxmox/"
+                href="https://www.hackwiki.de/en/tags/proxmox/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/</loc>
+    <loc>https://www.hackwiki.de/en/tags/</loc>
     <lastmod>2024-03-10T19:16:43+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/"
+                href="https://www.hackwiki.de/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/"
+                href="https://www.hackwiki.de/en/tags/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/virtualization/</loc>
+    <loc>https://www.hackwiki.de/en/tags/virtualization/</loc>
     <lastmod>2024-03-10T19:16:43+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/virtualization/"
+                href="https://www.hackwiki.de/tags/virtualization/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/virtualization/"
+                href="https://www.hackwiki.de/en/tags/virtualization/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/homelab/</loc>
+    <loc>https://www.hackwiki.de/en/tags/homelab/</loc>
     <lastmod>2024-03-07T21:22:09+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/homelab/"
+                href="https://www.hackwiki.de/tags/homelab/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/homelab/"
+                href="https://www.hackwiki.de/en/tags/homelab/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/lldp/</loc>
+    <loc>https://www.hackwiki.de/en/tags/lldp/</loc>
     <lastmod>2024-03-07T21:22:09+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/lldp/"
+                href="https://www.hackwiki.de/tags/lldp/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/lldp/"
+                href="https://www.hackwiki.de/en/tags/lldp/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/mapp/</loc>
+    <loc>https://www.hackwiki.de/en/tags/mapp/</loc>
     <lastmod>2024-03-07T21:22:09+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/mapp/"
+                href="https://www.hackwiki.de/tags/mapp/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/mapp/"
+                href="https://www.hackwiki.de/en/tags/mapp/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/network/</loc>
+    <loc>https://www.hackwiki.de/en/tags/network/</loc>
     <lastmod>2024-03-07T21:22:09+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/network/"
+                href="https://www.hackwiki.de/tags/network/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/network/"
+                href="https://www.hackwiki.de/en/tags/network/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/saltstack/</loc>
+    <loc>https://www.hackwiki.de/en/tags/saltstack/</loc>
     <lastmod>2024-03-07T21:22:09+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/saltstack/"
+                href="https://www.hackwiki.de/tags/saltstack/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/saltstack/"
+                href="https://www.hackwiki.de/en/tags/saltstack/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/unifi/</loc>
+    <loc>https://www.hackwiki.de/en/tags/unifi/</loc>
     <lastmod>2024-03-07T21:22:09+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/unifi/"
+                href="https://www.hackwiki.de/tags/unifi/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/unifi/"
+                href="https://www.hackwiki.de/en/tags/unifi/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/blog/proxmox_in_unifi_map/</loc>
+    <loc>https://www.hackwiki.de/en/blog/proxmox_in_unifi_map/</loc>
     <lastmod>2024-03-07T21:22:09+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/blog/proxmox_in_unifi_map/"
+                href="https://www.hackwiki.de/blog/proxmox_in_unifi_map/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/blog/proxmox_in_unifi_map/"
+                href="https://www.hackwiki.de/en/blog/proxmox_in_unifi_map/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/debian/</loc>
+    <loc>https://www.hackwiki.de/en/tags/debian/</loc>
     <lastmod>2024-03-02T22:37:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/debian/"
+                href="https://www.hackwiki.de/tags/debian/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/debian/"
+                href="https://www.hackwiki.de/en/tags/debian/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/meilisearch/</loc>
+    <loc>https://www.hackwiki.de/en/tags/meilisearch/</loc>
     <lastmod>2024-03-02T22:37:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/meilisearch/"
+                href="https://www.hackwiki.de/tags/meilisearch/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/meilisearch/"
+                href="https://www.hackwiki.de/en/tags/meilisearch/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/blog/meilisearch/</loc>
+    <loc>https://www.hackwiki.de/en/blog/meilisearch/</loc>
     <lastmod>2024-03-02T22:37:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/blog/meilisearch/"
+                href="https://www.hackwiki.de/blog/meilisearch/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/blog/meilisearch/"
+                href="https://www.hackwiki.de/en/blog/meilisearch/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/postgres/</loc>
+    <loc>https://www.hackwiki.de/en/tags/postgres/</loc>
     <lastmod>2024-03-02T22:37:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/postgres/"
+                href="https://www.hackwiki.de/tags/postgres/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/postgres/"
+                href="https://www.hackwiki.de/en/tags/postgres/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/python/</loc>
+    <loc>https://www.hackwiki.de/en/tags/python/</loc>
     <lastmod>2024-03-02T22:37:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/python/"
+                href="https://www.hackwiki.de/tags/python/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/python/"
+                href="https://www.hackwiki.de/en/tags/python/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/search/</loc>
+    <loc>https://www.hackwiki.de/en/tags/search/</loc>
     <lastmod>2024-03-02T22:37:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/search/"
+                href="https://www.hackwiki.de/tags/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/search/"
+                href="https://www.hackwiki.de/en/tags/search/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/c/</loc>
+    <loc>https://www.hackwiki.de/en/tags/c/</loc>
     <lastmod>2022-03-03T02:24:45+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/c/"
+                href="https://www.hackwiki.de/tags/c/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/c/"
+                href="https://www.hackwiki.de/en/tags/c/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/ctf/</loc>
+    <loc>https://www.hackwiki.de/en/tags/ctf/</loc>
     <lastmod>2022-03-03T02:24:45+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/ctf/"
+                href="https://www.hackwiki.de/tags/ctf/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/ctf/"
+                href="https://www.hackwiki.de/en/tags/ctf/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/electronics/</loc>
+    <loc>https://www.hackwiki.de/en/tags/electronics/</loc>
     <lastmod>2022-03-03T02:24:45+01:00</lastmod>
   </url><url>
-    <loc>https://hackwiki.de/en/tags/hacking/</loc>
-    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hackwiki.de/tags/hacking/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hackwiki.de/en/tags/hacking/"
-                />
-  </url><url>
-    <loc>https://hackwiki.de/en/tags/microcontrollers/</loc>
-    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
-  </url><url>
-    <loc>https://hackwiki.de/en/tags/programming/</loc>
-    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
-  </url><url>
-    <loc>https://hackwiki.de/en/blog/fault_injection/</loc>
+    <loc>https://www.hackwiki.de/en/tags/hacking/</loc>
     <lastmod>2022-03-03T02:24:45+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/blog/fault_injection/"
+                href="https://www.hackwiki.de/tags/hacking/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/blog/fault_injection/"
+                href="https://www.hackwiki.de/en/tags/hacking/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/app/</loc>
+    <loc>https://www.hackwiki.de/en/tags/microcontrollers/</loc>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
+  </url><url>
+    <loc>https://www.hackwiki.de/en/tags/programming/</loc>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
+  </url><url>
+    <loc>https://www.hackwiki.de/en/blog/fault_injection/</loc>
+    <lastmod>2022-03-03T02:24:45+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://www.hackwiki.de/blog/fault_injection/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hackwiki.de/en/blog/fault_injection/"
+                />
+  </url><url>
+    <loc>https://www.hackwiki.de/en/tags/app/</loc>
     <lastmod>2022-02-16T16:51:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/app/"
+                href="https://www.hackwiki.de/tags/app/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/app/"
+                href="https://www.hackwiki.de/en/tags/app/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/cluster/</loc>
+    <loc>https://www.hackwiki.de/en/tags/cluster/</loc>
     <lastmod>2022-02-16T16:51:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/cluster/"
+                href="https://www.hackwiki.de/tags/cluster/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/cluster/"
+                href="https://www.hackwiki.de/en/tags/cluster/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/home-lab/</loc>
+    <loc>https://www.hackwiki.de/en/tags/home-lab/</loc>
     <lastmod>2022-02-16T16:51:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/home-lab/"
+                href="https://www.hackwiki.de/tags/home-lab/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/home-lab/"
+                href="https://www.hackwiki.de/en/tags/home-lab/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/kvm/</loc>
+    <loc>https://www.hackwiki.de/en/tags/kvm/</loc>
     <lastmod>2022-02-16T16:51:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/kvm/"
+                href="https://www.hackwiki.de/tags/kvm/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/kvm/"
+                href="https://www.hackwiki.de/en/tags/kvm/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/migration/</loc>
+    <loc>https://www.hackwiki.de/en/tags/migration/</loc>
     <lastmod>2022-02-16T16:51:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/migration/"
+                href="https://www.hackwiki.de/tags/migration/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/migration/"
+                href="https://www.hackwiki.de/en/tags/migration/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/blog/proxmox/</loc>
+    <loc>https://www.hackwiki.de/en/blog/proxmox/</loc>
     <lastmod>2022-02-16T16:51:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/blog/proxmox/"
+                href="https://www.hackwiki.de/blog/proxmox/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/blog/proxmox/"
+                href="https://www.hackwiki.de/en/blog/proxmox/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/storage/</loc>
+    <loc>https://www.hackwiki.de/en/tags/storage/</loc>
     <lastmod>2022-02-16T16:51:35+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/storage/"
+                href="https://www.hackwiki.de/tags/storage/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/storage/"
+                href="https://www.hackwiki.de/en/tags/storage/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/blog/hacker/</loc>
+    <loc>https://www.hackwiki.de/en/blog/hacker/</loc>
     <lastmod>2022-02-11T22:06:16+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/blog/hacker/"
+                href="https://www.hackwiki.de/blog/hacker/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/blog/hacker/"
+                href="https://www.hackwiki.de/en/blog/hacker/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/blog/kleine_gau%C3%9F/</loc>
+    <loc>https://www.hackwiki.de/en/blog/kleine_gau%C3%9F/</loc>
     <lastmod>2021-09-26T15:22:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/blog/kleine_gau%C3%9F/"
+                href="https://www.hackwiki.de/blog/kleine_gau%C3%9F/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/blog/kleine_gau%C3%9F/"
+                href="https://www.hackwiki.de/en/blog/kleine_gau%C3%9F/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/mathematik/</loc>
+    <loc>https://www.hackwiki.de/en/tags/mathematik/</loc>
     <lastmod>2021-09-26T15:22:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/mathematik/"
+                href="https://www.hackwiki.de/tags/mathematik/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/mathematik/"
+                href="https://www.hackwiki.de/en/tags/mathematik/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/programmieren/</loc>
+    <loc>https://www.hackwiki.de/en/tags/programmieren/</loc>
     <lastmod>2021-09-26T15:22:24+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/programmieren/"
+                href="https://www.hackwiki.de/tags/programmieren/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/programmieren/"
+                href="https://www.hackwiki.de/en/tags/programmieren/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/blog/homelab_vs_homeserver/</loc>
+    <loc>https://www.hackwiki.de/en/blog/homelab_vs_homeserver/</loc>
     <lastmod>2021-09-25T14:07:04+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/blog/homelab_vs_homeserver/"
+                href="https://www.hackwiki.de/blog/homelab_vs_homeserver/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/blog/homelab_vs_homeserver/"
+                href="https://www.hackwiki.de/en/blog/homelab_vs_homeserver/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/home-server/</loc>
+    <loc>https://www.hackwiki.de/en/tags/home-server/</loc>
     <lastmod>2021-09-25T14:07:04+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/home-server/"
+                href="https://www.hackwiki.de/tags/home-server/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/home-server/"
+                href="https://www.hackwiki.de/en/tags/home-server/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/credits/</loc>
+    <loc>https://www.hackwiki.de/en/credits/</loc>
     <lastmod>2021-09-19T13:07:39+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/credits/"
+                href="https://www.hackwiki.de/credits/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/credits/"
+                href="https://www.hackwiki.de/en/credits/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/blog/hallowelt/</loc>
+    <loc>https://www.hackwiki.de/en/blog/hallowelt/</loc>
     <lastmod>2021-08-27T16:29:12+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/blog/hallowelt/"
+                href="https://www.hackwiki.de/blog/hallowelt/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/blog/hallowelt/"
+                href="https://www.hackwiki.de/en/blog/hallowelt/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/tags/java/</loc>
+    <loc>https://www.hackwiki.de/en/tags/java/</loc>
     <lastmod>2021-08-27T16:29:12+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/tags/java/"
+                href="https://www.hackwiki.de/tags/java/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/tags/java/"
+                href="https://www.hackwiki.de/en/tags/java/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/blog/</loc>
+    <loc>https://www.hackwiki.de/en/blog/</loc>
     <lastmod>2021-08-25T00:37:23+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/blog/"
+                href="https://www.hackwiki.de/blog/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/blog/"
+                href="https://www.hackwiki.de/en/blog/"
                 />
   </url><url>
-    <loc>https://hackwiki.de/en/about/</loc>
+    <loc>https://www.hackwiki.de/en/about/</loc>
     <lastmod>2019-06-17T23:53:00+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hackwiki.de/about/"
+                href="https://www.hackwiki.de/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hackwiki.de/en/about/"
+                href="https://www.hackwiki.de/en/about/"
                 />
   </url>
 </urlset>
