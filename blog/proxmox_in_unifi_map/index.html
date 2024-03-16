@@ -266,6 +266,9 @@ der das Paket auf allen VMs und LXC-Containern installiert:</p>
     - name: lldpd</code></pre></div>
 </div>
 <p>Diese Automatisierung erleichtert es mir, sicherzustellen, dass alle meine Maschinen einen laufenden LLDP-Daemon haben.</p>
+<p>Sehr hilfreicher command:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">lldpcli show neighbors</code></pre></div>
+</div></p>
 <p>Ein weiteres Problem bestand darin, dass alle VMs und LXC-Container an einer Linux Bridge hängen. Diese filtert das LLDP-Paket und leitet es nicht weiter. Es gibt jedoch eine Lösung, die hier ausführlich beschrieben wird: <a href="https://interestingtraffic.nl/2017/11/21/an-oddly-specific-post-about-group_fwd_mask/">MAC Bridge Filtered MAC Group Addresses</a></p>
 <p>Kurz gesagt, muss man <code>echo 16384 &gt; /sys/class/net/vmbr0/bridge/group_fwd_mask</code> ausführen, wobei <code>vmbr0</code> durch die entsprechende Bridge ersetzt werden muss.
 Auf dem Proxmox-Host habe ich auch <code>lldpd</code> installiert, was wichtig ist.</p>

@@ -262,6 +262,9 @@ It&rsquo;s often used to read neighborhood information from network devices.</p>
     - name: lldpd</code></pre></div>
 </div>
 <p>This automation makes it easy for me to ensure that all my machines have a running LLDP daemon.</p>
+<p>Very helpful command:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">lldpcli show neighbors</code></pre></div>
+</div></p>
 <p>Another issue was that all VMs and LXC containers are connected to a Linux bridge. This bridge filters the LLDP packet and doesn&rsquo;t forward it. However, there is a solution, which is detailed here: <a href="https://interestingtraffic.nl/2017/11/21/an-oddly-specific-post-about-group_fwd_mask/">MAC Bridge Filtered MAC Group Addresses</a></p>
 <p>In short, you need to run <code>echo 16384 &gt; /sys/class/net/vmbr0/bridge/group_fwd_mask</code>, replacing <code>vmbr0</code> with the appropriate bridge. I also installed <code>lldpd</code> on the Proxmox host, which is important.</p>
 <h2 id="result-">Result 🎉</h2>
