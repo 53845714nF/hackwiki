@@ -118,6 +118,8 @@ I have written a script that downloads VMs from [vulnhub](https://www.vulnhub.co
 and imports them into Proxmox.
 It is called [vuln2pve](https://github.com/53845714nF/vuln2pve). This uses similar techniques. Since the VMs on Vulnhub are usually available in different formats, these are also converted.
 
+Additional note 26.03.2024: Proxmox has now also released a tool that makes it easier to migrate from ESXi to Proxmox. [Proxmox Wiki](https://pve.proxmox.com/wiki/Migrate_to_Proxmox_VE#Automatic_ESXi_Import:_Step_by_Step)
+
 ## API 🤖
 Proxmox offers an API that allows Proxmox to be controlled via a script. 
 This is particularly interesting for larger environments. There is also a `Terraform` provider for this API.
