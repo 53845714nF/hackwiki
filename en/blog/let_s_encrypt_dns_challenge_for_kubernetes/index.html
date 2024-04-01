@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><link rel="icon" href="/favicon_main.svg"><meta charset="utf-8" />
+<meta name="theme-color" content="#6495ed" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" /><meta property="og:url"  content="https://www.hackwiki.de/en/blog/let_s_encrypt_dns_challenge_for_kubernetes/" />
+    <meta property="og:type" content="article" /><meta property="og:title" content="DNS Challenge for Kubernetes 📃" /><meta property="og:description" content="Learn how to set up the DNS Challenge for Let&#39;s Encrypt in your k3s cluster." /><meta property="og:image:width"  content="600" />
+        <meta property="og:image:height" content="400" /><meta property="og:image" content="https://www.hackwiki.de/en/blog/let_s_encrypt_dns_challenge_for_kubernetes/img/kubernetes_hu826e8e87ef29d4ad5e451d5f455c1605_14363_600x0_resize_q75_box.jpg" /><title>Hackwiki - DNS Challenge for Kubernetes 📃</title>
+
+    
+<link href="/fonts/IBM_plex/IBM_Plex.css" rel="stylesheet">
+<link href="/fonts/Inter/Inter.css" rel="stylesheet">
+<link href="/fonts/Inter/Inter.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/style.min.3e564f6258d36942f5e0ba0e66447a4b1c70249c0031ae3d23f86ae0f35958c5.css" integrity="sha256-PlZPYljTaUL14LoOZkR6SxxwJJwAMa49I/hq4PNZWMU=">
+<link rel="stylesheet" type="text/css" href="/css/monokai-sublime.9.15.8.min.min.3a5d282f03108101d715e80fd4c07b55502ec4673fc063f2b6e415d4def5b354.css" integrity="sha256-Ol0oLwMQgQHXFegP1MB7VVAuxGc/wGPytuQV1N71s1Q=">
+<link rel="stylesheet" type="text/css" href="/css/all.min.min.78ba45f6dd079d837eaf09abe8339f2293ed8be1f18fd28d291cfb6ac207e7dc.css" integrity="sha256-eLpF9t0HnYN&#43;rwmr6DOfIpPti&#43;Hxj9KNKRz7asIH59w=">
+<link rel="stylesheet" type="text/css" href="/css/refresh.min.a2c55bdc9e9b7ef0d36e8bea10f714415e0534c59a956e5530f5e8f0e86a45d9.css" integrity="sha256-osVb3J6bfvDTbovqEPcUQV4FNMWalW5VMPXo8OhqRdk=">
+<link rel="stylesheet" type="text/css" href="/css/devicon.min.min.13fddf418611477a10293a87542de7703396184696bd8cf50642c4c72994c78a.css" integrity="sha256-E/3fQYYRR3oQKTqHVC3ncDOWGEaWvYz1BkLExymUx4o=">
+    
+
+  </head>
+  <body>
+     
+
+    <div id="preloader">
+      <div id="status"></div>
+    </div><nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+
+      
+      
+      
+      <a class="navbar-item">
+        <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+        <div class="navbar-item left-menu-icon-wrapper">
+          Tags
+        </div>
+      </a>
+
+      <div class="navbar-item is-expanded"></div>
+      <a class="navbar-item is-hidden-desktop">  
+        <div data-target="navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
+          Menu
+        </div>
+        <div data-target="navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+      </a>
+    </div><div id="navbar-menu" class="navbar-menu is-static">
+      
+      <div class="navbar-end">
+        
+          <a href="/en/" class="navbar-item is-secondary"><i class="fa fa-home" style="color:#6495ed;">&nbsp;</i>Homepage</a><a href="/en/about/" class="navbar-item is-secondary"><i class="fa fa-bookmark" style="color:#6495ed;">&nbsp;</i>About Me</a><a href="/en/blog/" class="navbar-item is-secondary"><i class="fa fa-book" style="color:#6495ed;">&nbsp;</i>Blog</a>
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+        
+          
+            
+          
+        
+        
+        
+        
+        
+        <div class="navbar-item">
+          <div class="dropdown is-hoverable is-centered" >
+            <div class="dropdown-trigger" >
+              <button class="button is-active" 
+              style="color:#999;  
+                    border-color:#6495ed; 
+                    box-shadow: none ;
+                    padding-right: 0.625em ; 
+                    padding-left: 0.625em  ;
+                    ">
+
+                <span>EN</span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu" style="min-width: 0em;">
+              <div class="dropdown-content" style="padding: 0rem;">
+                
+                
+                
+                  
+                
+                  
+                
+                
+                  
+                  <a href="https://www.hackwiki.de/blog/let_s_encrypt_dns_challenge_for_kubernetes/" class="dropdown-item" 
+                      style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                    DE
+                  </a>
+                
+                
+                  
+                    
+                  
+                
+                  
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+      <div class="navbar-brand">
+  
+        
+        
+        
+        <a class="navbar-item">
+          <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+          <div class="navbar-item left-menu-icon-wrapper">
+            Tags
+          </div>
+        </a>
+  
+        <div class="navbar-item is-expanded"></div>
+        <a class="navbar-item is-hidden-desktop">  
+          <div data-target="cloned-navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
+            Menu
+          </div>
+          <div data-target="cloned-navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+        </a>
+      </div><div id="cloned-navbar-menu" class="navbar-menu is-static">
+        <div class="navbar-end"><a href="/en/" class="navbar-item is-secondary"><i class="fa fa-home" style="color:#6495ed;">&nbsp;</i>Homepage</a><a href="/en/about/" class="navbar-item is-secondary"><i class="fa fa-bookmark" style="color:#6495ed;">&nbsp;</i>About Me</a><a href="/en/blog/" class="navbar-item is-secondary"><i class="fa fa-book" style="color:#6495ed;">&nbsp;</i>Blog</a>
+          
+            
+              
+            
+          
+            
+              
+            
+          
+          
+          
+            
+              
+            
+          
+
+          
+          
+          
+          <div class="navbar-item">
+            <div class="dropdown is-hoverable is-centered" >
+              <div class="dropdown-trigger" >
+                <button class="button is-active" 
+                style="color:#999;  
+                      border-color:#6495ed; 
+                      box-shadow: none ;
+                      padding-right: 0.625em ; 
+                      padding-left: 0.625em  ;
+                      ">
+  
+                  <span>EN</span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu" style="min-width: 0em;">
+                <div class="dropdown-content" style="padding: 0rem;">
+                  
+                  
+                  
+                    
+                  
+                    
+                  
+                  
+                    
+                    <a href="https://www.hackwiki.de/blog/let_s_encrypt_dns_challenge_for_kubernetes/" class="dropdown-item" 
+                        style="text-align: center; color:#999; padding-right: 0.82em !important ; padding-left: 0.82em !important;">
+                      DE
+                    </a>
+                  
+                  
+                    
+                      
+                    
+                  
+                    
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        
+        </div>
+      </div>
+    </div>
+  </nav>
+<section class="section is-medium">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title is-2 section-title">DNS Challenge for Kubernetes 📃</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+        
+        <section class="section content has-text-justified">
+          <p>I have been running a k3s cluster for some time and now I want to expand my Ingress resource to allow accessing my applications with valid Let&rsquo;s Encrypt certificates.
+The DNS Challenge for Let&rsquo;s Encrypt seems to be the ideal solution for this, as it does not require opening ports to the outside world, thus maintaining the security of my network.
+In this article, I&rsquo;ll walk you through step-by-step on how to set up the DNS Challenge for Let&rsquo;s Encrypt in your k3s cluster, using the Hetzner DNS provider.</p>
+<h2 id="requirements-">Requirements 📋</h2>
+<ul>
+<li>k3s cluster
+<ul>
+<li>kubectl</li>
+<li>helm</li>
+</ul>
+</li>
+<li>DNS provider (In my case Hetzner DNS, the provider must provide the API to change the DNS entries)</li>
+</ul>
+<h2 id="setting-up-the-dns-name-">Setting up the DNS name 📡</h2>
+<p>First, we need to create the DNS entries for our domain. These entries can point to a local IP address.</p>
+<p><img src="img/hetzner.png" alt="DNS entries"></p>
+<p>Although this may seem unusual at first and poses a certain security risk in the DNS system - known as DNS rebinding attacks. Most routers provide protection against rebinding, preventing external requests from being forwarded to the local IP address.</p>
+<p>To configure the DNS records, you may need to disable the rebinding protection in your router. Please note that you should only enter your domain there, as wildcards can pose a security risk. In the user interface of the Fritzbox, you can find the rebinding protection under:</p>
+<p><code>Home Network</code> -&gt; <code>Network</code> -&gt; <code>Network Settings</code> -&gt; <code>Rebinding Protection</code></p>
+<p>(The DNS entries have been obscured as they are not relevant for this purpose.)</p>
+<h2 id="installing-cert-manager">Installing cert-manager</h2>
+<p>Next, we need to install cert-manager, which is essentially a standard in the Kubernetes world for managing certificates.</p>
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.yaml</code></pre></div>
+</div>
+<p>An element that&rsquo;s not entirely standard is the <a href="https://github.com/vadimkim/cert-manager-webhook-hetzner">Cert Manager Webook Hetzner</a> project, which enables communication with the Hetzner DNS provider.</p>
+<p>To do this, we&rsquo;ll use helm, a package manager for Kubernetes:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">helm repo add cert-manager-webhook-hetzner https://vadimkim.github.io/cert-manager-webhook-hetzner
+helm install --namespace cert-manager cert-manager-webhook-hetzner cert-manager-webhook-hetzner/cert-manager-webhook-hetzner --set groupName=hackwiki.de</code></pre></div>
+</div></p>
+<h2 id="creating-the-cluster-issuer">Creating the Cluster Issuer</h2>
+<p>Now we need to create a Cluster Issuer that will be used to issue the certificates. The Cluster Issuer will use the Hetzner DNS provider to create the DNS records for the DNS Challenge.</p>
+<p>Create a file named <code>cluster-issuer.yaml</code> with the following content:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+    name: letsencrypt
+spec:
+    acme:
+        server: https://acme-v02.api.letsencrypt.org/directory
+
+        email: *************
+
+        privateKeySecretRef:
+            name: letsencrypt
+
+        solvers:
+            - dns01:
+                  webhook:
+                      groupName: **********
+                      solverName: hetzner
+                      config:
+                          secretName: hetzner-secret
+                          zoneName: *********
+                          apiUrl: https://dns.hetzner.com/api/v1</code></pre></div>
+</div></p>
+<p>Replace the placeholders with your data. The server URL must be the address of the ACME server. You can find the URL for the test server in the project&rsquo;s Readme (Cert Manager Webhook Hetzner). This is also useful if you don&rsquo;t want to exceed Let&rsquo;s Encrypt&rsquo;s rate limit during testing. For production systems, you should change the URL to the normal Let&rsquo;s Encrypt server.</p>
+<p>To communicate with the Hetzner DNS provider, we need to store the API key in a secret. Create a file named <code>hetzner-secret.yaml</code> with the following content:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">---
+apiVersion: v1
+kind: Secret
+metadata:
+    name: hetzner-secret
+    namespace: cert-manager
+type: Opaque
+data:
+    api-key: ***************************</code></pre></div>
+</div></p>
+<p>Apply the files to your cluster:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">kubectl apply -f cluster-issuer.yaml
+kubectl apply -f hetzner-secret.yaml</code></pre></div>
+</div></p>
+<h2 id="creating-the-ingress-resource">Creating the Ingress resource</h2>
+<p>Before we create the Ingress resource, we need to create a certificate. Create a file named <code>certificate.yaml</code> with the following content:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+    name: foobar-cert
+    namespace: *********
+spec:
+    commonName: foobar.**********
+    dnsNames:
+        - foobar.**************
+    issuerRef:
+        name: letsencrypt
+        kind: ClusterIssuer
+    secretName: foobar-cert</code></pre></div>
+</div></p>
+<p>Replace the placeholders with your data. Apply the file to your cluster:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">kubectl apply -f certificate.yaml</code></pre></div>
+</div></p>
+<p>Now you can create your Ingress resource. Create a file named <code>ingress.yaml</code> with the following content:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: foobar-ingress
+    namespace: *******
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+spec:
+    ingressClassName: traefik
+    rules:
+        - host: foobar.***********
+        - http:
+              paths:
+                  - path: /
+                    pathType: Prefix
+                    backend:
+                        service:
+                            name: foobar-service
+                            port:
+                                number: 80
+    tls:
+        - hosts:
+              - foobar.************
+          secretName: foobar-cert</code></pre></div>
+</div></p>
+<p>And now you can create the Ingress resource:
+<div class="columns is-centered container"><div class="column is-full"><pre><code class="code-highlight">kubectl apply -f ingress.yaml</code></pre></div>
+</div></p>
+<p>Here, the certificate for the domain <code>foobar.**********</code> is created.
+And reach your application via <code>https://foobar.************</code>.</p>
+<h2 id="conclusion-">Conclusion 🎉</h2>
+<p>With the DNS Challenge for Let&rsquo;s Encrypt, you can easily secure your applications with valid certificates without having to open ports to the outside world. This way, you can maintain the security of your network and still provide your users with a secure connection.</p>
+
+        </section>
+      </div>
+    </div>
+  </div>  
+  </section>
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <img src="/footer.svg" alt="">
+        
+      </div>
+      
+    <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Website</h3>
+          </div>
+          <ul class="link-list"><li>
+              <a href="/en/"><span class="icon"><i class="fa fa-home"></i></span> Homepage</a>
+            </li><li><a href="/en/credits/">
+                  <span class="icon"><i class="fa fa-cube"></i></span>
+                  Credits
+                </a></li>
+            <li><a href="/en/tags/">
+                <span class="icon"><i class="fa fa-tag"></i></span> 
+                All Tags
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    
+      
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Contacts</h3>
+          </div>
+          <ul class="link-list">
+            
+            <li>
+              <a href="https://www.linkedin.com/in/sebastian-feustel-842a1a1ab" target="_blank">
+                <span class="icon"><i class="fab fa-linkedin"></i></span>
+                
+                  LinkedIn
+                
+              </a>
+            </li>
+            
+            
+            <li>
+              <a href="https://github.com/53845714nF" target="_blank">
+                <span class="icon"><i class="fab fa-github-square"></i></span>
+                
+                  Github
+                
+              </a>
+            </li>
+                         
+            
+            <li>
+              <a href="mailto:hackwiki2.0@gmail.com" target="_blank">
+                <span class="icon"><i class="fa fa-envelope"></i></span>
+                
+                  Hack Wiki
+                
+              </a>
+            </li>
+            
+                   
+            
+            <li>
+              <a href="https://twitter.com/53845714nF" target="_blank">
+                <span class="icon"><i class="fab fa-twitter"></i></span>
+                
+                  Twitter
+                
+              </a>
+            </li>
+                   
+            
+                   
+          </ul>
+        </div>
+      </div>
+      
+
+      
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+              <h3>Copyright</h3>
+          </div>
+          <ul class="link-list">
+            <li>
+              <a>
+                <span class="icon"><i class="fa fa-copyright"></i></span>
+                Sebastian Feustel - 2024
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+</footer>
+    <div id="backtotop"><a href="#"></a></div><div class="sidebar scroll">
+  <div class="sidebar-header"><img src="/sidebar.svg" alt="">
+    
+    <a class="sidebar-close" href="javascript:void(0);">
+      <i data-feather="x"></i>
+    </a>
+  </div>
+  <div class="inner">
+    <ul class="sidebar-menu">
+      <li class="no-children"><a href="/en/tags/"><div class="columns">
+              <table width="100%">  
+                <tr>
+                  <td class="">
+                    <span class="icon"><i class="fa fa-cubes"></i></span>
+                    All Tags
+                  </td>
+                  <td class="has-text-right" >
+                      
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </a>
+      <li class="no-children">
+          <a href="/en/tags/proxmox">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Proxmox</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/python">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Python</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/virtualization">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Virtualization</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">3</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/c">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>C</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/containers">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>containers</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/hacking">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Hacking</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/home-lab">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Home Lab</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/linux">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Linux</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/lxc">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>lxc</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/network">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Network</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/programming">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Programming</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/saltstack">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Saltstack</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">2</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/app">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>App</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/cluster">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Cluster</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/ctf">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>CTF</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/debian">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Debian</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/distrobuilder">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Distrobuilder</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/dns-challenge">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>DNS Challenge</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/electronics">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Electronics</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/golang">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>golang</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/hetzner-dns">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Hetzner DNS</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/home-server">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Home Server</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/homelab">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Homelab</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/ingress">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Ingress</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/java">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Java</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/k3s">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>k3s</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/kubernetes">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Kubernetes</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/kvm">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>KVM</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/lets-encrypt">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Let&#39;s Encrypt</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/lldp">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>LLDP</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/mapp">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Mapp</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/mathematik">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Mathematik</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/meilisearch">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Meilisearch</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/microcontrollers">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Microcontrollers</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/migration">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Migration</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/openwrt">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>OpenWrt</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/postgres">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Postgres</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/programmieren">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Programmieren</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/search">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Search</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/storage">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Storage</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li>
+      <li class="no-children">
+          <a href="/en/tags/unifi">
+            <div class="columns">
+              
+              <table width="100%">  
+                  <tr>
+                    <td class=""><span class="icon"><i class="fa fa-cube"></i></span>Unifi</td>
+                    <td class="has-text-right" >
+                        <div class="tag-number">1</div>
+                      
+                    </td>
+                    
+                  </tr>
+              </table>
+              
+            </div>
+          </a>
+      </li></ul>
+  </div>
+</div>
+<script src="/js/jquery-2.2.4.min.cc1cade18c999752b7befe111634889dca8d89b24923775954ecebc68c54fcd3.js" integrity="sha256-zByt4YyZl1K3vv4RFjSIncqNibJJI3dZVOzrxoxU/NM="></script>
+  <script src="/js/feather.4.22.0.min.b727453f71f98f148f18fee3e3e0dbcbdbcb85e2e4c348062cedea5a3aac8e50.js" integrity="sha256-tydFP3H5jxSPGP7j4&#43;Dby9vLheLkw0gGLO3qWjqsjlA="></script>
+  <script src="/js/modernizr-3.6.0.min.41ca4decbf2fa4d2cc4912eec36ec791fd722cb2ed8cc7fa276cf47fd1c1c1c3.js" integrity="sha256-QcpN7L8vpNLMSRLuw27Hkf1yLLLtjMf6J2z0f9HBwcM="></script>
+  <script src="/js/refresh.min.aa9223d82746d0d3993b5365b0ae8059aef4f02a76cf889f905a2548af58c3db.js" integrity="sha256-qpIj2CdG0NOZO1NlsK6AWa708Cp2z4ifkFolSK9Yw9s="></script><script>
+  window.MathJax = {
+    loader: {
+      load: ['core', 'input/tex-base', 'output/chtml'],  
+      source: {
+        'core': '\/js\/mathjax\/core.min.43336576424ba4b50395fe0d04d3da13f3c2fc591f18266c8543d82008ae5b3c.js',
+        'input/tex-base': '\/js\/mathjax\/tex-base.min.23b7c5e0a78e456b5a3d1194d96e2dbad86910508989dfb29e8eb6ae3dfd6e65.js',
+        'output/chtml': '\/js\/mathjax\/chtml.min.1e600d03b382b316d206aa32522d369456ed3a457345a6531bbbb2065857c57f.js',
+        'output/chtml/fonts/tex': '\/js\/mathjax\/tex_out.min.292d92b1100452a91a085e7d2516ba9eadc49fbf8ebde7eca2ca8fbd9a45822a.js'
+      },
+    },
+    chtml: {
+      fontURL: '/fonts' 
+    },
+  };
+</script><script src="/js/mathjax/startup.min.dc0565e353d0d52b80adb89e89e2ceb4b432dbde885d68aac26945798dfc5b5c.js" integrity="sha256-3AVl41PQ1SuArbieieLOtLQy296IXWiqwmlFeY38W1w="></script>
+  <script src="/js/highlight.9.18.1.min.de48c3b870005de703f42af3351a9303fbdae73e95fd84edd0384a422bb9ad8e.js" integrity="sha256-3kjDuHAAXecD9CrzNRqTA/va5z6V/YTt0DhKQiu5rY4="></script>
+  <script src="/js/highlightjs-line-numbers.2.7.0.min.min.8574389d72591abad80c2df1ff35f6f82330a6aa7a036e8f5363f79a66bb1797.js" integrity="sha256-hXQ4nXJZGrrYDC3x/zX2&#43;CMwpqp6A26PU2P3mma7F5c="></script><script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('.codeinline').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+</body>
+</html>
