@@ -1,7 +1,9 @@
 # Hackwiki 🧠
+<img src="static/images/hackwiki_klein.png"  width="240" height="285">
+
+## Description
 This is the repository for the Hackwiki Blog Website.
 The main Topics are: HomeLab, IT-Security, Open Source, and Programming. 
-<img src="static/images/hackwiki_klein.png"  width="240" height="285">
 
 ## Contributing 🤝
 If you want to add or coriegate something to a topic, feel free to create a pull request.
@@ -12,7 +14,6 @@ The website is built with Hugo and uses the theme "hugo-theme-learn".
 ## Prerequisites 📋
 You need Hugo to build the website.
 And a photo editor of your choise, to work with the images.
-
 
 ## Create a new Post 📃
 ```
