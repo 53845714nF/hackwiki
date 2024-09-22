@@ -7,7 +7,7 @@ summaryImage: "img/gitea.png"
 keepImageRatio: true
 summary: "Den eigene Git-Service einrichten. Und die Migration von Alpine zu Debian."
 showInMenu: false
-tags: ["Programmieren", "Home Server", "Git"]
+tags: ["Programmieren", "Git", "Home Lab", "DevOps"]
 ---
 
 ## Vorwort zu Git

@@ -7,7 +7,7 @@ summaryImage: "img/fault_injection.jpg"
 keepImageRatio: true
 summary: "Lösung der RHME2 Hardware CTF Challange 'Fiesta' mit Hilfe einer einfachen Fault Injection."
 showInMenu: false
-tags: ["Elektronik", "Hacking", "Mikrocontroller", "CTF", "Programmieren", "C"]
+tags: ["Hacking", "Mikrocontroller", "CTF"]
 ---
 
 Vor einiger Zeit habe ich schon einmal die Aufgabe "Photo Manager" vom RHME2 (2016) CTF gelöst. [Link Github Gist](https://gist.github.com/53845714nF/7ad4c6eb0c38aae9a725e54859f1b8f2)

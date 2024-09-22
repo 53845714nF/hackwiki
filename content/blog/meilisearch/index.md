@@ -7,7 +7,7 @@ summaryImage: "img/meilisearch.png"
 keepImageRatio: true
 summary: "Ein kurzer Einblick in Meilisearch, und das Syncen von Postgres Daten."
 showInMenu: false
-tags: ["Postgres", "Meilisearch", "Search", "Debian", "Python", "Saltstack"]
+tags: ["Search", "Saltstack"]
 ---
 
 Vor ein paar Wochen habe ich [Meilisearch](https://www.meilisearch.com/) entdeckt und bin begeistert. Es ist eine schnelle, Open-Source-Suchmaschine. Ich habe schon öfter darüber nachgedacht, ob ich Elasticsearch in meinen Projekten verwenden sollte, aber es schien mir immer zu kompliziert und zu aufgebläht. Meilisearch ist einfach zu installieren und zu verwenden. Da es in Rust geschrieben ist und eine REST-API bietet, ist es einfach, es in jede Anwendung zu integrieren. (Hust, kein Java wie bei Elasticsearch.)

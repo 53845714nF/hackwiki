@@ -7,7 +7,7 @@ summaryImage: "img/hardware.jpg"
 keepImageRatio: true
 summary: "Das Setup meines Home Labs. Und worauf ich bei Erstellung geachtet habe."
 showInMenu: false
-tags: ["Home Lab", "Home Server", "Hardware"]
+tags: ["Home Lab"]
 ---
 
 Ich möchte hier mal die Hardware meines Home Labs beschreiben.

@@ -7,7 +7,7 @@ summaryImage: "img/homelab.jpg"
 keepImageRatio: true
 summary: "Wo sehe ich die Unterschiede zwischen Home Lab und Home Server."
 showInMenu: false
-tags: ["Home Lab", "Home Server"]
+tags: ["Home Lab"]
 ---
 
 ## Der Home Server 🏠🖥️
@@ -19,13 +19,13 @@ Doch was verbirgt sich nun hinter dem Bergriff "Server"?
 Vereinfacht ein Gerät, das für andere im Netz bestimmte Aufgaben übernimmt.
 Also häufig irgendeine Art von Computer beziehungsweise Hardware NAS. Einer der häufigste Probleme dürfte wohl das Speichern und Bereitstellen von Daten sein. 💾
 
-Der Home Server wird also für den privaten Einsatz genutzt und ist somit nicht im produktiven Einsatz. Des weiteren kann man sagen, dass er oft nur einen bis wenige Dienste beherbergt.
+Der Home Server wird also für den privaten Einsatz genutzt und ist somit im produktiven Einsatz. Des weiteren kann man sagen, dass er oft nur einen bis wenige Dienste beherbergt.
 
 ### Zusammenfassung
 
 - Häufig ein Rechner 🖥️
 - Weniger Dienste 🖨️💾🎬
-- Nicht produktiver Einsatz 🏋
+- Im produktiver Einsatz 🏋
 
 # Das Home Lab 🏠🔬🧪
 
@@ -59,5 +59,5 @@ Ich möchte eine kleine Blogreihe starten, in der ich zeige, wie mein "Home Lab"
 
 Als Erstes kommt Hardware und Software, ein kurzer Einblick, was VMs und Container sind, sowie meine Backup-Lösung.
 Dann natürlich noch einige Dienste, die ich darauf betrieben werden.
-Um einen kleinen Überblick zu geben, ein Versionsverwaltungs-, Verwaltungs-, Cloud-, Dokumentations-, VPN-, Config-Management-Server und in 2021 darf natürlich die Hausautomatisierung nicht fehlen.
-Und natürlich will man das
+Um einen kleinen Überblick zu geben, ein Versionsverwaltungs, Cloud, Dokumentation, VPN, Config-Management, Monitoring und natürlich darf die Hausautomatisierung nicht fehlen.
+Auch die die Absicherung dieser System spielt hier eine Rolle.

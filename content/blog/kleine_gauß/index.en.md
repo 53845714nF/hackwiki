@@ -7,7 +7,7 @@ summaryImage: "img/Gauß.jpg"
 keepImageRatio: true
 summary: "Contact with the Gauss Sum Formula in my life."
 showInMenu: false
-tags: ["Programmieren", "Mathematik", "Python"]
+tags: ["Programmieren"]
 ---
 
 I couldn't help but smile when the topic of the first math preparation class in my college introduction week was the Gauss Sum Formula.

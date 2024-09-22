@@ -7,7 +7,7 @@ summaryImage: "img/homelab.jpg"
 keepImageRatio: true
 summary: "Differences between Home Lab and Home Server."
 showInMenu: false
-tags: ["Home Lab", "Home Server"]
+tags: ["Home Lab"]
 ---
 
 # Overview of Home Server and Home Lab

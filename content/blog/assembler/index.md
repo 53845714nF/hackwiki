@@ -7,7 +7,7 @@ summaryImage: "img/assembler.png"
 keepImageRatio: true
 summary: "Mitschriften The Morpheus Assembler. Beschreibt die Grundstruktur eines Assembler Programms."
 showInMenu: false
-tags: ["Programmieren", "Assembler"]
+tags: ["Programmieren"]
 ---
 
 ## Mitschriften von Assembler Tutorial von The Morpheus Tutorials

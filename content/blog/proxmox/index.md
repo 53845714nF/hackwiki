@@ -7,7 +7,7 @@ summaryImage: "img/proxmox.png"
 keepImageRatio: true
 summary: "Ein Überblick zu Proxmox VE. Und der Einsatz im Privaten sowie im geschäftlichen."
 showInMenu: false
-tags: ["Home Lab", "Proxmox", "Virtualization", "Linux", "lxc", "containers", "KVM", "Cluster", "Storage", "Network", "Migration", "App"]
+tags: ["Home Lab", "Proxmox", "Virtualization", "Containers", "Network"]
 ---
 
 Während meiner Ausbildung sollte ich mich mit dem Thema Proxmox auseinandersetzen.

@@ -7,7 +7,7 @@ summaryImage: "img/terraform.png"
 keepImageRatio: true
 summary: "Terraform ist ein Tool zum Wolken bauen. Ein erster Einblick im Zusammenspiel mit Digital Ocean"
 showInMenu: false
-tags: ["Cloud"]
+tags: ["Terraform", "DevOps"]
 ---
 
 ## Erste Schritte bei Digital Ocean

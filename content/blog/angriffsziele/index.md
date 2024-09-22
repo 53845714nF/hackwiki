@@ -7,7 +7,7 @@ summaryImage: "img/angriffsziele.jpg"
 keepImageRatio: true
 summary: "Eine kleine Zusammenfassung der Angriffsziele."
 showInMenu: false
-tags: ["Hacking", "Sicherheit"]
+tags: ["Hacking"]
 ---
 
 Ja zugegeben, es sind wohl Schutzziele einfach umgekehrt aber ich will trotzdem mal schnell ein kleinen Überblick geben.

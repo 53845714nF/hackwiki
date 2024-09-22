@@ -7,7 +7,7 @@ summaryImage: "img/proxmox.png"
 keepImageRatio: true
 summary: "An overview of Proxmox VE. And its use in private and business settings."
 showInMenu: false
-tags: ["Home Lab", "Proxmox", "Virtualization", "Linux", "lxc", "containers", "KVM", "Cluster", "Storage", "Network", "Migration", "App"]
+tags: ["Home Lab", "Proxmox", "Virtualization", "Containers", "Network"]
 ---
 
 During my apprenticeship, I was supposed to deal with the topic of Proxmox.

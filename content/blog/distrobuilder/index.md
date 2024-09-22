@@ -7,7 +7,7 @@ summaryImage: "img/distrobuilder.png"
 keepImageRatio: true
 summary: "Erstellen eines OpenWrt Images für LXC mit Distrobuilder und einbinden in Proxmox."
 showInMenu: false
-tags: ["lxc", "Proxmox", "Linux", "Distrobuilder", "golang", "containers", "OpenWrt", "Virtualization"]
+tags: ["Proxmox", "Containers", "Virtualization", "DevOps"]
 ---
 
 Hast du dich jemals gefragt, wie man eigene Images für LXC erstellt und diese dann in Proxmox integriert?

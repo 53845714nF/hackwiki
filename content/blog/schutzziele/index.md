@@ -7,7 +7,7 @@ summaryImage: "img/schutzziele.jpg"
 keepImageRatio: true
 summary: "Eine kleine Zusammenfassung der IT-Schutzziele."
 showInMenu: false
-tags: ["Hacking", "Sicherheit"]
+tags: ["Hacking"]
 ---
 
 Ein Klassiker der IT-Sicherheit sind die Schutzziele, manchmal auch Sicherheitsziele genannt.

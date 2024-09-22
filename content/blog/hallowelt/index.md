@@ -7,7 +7,7 @@ summaryImage: "img/hallowelt.jpg"
 keepImageRatio: true
 summary: "Mein erster Blog post."
 showInMenu: false
-tags: ["Programmieren", "Python", "Java", "C"]
+tags: ["Programmieren"]
 ---
 
 Wie es üblich ist beim Lernen einer neuen Programmiersprache ein Hallowelt Programm zu schreiben, hier dass Hallowelt für meinem ersten Blogpost.

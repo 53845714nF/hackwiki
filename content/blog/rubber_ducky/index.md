@@ -7,7 +7,7 @@ summaryImage: "img/rubber_ducky.jpg"
 keepImageRatio: true
 summary: "Keystroke-Injection-Attacke mit unterschiedliche Rubber Duckys."
 showInMenu: false
-tags: ["Hacking", "Mikrocontroller", "C"]
+tags: ["Hacking", "Mikrocontroller"]
 ---
 
 Über die Jahre gibt und gab es jetzt verschiedenen Irritationen von Rubber Duckys. Wenn ich mich recht entsinne, waren die ersten Rubber Duckys noch umprogrammierte USB Sticks. 

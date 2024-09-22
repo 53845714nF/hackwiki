@@ -7,7 +7,7 @@ summaryImage: "img/Gauß.jpg"
 keepImageRatio: true
 summary: "Kontakt Punkte mit dem kleinen Gauß in meinem Leben."
 showInMenu: false
-tags: ["Programmieren", "Mathematik", "Python"]
+tags: ["Programmieren"]
 ---
 
 Ich musste schon wieder schmunzeln. Als bei meiner Einführungswoche an der Hochschule, der kleine Gauß oder eher bekannt als Gaußsche Summenformel das Thema der ersten 
