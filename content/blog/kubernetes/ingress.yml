@@ -1,0 +1,19 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: myapp-ingress
+    namespace: foobar
+spec:
+    ingressClassName: traefik
+    rules:
+        - host: myapp.hackwiki.de
+          http:
+              paths:
+                  - path: /
+                    pathType: Prefix
+                    backend:
+                        service:
+                            name: myapp-service
+                            port:
+                                number: 80

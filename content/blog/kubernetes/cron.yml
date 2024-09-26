@@ -1,0 +1,29 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+    name: backup-job
+    namespace: foobar
+spec:
+    schedule:  "0 0 * * *" # Every day at midnight
+    successfulJobsHistoryLimit: 1
+    failedJobsHistoryLimit: 1
+    concurrencyPolicy: Forbid
+
+    jobTemplate:
+        spec:
+            parallelism: 1
+            completions: 1
+            backoffLimit: 2 # Maximum pod restarts in case of failure
+            activeDeadlineSeconds: 14400 # Runtime in seconds (3 hours)
+            template:
+                spec:
+                    containers:
+                        - name: backup
+                          image: my-backup-image
+                          imagePullPolicy: Always
+                          args:
+                              - /bin/sh
+                              - -c
+                              - "backup.sh"
+                    restartPolicy: OnFailure
