@@ -5,24 +5,24 @@ draft: false
 hideLastModified: true
 summaryImage: "img/Gauß.jpg"
 keepImageRatio: true
-summary: "Kontakt Punkte mit dem kleinen Gauß in meinem Leben."
+summary: "Kontaktpunkte mit dem kleinen Gauß in meinem Leben."
 showInMenu: false
 tags: ["Programmieren"]
 ---
 
 Ich musste schon wieder schmunzeln. Als bei meiner Einführungswoche an der Hochschule, der kleine Gauß oder eher bekannt als Gaußsche Summenformel das Thema der ersten 
-Mathematik Vorbereitung war.
+Mathematik-Vorbereitung war.
 
-In meiner Schule Zeit hatte ich den Film die "Die Vermessung der Welt" gesehen, wo es eine Szene gibt in der genau die Geschichte des kleinen Gauß aufgezeigt wird.
-Es ist ein sehr interessanter Film und es lohnt sich ihn einmal an zugucken.
+In meiner Schulzeit hatte ich den Film die "Die Vermessung der Welt" gesehen, in dem es eine Szene gibt, in der genau die Geschichte des kleinen Gauß aufgezeigt wird.
+Es ist ein sehr interessanter Film und es lohnt sich, ihn einmal anzugucken.
 
-## Der Film basiert aus diesem Buch:
+## Der Film basiert auf diesem Buch:
 {{< book title="Die Vermessung der Welt" authors="Daniel Kehlmann" image="img/vermessung_der_welt.jpg" size="300x" >}}
 Das Thema ist die fiktive Doppelbiografie des Mathematikers Carl Friedrich Gauß und des Naturforschers Alexander von Humboldt.
 {{< /book >}}
 
 ## Meine Python Implementierung
-In meiner Ausbildung habe ich dann zwei Wege in Python programmiert wie diese Problem gelöst werden kann. [Link zum Gitlab](https://git.aei.mpg.de/sfeustel/ci-cd-python-unittest)
+In meiner Ausbildung habe ich dann zwei Wege in Python programmiert, wie dieses Problem gelöst werden kann. [Link zum Gitlab](https://git.aei.mpg.de/sfeustel/ci-cd-python-unittest)
 
 ### Einmal der umständliche Weg mit einer klassischen For Loop:
 {{< code language="python" >}}
@@ -68,4 +68,17 @@ def formula(number):
     return int(number*(number+1)/2)
 {{< /code >}}
 
-Es ist ein cooler und einfacher Weg sein Code zu optimieren, soweit ich Weiß findet diese Formel auch Anwendung in modernen Compielern wie GCC.
+Es ist ein cooler und einfacher Weg, seinen Code zu optimieren. Soweit ich weiß, findet diese Formel auch Anwendung in modernen Compilern wie GCC.
+
+Daneben kann man die Formel gut gebrauchen, um beim Kartenspiel Rommé die Punktesumme zu berechnen:
+
+Beispiel: Man hat im Blatt eine 5, 6, 7, 8, und 9 der gleichen Farbe.
+
+Der geübte Spieler schlussfolgert sogleich: Für die Punktsumme nehme ich den Wert der mittleren Karte (7) mal die Anzahl (5), also `7*5==35`.
+
+Mit dem kleinen Gauß rechnet man ganz einfach `formula(9) - formula(4) == 35`.
+
+Dieses Vorgehen ist eigentlich nur eine Abkürzung ausgehend vom kleinen Gauß, der nach dem gleichen Prinzip funktioniert. 
+Denn so kann man die Formel vom kleinen Gauß auch verstehen: 
+
+Mittelwert mal die Anzahl.
