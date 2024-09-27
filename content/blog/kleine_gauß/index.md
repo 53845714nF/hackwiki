@@ -82,3 +82,7 @@ Dieses Vorgehen ist eigentlich nur eine Abkürzung ausgehend vom kleinen Gauß, 
 Denn so kann man die Formel vom kleinen Gauß auch verstehen: 
 
 Mittelwert mal die Anzahl.
+
+Dankeschön an Daniela Grothe ([LinkedIn](https://www.linkedin.com/in/daniela-grothe-743ab8235/)|[Github](https://github.com/DGrothe-PhD)), die zu diesem Post beigetragen hat.
+
+Falls Sie Anmerkungen, Vorschläge oder Fragen haben, können Sie sich gerne per E-Mail, LinkedIn oder GitHub bei mir melden.
