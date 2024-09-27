@@ -79,10 +79,10 @@ Wichtige Merkmale eines Kubernetes-Services:
 Diese Adresse ändert sich nicht, selbst wenn die zugrundeliegenden Pods aktualisiert oder neu erstellt werden.
 - **Lastverteilung (Load Balancing)**: Services verteilen den eingehenden Netzwerkverkehr automatisch auf die Pods, die zur gleichen Gruppe gehören, um die Last zu verteilen. Dies sorgt für eine bessere Verfügbarkeit und Ressourcennutzung.
 - **Service-Typen**:
-  - **ClusterIP**: Macht den Service innerhalb des Kubernetes-Clusters über eine interne IP-Adresse verfügbar.
-  - **NodePort**: Öffnet den Service über eine feste Portnummer auf allen Nodes des Clusters nach außen.
-  - **LoadBalancer**: Stellt den Service über einen externen Load Balancer bereit (wird häufig in Cloud-Umgebungen verwendet).
-  - **ExternalName**: Mappt den Service auf einen externen DNS-Namen.
+  - `ClusterIP`: Macht den Service innerhalb des Kubernetes-Clusters über eine interne IP-Adresse verfügbar.
+  - `NodePort`: Öffnet den Service über eine feste Portnummer auf allen Nodes des Clusters nach außen.
+  - `LoadBalancer`: Stellt den Service über einen externen Load Balancer bereit (wird häufig in Cloud-Umgebungen verwendet).
+  - `ExternalName`: Mappt den Service auf einen externen DNS-Namen.
 - **Service Discovery**: Kubernetes nutzt integrierte Mechanismen zur automatischen Dienstentdeckung. Ein Service wird im DNS des Clusters registriert, sodass andere Pods ihn über seinen Namen ansprechen können.
 
 Ein Kubernetes-Service ist also entscheidend, um Pods beständig und zuverlässig über das Netzwerk zugänglich zu machen, selbst wenn sich ihre IP-Adressen im Cluster dynamisch ändern.
@@ -99,8 +99,8 @@ Es fungiert als eine Art **Reverse Proxy**, der eingehenden Verkehr an die entsp
 Wichtige Merkmale von Ingress:
 - **Externer Zugriff**: Ingress erlaubt den externen Zugriff auf Kubernetes-Services, ohne dass jeder Service über einen eigenen LoadBalancer oder NodePort verfügbar gemacht werden muss. Es bietet eine zentrale Anlaufstelle für den Datenverkehr von außen.
 - **Routing-Regeln**: Mit Ingress können spezifische Routing-Regeln definiert werden, die bestimmen, welcher HTTP/HTTPS-Verkehr zu welchem Service geleitet wird. Dies erfolgt meist auf Basis von:
-  - **Hostnamen** (z. B. app.example.com)
-  - **Pfaden** (z. B. /api oder /login)
+  - `Hostnamen` (z. B. app.example.com)
+  - `Pfaden` (z. B. /api oder /login)
 - **TLS-Unterstützung**: Ingress kann TLS (Transport Layer Security) für HTTPS-Verbindungen verwalten, indem es TLS-Zertifikate verwendet, die auf der Ingress-Ebene konfiguriert sind.
 - **Load Balancing**: Ingress führt ebenfalls **Load Balancing** durch, indem es eingehenden Verkehr auf die dahinterliegenden Pods verteilt, die über Services verfügbar gemacht werden.
 - **Erweiterte Funktionen**: Ingress unterstützt erweiterte Funktionen wie **URL-Weiterleitungen**, **Ratenbegrenzungen**, **Authentifizierung** und **Whitelisting** von IP-Adressen.
@@ -139,9 +139,9 @@ Wichtige Merkmale von Secrets:
 - **Sicherheit**: Secrets werden in Kubernetes sicherer behandelt als normale Konfigurationsdaten (ConfigMaps), da sie als Base64-codierte Daten gespeichert werden. Um zusätzlichen Schutz zu gewährleisten, können sie bei Bedarf durch eine externe Verschlüsselung gesichert werden, beispielsweise mit einem Key Management System (KMS).
 - **Vertrauliche Daten verwalten**: Secrets werden verwendet, um vertrauliche Informationen wie API-Schlüssel, Datenbank-Anmeldedaten oder TLS-Zertifikate zu speichern und an Pods weiterzugeben.
 - **Verschiedene Secret-Typen**: Kubernetes unterstützt verschiedene Arten von Secrets, darunter:
-  - **Opaque**: Der Standardtyp, bei dem beliebige Schlüssel-Wert-Paare gespeichert werden können.
-  - **Registry**: Speichert Anmeldeinformationen für Registries.
-  - **TLS**: Speichert ein TLS-Zertifikat und den zugehörigen privaten Schlüssel.
+  - `Opaque`: Der Standardtyp, bei dem beliebige Schlüssel-Wert-Paare gespeichert werden können.
+  - `Registry`: Speichert Anmeldeinformationen für Registries.
+  - `TLS`: Speichert ein TLS-Zertifikat und den zugehörigen privaten Schlüssel.
 - **Sichere Bereitstellung**: Secrets können auf verschiedene Weise an Pods übergeben werden:
   - **Umgebungsvariablen**: Pods können Secrets als Umgebungsvariablen abrufen, die den Containern zur Laufzeit zur Verfügung stehen.
   - **Volumes**: Secrets können in einem Pod als Datei im Dateisystem gemountet werden, sodass die Anwendung darauf zugreifen kann.
