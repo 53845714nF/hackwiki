@@ -137,7 +137,6 @@ Wenn man das mal in ein [Stromrechner](https://rechneronline.de/steckdose/stromk
 
 Hier ein paar Rechner, die mir gerade für Anfänger aufgefallen sind:
 
-- [Mini PC von Amazon](https://www.amazon.de/dp/B089SHG28D/ref=cm_sw_r_oth_api_glt_i_SHYRM4DDHAQPEYV6RF8V?psc=1)
-- [Mini PC mit AMD Ryzen](https://store.minisforum.com/products/deskmini-um700-manjaro-linux?variant=42316758778101)
 - [Minisforum PCs](https://store.minisforum.de/)
 - [Intel Nuc](https://www.intel.de/content/www/de/de/products/details/nuc.html)
+- [Mini PC von Amazon](https://www.amazon.de/dp/B089SHG28D/ref=cm_sw_r_oth_api_glt_i_SHYRM4DDHAQPEYV6RF8V?psc=1)
