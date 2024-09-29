@@ -127,9 +127,6 @@ Salt provides a powerful platform for managing diverse systems.
 With its push-and-pull architecture, the ability to create simple or complex configurations, and broad operating system support, it is an indispensable tool for automation in modern IT environments.
 
 ## Further Resources
-
-- A [blog](https://thorstenkramm.gitbook.io/saltstack/) by Thorsten Kramm that eases the entry into Salt.
 - The official [Salt documentation](https://docs.saltproject.io/en/latest/topics/tutorials/).
-- A [talk](https://www.youtube.com/watch?v=8ytAHUGponk) about SaltStack by Thorsten Kramm (although it's quite old).
 
 Feel free to reach out via email, LinkedIn, or GitHub if you have any comments, suggestions, or questions!
