@@ -1,5 +1,5 @@
 ---
-title: "DNS Challenge für Kubernetes 📃"
+title: "DNS Challenge für K3s 📃"
 date: 2024-03-31T01:28:22+01:00
 draft: false
 hideLastModified: true
