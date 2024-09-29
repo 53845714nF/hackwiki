@@ -179,7 +179,7 @@ Als glitch output hat er den GPIO26 am Pico verwendet. Er hat den glitch output 
 
 ![Aufbau von Fikret](img/fikret_construction.jpg)
 
-Er hat auch ein andere Software verwendet, den [PicoGlitcher von kholia](https://github.com/kholia/PicoGlitcher) diese ist ein fork von dem Tool was ich verwendet habe. 
+Er hat auch ein andere Software verwendet, den PicoGlitcher von kholia (Nicht mehr Verfügbar) dies war ein fork von dem Tool was ich verwendet hatte. 
 
 
 Er hat die Software mit folgendem Befehl gestartet:

@@ -173,7 +173,7 @@ He used GPIO26 on the Pico as the glitch output. He connected the glitch output 
 
 ![Fikret's setup](img/fikret_construction.jpg)
 
-He also used different software, [PicoGlitcher by kholia](https://github.com/kholia/PicoGlitcher), which is a fork of the tool I used.
+He also used different software, PicoGlitcher by kholia (No longer available), which was a fork of the tool I used.
 
 He started the software with the following command:
 
