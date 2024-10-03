@@ -173,5 +173,4 @@ Wichtige Merkmale eines CronJobs in Kubernetes:
 Beispiel für einen CronJob:
 {{< codeFile file="/content/blog/kubernetes/cron.yml" language="yml" title="Cron Job" icon="yml">}}
 
-
 Bei Fragen und Anmerkungen gerne Melden per Mail, LinkedIn oder Github Issue.

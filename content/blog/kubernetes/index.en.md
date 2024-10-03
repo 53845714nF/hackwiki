@@ -10,6 +10,8 @@ showInMenu: false
 tags: ["Kubernetes", "DevOps"]
 ---
 
+[This blog post was created with the help of ChatGPT.]
+
 **Kubernetes has emerged as the standard platform for container orchestration. However, to fully leverage its power, it is essential to understand the different resource types Kubernetes provides.**
 
 In this post, I'll focus on explaining some of the key Kubernetes resources, discussing their respective functions and how they work together to create a scalable and flexible environment for modern applications.
