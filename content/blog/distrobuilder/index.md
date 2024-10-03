@@ -3,7 +3,7 @@ title: "Distrobuilder für Lxc 📦"
 date: 2024-03-10T19:16:43+01:00
 draft: false
 hideLastModified: true
-summaryImage: "img/distrobuilder.png"
+summaryImage: "img/distrobuilder.webp"
 keepImageRatio: true
 summary: "Erstellen eines OpenWrt Images für LXC mit Distrobuilder und einbinden in Proxmox."
 showInMenu: false
