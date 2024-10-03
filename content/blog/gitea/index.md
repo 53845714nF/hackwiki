@@ -3,7 +3,7 @@ title: "Gitea 🍵"
 date: 2022-08-08T20:03:02+02:00
 draft: false
 hideLastModified: true
-summaryImage: "img/gitea.png"
+summaryImage: "img/gitea.webp"
 keepImageRatio: true
 summary: "Den eigene Git-Service einrichten. Und die Migration von Alpine zu Debian."
 showInMenu: false
@@ -27,19 +27,19 @@ Meine erste Installation von gitea bestand aus einem LXC Container mit Alpine Li
 Da ich nun eine homogene Serverlandschaft anstrebe, sprich alle Server sollen mit Debian 11 auf LXC laufen. Musste nun der Alpine Container weichen. 
 
 Es stand mir jetzt die Migration meines Git Server bevor. Leider pakettiert gitea seine Software nicht für Debian. Die Installation ist somit ein wenig schwieriger als unter Alpine.
-Gitea selbst ist in [Go](https://go.dev/) geschrieben und es wird ein static link Binary zur Verfügung gestellt. Dies kann gedownloadet werden, doch der Rest muss vom Admin selbst angepasst werden.
+Gitea selbst ist in [Golang](https://go.dev/) geschrieben und es wird ein static link Binary zur Verfügung gestellt. Dies kann gedownloadet werden, doch der Rest muss vom Admin selbst angepasst werden.
 
 ## Installation von Gitea unter Debian
 
 Hier gebe ich die Installation unter Debian schemenhaft an:
 
-### Update und "Dependencys":
+**Update und "Dependencys":**
 {{< codeWide >}}
 apt -y update
 apt -y install git vim bash-completion
 {{< /codeWide >}}
 
-### Benutzer hinzufügen: 
+**Benutzer hinzufügen:**
 {{< codeWide >}}
 adduser \
    --system \
@@ -52,18 +52,18 @@ adduser \
 {{< /codeWide >}}
 
 
-### Downloaden und nach `/usr/local/bin` verschieben:
+**Downloaden und nach `/usr/local/bin` verschieben:**
 {{< codeWide >}}
 curl -s  https://api.github.com/repos/go-gitea/gitea/releases/latest | grep browser_download_url  |  cut -d '"' -f 4  | grep '\linux-amd64$' | wget -i -
 {{< /codeWide >}}
 
-### Rechte verändern und umbenennen:
+**Rechte verändern und umbenennen:**
 {{< codeWide >}}
 chmod +x gitea-*-linux-amd64
 mv gitea-*-linux-amd64 /usr/local/bin/gitea
 {{< /codeWide >}}
 
-### Ordner für Files anlegen:
+**Ordner für Files anlegen:**
 {{< codeWide >}}
 mkdir -p /etc/gitea /var/lib/gitea/{custom,data,indexers,public,log}
 chown gitea:gitea /var/lib/gitea/{data,indexers,log}
@@ -72,7 +72,7 @@ chown root:gitea /etc/gitea
 chmod 770 /etc/gitea
 {{< /codeWide >}}
 
-### Systemd Unit File erstellen:
+**Systemd Unit File erstellen:**
 {{< codeWide >}}
 vim /etc/systemd/system/gitea.service
 {{< /codeWide >}}
@@ -99,14 +99,14 @@ Environment=USER=gitea HOME=/home/gitea GITEA_WORK_DIR=/var/lib/gitea
 WantedBy=multi-user.target
 {{< /codeWide >}}
 
-### Systemd gitea Service starten:
+**Systemd gitea Service starten:**
 {{< codeWide >}}
 systemctl daemon-reload
 systemctl enable --now gitea
 systemctl status gitea
 {{< /codeWide >}}
 
-### Zusätzliche Rechte für Gitea
+**Zusätzliche Rechte für Gitea**
 Ist wichtig da der Dienst sonst nicht startet.
 
 {{< codeWide >}}
@@ -127,4 +127,4 @@ grep -r "/usr/bin/gitea" . | cut -d : -f1 | xargs sed -i 's#/usr/bin/gitea#/usr/
 Die Datenbank war ein SQLite, diese ließ sich auch anstandslos dumpen und wieder einspielen. 
 
 Abschließend kann man sagen, die Migration war schwieriger als erwartet aber kein Hexenwerk. 
-Ich bin zufrieden, daß ich nun ein Gitea mir Debian 11 unter der Haube besitze.
+Ich bin zufrieden, daß ich nun ein Gitea mir Debian 11 unter der Haube besitze. 😄
