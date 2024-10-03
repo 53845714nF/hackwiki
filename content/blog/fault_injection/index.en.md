@@ -3,7 +3,7 @@ title: "Simple Fault Injection ⚡"
 date: "2022-03-03T02:24:45+01:00"
 draft: false
 hideLastModified: true
-summaryImage: "img/fault_injection.jpg"
+summaryImage: "img/fault_injection.webp"
 keepImageRatio: true
 summary: "Solving the RHME2 Hardware CTF Challenge 'Fiesta' with the help of a simple fault injection."
 showInMenu: false
