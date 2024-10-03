@@ -3,7 +3,7 @@ title: "Rubber Ducky 🦆"
 date: 2022-03-11T15:16:05+01:00
 draft: false
 hideLastModified: true
-summaryImage: "img/rubber_ducky.jpg"
+summaryImage: "img/rubber_ducky.webp"
 keepImageRatio: true
 summary: "Keystroke-Injection-Attacke mit unterschiedliche Rubber Duckys."
 showInMenu: false
@@ -177,9 +177,10 @@ Diese Änderung konnte ich bequem im Webinterface vornehmen, wo man Scripte Spei
 
 Des weiteren können Einstellungen über das WLAN getroffen werden:
 
-![WiFi Duck Einstellungen ](img/wifiduck_settings.png)
+![WiFi Duck Einstellungen](img/wifiduck_settings.png)
 
-Das Webinterface von WiFi Duck hat mir besonders gut gefallen. Es ist auch sehr angenehm Angriffe zu testen. Nachteil in meinem Setup, ist das, dass Gerät sehr auffällig ist. Ich denke ein [Malduino](https://maltronics.com/collections/malduinos/products/malduino-w) mit WiFi Duck ist eines der besten Werkzeuge für solche Angriffe. Was mir auch noch positiv aufgefallen ist, dass die Software auf Github immer noch weiter gepflegt wird.
+Das Webinterface von WiFi Duck hat mir besonders gut gefallen. Es ist auch sehr angenehm Angriffe zu testen. Nachteil in meinem Setup, ist das, dass Gerät sehr auffällig ist.
+Ich denke ein [Malduino](https://maltronics.com/collections/malduinos/products/malduino-w) mit WiFi Duck ist eines der besten Werkzeuge für solche Angriffe. Was mir auch noch positiv aufgefallen ist, dass die Software auf Github immer noch weiter gepflegt wird.
 
 ### Cactus WHID
 
@@ -199,21 +200,16 @@ Man kann Live während des Tastendruck über das Web senden:
 
 ![Cactus WHID](img/WHID_input.png)
 
-Man kann Payloads hochladen und hochgeladenen auswählen und starten. Es gibt auch einen Editor, in den man sein Scripte schreiben kann.
+Man kann Payloads hochladen und hochgeladenen auswählen und starten.
+Es gibt auch einen Editor, in den man sein Scripte schreiben kann.
 Leider funktioniert bei mir die Ausführung nicht.
 
 Es gibt ein Duckuino dieser funktioniert bei mir viel besser.
 
 
-![Cactus WHID](img/WHID_duckino.png)
+![Cactus WHID Duckuino](img/WHID_duckino.png)
 
 Leider müssen die verschiedenen [Sprachen](https://github.com/whid-injector/WHID/wiki/Keyboards-Layout) beim Erstellen der Firmware hinein kompiliert werden. Das macht den Stick weniger flexibel.
 Das Webinterface ist auch nicht so gut, wie vom WiFi Duck. Der einzige Vorteil ist, der Stick selbst ist unauffälliger bei einem echten Angriff.
 
-
-
-
-
-
-
-
+Bei Fragen und Anmerkungen gerne Melden per Mail, LinkedIn oder Github Issue.
