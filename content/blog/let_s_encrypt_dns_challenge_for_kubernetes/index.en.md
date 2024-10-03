@@ -3,7 +3,7 @@ title: "DNS Challenge for Kubernetes 📃"
 date: 2024-03-31T01:28:22+01:00
 draft: false
 hideLastModified: true
-summaryImage: "img/kubernetes.jpg"
+summaryImage: "img/kubernetes.webp"
 keepImageRatio: true
 summary: "Learn how to set up the DNS Challenge for Let's Encrypt in your k3s cluster."
 showInMenu: false
