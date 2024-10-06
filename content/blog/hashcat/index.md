@@ -3,90 +3,93 @@ title: "Hashcat 😼"
 date: 2022-02-22T19:36:23+01:00
 draft: false
 hideLastModified: true
-summaryImage: "img/hashcat.png"
+summaryImage: "img/hashcat.webp"
 keepImageRatio: true
-summary: "In diesem Post geht um das Cracken von Passwort Hashes. Am Beispiel von VeraCrypt Hashes."
+summary: "Cracken von Passwort Hashes am Beispiel von VeraCrypt."
 showInMenu: false
 tags: ["Hacking"]
 ---
 
-In diesem Post möchte ich etwas über das Cracken vom Passworten schreiben.
-Es geht um das Programm Hashcat, dies ist ein Tool, um Passwort zu brechen.
+In diesem Beitrag möchte ich über das Knacken von VeraCrypt-Passwörtern mit Hashcat sprechen.
+Hashcat ist ein leistungsstarkes Tool zum Cracken von Passwörtern.
+Oft wird das Cracken von MD5-Hashes behandelt, aber heute werfen wir einen Blick auf VeraCrypt.
+Es geht dabei nicht um das Angreifen der Verschlüsselung selbst,
+sondern um das Ausnutzen schwacher Passwörter – ein häufiges Problem.
 
-Bei vielen Tutorials wird immer das Cracken von MD5 Hashes beschrieben.
+## Ziel 🎯
 
-Ich möchte hier mal über das Cracken von Vera Crypt schreiben.
-Das ist kein Angriff auf die Verschlüsslung, sondern auf das schwache Passwort, was ich wählen werde.
-
-## Erstellen des Ziels 🎯
-
-Das Erstellen des VeraCrypt File Containers.
-
-Als Verschlüsslung Methode wird normales AES und als Hash Algorithmus SHA-512, dass sind die default Werte von Vera Crypt:
+Zunächst erstellen wir einen VeraCrypt-File-Container.
+Die Verschlüsselungsmethode wird auf AES belassen,
+und als Hash-Algorithmus verwenden wir SHA-512 – beides Standardwerte bei VeraCrypt.
 
 ![VeraCrypt Screenshot, der die Verschlüsslung zeigt](img/veracrypt1.png)
 
-Nun kommt der Knackpunkt, wir wählen ein schwaches Passwort und Vera Crypt weißt richtiger Weise darauf hin, dass dies anfällig für Brute-force Attacken ist.
+Nun kommt der entscheidende Punkt: Wir wählen absichtlich ein schwaches Passwort.
+VeraCrypt warnt uns zu Recht, dass dieses anfällig für Brute-Force-Angriffe ist.
 
 ![VeraCrypt Screenshot der zeigt, dass das Passwort zu schlecht ist](img/veracrypt2.png)
 
 ## Kurze Theorie 👨‍🏫
-Bei Hashes handelt es sich um so genannte Einwegfunktion, man gibt einen Wert rein und bekommt ein Ausgabe. Oder hat eine zerhackte Ausgabe.
-Es gibt keinen Weg von einem Hash auf den Eingabe Wert zu kommen. Ähnlich wie beim Kochen, wo ich vom Gericht nicht auf die genaue Menge aller Zutaten kommen kann.
-Außer man versucht verschiedene Eingaben in die Hashfunktion und vergleicht das Ergebnis mit dem gegebenen Hash.
+
+Ein Hash ist eine sogenannte Einwegfunktion: Man gibt einen Wert hinein und erhält eine bestimmte Ausgabe, den Hash.
+Der Clou ist, dass es praktisch unmöglich ist, aus dem Hash direkt auf den ursprünglichen Wert zu schließen – so wie man aus einem fertigen Gericht nicht mehr auf die genaue Menge der Zutaten zurückkommen kann.
+Allerdings gibt es eine Methode, um das ursprüngliche Passwort zu finden: Man kann verschiedene Eingaben in die Hashfunktion füttern und die Ausgaben mit dem vorliegenden Hash vergleichen. Dieser Ansatz ist das Herzstück des Passwort-Crackings.
+
 
 ## Angriff auf das Ziel 🏹
 
 ### Hash Types
-Hashcat hat viele verschiedene Modi um Hashes anzugreifen. Es gibt eine gigantisch lange Liste, anzeigen lässt sich diese mit `hashcat --help`
-Diese Modi können mit dem Parameter `-m` bzw. `--hash-type ` gewählt werden.
-Die 0 steht für MD5, diese findet man am häufigsten im Internet. Für unseren Fall brauchen wir aber die 13722, dies geht gegen Vera Crypt AES mit SHA-512.
+
+Hashcat unterstützt eine Vielzahl von Hash-Typen.
+Eine komplette Liste kann man sich mit `hashcat --help` anzeigen lassen.
+Diese Typen wählt man mit dem Parameter `-m` (Modi) bzw. `--hash-type` aus.
+MD5 ist sehr verbreitet und hat die Nummer 0. 
+Für unseren Fall, VeraCrypt mit AES und SHA-512, verwenden wir den Modus 13722.
 
 ### Attack Mode
-Hashcat hat verschiedenen Angriffs Methoden diese können mit dem Parameter `-a` bzw. `--attack-mode` ausgewählt werden. 
-Ich habe mal zwei ausprobiert, das erste sind Wörterbuch Attacken, das Andere war eine Brute-force Attacke. Es gibt noch ein paar mehr, z.B. das Nutzen spezieller Regel.
-Im Sinne von hinten muss ein Sonderzeichen, diese kann man dann nochmal mit Wörterbüchern kombinieren.
 
+Hashcat bietet verschiedene Angriffsmethoden, die man mit dem Parameter `-a` bzw. `--attack-mode` steuert.
+Ich habe zwei Methoden ausprobiert: Wörterbuch-Angriffe und Brute-Force-Angriffe.
+Es gibt noch weitere, wie zum Beispiel die Kombination von Wörterbuch-Angriffen mit Regeln (etwa: "Am Ende muss ein Sonderzeichen stehen").
 
 #### Wörterbuch Attacken 📖
-Nochmal kurz erklärt, man hat eine Liste von Wörtern bzw. Strings. In Kali gibt es, z.B. auch eine Menge von Wörterlisten.
-Die Bekannteste ist die sogenannte `rockyou.txt`, diese ist aus Leaks entstanden und enthält häufig verwendete Passwörter.
 
-Es gibt auch Tools zum Erstellen von Wörterbüchern, ich möchte mal zwei vorstellen.
+Ein Wörterbuch-Angriff basiert auf einer Liste von potenziellen Passwörtern, die der Angreifer durchprobiert.
+In Kali Linux gibt es viele solcher Listen, die bekannteste ist `rockyou.txt`, die aus realen Passwort-Leaks stammt und häufig genutzte Passwörter enthält.
 
-Das Erste ist `crunch` mit diesen Tool kann man beschreiben, wie die Wortliste aussehen soll, also wie lang und welche Zeichen drin vorkommen.
+Es gibt auch Tools, um eigene Wörterlisten zu erstellen. Zwei davon möchte ich kurz vorstellen:
 
-Das Zweite ist `cewl` mit diesem Tool kann man eine URL übergeben, es versucht die Webseiten zu durchsuchen und daraus eine Liste zu generieren.
-Sehr schlau, da es auch immer noch Unternehmen gibt, die ihren Namen als Passwort verwenden oder dieser darin vorkommt. 🤔
+1. `Crunch`: Mit diesem Tool kann man definieren, wie die Wortliste aussehen soll – etwa die Länge der Passwörter und welche Zeichen enthalten sein sollen.
 
-[CeWl auf Github](https://github.com/digininja/CeWL)
+2. `Cewl`: Dieses [Tool](https://github.com/digininja/CeWL) durchsucht Webseiten und generiert daraus Wortlisten. Clever, denn manche Firmen nutzen tatsächlich Begriffe wie ihren Firmennamen als Passwort. 🤔
 
-Das dritte ist `cupp` die ist ein Tool zum Generieren von individuellen Wörterlisten, es fragt nach privaten Informationen über das anzugreifende Ziel z.B.: Geburtsdaten, Name von Ehepartner/Kinder oder Haustieren. 
+3. `cupp`: Das [Common User Password Profiler](https://github.com/Mebus/cupp) generiert individuelle Wörterlisten, auf Basis persönlicher Informationen (wie Geburtsdatum, Namen von Haustieren oder Kindern).
 
-[Cupp auf Github](https://github.com/Mebus/cupp)
-
-Aber hier nun die Attacke mit hashcat:
+Jetzt zur eigentlichen Attacke mit Hashcat:
 
 `hashcat -a 0 -m 13722 test rockyou.txt  -o cracked.txt`
 
-Die 0 steht natürlich für Wörterbuch Attacken.
-
-Das `test` ist der verschlüsselte VeraCrypt Container.
-
-Das `rockyou.txt` ist natürlich das Wörterbuch.
-
-Das `-o` steht für Output, es erstellt eine cracked.txt
+- `-a 0` steht für den Wörterbuch-Angriff.
+- `test` ist der verschlüsselte VeraCrypt-Container.
+- `rockyou.txt` ist die verwendete Wörterliste.
+- `-o` gibt den Output an, in diesem Fall wird das geknackte Passwort in cracked.txt gespeichert.
 
 #### Brute-force 👊
+
+Ein Brute-Force-Angriff testet systematisch alle möglichen Passwortkombinationen.
+Diese Methode ist extrem rechenintensiv und meistens nicht erfolgreich, es sei denn, das Passwort ist sehr kurz.
+
 Ìst das rabiate Ausprobieren aller möglichen Textverbindungen.
 Dies Attacke ist natürlich rechenintensiver und wird hier in einem echten Fall, wohl nicht von Erfolg gekrönt sein.
 
 `hashcat -a 3 -m 13722 test ?l?l?l?l?l --increment --increment-min 5`
 
-Die 3 steht natürlich Brute-force Attacke.
+- `-a 3` steht für den Brute-Force-Angriff.
+- Die `?l?l?l?l?l` geben an, dass Kleinbuchstaben getestet werden sollen.
+- Mit `--increment` wird die Passwortlänge schrittweise erhöht, beginnend bei 5 Zeichen.
 
 ### Zeit 🕜
-Ich möchte noch was zu der Zeit sagen, ich habe für meine Test eine nun doch schon in die Jahre gekommene GTX 1060 verwendet. 
-Beim Passwort Cracken gilt je mehr Rechenpower desto besser.
 
-Ich hatte 168 Hashes/s bei der Brute-force Attacke und 245 Hashes/s, dies sind super wenig, wenn man mal so vergleicht, dass man tausende von Mega Hashes/s bei Cracken von MD5 hat.
+Ich habe für meine Tests eine inzwischen etwas in die Jahre gekommene GTX 1060 verwendet.
+Beim Passwort-Cracking gilt: Je mehr Rechenleistung, desto besser.
+Bei meinem Test erreichte ich 168 Hashes/s mit dem Brute-Force-Angriff und 245 Hashes/s beim Wörterbuch-Angriff – ziemlich wenig im Vergleich zu den tausenden Mega-Hashes/s, die man beim Knacken von MD5 erreicht.
