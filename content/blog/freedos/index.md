@@ -3,47 +3,76 @@ title: "FreeDOS 🐳"
 date: 2022-02-26T20:06:36+01:00
 draft: false
 hideLastModified: true
-summaryImage: "img/FreeDOS.jpg"
+summaryImage: "img/freedos.webp"
 keepImageRatio: true
-summary: "Eine kleine spielerei mit FreeDOS. Und Verdeutlichung wie einfach es ist direkt auf die Hardware zuzugreifen."
+summary: "Ein Blick auf FreeDOS. Verdeutlicht wie einfach es ist direkt auf die Hardware zuzugreifen."
 showInMenu: false
 tags: [""]
 ---
 
-Ich möchte kurz mal ein Wort über FreeDOS verlieren. Es ist ein Betriebsystem, dass die Kompatibilität zu MS-DOS schaffen möchte.
-Grundidee ist es, alte Programm haupsächlich Spiele wieder zu laufen zu bekommen.
-Ich finde es recht interessant, wenn man mal in die Vergangenheit der Betriebssystem gucken kann. Und man merkt, dass viele der Mechanismen, die wir von einem Betriebssystem gewohnt sind, einfach nicht existieren.
-Ich spreche da nicht mal von einer GUI, ich meine auch Prinzipien, die mein System absichern.
+FreeDOS ist ein Open-Source-Betriebssystem, das Kompatibilität mit MS-DOS herstellen soll.
+Es wurde hauptsächlich entwickelt, um alte Programme und Spiele auf moderner Hardware zum Laufen zu bringen.
+Besonders interessant ist es, in die Vergangenheit der Betriebssysteme zu schauen und zu merken,
+wie viele Mechanismen, die wir heute als selbstverständlich erachten, damals einfach nicht existierten.
 
-Ich habe ein cooles Video gefunden, dass zeigt, wie man mit simplen QBasic den Parallel Port des Computers steuern kann. [Link zum Video auf YouTube](https://www.youtube.com/watch?v=7D-JES4BnTw)
+Hierbei rede ich nicht einmal von grafischen Benutzeroberflächen,
+sondern von grundlegenden Sicherheitsprinzipien. 
+Zum Beispiel existiert bei DOS-Systemen keine Trennung von Kernel- und Userspace, wie sie in modernen Betriebssystemen üblich ist.
+Diese Trennung, auch als Privilegienstufen oder Ringarchitektur bekannt, schützt moderne Systeme vor schädlichen Zugriffen und sorgt für Stabilität.
 
-Ich denke mal, das wäre heute undenkbar und nur mit erheblichen Aufwand zu bewerkstelligen.
-Eine Hierarchie mit Kernel und Userspace gab es einfach noch nicht.
+## Was sind Privilegienstufen?
 
-Aber ich wollte mal gucken, ob es wirklich so einfach ist, mit FreeDOS dieses Ziel zu erreichen und stellt sich raus, ´das ist es. 😜
+Moderne Betriebssysteme verwenden eine sogenannte Ringarchitektur, die unterschiedliche Privilegienstufen für die Ausführung von Code definiert.
+Diese Ringe reichen von Ring 0 (Kernel-Mode) bis zu Ring 3 (User-Mode):
 
+- **Ring 0** (Kernel-Mode): Hier läuft der Betriebssystemkernel, der direkten Zugriff auf die Hardware hat.
+Programme in diesem Modus können alles auf dem System steuern, weshalb sie besonders gut abgesichert sein müssen.
+- **Ring 3** (User-Mode): Hier laufen gewöhnliche Programme und Anwendungen.
+Sie haben keinen direkten Zugriff auf die Hardware, sondern müssen Anfragen über den Kernel stellen.
+Dadurch wird die Sicherheit des Systems erhöht.
 
-Einfach mit Rufus FreeDos auf einen Stick ziehen, dann noch [QBasic](https://www.qbasic.net/de/qbasic-downloads/compiler/qbasic-compiler.htm) in Version 7.1 daneben kopieren.
+Im Gegensatz dazu läuft bei FreeDOS alles ohne diese Trennung.
+Jeder Prozess kann direkt auf die Hardware zugreifen, was zwar flexibel ist, aber auch Sicherheitsrisiken birgt.
 
-Dann auf dem Zielsystem vom USB-Stick booten und ins QBasic Verzeichnis wechseln: `cd bin`
+## QBasic und der Parallelport
 
-Und dann QBasic starten: `qbx`
+Ein interessantes Beispiel dafür, wie einfach es früher war, auf die Hardware zuzugreifen,
+ist der Umgang mit dem Parallelport.
+Ich habe ein cooles [Youtube Video](https://www.youtube.com/watch?v=7D-JES4BnTw) gefunden, das zeigt,
+wie man mit einfachem QBasic den Parallelport steuern kann.
 
-Folgendes Mini Programm, zählt von 1 bis 255 und gibt die Zahl auf dem Monitor sowie in Binärer Zählweise auf der Parallele Schnittstelle aus.
+Heutzutage wäre es undenkbar, ohne spezielle Berechtigungen oder Treiber direkt auf die Hardware zuzugreifen.
+Doch bei FreeDOS ist das ganz einfach.
 
-Das folgende Bild zeigt mein Programm:
+Hier eine Anleitung, wie du mit FreeDOS und QBasic den Parallelport steuern kannst:
 
-![Foto vom QBasic Code ](img/qbasic.jpg)
+1. Mit Rufus FreeDOS auf einen USB-Stick kopieren.
+2. [QBasic](https://www.qbasic.net/de/qbasic-downloads/compiler/qbasic-compiler.htm) (Version 7.1) herunterladen  und auf den Stick packen.
+3. Das Zielsystem vom USB-Stick booten.
+4. Ins QBasic-Verzeichnis wechseln: `cd bin`
+5. QBasic starten: `qbx`
 
-Die `888` bei dem `OUT` Befehl bedeutet, dass es sich hierbei um den Parallelport handelt.
+Hier ein kleines Programm, das von 1 bis 255 zählt und die Zahl sowohl auf dem Bildschirm
+als auch über den Parallelport in binärer Form ausgibt:
+
+{{< codeWide >}}
+FOR COUNT = 0 TO 255 STEP 1
+OUT 888, COUNT
+PRINT "Number: ", COUNT
+SLEEP 1
+NEXT COUNT
+{{< /codeWide >}}
+
+![Foto vom QBasic Code](img/qbasic.jpg)
+
+Die `888` steht für den Parallelport.
+Der Aufbau sieht so aus: Jumper verbinden die Datenleitungen des Parallelports mit dem positiven Ende einer LED. 
+Alle LEDs sind mit `GND` vom Parallelport verbunden.
 
 Hier zwei Fotos des Aufbaues:
 
-![Zeigt ein Mainboard mit USB-Stick und LEDs vor dem Parallel Port](img/aufbau.jpg) | ![Zeigt die LEDs genauer](img/aufbau2.jpg)
+![Zeigt ein Mainboard mit USB-Stick und LEDs vor dem Parallelport](img/aufbau.jpg) | ![Nahaufnahme der LEDs](img/aufbau2.jpg)
 
-Die Jumper gehen in die Data Leitungen des Parallel Ports, diese sind dann mit dem positiven Ende einer LED verbunden.
-Als letztes müssen alle LEDs noch mit `GND` verbunden werden, dieser kommt auch aus dem Parallel Port.
-
-Hier ein kleines Video:
+Und hier ein kurzes Video, das den Zählvorgang zeigt:
 
 [![Video zeigt den Aufbau mit Zählendem Computer](img/thump.png)](img/working.mp4)
