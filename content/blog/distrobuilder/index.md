@@ -55,20 +55,43 @@ apt install btrfs-progs qemu-utils
 
 Im Template-Verzeichnis führte ich dann den folgenden Befehl aus:
 
+### Ubuntu VM erstellen
+{{< codeWide >}}
+sudo /home/rar/go/bin/distrobuilder build-incus --vm ubuntu.yaml -o image.release=jammy 
+{{< /codeWide >}}
+
+Dieses Befehl erstellt die Dateien: `disk.qcow2` und `incus.tar.xz`.
+Die Datei `disk.qcow2` kann dann mit `scp` oder `rsync` auf den Proxmox-Server kopiert werden.
+
+{{< codeWide >}}
+qm create 390
+qm importdisk 390 ubuntu.qcow2 local-lvm -format qcow2
+{{< /codeWide >}}
+
+Wichtig ist es die Festplatte im System hinzuzufügen (`Harware` -> `Edit` -> `Add`) und UEFI zu verwenden:
+
+![Hardware](img/Hardware.png)
+
+Weiterhin muss die Bootreinfolge in `Options` gesetzt werden:
+
+![Options](img/Options.png)
+
+Danach stertet die VM wie gewollt:
+
+![Console](img/Console.png)
+
+### OpenWrt VM erstellen 
+
+Mit folgenden Befehl lässt sich ein OpenWrt VM erstellen:
 {{< codeWide >}}
 distrobuilder build-incus --vm images/openwrt.yaml -o image.release=23.05
 {{< /codeWide >}}
 
-Dieses Befehl erstellt die Dateien: `disk.qcow2` und `incus.tar.xz`. Die Datei `disk.qcow2` kann dann mit `scp` oder `rsync` auf den Proxmox-Server kopiert werden.
-{{< codeWide >}}
-qm create 390
-qm importdisk 390 disk.qcow2 local-lvm
-{{< /codeWide >}}
-
-Dann in `/etc/pve/qemu-server/390.conf` den Namen der VM eintragen. 
-Und die Disk im Web UI hinzufügen.
-
+Leider gibt es ein [Problem](https://github.com/lxc/distrobuilder/issues/880) bei der EFI Partition in ditrobuilder.
 
 ## Fazit 🏁
+
 Insgesamt finde ich Distrobuilder ein ausgezeichnetes Tool zur Erstellung von Images für LXC.
-Es ist einfach zu bedienen und hat mir ermöglicht, schnell und unkompliziert mein eigenes OpenWrt-Image zu erstellen und in Proxmox zu integrieren.
+Es ist einfach zu bedienen und hat mir ermöglicht,
+schnell und unkompliziert mein eigenes OpenWrt-Image
+zu erstellen und in Proxmox zu integrieren.
