@@ -18,7 +18,7 @@ jobs:
 
       - name: Build Hugo Site
         run: |
-          hugo --minify
+          hugo -D
           find public -name "*.html" | xargs sed -i '/<head>/ s|<head>|<head><meta name="google-site-verification" content="4IkI-B75r3alf_Dqp0o9cosdJewTjDHeCRr5b_yk6v8" /><meta name="theme-color" content="#6495ed" />|'
 
       - name: Upload artifact
