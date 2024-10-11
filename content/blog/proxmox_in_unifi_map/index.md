@@ -3,7 +3,7 @@ title: "Unifi Karte 🗺️"
 date: 2024-03-07T21:22:09+01:00
 draft: false
 hideLastModified: true
-summaryImage: "img/proxmox_in_unifi_map.png"
+summaryImage: "img/proxmox_in_unifi_map.webp"
 keepImageRatio: true
 summary: "Richtige Anzeige von Proxmox-VMs und Linux Containern in der Unifi Karte."
 showInMenu: false
