@@ -3,7 +3,7 @@ title: "Meilisearch 🔎"
 date: 2024-03-02T22:37:35+01:00
 draft: false
 hideLastModified: true
-summaryImage: "img/meilisearch.png"
+summaryImage: "img/search.webp"
 keepImageRatio: true
 summary: "A brief insight into Meilisearch and the synchronisation of Postgres data."
 showInMenu: false
