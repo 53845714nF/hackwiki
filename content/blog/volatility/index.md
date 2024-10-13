@@ -352,7 +352,7 @@ In diesem Fall fällt das rootkit natürlich sehr schnell auf:
     0xffffffffc00ad040 rootkit
 {{< /codeWide >}}
 
-### Maleware unter Windows erkennen
+### Malware unter Windows erkennen
 
 Das Erkennen von Windows Maleware ist nochmal ein wenig aufwendiger, da
 man sich sehr gut, mit der Internen Struktur von Windows auskennen muss.
