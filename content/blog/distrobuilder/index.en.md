@@ -45,5 +45,47 @@ pct create 107 ./rootfs.tar.xz --unprivileged 1 --ostype unmanaged --hostname op
 
 After some settings adjustments to the network interfaces, the container was ready to go and could be started.
 
+## Create VM 🔨
+
+Before starting with the creation of the VM, the packages `btrfs-progs` and `qemu-utils` need to be installed on Debian:
+
+{{< codeWide >}} apt install btrfs-progs qemu-utils {{< /codeWide >}}
+
+In the template directory, I then executed the following command:
+
+### Create Ubuntu VM
+
+{{< codeWide >}} sudo /home/rar/go/bin/distrobuilder build-incus --vm ubuntu.yaml -o image.release=jammy {{< /codeWide >}}
+
+This command generates the files: `disk.qcow2` and `incus.tar.xz`.
+The file `disk.qcow2` can then be copied to the Proxmox server using `scp` or `rsync`.
+
+{{< codeWide >}}
+qm create 390 qm importdisk 390 ubuntu.qcow2 local-lvm -format qcow2
+{{< /codeWide >}}
+
+It is important to add the hard drive to the system (`Hardware` -> `Edit` -> `Add`) and to use UEFI:
+
+![Hardware](img/Hardware.png)
+
+Furthermore, the boot order must be set in `Options`:
+
+![Options](img/Options.png)
+
+After that, the VM starts as expected:
+
+![Console](img/Console.png)
+
+## Create OpenWrt VM
+
+An OpenWrt VM can be created with the following command: 
+{{< codeWide >}}
+distrobuilder build-incus --vm images/openwrt.yaml -o image.release=23.05 
+{{< /codeWide >}}
+
+Unfortunately, there is an [issue](https://github.com/lxc/distrobuilder/issues/880) with the EFI partition in distrobuilder.
+
 ## Conclusion 🏁
-Overall, I find Distrobuilder to be an excellent tool for creating images for LXC. It's easy to use and allowed me to quickly and effortlessly create my own OpenWrt image and integrate it into Proxmox.
+
+Overall, I find Distrobuilder to be an excellent tool for creating images for LXC.
+It's easy to use and allowed me to quickly and effortlessly create my own OpenWrt image and integrate it into Proxmox.
