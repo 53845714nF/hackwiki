@@ -50,6 +50,7 @@ Here, I worked on further developing the GUI test framework [Spix](https://githu
 In my bachelor's thesis, I compared static vulnerability scanners for OCI-based container images using a self-developed web application.
 The [application](https://github.com/53845714nF/MarketMinder) consisted of a **Flask** backend (with flask-restful, flask-sqlalchemy, and flask-migrate) and a **React** frontend in **TypeScript** (using Material-UI and react-query).
 Using this application, the following scanners were compared: Trivy, Clair, Grype, Snyk, Threat Mapper, Veinmind-tools, OpenSCAP, Dagda, Docker Scout, and Vesta. The results of the scanners were then evaluated using **Python** and **Matplotlib**. ([To the evaluation code](https://github.com/53845714nF/analysis_market_minder)).
+The thesis is available at: [https://doi.org/10.25933/opus4-3202](https://doi.org/10.25933/opus4-3202)
 
 ### My Vocational Training
 

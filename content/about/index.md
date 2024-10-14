@@ -48,7 +48,7 @@ Mein Praktikum absolvierte ich bei [KDAB](https://www.kdab.com/), einem Unterneh
 In meiner Bachelorarbeit habe ich statische Schwachstellenscanner für OCI-basierte Containerimages anhand einer eigens entwickelten Webanwendung verglichen.
 Die [Anwendung](https://github.com/53845714nF/MarketMinder) bestand aus einem **Flask-Backend** (mit flask-restful, flask-sqlalchemy und flask-migrate) sowie einem **React-Frontend** in **TypeScript** (unter Verwendung von Material-UI und react-query). Anhand diese Anwendung wurden die folgenden Scanner verglichen: 
 Trivy, Clair, Grype, Snyk, Threat Mapper, Veinmind-tools, OpenSCAP, Dagda, Docker Scout und Vesta.
-Die Ergebnisse der Scanner wurden dann mithilfe von **Python** und **Matplotlib** ausgewertet. ([Zum Code der Auswertung](https://github.com/53845714nF/analysis_market_minder)).
+Die Ergebnisse der Scanner wurden dann mithilfe von **Python** und **Matplotlib** ausgewertet. ([Zum Code der Auswertung](https://github.com/53845714nF/analysis_market_minder)). Die Arbeit ist unter [https://doi.org/10.25933/opus4-3202](https://doi.org/10.25933/opus4-3202) verfügbar.
 
 ### Meine Ausbildung
 Mein Ausbildung zum Fachinformatiker für Systemintegration habe ich am [Max-Planck-Institut für Gravitationsphysik](https://www.aei.mpg.de/) absolviert,
