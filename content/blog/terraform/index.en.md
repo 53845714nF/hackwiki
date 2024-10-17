@@ -3,7 +3,7 @@ title: "Terraform ☁️"
 date: 2022-08-28T23:27:25+02:00
 draft: false
 hideLastModified: true
-summaryImage: "img/terraform.png"
+summaryImage: "img/terraform.webp"
 keepImageRatio: true
 summary: "A first insight into Terraform with the interaction to Digital Ocean."
 showInMenu: false

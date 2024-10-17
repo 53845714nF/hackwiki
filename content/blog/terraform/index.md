@@ -3,7 +3,7 @@ title: "Terraform ☁️"
 date: 2022-08-28T23:27:25+02:00
 draft: false
 hideLastModified: true
-summaryImage: "img/terraform.png"
+summaryImage: "img/terraform.webp"
 keepImageRatio: true
 summary: "Terraform ist ein Tool zum Wolken bauen. Ein erster Einblick im Zusammenspiel mit Digital Ocean."
 showInMenu: false
