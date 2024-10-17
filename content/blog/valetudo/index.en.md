@@ -3,7 +3,7 @@ title: "Valetudo 🤖"
 date: 2022-08-28T21:57:55+02:00
 draft: false
 hideLastModified: true
-summaryImage: "img/valetudo.png"
+summaryImage: "img/valetudo.webp"
 keepImageRatio: true
 summary: "Freeing the vacuum cleaner robot from the Chinese cloud."
 showInMenu: false
