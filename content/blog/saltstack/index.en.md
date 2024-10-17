@@ -3,7 +3,7 @@ title: "Salt 🧂"
 date: 2024-09-27T21:22:04+02:00
 draft: false
 hideLastModified: true
-summaryImage: "img/saltstack.png"
+summaryImage: "img/salt.webp"
 keepImageRatio: true
 summary: "A quick look at Salt, a configuration management tool."
 showInMenu: false
