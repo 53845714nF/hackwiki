@@ -3,7 +3,7 @@ title: "Home Lab vs Home Server 💻"
 date: 2021-09-25T14:07:04+02:00
 draft: false
 hideLastModified: true
-summaryImage: "img/homelab.jpg"
+summaryImage: "img/homelab.webp"
 keepImageRatio: true
 summary: "Differences between Home Lab and Home Server."
 showInMenu: false
