@@ -78,7 +78,7 @@ Zudem beschäftigte ich mich mit der Bereitstellung von Speicher über das Netzw
 Darüber hinaus setzte ich mich mit verschiedenen Dateisystemen auseinander, darunter **ZFS**, **Btrfs** und **Bcachefs**.
 
 Im zweiten Ausbildungsjahr hielt ich meinen ersten Lightning Talk über **Bcachefs**, woraus zufällig mein erstes [Podcast-Interview](https://www.radiotux.de/index.php?/archives/2019/09.html) bei RadioTux entstand.
-Zudem absolvierte ich Schulungen zu Graylog, einem Tool zur zentralisierten Log-Verwaltung, und Bareos, einer Open-Source-Backup-Lösung.
+Zudem absolvierte ich Schulungen zu **Graylog**, einem Tool zur zentralisierten Log-Verwaltung, und **Bareos**, einer Open-Source-Backup-Lösung.
 Neben meinen administrativen Aufgaben erhielt ich einen Einblick in die Entwicklung von Webanwendungen mit **PHP** und dem Framework **Symfony**.
 Während meiner Berufsschulzeit erwarb ich außerdem Kenntnisse in **SQL** und **Java**.
 
