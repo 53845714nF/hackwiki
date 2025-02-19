@@ -10,6 +10,28 @@ Hello, I'm Sebastian, a computer scientist with a Bachelor's degree in Computer 
 and a vocational training as an IT specialist for system integration.
 I'm currently pursuing my Master's degree in Computer Science.
 
+### My Master's Studies
+
+I am currently pursuing my master's degree at 
+[Brandenburg University of Applied Sciences](https://www.th-brandenburg.de/startseite/), 
+where I also completed my bachelor's degree.
+
+##### Projects During My Master's Studies
+
+- Full-Stack Web Application: EventTom (1st Semester)
+    EventTom is a web application for managing and selling event tickets. It was developed as part of the Software Architecture and Quality Assurance course using **FastAPI** and **Vue**.
+- Deployment of EventTom (1st Semester)
+    In the Cloud Computing – Development and Operations course, I worked on automating the deployment of EventTom using Terraform and GitHub Actions on AWS.
+
+##### Digital Forensics
+
+In the IT and Media Forensics course, I gained insights into forensic investigation methods.
+Key topics included:
+  - Network analysis with **Wireshark**
+  - Storage media analysis using **Autopsy** and **Volatility**
+  - Introduction to **Reverse Engineering**
+
+
 ### My Bachelor's Degree
 
 I completed my Bachelor's degree at the [Brandenburg University of Applied Sciences](https://www.th-brandenburg.de/startseite/), where I gained a solid understanding of various core areas of computer science, including logic, algorithms and data structures, databases, and programming.
@@ -54,11 +76,26 @@ The thesis is available at: [https://doi.org/10.25933/opus4-3202](https://doi.or
 
 ### My Vocational Training
 
-I completed my vocational training as an IT specialist for system integration at the [Max Planck Institute for Gravitational Physics](https://www.aei.mpg.de/), where I specialized in Linux system administration.
+I completed my training as an IT specialist in system integration at the [Max Planck Institute for Gravitational Physics](https://www.aei.mpg.de/), where I specialized in Linux system administration.
 
-My responsibilities included network management (**VLAN**, **LAG**), **LDAP**, and **DNS** management. I automated IT infrastructure management using **Saltstack** and implemented a CI pipeline with **GitLab** to test Salt States. I also introduced the vulnerability management tool **Greenbone** and used **Jira** for IT project management. I automated small tasks using **Bash** and **Python** scripts. I also gained some insight into web development using **PHP** and the **Symfony** framework. During my vocational school training, I acquired knowledge in **SQL** and **Java**.
+In my first week, I replicated an [Arduino project](https://github.com/marcofischer/arduino-zabbix-agent) that monitored server room temperatures and transmitted the data to **Zabbix**, a monitoring system. I later presented this project at an internal technical conference.
 
-In my final project, I focused on migrating from **VMware** to **Proxmox VE**.
+During my first year, I worked on an apprentice project focused on application availability. I implemented **HAProxy** as a load balancer to distribute traffic across multiple **Apache** web servers. To ensure high availability for the **MySQL** database, I used **Corosync** and **Pacemaker**.
+Additionally, I explored network-based storage solutions, comparing **NFS**, **iSCSI**, and **Fibre Channel**, and studied various file systems, including **ZFS**, **Btrfs**, and **Bcachefs**.
+
+In my second year, I gave my first lightning talk on **Bcachefs**, which unexpectedly led to my first [podcast interview](https://www.radiotux.de/index.php?/archives/2019/09.html) (only available in German) with RadioTux.
+I also attended training sessions on **Graylog**, a centralized log management tool, and **Bareos**, an open-source backup solution.
+Alongside my administrative tasks, I gained insights into web development using **PHP** and the **Symfony** framework.
+My vocational school studies also covered **SQL** and **Java**.
+
+My regular responsibilities included network management (**VLAN**, **LAG**), **LDAP** and **DNS** administration, as well as automating tasks with **Bash** and **Python** scripts.
+
+At the end of my second year, I taught myself **SaltStack** to manage configurations centrally. I versioned Salt states using **Git** and implemented a CI pipeline in **GitLab** to automatically test and run them in a test environment.
+This was also my first exposure to **Docker**.
+
+In my third year, I introduced the **Greenbone** vulnerability management tool and used **Jira** for project management.
+
+For my final project, I focused on migrating from **VMware** to **Proxmox VE**.
 
 ### My School Time
 
