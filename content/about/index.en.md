@@ -22,6 +22,8 @@ where I also completed my bachelor's degree.
     EventTom is a web application for managing and selling event tickets. It was developed as part of the Software Architecture and Quality Assurance course using **FastAPI** and **Vue**.
 - Deployment of EventTom (1st Semester)
     In the Cloud Computing – Development and Operations course, I worked on automating the deployment of EventTom using Terraform and GitHub Actions on AWS.
+- Clustering of Malware (2nd Semester)
+    A method was examined that clusters malware into families. The opcode of the malware was transformed into vectors using an embedding language model and stored in a vector database (**Weaviate**). Based on this data, simple clusters could be formed.
 
 ##### Digital Forensics
 
@@ -30,6 +32,10 @@ Key topics included:
   - Network analysis with **Wireshark**
   - Storage media analysis using **Autopsy** and **Volatility**
   - Introduction to **Reverse Engineering**
+
+##### Media Security
+
+As part of the Media Security course, I explored various techniques for analyzing and securing digital media. This included detecting steganography in images, implementing and identifying digital watermarks (watermarking), and applying perceptual hashing for the robust identification of visual content. Additionally, fundamental biometric methods were covered, particularly those used for authentication based on physiological characteristics.
 
 
 ### My Bachelor's Degree
@@ -106,13 +112,15 @@ I also created a website for a [fictional web agency](https://think.hackwiki.de/
 
 ### My Private Projects
 
-- [vuln2pve](https://github.com/53845714nF/vuln2pve), a script that downloads VMs from Vulnhub to Proxmox.
 - [packer-proxmox-debian](https://github.com/53845714nF/packer-proxmox-debian), a Packer config that creates a Debian template for Proxmox.
+- [steganoai](https://https://steganoai.pro/), a website to detect steganography in texts created by ChatGPT.
 - [hasura-jwt](https://github.com/53845714nF/hasura-jwt), a program that issues JWTs for Hasura.
 - [time2boot](https://github.com/53845714nF/time2boot), an Arduino project that starts a computer at a specific time.
+- [vuln2pve](https://github.com/53845714nF/vuln2pve), a script that downloads VMs from Vulnhub to Proxmox.
 
 ### Personal Life
 
 - 👯 I meet with friends at the [Chaos Treff Potsdam](https://www.ccc-p.org/) 🚀 and the [Brandenburg Linux User Group](https://www.bralug.de/) 🐧.
+- 📣 PR Manager Bralug
 - ⚡ Fun fact: I love swimming 🏊‍♂️.
 - 📝 I write on this blog when I find the time.
