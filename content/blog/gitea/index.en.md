@@ -7,7 +7,7 @@ summaryImage: "img/gitea.webp"
 keepImageRatio: true
 summary: "Setting up your own Git service. And the migration from Alpine to Debian."
 showInMenu: false
-tags: ["Programming", "Git", "Home Lab", "DevOps"]
+tags: ["Programming", "Git", "HomeLab", "DevOps"]
 ---
 
 ## Introduction to Git
