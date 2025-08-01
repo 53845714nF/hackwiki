@@ -10,6 +10,10 @@ showInMenu: false
 tags: ["Forensik"]
 ---
 
+{{< box >}}
+	    Hier wird der Umgang mit Volatility 2 gezeigt. Aktuell ist mittlerweile Volatility 3, dort gab es einige Änderungen.
+{{< /box >}}
+
 Wer nach einem Einbruch den Arbeitsspeicher eines Rechners untersuchen
 muss, darf sich der tatkräftigen Unterstützung des Python-Framework
 Volatility erfreuen. In diesem Post geht es noch um Volatility 2 mittlerweile gibt es die dreier Version.

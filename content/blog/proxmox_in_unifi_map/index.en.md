@@ -10,6 +10,10 @@ showInMenu: false
 tags: ["Proxmox", "Network", "Unifi", "HomeLab", "Virtualization", "LLDP", "Saltstack"]
 ---
 
+{{< box >}}
+	  The method shown here is not very stable. Machines sometimes shift position. The Unifi controller often needs to be restarted at the beginning.
+{{< /box >}}
+
 I've been using Proxmox and Unifi in my network.
 Anyone who uses Unifi is likely familiar with the Unifi Map.
 
