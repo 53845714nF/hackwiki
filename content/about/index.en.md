@@ -113,7 +113,7 @@ I also created a website for a [fictional web agency](https://think.hackwiki.de/
 ### My Private Projects
 
 - [packer-proxmox-debian](https://github.com/53845714nF/packer-proxmox-debian), a Packer config that creates a Debian template for Proxmox.
-- [steganoai](https://https://steganoai.pro/), a website to detect steganography in texts created by ChatGPT.
+- [steganoai](https://steganoai.pro/), a website to detect steganography in texts created by ChatGPT.
 - [hasura-jwt](https://github.com/53845714nF/hasura-jwt), a program that issues JWTs for Hasura.
 - [time2boot](https://github.com/53845714nF/time2boot), an Arduino project that starts a computer at a specific time.
 - [vuln2pve](https://github.com/53845714nF/vuln2pve), a script that downloads VMs from Vulnhub to Proxmox.
