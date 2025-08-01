@@ -7,7 +7,7 @@ summaryImage: "img/kubernetes.webp"
 keepImageRatio: true
 summary: "Learn how to set up the DNS Challenge for Let's Encrypt in your k3s cluster."
 showInMenu: false
-tags: ["Let's Encrypt", "Kubernetes", "DNS Challenge"]
+tags: ["Let's Encrypt", "Kubernetes", "DNSChallenge"]
 ---
 
 I have been running a k3s cluster for some time and now I want to expand my Ingress resource to allow accessing my applications with valid Let's Encrypt certificates.

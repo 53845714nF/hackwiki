@@ -7,7 +7,7 @@ summaryImage: "img/kubernetes.webp"
 keepImageRatio: true
 summary: "Erfahren Sie, wie Sie die DNS Challenge für Let's Encrypt in Ihrem k3s Cluster einrichten können."
 showInMenu: false
-tags: ["Let's Encrypt", "Kubernetes", "DNS Challenge", "Fritzbox"]
+tags: ["Let's Encrypt", "Kubernetes", "DNSChallenge", "Fritzbox"]
 ---
 
 Seit einiger Zeit betreibe ich ein k3s Cluster und möchte nun meine Ingress Ressource erweitern,
