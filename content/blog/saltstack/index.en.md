@@ -34,19 +34,18 @@ There are two basic interaction models:
 
 The master sets the direction and manages the instructions for the minions. By default, these configurations are stored under `/srv/salt/`. Alternatively, you can set up a Git integration, but make sure to use GitPython as the `gitfs` provider, not `pygit2`.
 
-**Installation (Example for Debian 10)**
-You can check the [Salt Repo](http://repo.saltstack.com) for how to install Salt Master on various systems.
+**Installation (Example for Debian 12)**
 
-Here’s a quick overview of how to install it on Debian 10 (as root):
+Here’s a quick overview of how to install it on Debian 12 (as root):
 
 1. Download and add the GPG key:
 {{< codeWide >}}
-wget -O - https://repo.saltstack.com/py3/debian/10/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
+curl -fsSL https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public | sudo tee /etc/apt/keyrings/salt-archive-keyring.pgp
 {{< /codeWide >}}
 
 2. Add the SaltStack repository:
 {{< codeWide >}}
-deb http://repo.saltstack.com/py3/debian/10/amd64/latest buster main
+curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources | sudo tee /etc/apt/sources.list.d/salt.sources
 {{< /codeWide >}}
 
 3. Update the package lists:

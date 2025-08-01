@@ -37,19 +37,18 @@ Es gibt zwei grundlegende Interaktionsmodelle:
 Der Master gibt die Richtung vor und verwaltet die Anweisungen der Minions.Standardmäßig liegen diese Konfigurationen unter `/srv/salt/`.
 Alternativ lässt sich auch eine Git-Anbindung einrichten, wobei darauf zu achten ist, GitPython als `gitfs` Provider zu verwenden, nicht `pygit2`.
 
-**Installation (Beispiel Debian 10):**
-Unter [Salt Repo](http://repo.saltstack.com) lässt einsehen, wie man Salt Master auf all den verschiedenen Systemen installiert.
+**Installation (Beispiel Debian 12):**
 
 Hier nur kurz gezeigt, wie das unter Debian 10 geht (als root ausführen): 
 
 1. GPG-Schlüssel herunterladen und hinzufügen:
 {{< codeWide >}}
-wget -O - https://repo.saltstack.com/py3/debian/10/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
+curl -fsSL https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public | sudo tee /etc/apt/keyrings/salt-archive-keyring.pgp
 {{< /codeWide >}}
 
 2. Saltstack-Repository hinzufügen:
 {{< codeWide >}}
-deb http://repo.saltstack.com/py3/debian/10/amd64/latest buster main
+curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources | sudo tee /etc/apt/sources.list.d/salt.sources
 {{< /codeWide >}}
 
 3. Paketlisten aktualisieren:
@@ -66,19 +65,18 @@ apt-get install salt-master
 
 Der Minion ist das verwaltete System, auf dem die Befehle ausgeführt werden. Die zentrale Konfigurationsdatei befindet sich unter `/etc/salt/minion`, wo der Master-Server festgelegt wird. Standardmäßig lautet dieser einfach `salt`, kann aber je nach Netzwerkumgebung angepasst werden.
 
-**Installation (Beispiel Debian 10):**
+**Installation (Beispiel Debian 12):**
 
-Ähnlich wie beim Master lässt sich die Instalation unter [Salt Repo](http://repo.saltstack.com) einsehen.
 Dieser lässt sich natürlich auf verschiedenen Systemen installieren. 
 
 1. GPG-Schlüssel herunterladen und hinzufügen:
 {{< codeWide >}}
-wget -O - https://repo.saltstack.com/py3/debian/10/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
+curl -fsSL https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public | sudo tee /etc/apt/keyrings/salt-archive-keyring.pgp
 {{< /codeWide >}}
 
 2. Saltstack-Repository hinzufügen:
 {{< codeWide >}}
-deb http://repo.saltstack.com/py3/debian/10/amd64/latest buster main
+curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources | sudo tee /etc/apt/sources.list.d/salt.sources
 {{< /codeWide >}}
 
 3. Paketlisten aktualisieren:
