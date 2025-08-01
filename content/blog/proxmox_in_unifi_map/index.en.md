@@ -7,7 +7,7 @@ summaryImage: "img/proxmox_in_unifi_map.webp"
 keepImageRatio: true
 summary: "Correct display of Proxmox VMs and Linux containers in the Unifi Map."
 showInMenu: false
-tags: ["Proxmox", "Network", "Unifi", "Home Lab", "Virtualization", "LLDP", "Saltstack"]
+tags: ["Proxmox", "Network", "Unifi", "HomeLab", "Virtualization", "LLDP", "Saltstack"]
 ---
 
 I've been using Proxmox and Unifi in my network.
