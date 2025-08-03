@@ -63,18 +63,17 @@ apt-get install salt-master
 The minion is the managed system where commands are executed. Its main configuration file is located at `/etc/salt/minion`, where the master server is defined.
 By default, the master is set to `salt`, but this can be adjusted depending on your network environment.
 
-**Installation (Example for Debian 10)**
-
-As with the master, you can find installation instructions in the [Salt Repo](http://repo.saltstack.com) for various systems.
+**Installation (Example for Debian 12)**
 
 1. Download and add the GPG key:
 {{< codeWide >}}
-wget -O - https://repo.saltstack.com/py3/debian/10/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
+curl -fsSL https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public | sudo tee /etc/apt/keyrings/salt-archive-keyring.pgp
 {{< /codeWide >}}
+
 
 2. Add the SaltStack repository:
 {{< codeWide >}}
-deb http://repo.saltstack.com/py3/debian/10/amd64/latest buster main
+curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources | sudo tee /etc/apt/sources.list.d/salt.sources
 {{< /codeWide >}}
 
 3. Update the package lists:
