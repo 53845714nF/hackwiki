@@ -96,7 +96,7 @@ Zwar hat [OpenStreetMap](https://www.openstreetmap.org) sehr gute Karten, aber l
 
 ### KI & Sprachmodelle
 Die dominanten Anbieter im Bereich generativer KI sind:
-  - [ChatGPT](chatgpt.com) von [OpenAI](https://openai.com/) 🇺🇸
+  - [ChatGPT](https://chatgpt.com) von [OpenAI](https://openai.com/) 🇺🇸
   - [Claude](https://claude.ai) von [Anthropic](https://www.anthropic.com/) 🇺🇸
 
 
