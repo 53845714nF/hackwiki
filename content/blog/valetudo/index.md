@@ -7,7 +7,7 @@ summaryImage: "img/valetudo.webp"
 keepImageRatio: true
 summary: "Den Staubsauger Roboter aus der China Cloud befreien."
 showInMenu: false
-tags: ["Smart Home", "Home Assistant"]
+tags: ["SmartHome", "HomeAssistant"]
 ---
 
 Ich möchte über Valetudo schreiben, eine Open-Source-Firmware für Staubsauger-Roboter.

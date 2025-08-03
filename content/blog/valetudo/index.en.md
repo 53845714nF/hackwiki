@@ -7,7 +7,7 @@ summaryImage: "img/valetudo.webp"
 keepImageRatio: true
 summary: "Freeing the vacuum cleaner robot from the Chinese cloud."
 showInMenu: false
-tags: ["Smart Home", "Home Assistant"]
+tags: ["SmartHome", "HomeAssistant"]
 ---
 
 I want to talk about Valetudo, an open-source firmware for vacuum robots. Many of these devices come equipped with network sniffers that send collected data to servers in China. Valetudo aims to prevent this, which is why I’m glad this project exists.
