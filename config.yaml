@@ -95,7 +95,7 @@ params:
     github: 
       link: 53845714nF/hackwiki
       title: Github
-    copyright: Sebastian Feustel - 2024
+    copyright: 2025 Sebastian Feustel
 
 ###################################################################
 ################## multilanguage support options ##################
@@ -137,4 +137,4 @@ languages:
         github: 
           link: 53845714nF/hackwiki
           title: Github
-        copyright: Sebastian Feustel - 2024
+        copyright: 2025 Sebastian Feustel
