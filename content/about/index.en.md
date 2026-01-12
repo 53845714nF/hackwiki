@@ -23,7 +23,8 @@ where I also completed my bachelor's degree.
 - Deployment of EventTom (1st Semester)
     In the Cloud Computing – Development and Operations course, I worked on automating the deployment of EventTom using Terraform and GitHub Actions on AWS.
 - Clustering of Malware (2nd Semester)
-    A method was examined that clusters malware into families. The opcode of the malware was transformed into vectors using an embedding language model and stored in a vector database (**Weaviate**). Based on this data, simple clusters could be formed.
+    A method was examined that clusters malware into families. The opcode of the malware was transformed into vectors using an embedding language model and stored in a vector database (**Weaviate**). Based on this data, simple clusters could be formed. [Malwareuniverse](https://www.malwareuniverse.org/)
+- Development of a language bot (2nd semester): Using the Microsoft Botbuilder Framework, a bot was developed that can respond to speech and text. This was operated on **Azure**.
 
 ##### Digital Forensics
 
@@ -37,6 +38,11 @@ Key topics included:
 
 As part of the Media Security course, I explored various techniques for analyzing and securing digital media. This included detecting steganography in images, implementing and identifying digital watermarks (watermarking), and applying perceptual hashing for the robust identification of visual content. Additionally, fundamental biometric methods were covered, particularly those used for authentication based on physiological characteristics.
 
+##### Cryptography and network security
+In-depth knowledge of classic and modern cryptographic methods, including block and stream ciphers, secure random number generation, and public-key cryptography. Understanding of key exchange, digital signatures, and their use to ensure confidentiality, integrity, and authenticity in networks.
+Additionally, introduction to concepts of quantum cryptography and quantum-secure methods. Independent technical presentation on command-and-control (C2) frameworks with a focus on communication structures and camouflage mechanisms.
+
+Translated with DeepL.com (free version)
 
 ### My Bachelor's Degree
 
@@ -113,6 +119,7 @@ I also created a website for a [fictional web agency](https://think.hackwiki.de/
 ### My Private Projects
 
 - [packer-proxmox-debian](https://github.com/53845714nF/packer-proxmox-debian), a Packer config that creates a Debian template for Proxmox.
+- [Dinofind](https://github.com/53845714nF/dinofind) a reverse image search engine.
 - [steganoai](https://steganoai.pro/), a website to detect steganography in texts created by ChatGPT.
 - [hasura-jwt](https://github.com/53845714nF/hasura-jwt), a program that issues JWTs for Hasura.
 - [time2boot](https://github.com/53845714nF/time2boot), an Arduino project that starts a computer at a specific time.

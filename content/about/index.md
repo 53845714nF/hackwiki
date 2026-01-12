@@ -18,7 +18,8 @@ Mein Masterstudium absolviere ich derzeit, ebenso wie meinen Bachelor, an der  [
 - Full-Stack-Webanwendung EventTom (1. Semester): [EventTom](https://github.com/53845714nF/EventTom) ist eine Webanwendung zur Verwaltung und zum Verkauf von Tickets für Events.
 Sie entstand im Rahmen des Moduls Softwarearchitektur und Qualitätssicherung und wurde mit **FastAPI** und **Vue** entwickelt.
 - Breitstellung von Eventtom (1. Semester): Im Modul Cloud Computing – Entwicklung und Betrieb wurde die Bereitstellung von EventTom mithilfe von **Terraform** und **GitHub Actions** auf **AWS** automatisiert.
-- Clusterbildung von Malware (2. Semester): Ein Verfahren wurde untersucht, das Malware-Familien in Cluster einordnet. Der Opcode der Malware wurde mithilfe eines Embedding-Sprachmodells in Vektoren überführt und in einer Vektordatenbank (**Weaviate**) gespeichert. Auf dieser Datengrundlage ließen sich einfache Cluster bilden.
+- Clusterbildung von Malware (2. Semester): Ein Verfahren wurde untersucht, das Malware-Familien in Cluster einordnet. Der Opcode der Malware wurde mithilfe eines Embedding-Sprachmodells in Vektoren überführt und in einer Vektordatenbank (**Weaviate**) gespeichert. Auf dieser Datengrundlage ließen sich einfache Cluster bilden. [Malwareuniverse](https://www.malwareuniverse.org/)
+- Entwicklung eines Sprachbots (2. Semester): Mit hilfe des Microsoft Botbuilder Framework wurde ein Bot entwickelt der auf Sprache und Text reagieren kann. Dieser wurde auf **Azure** betrieben.
 
 ##### Forensik
 Im Modul IT- und Medienforensik habe ich forensische Untersuchungsmethoden erlernt.
@@ -28,6 +29,10 @@ Abschließend gab es eine Einführung in das **Reverse Engineering**.
 
 ##### Mediensicherheit
 Im Rahmen der Veranstaltung Mediensicherheit habe ich verschiedene Verfahren zur Analyse und Absicherung digitaler Medien kennengelernt. Dazu gehörte das Auffinden von Steganografie in Bildern, die Implementierung und Erkennung von digitalen Wasserzeichen (Watermarking) sowie die Anwendung von Perceptual Hashing zur robusten Identifikation von Bildinhalten. Ergänzend wurden auch grundlegende Verfahren der Biometrie behandelt, insbesondere zur Authentifizierung anhand von physiologischen Merkmalen.
+
+##### Kryptographie und Netzwerksicherheit
+Fundierte Kenntnisse in klassischen und modernen kryptographischen Verfahren, darunter Block- und Stromchiffren, sichere Zufallszahlengenerierung sowie Public-Key-Kryptographie. Verständnis von Schlüsselaustausch, digitalen Signaturen und deren Einsatz zur Sicherstellung von Vertraulichkeit, Integrität und Authentizität in Netzwerken.
+Zusätzlich Einführung in Konzepte der Quantenkryptographie und quantensichere Verfahren. Eigenständiger Fachvortrag zu Command-and-Control-(C2-)Frameworks mit Fokus auf Kommunikationsstrukturen und Tarnmechanismen. [Folien](data/C2-Frameworks.pdf)
 
 ### Mein Bachelor Studium
 
@@ -102,6 +107,7 @@ Zudem erstellte ich eine [Webseite einer fiktive Webagentur](https://think.hackw
 
 ### Meine privaten Projekte
 - [packer-proxmox-debian](https://github.com/53845714nF/packer-proxmox-debian) ein Packer Config das ein Debain Template für Proxmox erstellt.
+- [Dinofind](https://github.com/53845714nF/dinofind) eine reverse Bildersuchmaschine.
 - [steganoai](https://steganoai.pro/), eine Webseite zum Aufspüren von Steganografie in von ChatGPT erstellten Texten.
 - [hasura-jwt](https://github.com/53845714nF/hasura-jwt) ein Programm das JWTs für Hasura ausstellt.
 - [time2boot](https://github.com/53845714nF/time2boot) ein Arduino Projekt der ein Computer zur bestimmten Zeit startet.
