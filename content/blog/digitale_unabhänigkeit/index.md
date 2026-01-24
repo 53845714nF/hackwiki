@@ -104,11 +104,8 @@ Die dominanten Anbieter im Bereich generativer KI sind:
 Ich habe bisher folgende Anbieter genutzt:
   - [Hetzner](https://www.hetzner.com/) 🇩🇪
   - [Contabo](https://contabo.com/) 🇩🇪
-  - [DigitalOcean](https://www.digitalocean.com) 🇺🇸
-  - [AWS](https://aws.amazon.com/) 🇺🇸
 
-Contabo ist günstig, aber der Service hat mich nicht überzeugt – ich würde künftig wieder eher Hetzner nutzen.
-Die anderen sind mir zu teuer.
+Contabo ist günstig, aber der Service hat mich nicht ganz überzeugt – ich würde künftig wieder eher Hetzner nutzen.
 
 ## Selbsthosting
 Wenn es um digitale Unabhängigkeit geht, ist **Self-Hosting** natürlich das Maß der Dinge – idealerweise mit selbst entwickelten oder kontrollierten Diensten.
