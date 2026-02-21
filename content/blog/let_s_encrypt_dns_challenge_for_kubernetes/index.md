@@ -10,9 +10,9 @@ showInMenu: false
 tags: ["LetsEncrypt", "Kubernetes", "DNSChallenge", "Fritzbox"]
 ---
 
-{{% notificationBlue %}}
+{{< notificationBlue >}}
 	    Hetzner hat seine DNS Dienst geädert. Nutze jetzt cert-manager-webhook-hetzner.
-{{% /notificationBlue %}}
+{{< /notificationBlue >}}
 
 Seit einiger Zeit betreibe ich ein k3s Cluster und möchte nun meine Ingress Ressource erweitern,
 um meine Anwendungen über gültige Let's Encrypt Zertifikate zu erreichen.

@@ -10,9 +10,9 @@ showInMenu: false
 tags: ["LetsEncrypt", "Kubernetes", "DNSChallenge"]
 ---
 
-{{% notificationBlue %}}
+{{< notificationBlue >}}
 	    Hetzner has changed its DNS service. Use cert-manager-webhook-hetzner now.
-{{% /notificationBlue %}}
+{{< /notificationBlue >}}
 
 I have been running a k3s cluster for some time and now I want to expand my Ingress resource to allow accessing my applications with valid Let's Encrypt certificates.
 The DNS Challenge for Let's Encrypt seems to be the ideal solution for this, as it does not require opening ports to the outside world, thus maintaining the security of my network.
