@@ -14,7 +14,7 @@ The main Topics are: HomeLab, IT-Security, Open Source, and Programming.
 If you want to add or coriegate something to a topic, feel free to create a pull request.
 You are also welcome to write your own post.
 You are also welcome to write an Issue, if you have a question or a suggestion.
-The website is built with Hugo and uses the theme "hugo-theme-learn".
+The website is built with Hugo and uses the theme [hugo-refresh](https://github.com/PippoRJ/hugo-refresh).
 
 ## 📋 Prerequisites
 You need Hugo to build the website.
