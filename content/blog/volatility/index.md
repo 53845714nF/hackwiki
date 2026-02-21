@@ -11,7 +11,7 @@ tags: ["Forensik"]
 ---
 
 {{< notificationBlue >}}
-	    Hier wird der Umgang mit Volatility 2 gezeigt. Aktuell ist mittlerweile Volatility 3.
+Hier wird der Umgang mit Volatility 2 gezeigt. Aktuell ist mittlerweile Volatility 3.
 {{< /notificationBlue >}}
 
 Wer nach einem Einbruch den Arbeitsspeicher eines Rechners untersuchen
