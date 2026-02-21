@@ -10,9 +10,9 @@ showInMenu: false
 tags: ["Proxmox", "Network", "Unifi", "HomeLab", "Virtualization", "LLDP", "Saltstack"]
 ---
 
-{{< box >}}
-	  Die hier gezeigte Methode ist nicht so Stabil. Teilweise verschieben sich Maschinen. Zu Beginn muss häufig der Unifi Controller neu gestartet werden.
-{{< /box >}}
+{{< notificationBlue >}}
+Die hier gezeigte Methode ist nicht so Stabil. Teilweise verschieben sich Maschinen. Zu Beginn muss häufig der Unifi Controller neu gestartet werden.
+{{< /notificationBlue >}}
 
 Seit einiger Zeit nutze ich Proxmox und Unifi in meinem Netzwerk.
 Wer ebenfalls auf Unifi setzt, dürfte mit der Unifi Map vertraut sein.
