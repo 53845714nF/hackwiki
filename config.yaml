@@ -87,7 +87,7 @@ params:
     # the starting folder is configure in "assetDir" of this file
     logo: "/images/refresh-square.svg"
     email: 
-      link: hackwiki.snort118@passinbox.com
+      link: blog@hackwiki.de
       title: Mail
     linkedin: 
       link: in/sebastian-feustel
@@ -129,7 +129,7 @@ languages:
       footer:
         logo: "/images/refresh-square.svg"
         email: 
-          link: hackwiki2.0@gmail.com
+          link: blog@hackwiki.de
           title: Mail
         linkedin: 
           link: in/sebastian-feustel
