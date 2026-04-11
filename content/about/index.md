@@ -34,6 +34,9 @@ Im Rahmen der Veranstaltung Mediensicherheit habe ich verschiedene Verfahren zur
 Fundierte Kenntnisse in klassischen und modernen kryptographischen Verfahren, darunter Block- und Stromchiffren, sichere Zufallszahlengenerierung sowie Public-Key-Kryptographie. Verständnis von Schlüsselaustausch, digitalen Signaturen und deren Einsatz zur Sicherstellung von Vertraulichkeit, Integrität und Authentizität in Netzwerken.
 Zusätzlich Einführung in Konzepte der Quantenkryptographie und quantensichere Verfahren. Eigenständiger Fachvortrag zu Command-and-Control-(C2-)Frameworks mit Fokus auf Kommunikationsstrukturen und Tarnmechanismen. [Folien](data/C2-Frameworks.pdf)
 
+##### Forschung
+Zuarbeit für das folgende Paper: [Attributierung von Stego-Malware Vorfällen mittels Open Source Intelligence](https://doi.org/10.18420/sicherheit2026_11)
+
 ### Mein Bachelor Studium
 
 Mein Bachelorstudium absolvierte ich an der [Hochschule Brandenburg](https://www.th-brandenburg.de/startseite/), hier erhielt ich fundierte Einblicke in verschiedene Kernbereiche der Informatik, darunter Logik, Algorithmen und Datenstrukturen, Datenbanken sowie Programmierung.
