@@ -126,7 +126,7 @@ class Waffenstillstand {
 }
 {{< /codeWide >}}
 
-Weitere interessante Bennung sind Doppelungen von Namen der Klasse sowie des Attributs und Methoden.
+Weitere interessante Benennung sind Doppelungen von Namen der Klasse sowie des Attributs und Methoden.
 
 Negativbeispiel:
 
@@ -190,7 +190,7 @@ class myConnector {
 }
 {{< /codeWide >}}
 
-Eine ``send()`` sowie eine ``receive()`` Methode müssten in eine Seperate Classe ausgelagert werden.
+Eine ``send()`` sowie eine ``receive()`` Methode müssten in eine Separate Klasse ausgelagert werden.
 
 {{< codeWide >}}
 class Communicator{
@@ -320,7 +320,7 @@ In Software haben wir mehrere Schichten:
 ![Software Schichten ](img/Software_Schichten.png)
 
 Eine ``CopyPast`` Interface braucht z.B. zwei weitere Klassen namens ``ReadUserInput`` und ``WriteFile``.
-Das ``CopyPast`` ist aus einer sehr hohen Schicht (fast in der GUI Schicht). Die Klassen ``ReadUserInput`` und ``WriteFile`` sind in einer niedrigeren Schicht (``WriteFile`` ist in der Persistenz Schicht).``CopyPast`` hängt in diesem Fall von den beiden Klassen ab, jedoch möchte man das Umgekehrte erreichen. Um das zu bewerkstelligen wird nun eine Classe erstellt, die sich in einer höhren Schicht befindet. In unserem Beispiel ``Reader`` Klasse für ``ReadTextInput`` und eine ``Writer`` Classe für ``WriteFile``.
+Das ``CopyPast`` ist aus einer sehr hohen Schicht (fast in der GUI Schicht). Die Klassen ``ReadUserInput`` und ``WriteFile`` sind in einer niedrigeren Schicht (``WriteFile`` ist in der Persistenz Schicht).``CopyPast`` hängt in diesem Fall von den beiden Klassen ab, jedoch möchte man das Umgekehrte erreichen. Um das zu bewerkstelligen wird nun eine Klasse erstellt, die sich in einer höhren Schicht befindet. In unserem Beispiel ``Reader`` Klasse für ``ReadTextInput`` und eine ``Writer`` Klasse für ``WriteFile``.
 
 ### 12. SLA: Single Level of Abstraction
 
@@ -340,7 +340,7 @@ Was tun, wenn ein Parameter gebraucht wird, den es vorher nicht gab, einfache L�
  - Lange Methoden -> Verwenden von Abstraktionsebenen
  - Doppelten Code -> Auslagern in Methoden
  - Feature Envy ~~getA().getB().attr~~ -> Methode extrahieren 
- - Data Klasse (Haben nur Daten ohne Funktionen) -> aufteilen in Classen, die dann auch Methoden brauchen.
+ - Data Klasse (Haben nur Daten ohne Funktionen) -> aufteilen in Klassen, die dann auch Methoden brauchen.
  - Gott Klasse (Vielzuviel aufeinmal) -> auslagern in verschiedene Klassen
 
 ##### Testfälle
@@ -348,4 +348,4 @@ Nur mit Test Fallen bearbeiten, sonst besteht die Gefahr den Code zu zerstören,
 
 Immer wenn du deinen eigenen Code nicht mehr verstehst, solltest du ihn überarbeiten.
 
-Ordentlichkeit vor Performenz erst aufräumen, dann schnell machen.
+Ordentlichkeit vor Performance erst aufräumen, dann schnell machen.

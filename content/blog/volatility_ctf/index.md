@@ -31,7 +31,7 @@ Prozess Id.
 Die allgegenwärtige Windows svchost.exe ist ein beliebter Prozess, um
 Malware zu verstecken. Ein normales System hat viele dieser
 `svshost.exe` Prozesse am Laufen. Dieser ist immer ein Kindprozess von
-servives.exe und liegt in dem Verzeichnis: %SYSTEMROOT%  System32 .
+services.exe und liegt in dem Verzeichnis: %SYSTEMROOT%  System32 .
 
 Als erstes führen wir diesen Command aus: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_15063 psscan | grep -i svchost`
 
@@ -135,7 +135,7 @@ Nun suchen wir nach der 4824 und svchost: `vol -f /opt/volatility/test_memory/ct
 {{< /codeWide >}}
 
 An der letzten Spalte sehen wir, wann die Prozesse zuletzt gelaufen sind, nur der Letzte ist noch immer im Memory. Der Prozess den wir
-suchen, der mit der pid von 8560. Noch schmnell den Md5 wert bilden und
+suchen, der mit der pid von 8560. Noch schnell den Md5 wert bilden und
 fertig. `echo -n "8560" | md5sum`
 
 Die erste Flagge ist `bc05ca60f2f0d67d0525f41d1d8f8717`.
@@ -198,7 +198,7 @@ richtige Profil verwendet werden.
 
 Es entstehen eine Menge von Dateien:
 
-![EIN Terminal das einige Regestry Files zeigt.](img/reg-files.png)
+![EIN Terminal das einige Registry Files zeigt.](img/reg-files.png)
 
 Diese sind alles nur Binär Dateien, wir können diese nicht ohne weiteres
 lesen, darum gib es ein Tool, dass sich RegRipper nennt. Mit diesen

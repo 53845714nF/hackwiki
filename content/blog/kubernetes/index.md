@@ -52,7 +52,7 @@ dass die gewünschte Anzahl von Pods immer läuft.
 **Deployments** ermöglichen das Verwalten, Aktualisieren und Skalieren von Anwendungen auf eine kontrollierte und automatisierte Weise in Kubernetes.
 Sie sind das Herzstück moderner, containerisierter Workloads, die in einem Cluster betrieben werden.
 
-![Deploment](img/deploment.png)
+![Deployment](img/deployment.png)
 
 Wichtige Merkmale von Deployments:
 
@@ -62,14 +62,14 @@ Wichtige Merkmale von Deployments:
 - **Rollback**: Falls ein Deployment fehlschlägt oder ein Fehler nach einer Aktualisierung entdeckt wird, können Deployments auf frühere Versionen zurückgesetzt werden.
 - **Skalierung**: Mit Deployments lässt sich eine Anwendung leicht skalieren, indem man die Anzahl der laufenden Pods anpasst, entweder manuell oder automatisch, basierend auf der Auslastung.
 
-Hier das Deploment einer einfachen Anwendung:
-{{< codeFile file="/content/blog/kubernetes/deploment.yml" language="yml" title="Deployment" icon="yml">}}
+Hier das Deployment einer einfachen Anwendung:
+{{< codeFile file="/content/blog/kubernetes/deployment.yml" language="yml" title="Deployment" icon="yml">}}
 
 ## Service
-Ein **Service** ermöglicht es **Netzwerkzugriff** auf ein Deploment zu gewährleisten.
+Ein **Service** ermöglicht es **Netzwerkzugriff** auf ein Deployment zu gewährleisten.
 Da Pods dynamisch erstellt, gelöscht und neu gestartet werden können, ändert sich ihre IP-Adresse ständig.
 Ein Service schafft hier Beständigkeit, indem er eine stabile **IP-Adresse** und einen **DNS-Namen** zur Verfügung stellt,
-unter dem das Deploment erreichbar ist.
+unter dem das Deployment erreichbar ist.
 
 ![Service](img/service.png)
 

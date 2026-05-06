@@ -44,7 +44,7 @@ DevOps löst diese Herausforderungen, indem es die Teams zusammenbringt und den 
 
 **Einige der größten Vorteile von DevOps sind:**
 
-- **Schnellere Markteinführung da Funktionen und Updates schneller veröffentlich werden können.**
+- **Schnellere Markteinführung da Funktionen und Updates schneller veröffentlicht werden können.**
 - **Höhere Softwarequalität durch automatisiertes Testen.**
 - **Erhöhte Flexibilität durch agile Reaktion auf Marktveränderungen und Kundenfeedback.**
 - **Bessere Zusammenarbeit zwischen Entwicklung und Betrieb Teams.**
@@ -61,7 +61,7 @@ Hier sind einige gängige Tools, die in einem DevOps-Workflow verwendet werden:
 - **Bereitstellen**: Saltstack, Ansible
 - **Betreiben**: Cloud (AWS, Azure, GCP), On-premises (VMware, Proxmox), Kubernetes
 - **Monitoring**: Prometheus, Grafana, Zabbix
-- **Log Managment**: GrayLog, Loki
+- **Log Management**: GrayLog, Loki
 - **Planen**: Jira, Trello, GitHub Project 
 
 ## Herausforderungen und Best Practices

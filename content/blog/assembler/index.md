@@ -145,7 +145,7 @@ movl	$1, %eax
 int 	0x80
 {{< /codeWide >}}
 
-`ebx` und `eax` sind Register. Dort werden Variabeln reingepackt. 
+`ebx` und `eax` sind Register. Dort werden Variablen reingepackt. 
 
 
 Das `int  $0x80` sagt dem Linux Kernel, es soll den Syscall der in `%eax` steht ausführen. In diesem Fall der erste, welcher für Schließen steht.
@@ -244,7 +244,7 @@ myporc:
             +---------------+
 {{< /codeWide >}}
 
-Instrution Pointer geht nach unten. Der Stack Pointer geht nach oben. Der Instruktion Pointer soll die Funktion myproc aufrufen. Bevor sie das tut, wird die Adresse+1 in den Stack geschrieben (implicit). Um nachher wieder, zurück zu kehren.
+Instruction Pointer geht nach unten. Der Stack Pointer geht nach oben. Der Instruktion Pointer soll die Funktion myproc aufrufen. Bevor sie das tut, wird die Adresse+1 in den Stack geschrieben (implicit). Um nachher wieder, zurück zu kehren.
 
 
 {{< codeWide >}}
@@ -316,7 +316,7 @@ msg:
 
 [Assembler Quellcode Datei](file/8.Hello/hello.s)
 
-[Maschienen Sprache Datei](file/8.Hello/hello.o)
+[Maschinen Sprache Datei](file/8.Hello/hello.o)
 
 [Programm](file/8.Hello/hello)
 
@@ -497,7 +497,7 @@ Schift Links um eins:
 movl 	$1, %esi #000...0001 in %esi
 shll	$1, %esi #000...0010 in %esi
 {{< /codeWide >}}
-`shrl` -> Rechts (das l für dobbel word.)
+`shrl` -> Rechts (das l für doppel word.)
 
 ### 16. Stack Frames
 
@@ -534,7 +534,7 @@ frame pointer-->+---------------+
 
 `frame pointer` zeigt die Adresse auf die zurück gesprungen werden soll.
 
-Der Frame besteht immer aus den 3 Angaben von `variabeln`, `return adresse` und `Parametern`.
+Der Frame besteht immer aus den 3 Angaben von `variablen`, `return adresse` und `Parametern`.
 
 ### 17. GCC Output
 
@@ -553,7 +553,7 @@ main:
 .LFB0:                                                  # Local Function Begin (Nummer)
 	.cfi_startproc                                      # Starten einer Prozedur (checken das ein Frame Pointer vorhanden ist)
 	pushq	%rbp                                        
-	.cfi_def_cfa_offset 16                              # Canonical Frame Address Pointer CFA (zeigt auf Frame vor dem akktuellen Frame)
+	.cfi_def_cfa_offset 16                              # Canonical Frame Address Pointer CFA (zeigt auf Frame vor dem aktuellen Frame)
 	.cfi_offset 6, -16                                  # Frame Pointer
 	movq	%rsp, %rbp                                  
 	.cfi_def_cfa_register 6                             # CFA = Register Nummer 6
@@ -566,7 +566,7 @@ main:
 	popq	%rbp                                        
 	.cfi_def_cfa 7, 8                                   
 	ret                                                 
-	.cfi_endproc                                        # Debbuger info
+	.cfi_endproc                                        # Debugger info
 .LFE0:                                                  # Local Function End (Nummer)
 	.size	main, .-main                                
 	.ident	"GCC: (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0"  

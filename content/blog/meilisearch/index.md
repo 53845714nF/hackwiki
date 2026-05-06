@@ -130,7 +130,7 @@ sync:
 
 ### Syncen starten 🔄
 Nun kann ich meilisync starten: `meilisync start`
-Das Tool estellt automatisch die nötigen Indizes auf Meilisearch und beginnt mit der Synchronisierung der Daten.
+Das Tool erstellt automatisch die nötigen Indizes auf Meilisearch und beginnt mit der Synchronisierung der Daten.
 
 
 Die Indizes sind die Daten, die von Meilisearch durchsucht werden. In diesem Fall handelt es sich um die Tabelle `users` und die Felder `id`, `name` und `email`.

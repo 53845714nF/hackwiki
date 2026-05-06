@@ -22,7 +22,7 @@ Beim Öffnen der Karte im herkömmlichen Unifi Controller fällt auf,
 dass alle Geräte im Netzwerk angezeigt werden.
 Leider werden auch die virtuellen Maschinen von Proxmox dort angezeigt, als wären sie eigenständige Geräte.
 
-![VMs erscheinen als seperate Geräte auf der Karte](img/pve_falsch.png)
+![VMs erscheinen als separate Geräte auf der Karte](img/pve_falsch.png)
 
 Das hat mich schon immer gestört, aber ich habe mir nie die Zeit genommen, es zu ändern.
 Der Aufwand schien mir im Vergleich zum Nutzen einfach zu gering.

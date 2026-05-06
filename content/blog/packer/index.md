@@ -60,9 +60,9 @@ Du könntest zum Beispiel Tests auf der Maschine durchführen oder das Image an 
 
 ## Packer auf Proxmox
 
-Hashikorp bietet ein Plugin für Proxmox an, es heißt [packer-plugin-proxmox](https://github.com/hashicorp/packer-plugin-proxmox).
+Hashicorp bietet ein Plugin für Proxmox an, es heißt [packer-plugin-proxmox](https://github.com/hashicorp/packer-plugin-proxmox).
 Auf Grundlage dessen gibt es mein Projekt [packer-proxmox-debian](https://github.com/53845714nF/packer-proxmox-debian) welches ein Debian Template in Proxmox erstellt.
-Mit hilfe eines `cloud-init` lässt sich dann auch ein Salt Minion in diesem instalieren.
+Mit hilfe eines `cloud-init` lässt sich dann auch ein Salt Minion in diesem installieren.
 
 
 ## Fazit

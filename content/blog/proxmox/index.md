@@ -110,7 +110,7 @@ Diese muss man dann umwandeln. Hier eine kurzer Ablauf:
 
 Ich habe ein Script geschrieben, welches VMs von [vulnhub](https://www.vulnhub.com/)
 herunterlädt und in Proxmox importiert. 
-Es heißt [vuln2pve](https://github.com/53845714nF/vuln2pve). Dies bedient sich ähnlicher technicken. Da auf Vulnhub die VMs meistens im verschiedenen Formaten vorliegen, werden diese auch umgewandelt.
+Es heißt [vuln2pve](https://github.com/53845714nF/vuln2pve). Dies bedient sich ähnlicher techniken. Da auf Vulnhub die VMs meistens im verschiedenen Formaten vorliegen, werden diese auch umgewandelt.
 
 Ergänzung 26.03.2024: Proxmox hat nun auch ein Tool veröffentlicht, welches die Migration von ESXi zu Proxmox erleichtert. [Proxmox Wiki](https://pve.proxmox.com/wiki/Migrate_to_Proxmox_VE#Automatic_ESXi_Import:_Step_by_Step)
 

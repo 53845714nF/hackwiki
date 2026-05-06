@@ -131,7 +131,7 @@ Im Video ist zu sehen, wie die Spannung einen kurzen Moment ansteigt, genau das,
 
 ## Verbindung der beiden Mikrocontroller 👫
 Der für mich wahrscheinlich schwierigste Part. Zu Glück hatte ich hier Hilfe aus dem 
-Das war wahrscheinlich der schwierigste Teil für mich. Glücklicherweise hatte ich hier Hilfe aus dem [Potsdammer Chaostreff](https://www.ccc-p.org/).
+Das war wahrscheinlich der schwierigste Teil für mich. Glücklicherweise hatte ich hier Hilfe aus dem [Potsdamer Chaostreff](https://www.ccc-p.org/).
 
 Danke an [Christoph](https://github.com/chsterz), der mir einen seiner Transistoren gesponsert hat. Und großes Dankeschön an [tz](https://github.com/123TzTz321), der mir kräftig beim Verbauen und Messen der Transistoren geholfen hat.
 

@@ -131,7 +131,7 @@ lässt sich auch der gesammte Arbeitsspeicher eines Systems abbilden.
 Volatility kann als Stand-Alone Version und als Git-Version installiert werden.
 Unter Linux ist es zu empfehlen, die Git Version zu nehmen (Macht das Erstellen von Profilen einfacher).
 
-[Stand-Alone Versin auf der Webseite](https://www.volatilityfoundation.org/releases)
+[Stand-Alone Version auf der Webseite](https://www.volatilityfoundation.org/releases)
 
 [Link zum Github Volatility](https://github.com/volatilityfoundation/volatility)
 
@@ -445,4 +445,4 @@ exportiert werden kann, dies geht mit `procdump`.
 ```vol -f test_memory/stuxnet.vmem --profile=WinXPSP2x86 procdump -p 668,1928 --dump-dir=test_memory/program/```
 
 Diese Dateien können dann auch noch mal auf VirusTotal hochgeladen werden.
-VirusTotal ist ein Dienst bei dem Files hoch geladen werden können und diese dann durch mehrer Anti-Viren scanns durchläuft.
+VirusTotal ist ein Dienst bei dem Files hoch geladen werden können und diese dann durch mehrere Anti-Viren scans durchläuft.

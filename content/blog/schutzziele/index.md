@@ -19,7 +19,7 @@ Das Buch bietet eine Überblick in das Betriebssystem Kali Linux darüber hinaus
 {{< /book >}}
 
 Im Buch wird von der CIA-Triade gesprochen also:
-  - Confidentiality (Vertrautlichkeit)
+  - Confidentiality (Vertraulichkeit)
   - Integrity (Integrität)
   - Availability (Verfügbarkeit)
 
@@ -53,7 +53,7 @@ Im laufe der Jahre sind immer mehr Schutzziele aufgetreten.
 ### Datenschutz
 Ist ein rechtliches Konstrukt, dass den Schutz vor Missbrauch von Datenverarbeitung sicher stellen soll.
 
-### Anonynität
+### Anonymität
 Ich möchte Dinge erledigen können, ohne das ich immer gleich meine gesamte Identität preis gebe. 
 
 ### Verbindlichkeiten

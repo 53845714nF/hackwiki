@@ -72,11 +72,11 @@ Wichtig ist es die Festplatte im System hinzuzufügen (`Harware` -> `Edit` -> `A
 
 ![Hardware](img/Hardware.png)
 
-Weiterhin muss die Bootreinfolge in `Options` gesetzt werden:
+Weiterhin muss die Bootreihenfolge in `Options` gesetzt werden:
 
 ![Options](img/Options.png)
 
-Danach stertet die VM wie gewollt:
+Danach startet die VM wie gewollt:
 
 ![Console](img/Console.png)
 
@@ -87,7 +87,7 @@ Mit folgenden Befehl lässt sich ein OpenWrt VM erstellen:
 distrobuilder build-incus --vm images/openwrt.yaml -o image.release=23.05
 {{< /codeWide >}}
 
-Leider gibt es ein [Problem](https://github.com/lxc/distrobuilder/issues/880) bei der EFI Partition in ditrobuilder.
+Leider gibt es ein [Problem](https://github.com/lxc/distrobuilder/issues/880) bei der EFI Partition in distrobuilder.
 
 ## Fazit 🏁
 

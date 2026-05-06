@@ -47,7 +47,7 @@ Unter der Fritzbox finden sie den Rebound Schutz unter:
 
 ![Benutzeroberfläche der Fritzbox](img/fritz_box.png)
 
-(Mir ist bewust das man die DNS Eintäge einsehen kann, trotzdem habe ich sie unkenntlich gemacht da sie hierfür nicht relevant sind.)
+(Mir ist bewusst das man die DNS Einträge einsehen kann, trotzdem habe ich sie unkenntlich gemacht da sie hierfür nicht relevant sind.)
 
 ## Installation von cert-manager
 
@@ -57,7 +57,7 @@ Als nächstes müssen wir den cert-manager installieren, der quasi ein Standard 
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.yaml
 {{< /codeWide >}}
 
-Eine nicht ganz standardmäßige Komponente ist das Projekt [Cert Manager Webook Hetzner](https://github.com/vadimkim/cert-manager-webhook-hetzner), das die Kommunikation mit dem Hetzner DNS Provider ermöglicht.
+Eine nicht ganz standardmäßige Komponente ist das Projekt [Cert Manager Webhook Hetzner](https://github.com/vadimkim/cert-manager-webhook-hetzner), das die Kommunikation mit dem Hetzner DNS Provider ermöglicht.
 
 Dafür verwenden wir helm, einen Paketmanager für Kubernetes:
 
