@@ -14,7 +14,7 @@ Ich möchte über Valetudo schreiben, eine Open-Source-Firmware für Staubsauger
 Viele dieser Geräte sind mit Netzwerksniffern ausgestattet, die die gesammelten Daten an Server in China übertragen.
 Valetudo versucht, dies zu unterbinden, weshalb ich froh bin, dass es dieses Projekt gibt.
 
-Ich habe mir einen Dreamy Bot L10 Pro zugelegt und die Installation gemäß dieser [Anleitung](https://valetudo.cloud/pages/installation/dreame.html#uart) durchgegangen.
+Ich habe mir einen Dreamy Bot L10 Pro zugelegt und die Installation gemäß dieser [Anleitung](https://https://valetudo.cloud/pages/installation/dreame/#uart-shell) durchgegangen.
 durchgeführt.
 
 Hier ein Bild der Installation:

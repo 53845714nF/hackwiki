@@ -12,7 +12,7 @@ tags: ["SmartHome", "HomeAssistant"]
 
 I want to talk about Valetudo, an open-source firmware for vacuum robots. Many of these devices come equipped with network sniffers that send collected data to servers in China. Valetudo aims to prevent this, which is why I’m glad this project exists.
 
-I recently purchased a Dreamy Bot L10 Pro and followed the installation guide found [here](https://valetudo.cloud/pages/installation/dreame.html#uart).
+I recently purchased a Dreamy Bot L10 Pro and followed the installation guide found [here](https://https://valetudo.cloud/pages/installation/dreame/#uart-shell).
 
 Here’s an image of the installation process:
 
