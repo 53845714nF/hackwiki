@@ -1,9 +1,9 @@
 ---
-title: "Salt 🧂"
+title: "Salt Project"
 date: 2024-09-27T21:22:04+02:00
 draft: false
 hideLastModified: true
-summaryImage: "img/salt.webp"
+summaryImage: "img/logo.png"
 keepImageRatio: true
 summary: "Ein kurzer Blick zu Salt ein Konfigurationsmanagement Tool."
 showInMenu: false

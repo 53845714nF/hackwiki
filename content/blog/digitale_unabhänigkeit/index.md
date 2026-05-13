@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/digitale_unabhänigkeit.png"
 keepImageRatio: true
-summary: "Woher kommt meine Software? Wie unabhänig bin ich von Amerikanischen Unternehmen?"
+summary: "Woher kommt meine Software? Wie unabhänig bin ich von auslänischen Unternehmen?"
 showInMenu: false
 tags: [""]
 ---

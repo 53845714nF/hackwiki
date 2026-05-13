@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes 🚢"
+title: "Kubernetes Resources"
 date: 2024-09-26T16:00:00+02:00
 draft: false
 hideLastModified: true
