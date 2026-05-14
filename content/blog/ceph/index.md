@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/logo.jpg"
 keepImageRatio: true
-summary: "Mein Weg zum ersten Ceph Cluster"
+summary: "Der Post zeigt meinen Weg zum ersten Ceph Cluster."
 showInMenu: false
 tags: ["ceph", "storage", "homelab", "DevOps"]
 ---

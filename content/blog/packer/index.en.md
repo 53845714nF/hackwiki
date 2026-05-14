@@ -1,13 +1,13 @@
 ---
 title: "Packer"
-date: 2024-09-28T16:07:49+02:00
+date: 2026-05-08T16:07:49+02:00
 draft: false
 hideLastModified: true
 summaryImage: "img/packer.png"
 keepImageRatio: true
 summary: "Packer is a tool that enables the creation of machine images."
 showInMenu: false
-tags: ["Packer", "IaC", "DevOps"]
+tags: ["IaC", "DevOps"]
 ---
 
 [This blog post was created with the help of ChatGPT.]

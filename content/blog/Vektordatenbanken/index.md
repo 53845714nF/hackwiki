@@ -7,7 +7,7 @@ summaryImage: "img/Vektordatenbanken.png"
 keepImageRatio: true
 summary: "Rückblick: Mein Vortrag über Vektordatenbanken bei der Brandenburger Linux User Group."
 showInMenu: false
-tags: ["Vektordatenbanken", "KI", "Qdrant", "RAG"]
+tags: ["Search"]
 ---
 
 Gestern hatte ich die Gelegenheit, bei der Brandenburger Linux User Group einen Vortrag zum Thema **Einführung in Vektordatenbanken** zu halten. Es war ein spannender Austausch, und für alle, die nicht dabei sein konnten (oder die Inhalte einfach noch einmal in Ruhe nachvollziehen möchten), veröffentliche ich hier meine Präsentationsfolien.

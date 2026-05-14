@@ -1,13 +1,13 @@
 ---
 title: "MicroPython Firmware Updaten"
-date: 2026-05-10T13:35:53+02:00
+date: 2025-05-10T13:35:53+02:00
 draft: false
 hideLastModified: true
 summaryImage: "img/board.jpg"
 keepImageRatio: true
 summary: "Eine Anleitung um MicroPython Firmware zu kompilieren und auf einen China clone des PyBoard zu flashen."
 showInMenu: false
-tags: ["MicroPython", "Hardware", "Mikrocontroller"]
+tags: ["Hardware", "Mikrocontroller"]
 ---
 
 Hallo, in diesem Beitrag geht es um das flashen eines MicroPython Firmware auf einen China clone des PyBoard. Es handelt sich hierbei um den Clone mit dem STM32F405RGT6 Chip.
