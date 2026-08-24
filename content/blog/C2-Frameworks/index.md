@@ -70,4 +70,4 @@ Das vierte Video zeigt wie Sliver im HTTP-Modus getarnt kommuniziert (1min):
 [![Video zeigt Sliver Tarnung](img/Sliver_Tarnung_small.png)](data/4.Sliver-Tarnung.mp4)
 
 
-Wenn ihr noch Fragen habt oder über die Themen diskutieren wollt, meldet euch gerne per Mail bei mir unter [blog@hackwiki.de](mailto:blog@hackwiki.de).
+Wenn ihr noch Fragen habt oder über die Themen diskutieren wollt, meldet euch gerne per Mail bei mir.

@@ -34,4 +34,4 @@ Zum Schluss gab es noch einen kleinen Ausblick auf Themen wie das Benchmarking v
 
 Ein großes Dankeschön an alle, die gestern dabei waren!
 
-Wenn ihr noch Fragen habt oder über die Themen diskutieren wollt, meldet euch gerne per Mail bei mir unter [blog@hackwiki.de](mailto:blog@hackwiki.de).
+Wenn ihr noch Fragen habt oder über die Themen diskutieren wollt, meldet euch gerne per Mail bei mir.
