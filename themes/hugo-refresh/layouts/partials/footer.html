@@ -87,8 +87,10 @@
             {{ end }}
             {{ if isset .Site.Params.footer.email "title" }}
             <li>
-              <span class="icon"><i class="fa fa-envelope"></i></span>
-              {{ .Site.Params.footer.email.title }}
+              <a>
+                <span class="icon"><i class="fa fa-envelope"></i></span>
+                {{ .Site.Params.footer.email.title }}
+              </a>
             </li>
             {{ end }}
             {{ if isset .Site.Params.footer.facebook "link" }}
