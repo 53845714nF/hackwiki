@@ -85,14 +85,10 @@
               </a>
             </li>
             {{ end }}
-            {{ if isset .Site.Params.footer.email "link" }}
+            {{ if isset .Site.Params.footer.email "title" }}
             <li>
               <span class="icon"><i class="fa fa-envelope"></i></span>
-              {{ if isset .Site.Params.footer.email "title" }}
               {{ .Site.Params.footer.email.title }}
-              {{ else }}
-              Email
-              {{ end }}
             </li>
             {{ end }}
             {{ if isset .Site.Params.footer.facebook "link" }}
