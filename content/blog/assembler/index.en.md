@@ -69,7 +69,7 @@ int main(void)
   printf(" and bye\n");
   return 0;
 }
-{{< codeWide >}}
+{{< /codeWide >}}
 
 [C Source File](file/2.GCC_assembler/example.c)
 
@@ -236,7 +236,7 @@ myporc:
             +---------------+
   esp  +---->+               |
             +---------------+
-{{< codeWide >}}
+{{< /codeWide >}}
 
 The Instruction Pointer goes down. The Stack Pointer goes up. The Instruction Pointer is supposed to call the function myproc. Before it does so, the address+1 is written onto the stack (implicit). To come back later.
 
@@ -256,7 +256,7 @@ The Instruction Pointer goes down. The Stack Pointer goes up. The Instruction Po
             +---------------+
   esp  +---->+ implicit      |
             +---------------+
-{{< codeWide >}}
+{{< /codeWide >}}
 
 At the end of the procedure, the Instruction Pointer (`eip`) hits `ret`, meaning it should continue where it stopped before. The value `implicit` is popped from the stack and written into `eip`.
 So it goes back up.
@@ -435,7 +435,7 @@ movl 	$5, %ecx
 Loop:
 	add 	$1, %esi
 	loop	Loop
-{{< codeWide >}}
+{{< /codeWide >}}
 
 #### Further Loop Commands
 
@@ -481,7 +481,7 @@ proc1:
 proc2:
     call proc1
     ret
-{{< codeWide >}}
+{{< /codeWide >}}
 
 {{< codeWide >}}
         esp-->+---------------+

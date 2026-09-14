@@ -1,4 +1,4 @@
-$fontMainPage: "{{ .Site.Params.mainPage.fontFamily }}" 
+$fontMainPage: "{{ .Site.Params.mainPage.fontFamily }}"
 $fontSidebar:  "{{ .Site.Params.sidebar.fontFamily }}"
 $fontNavbar:   "{{ .Site.Params.navbar.fontFamily }}"
 $mainColour:   "{{ .Site.Params.mainColour }}"
@@ -11,6 +11,6 @@ $mainColour:   "{{ .Site.Params.mainColour }}"
 //{{ $img    = $img | resources.ExecuteAsTemplate $out_fo . }}
 {{ end }}
 $loadingImage: "{{- $img.Permalink | relURL }}"
- 
+
 @import "bulma/bulma"
 @import "fresh/core"

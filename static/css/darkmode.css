@@ -1,0 +1,346 @@
+/* Dark Mode Styles */
+html.dark-mode {
+  --bg-color: #1a1a2e;
+  --text-color: #e0e0e0;
+  --card-bg: #16213e;
+  --border-color: #2a2a4a;
+  --navbar-bg: #1a1a2e;
+  --footer-bg: #0f0f23;
+  --sidebar-bg: #16213e;
+  --link-color: #7ec8e3;
+  --code-bg: #0d1117;
+  --hover-bg: #1f3460;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+html.dark-mode .navbar.is-fresh,
+html.dark-mode .navbar.is-light {
+  background-color: var(--navbar-bg) !important;
+  color: var(--text-color) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+html.dark-mode .navbar-item,
+html.dark-mode .navbar-link {
+  color: var(--text-color) !important;
+}
+
+html.dark-mode .navbar-menu {
+  background-color: var(--navbar-bg);
+}
+
+html.dark-mode .navbar-dropdown {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+html.dark-mode .navbar-item.is-secondary {
+  color: var(--text-color) !important;
+}
+
+html.dark-mode .navbar.is-fresh.is-transparent {
+  background-color: var(--navbar-bg) !important;
+}
+
+html.dark-mode .footer {
+  background-color: var(--footer-bg);
+  color: var(--text-color);
+  border-top: 1px solid var(--border-color);
+}
+
+html.dark-mode .footer a {
+  color: var(--link-color);
+}
+
+html.dark-mode .content {
+  color: var(--text-color);
+}
+
+html.dark-mode .content a {
+  color: var(--link-color);
+}
+
+html.dark-mode .content a:hover {
+  color: #a8d8f0;
+}
+
+html.dark-mode .content h1,
+html.dark-mode .content h2,
+html.dark-mode .content h3,
+html.dark-mode .content h4,
+html.dark-mode .content h5,
+html.dark-mode .content h6 {
+  color: var(--text-color);
+}
+
+html.dark-mode .content .code-highlight,
+html.dark-mode .content pre {
+  background-color: var(--code-bg) !important;
+  border: 1px solid var(--border-color);
+}
+
+html.dark-mode .content pre code {
+  color: var(--text-color);
+}
+
+html.dark-mode .content .pre-colorless {
+  background-color: var(--code-bg) !important;
+}
+
+html.dark-mode .card,
+html.dark-mode .box,
+html.dark-mode .message {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+html.dark-mode .button {
+  background-color: var(--mainColour);
+  border-color: var(--mainColour);
+  color: #fff;
+}
+
+html.dark-mode .button:hover {
+  background-color: #5a85d6;
+  border-color: #5a85d6;
+}
+
+html.dark-mode .tabs {
+  border-bottom-color: var(--border-color);
+}
+
+html.dark-mode .tabs li a {
+  color: var(--text-color);
+}
+
+html.dark-mode .tabs li.is-active a {
+  border-bottom-color: var(--mainColour);
+  color: var(--mainColour);
+}
+
+html.dark-mode .dropdown-menu {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+html.dark-mode .dropdown-item {
+  color: var(--text-color);
+}
+
+html.dark-mode .dropdown-item:hover {
+  background-color: var(--hover-bg);
+}
+
+html.dark-mode .table {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+html.dark-mode .table th {
+  background-color: var(--hover-bg);
+  color: var(--text-color);
+}
+
+html.dark-mode .table td {
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+html.dark-mode .tag {
+  background-color: var(--hover-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+html.dark-mode .level-item {
+  color: var(--text-color);
+}
+
+html.dark-mode .panel {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+html.dark-mode .panel-block {
+  border-bottom-color: var(--border-color);
+  color: var(--text-color);
+}
+
+html.dark-mode .highlight {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border-color);
+}
+
+html.dark-mode .columns {
+  color: var(--text-color);
+}
+
+html.dark-mode .breadcrumb a {
+  color: var(--link-color);
+}
+
+html.dark-mode .breadcrumb > a:hover {
+  color: #a8d8f0;
+}
+
+html.dark-mode .breadcrumb > .is-current {
+  color: var(--text-color);
+}
+
+html.dark-mode .notification {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+html.dark-mode .title,
+html.dark-mode .subtitle {
+  color: var(--text-color);
+}
+
+
+
+html.dark-mode .media-content {
+  color: var(--text-color);
+}
+
+html.dark-mode .menu-list a {
+  color: var(--text-color);
+}
+
+html.dark-mode .menu-list a.is-active {
+  color: var(--mainColour);
+}
+
+html.dark-mode .is-secondary {
+  color: var(--text-color) !important;
+}
+
+html.dark-mode .is-link {
+  color: var(--link-color) !important;
+}
+
+html.dark-mode .has-text-grey {
+  color: #aaa !important;
+}
+
+html.dark-mode .has-text-light {
+  color: #ddd !important;
+}
+
+html.dark-mode .has-background-light {
+  background-color: var(--card-bg) !important;
+}
+
+html.dark-mode .has-background-white-ter {
+  background-color: var(--card-bg) !important;
+}
+
+html.dark-mode .content pre code table td:first-child {
+  color: #aaa;
+  border-right-color: var(--border-color);
+}
+
+html.dark-mode .content code {
+  background-color: var(--code-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+html.dark-mode blockquote {
+  border-left-color: var(--mainColour);
+  color: var(--text-color);
+}
+
+html.dark-mode .icon {
+  color: var(--text-color);
+}
+
+html.dark-mode i.fa {
+  color: var(--text-color);
+}
+
+html.dark-mode i.fas,
+html.dark-mode i.far,
+html.dark-mode i.fab,
+html.dark-mode i.fal,
+html.dark-mode i.fad {
+  color: var(--text-color);
+}
+
+.dark-mode-toggle {
+  cursor: pointer;
+  padding: 0.5em 0.8em;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.dark-mode-toggle:hover {
+  background-color: var(--hover-bg);
+  border-color: var(--mainColour);
+}
+
+.dark-mode-toggle .sun-icon {
+  display: none;
+}
+
+html.dark-mode .dark-mode-toggle .moon-icon {
+  display: none;
+}
+
+html.dark-mode .dark-mode-toggle .sun-icon {
+  display: inline;
+}
+
+html.dark-mode .navbar.is-dark-mobile {
+  background-color: var(--navbar-bg) !important;
+}
+
+html.dark-mode ::-webkit-scrollbar {
+  width: 10px;
+}
+
+html.dark-mode ::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+html.dark-mode ::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 5px;
+}
+
+html.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: var(--hover-bg);
+}
+
+html.dark-mode ::selection {
+  background-color: var(--mainColour);
+  color: #fff;
+}
+
+html.dark-mode .refresh-site-left {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+html.dark-mode .refresh-site-right {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+html.dark-mode .refresh-summary {
+  color: var(--text-color);
+}
+
+html.dark-mode .refresh-summary-title {
+  color: var(--text-color);
+}
