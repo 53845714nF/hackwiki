@@ -17,7 +17,7 @@ But for people like me who own the board and wonder how to flash new firmware on
 
 The hardware:
 
-![pic1](./img/board.jpg)
+![pic1](img/board.jpg)
 
 To flash the firmware, we need:
 
@@ -29,7 +29,7 @@ To be able to flash firmware at all, we need the program `dfu-util`. This is alr
 
 Now we need to bring the board into the so-called bootloader mode. For this, the two boot pins must be shorted. Jumper wires or a piece of wire are suitable for this. BOOT0 must be connected to 3.3V.
 
-![pic2](./img/board_flash.jpg)
+![pic2](img/board_flash.jpg)
 
 Now connect the board to our PC via USB. `dfu-util` should be able to detect the board.
 

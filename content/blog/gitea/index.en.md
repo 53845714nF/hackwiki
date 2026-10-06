@@ -21,7 +21,7 @@ Another key feature of Git is that it's a distributed system.
 It allows every user to create their own repository and sync it with others.
 However, it's common practice to have a central server where the main repository is hosted.
 These servers often come with a simple web UI to facilitate interactions with the repository.
-The largest platform for this type of software is [GitHub](https://github.com/), but there are others like [GitLab](https://about.gitlab.com) and [Gitea](https://gitea.io/en-us/).
+The largest platform for this type of software is [GitHub](https://github.com/), but there are others like [GitLab](https://about.gitlab.com) and [Gitea](https://about.gitea.com/).
 
 ## My Experience with Gitea 🕰️
 
