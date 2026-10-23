@@ -10,11 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
 
       - name: Install Hugo
-        run: |
-          sudo apt install hugo
+        uses: peaceiris/actions-hugo@v3.2.1
+        with:
+          hugo-version: '0.168.0'
+          extended: true
 
       - name: Build Hugo Site
         run: |
@@ -22,7 +24,7 @@ jobs:
           find public -name "*.html" | xargs sed -i '/<head>/ s|<head>|<head><meta name="google-site-verification" content="4IkI-B75r3alf_Dqp0o9cosdJewTjDHeCRr5b_yk6v8" /><meta name="theme-color" content="#6495ed" />|'
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: ./public
         
@@ -38,4 +40,4 @@ jobs:
      steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5.0.1
