@@ -1,13 +1,13 @@
 ---
-title: "Unifi Karte 🗺️"
+title: "Unifi Karte"
 date: 2024-03-07T21:22:09+01:00
 draft: false
 hideLastModified: true
-summaryImage: "img/proxmox_in_unifi_map.webp"
+summaryImage: "img/proxmox_in_unifi_map.jpg"
 keepImageRatio: true
 summary: "Richtige Anzeige von Proxmox-VMs und Linux Containern in der Unifi Karte."
 showInMenu: false
-tags: ["Proxmox", "Network", "Unifi", "HomeLab", "Virtualization", "LLDP", "Saltstack"]
+tags: ["Proxmox", "Network", "Unifi", "HomeLab", "Virtualization", "Saltstack"]
 ---
 
 {{< notificationBlue >}}
