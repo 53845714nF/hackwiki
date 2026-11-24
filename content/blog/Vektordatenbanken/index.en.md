@@ -5,14 +5,14 @@ draft: false
 hideLastModified: true
 summaryImage: "img/Vektordatenbanken.png"
 keepImageRatio: true
-summary: "Retrospective: My lecture on vector databases at the Brandenburger Linux User Group."
+summary: "Retrospective: My lecture on vector databases at the Brandenburg Linux User Group."
 showInMenu: false
 tags: ["Search"]
 ---
 
-Yesterday I had the opportunity to give a lecture on **Introduction to Vector Databases** at the Brandenburger Linux User Group. It was an exciting exchange, and for all those who couldn't be there (or just wanted to review the content in peace), I am publishing my presentation slides here.
+Yesterday I had the opportunity to give a lecture on **Introduction to Vector Databases** at the Brandenburg Linux User Group. It was an exciting exchange, and for all those who couldn't be there (or just wanted to review the content in peace), I am publishing my presentation slides here.
 
-The topic of Artificial Intelligence is becoming more prevalent, and with it the underlying database technologies are becoming increasingly important. But what exactly makes a vector database?
+The topic of Artificial Intelligence is becoming more prevalent, and with it the underlying database technologies are becoming increasingly important. But what exactly defines a vector database?
 
 ## Here are the most important takeaways from my lecture:
 
@@ -24,7 +24,7 @@ The topic of Artificial Intelligence is becoming more prevalent, and with it the
     * **Dinofind:** An image search engine based on 30,000 Flickr images, which were converted into vectors using the DINOv2 model and stored in a **Qdrant** vector database.
     * **Malwareuniverse:** A project for malware analysis.
 
-Finally, there was a brief outlook on topics like benchmarking embedding models on own data.
+Finally, there was a brief outlook on topics like benchmarking embedding models on your own data.
 
 ## Download Slides and Materials
 

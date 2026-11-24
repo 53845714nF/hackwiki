@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/terraform.webp"
 keepImageRatio: true
-summary: "Terraform ist ein Tool zum Wolken bauen. Ein erster Einblick im Zusammenspiel mit Digital Ocean."
+summary: "Terraform ist ein Tool zum Wolkenbauen. Ein erster Einblick ins Zusammenspiel mit Digital Ocean."
 showInMenu: false
 tags: ["Terraform", "DevOps", "IaC"]
 ---
@@ -41,7 +41,7 @@ Im Folgenden zeige ich den grundlegenden Aufbau einer Konfiguration, um VMs auf 
 Zunächst muss der Cloud-Provider festgelegt werden.
 Terraform unterstützt viele Anbieter, wie AWS, Microsoft Azure und andere. 
 Es ist sogar möglich, mit der eigenen Cloud zu kommunizieren, z.B. mit Kubernetes, VMware oder auch Proxmox.
-In meinem Test habe ich DigitalOcean verwendet, da die Anzahl der zu verfügung stehenden Dienste überschaubar ist.
+In meinem Test habe ich DigitalOcean verwendet, da die Anzahl der zur Verfügung stehenden Dienste überschaubar ist.
 
 
 Hier ist der Code, um den DigitalOcean-Provider zu konfigurieren:
@@ -71,7 +71,7 @@ provider "digitalocean" {
 ### Ressourcen anlegen
 
 Nun können wir Ressourcen, wie eine Droplet-VM, definieren.
-Eine Droplet ist bei DigitalOcean der Begriff für eine VM.
+Ein Droplet ist bei DigitalOcean der Begriff für eine VM.
 
 {{< codeWide >}}
 resource "digitalocean_droplet" "web" {

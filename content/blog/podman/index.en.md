@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/logo.jpg"
 keepImageRatio: true
-summary: "This post shows how to run Podman Quadlet rootless and Pods under Debian."
+summary: "This post shows how to run Podman Quadlets rootless and Pods under Debian."
 showInMenu: false
 tags: ["Containers", "DevOps"]
 ---
@@ -14,10 +14,10 @@ This article shows how to run Podman Quadlets and Pods under Debian. First, Podm
 
 ## Quadlet Rootless Setup
 
-Here is shown how to run Podman rootless under Debian.
+Here I show how to run Podman rootless under Debian.
 Install Podman as follows: `sudo apt update && sudo apt install -y podman`
 
-First, a user is created to run podman rootless: `useradd -m -s /bin/bash podmanuser`
+First, a user is created to run Podman rootless: `useradd -m -s /bin/bash podmanuser`
 
 Then, linger is activated for the user: `loginctl enable-linger podmanuser`
 
@@ -68,11 +68,11 @@ To start the container:
 A Pod is a group of containers that work together.
 It can be compared to Docker Compose.
 
-In this example, a Pod is created consisting of two containers. A vector database called Weaviate and a small self-developed backend service.
+In this example, a Pod is created consisting of two containers: a vector database called Weaviate and a small self-developed backend service.
 
 The configuration looks like this:
 
-A Pod File is created. This file must end with `.pod`.
+A Pod file is created. This file must end with `.pod`.
 
 {{< codeWide >}}
 [Unit]
@@ -116,7 +116,7 @@ Environment=RAFT_BOOTSTRAP_EXPECT=1
 WantedBy=default.target
 {{< /codeWide >}}
 
-For the pod, we then set the Pod we just created.
+For `Pod`, we then set the Pod we just created.
 
 The other container looks like this in my case:
 
@@ -146,7 +146,7 @@ Environment=WEAVIATE_GRPC_SECURE=
 WantedBy=default.target
 {{< /codeWide >}}
 
-The backend service here called reducer is reachable on port 8000. If we want to reach it from outside (i.e., from the host), we need to add the following parameter to the Pod file:
+The backend service, here called reducer, is reachable on port 8000. If we want to reach it from outside (i.e., from the host), we need to add the following parameter to the Pod file:
 
 {{< codeWide >}}
 [Container]

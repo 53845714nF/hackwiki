@@ -12,10 +12,10 @@ tags: ["SmartHome", "HomeAssistant"]
 
 I want to talk about Valetudo, an open-source firmware for vacuum robots. Many of these devices come equipped with network sniffers that send collected data to servers in China. Valetudo aims to prevent this, which is why I’m glad this project exists.
 
-I recently purchased a Dreamy Bot L10 Pro and followed the installation guide found [here](https://valetudo.cloud/pages/installation/dreame/#uart-shell).
+I recently purchased a Dreame Bot L10 Pro and followed the installation guide found [here](https://valetudo.cloud/pages/installation/dreame/#uart-shell).
 
 Here’s an image of the installation process:
 
-[Robot connected to USB adapter on laptop](img/valetudo_flash.jpg)
+![Robot connected to USB adapter on laptop](img/valetudo_flash.jpg)
 
-Another cool software is an [extension](https://github.com/Hypfer/lovelace-valetudo-map-card) for [Home Assistant](https://www.home-assistant.io/). This extension allows you to display the maps generated during cleaning, send control commands, and monitor the charging status as well as battery consumption.
+Another cool piece of software is an [extension](https://github.com/Hypfer/lovelace-valetudo-map-card) for [Home Assistant](https://www.home-assistant.io/). This extension allows you to display the maps generated during cleaning, send control commands, and monitor the charging status as well as battery consumption.

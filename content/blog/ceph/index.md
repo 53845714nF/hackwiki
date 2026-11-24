@@ -10,7 +10,7 @@ showInMenu: false
 tags: ["ceph", "storage", "homelab", "DevOps"]
 ---
 
-Ich habe mich ein wenig mit Ceph auseinandergesetzt, ich bin noch lange kein Profi, aber ich wollte mien wissen teilen und für mich selbst festhalten. 
+Ich habe mich ein wenig mit Ceph auseinandergesetzt. Ich bin noch lange kein Profi, aber ich wollte mein Wissen teilen und für mich selbst festhalten. 
 
 Ceph ist ein Open-Source Software-Defined Storage (SDS)-System, das eine skalierbare und fehlertolerante Lösung für die Speicherung und Verwaltung großer Datenmengen bietet.
 
@@ -18,7 +18,7 @@ Ceph ist ein Open-Source Software-Defined Storage (SDS)-System, das eine skalier
 
 ### Minimal Setup
 
-Das ist das absolute Minimum um Ceph zum Laufen zu bekommen.
+Das ist das absolute Minimum, um Ceph zum Laufen zu bekommen.
 Für produktive Umgebungen gibt es bestimmt deutlich bessere Anleitungen online.
 Das hier ist einfach das, was ich gemacht habe.
 
@@ -26,7 +26,7 @@ Das hier ist einfach das, was ich gemacht habe.
   - Debian 13 Trixie ([Packer Template für Debian](https://github.com/53845714nF/packer-proxmox-debian))
   - Ceph Quincy (Standard Version)
 
-Wichtig ist, dass die Nodes eine feste IP haben und sich gegenseitig per Hostnamen erreichen können. Die Nodes müssen Zeitlich Synchronisiert sein. SSH Zugriff zwischen den Nodes ohne Passwort ist auch zwingend notwendig. Hostnames müssen in `/etc/hosts` eingetragen sein.
+Wichtig ist, dass die Nodes eine feste IP haben und sich gegenseitig per Hostnamen erreichen können. Die Nodes müssen zeitlich synchronisiert sein. SSH Zugriff zwischen den Nodes ohne Passwort ist auch zwingend notwendig. Hostnames müssen in `/etc/hosts` eingetragen sein.
 
 ### Netzwerk Vorbereitung
 
@@ -89,16 +89,16 @@ ssh-copy-id root@ceph2
 ssh-copy-id root@ceph3
 {{< /codeWide >}}
 
-### Abhängigkeiten Installieren
+### Abhängigkeiten installieren
 
-Als nächstes müssen wir sicherstellen, dass die nötigen Pakete installiert sind. Dafür benötigen wir unter Debian Podman, da die Aktuelle Ceph Version nicht als Debian Paket zur Verfügung steht.
+Als nächstes müssen wir sicherstellen, dass die nötigen Pakete installiert sind. Dafür benötigen wir unter Debian Podman, da die aktuelle Ceph-Version nicht als Debian Paket zur Verfügung steht.
 
 {{< codeWide >}}
 apt update
 apt install -y curl gnupg podman lvm2 chrony
 {{< /codeWide >}}
 
-Danach den Cephadm Paket installieren:
+Danach das Cephadm-Paket installieren:
 
 {{< codeWide >}}
 apt install -y cephadm

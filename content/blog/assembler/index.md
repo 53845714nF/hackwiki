@@ -5,23 +5,23 @@ draft: false
 hideLastModified: true
 summaryImage: "img/assembler.png"
 keepImageRatio: true
-summary: "Mitschriften The Morpheus Assembler. Beschreibt die Grundstruktur eines Assembler Programms."
+summary: "Mitschriften The Morpheus Assembler. Beschreibt die Grundstruktur eines Assembler-Programms."
 showInMenu: false
 tags: ["Programmieren"]
 ---
 
-## Mitschriften von Assembler Tutorial von The Morpheus Tutorials
+## Mitschriften vom Assembler-Tutorial von The Morpheus Tutorials
 [Link zur Playlist](https://www.youtube.com/watch?v=UiqAq-iWHPI&list=PLNmsVeXQZj7rhjy2t320NvKKGwP6Rxnpg)
 
 ### 1. Einführung
-- sehr Maschinennah 
+- sehr maschinennah 
 - erkennt wie CPU den Code interpretiert
 
 #### Warum?
 #### Vorteile
 - Maschinenabhängiger Code 
-- I/O Controlle
-- Bei Hardware kann es nötig
+- I/O-Kontrolle
+- Bei Hardware kann es nötig sein
 - Reverse Engineering
 - Malware Analyse
 - optimierter Code
@@ -76,17 +76,17 @@ int main(void)
 [C Quellcode Datei](file/2.GCC_assembler/example.c)
 
 #### Kompilieren
-Normales kompilieren mit gcc: `gcc -Wall example.c -o example`
+Normales Kompilieren mit gcc: `gcc -Wall example.c -o example`
 
-Anzeige der Temporären Dateien: `gcc -Wall -save-temps example.c -o example`
+Anzeige der temporären Dateien: `gcc -Wall -save-temps example.c -o example`
 
 Die .i Datei zeigt die Schritte des Preprozessing. [Preprozessing Datei](file/2.GCC_assembler/example.i)
 
-Also ersetzt Macros und entfernt Kommentare. Einfügen von Libarys.
+Also ersetzt Macros und entfernt Kommentare. Einfügen von Libraries.
 
 Die .s Datei zeigt den generierten Assembler Code an. [Assembler Datei](file/2.GCC_assembler/example.s)
 
-Die .o Datei zeigt Binäre Maschinensprache an. Danach muss dieser noch gelinkt werden.
+Die .o Datei zeigt binäre Maschinensprache an. Danach muss dieser noch gelinkt werden.
 [Maschinensprache Datei](file/2.GCC_assembler/example.o)
 
 Es entsteht ein fertiges Programm. [Programm](file/2.GCC_assembler/example)
@@ -99,7 +99,7 @@ Programm linken: `gcc example.o -o example`
 
 
 
-### 3. Der Von Neuman Rechner
+### 3. Der Von-Neumann-Rechner
 {{< codeWide >}}
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -148,7 +148,7 @@ int 	0x80
 `ebx` und `eax` sind Register. Dort werden Variablen reingepackt. 
 
 
-Das `int  $0x80` sagt dem Linux Kernel, es soll den Syscall der in `%eax` steht ausführen. In diesem Fall der erste, welcher für Schließen steht.
+Das `int $0x80` sagt dem Linux Kernel, es soll den Syscall, der in `%eax` steht, ausführen. In diesem Fall der erste, welcher für Schließen steht.
 
 ### 4. Abstrahierter Speicher
 {{< codeWide >}}
@@ -173,21 +173,21 @@ Das `int  $0x80` sagt dem Linux Kernel, es soll den Syscall der in `%eax` steht 
 
 `esi` = für String Operationen
 
-### 5. Verschieben von Dateien
+### 5. Verschieben von Daten
 `movb $0, %eax`
 
 `movb`  -> move  8 bit
 
-`movvw` -> move 16 bit
+`movw` -> move 16 bit
 
 `movl`  -> move 32 bit
 
 `movq`  -> move 64 bit
 
 ### 6. Der Stack 
-Speicher in der CPU, dient als Zwischenspeicher. Ist zwischen Ram und Registern zu sehen.
+Speicher in der CPU, dient als Zwischenspeicher. Ist zwischen RAM und Registern zu sehen.
 
-`esp` -> Stak Pointer
+`esp` -> Stack Pointer
 
 #### Push 
 Verschiebt `eax` auf den Stack:
@@ -222,7 +222,7 @@ myporc:
     ret
 {{< /codeWide >}}
 
-`eip` -> Instruktion Pointer
+`eip` -> Instruction Pointer
 
 {{< codeWide >}}
             +---------------+
@@ -244,7 +244,7 @@ myporc:
             +---------------+
 {{< /codeWide >}}
 
-Instruction Pointer geht nach unten. Der Stack Pointer geht nach oben. Der Instruktion Pointer soll die Funktion myproc aufrufen. Bevor sie das tut, wird die Adresse+1 in den Stack geschrieben (implicit). Um nachher wieder, zurück zu kehren.
+Instruction Pointer geht nach unten. Der Stack Pointer geht nach oben. Der Instruction Pointer soll die Funktion myproc aufrufen. Bevor er das tut, wird die Adresse+1 in den Stack geschrieben (implicit), um nachher wieder zurückzukehren.
 
 
 {{< codeWide >}}
@@ -267,7 +267,7 @@ Instruction Pointer geht nach unten. Der Stack Pointer geht nach oben. Der Instr
             +---------------+
 {{< /codeWide >}}
 
-Am Ende der Prozedur trifft der Instruktion Pointer (`eip`) auf `ret`, das heißt, er soll da weiter machen, wo er zuvor aufgehört hat. Wert `implicit` wird in vom Stack gepopt. Und in `eip` geschrieben.
+Am Ende der Prozedur trifft der Instruction Pointer (`eip`) auf `ret`, das heißt, er soll da weitermachen, wo er zuvor aufgehört hat. Der Wert `implicit` wird vom Stack gepopt und in `eip` geschrieben.
 Damit geht er wieder nach oben.
 
 {{< codeWide >}}
@@ -316,17 +316,17 @@ msg:
 
 [Assembler Quellcode Datei](file/8.Hello/hello.s)
 
-[Maschinen Sprache Datei](file/8.Hello/hello.o)
+[Maschinensprache Datei](file/8.Hello/hello.o)
 
 [Programm](file/8.Hello/hello)
 
 `.text`, `.data` und `.global main` sind Sections.
-Wichtig erstmal ist `.global main` dieses sagt, das wir ab `main` starten wollen.
+Wichtig ist erstmal `.global main`, dieses sagt, dass wir ab `main` starten wollen.
 Mit `int $0x80` wird ein Syscall aufgerufen, die Parameter für diesen sind in den Registern:
 
 `eax` -> Syscall (4 für write)
 
-`ebx` -> Output (1 für stout also Commandline)
+`ebx` -> Output (1 für stdout, also Commandline)
 
 `ecx` -> Text (msg)
 
@@ -377,7 +377,7 @@ jne notequal # Spring zu notequal wenn ungleich
 [Programm](file/10.Bedigte_Ausgabe/zahl)
 
 
-Mit `cmp` also Compare lassen sich Dinge vergleichen. Mit Jumps lässt sich dann an die nächste stelle springen. 
+Mit `cmp` also Compare lassen sich Dinge vergleichen. Mit Jumps lässt sich dann an die nächste Stelle springen. 
 
 ### 11. Sprungbefehle - Jump
 #### Häufig verwendet
@@ -426,7 +426,7 @@ add	%eax, %esi # eax auf esi addieren
 
 #### Subtraktion
 `sub	%eax, %esi`
-Die CPU kann eigentlich kein subtrahieren, darum wird ein kleiner Trick angewendet.
+Die CPU kann eigentlich nicht subtrahieren, darum wird ein kleiner Trick angewendet.
 
 {{< codeWide >}}
 neg	%eax
@@ -435,7 +435,7 @@ add	%eax, %esi
 Es wird das Register `eax` negiert und dann auf `esi` addiert.
 
 #### Multiplikation
-Der `mul` Befehl multipliziert immer aus `eax`. Das Ergebnis wird dann wieder in `eax` hineingeschrieben. (Wenn zu groß dann noch in `edx`)
+Der `mul` Befehl multipliziert immer aus `eax`. Das Ergebnis wird dann wieder in `eax` hineingeschrieben. (Wenn zu groß, dann noch in `edx`)
 
 {{< codeWide >}}
 movl	$1, %eax   # 1 in eax
@@ -461,7 +461,7 @@ movl	%eax, %esi
 {{< /codeWide >}}
 
 ### 13. Schleifen
-Schleife bis 5. Vergleich mit `ecx`, bis dieser gleich Null ist. `ecx` wird dabei um ein verringert.
+Schleife bis 5. Vergleich mit `ecx`, bis dieser gleich Null ist. `ecx` wird dabei um eins verringert.
 {{< codeWide >}}
 movl 	$5, %ecx
 
@@ -470,11 +470,11 @@ Schleife:
 	loop	Schleife 
 {{< /codeWide >}}
 
-#### Weitere  Schleifen Befehle
+#### Weitere Schleifenbefehle
 
 `loop` -> Schleife, wird ausgeführt, bis `ecx` = 0, verringert `ecx` immer um 1
 
-`loope` -> equals (ob das Zero Bit auf Null gesetzt wurde, also die letzte Aufruf Null ergeben hat.) (`ecx` muss größer Null sein.)
+`loope` -> equals (ob das Zero Bit gesetzt wurde, also der letzte Aufruf Null ergeben hat.) (`ecx` muss größer Null sein.)
 
 `loopz` -> genauso wie `loope`
 
@@ -491,17 +491,17 @@ andl	%ecx, %esx # Gespeichert in esx
 
 `xorl` -> XOR
 
-### 15. Shift Befehle
-Schift Links um eins:
+### 15. Shift-Befehle
+Shift links um eins:
 {{< codeWide >}}
 movl 	$1, %esi #000...0001 in %esi
 shll	$1, %esi #000...0010 in %esi
 {{< /codeWide >}}
-`shrl` -> Rechts (das l für doppel word.)
+`shrl` -> Rechts (das l für double word.)
 
 ### 16. Stack Frames
 
-Bei Prozeduren, die nicht der Reihe aufgerufen werden, werden Stack Frames gebraucht.
+Bei Prozeduren, die nicht der Reihe nach aufgerufen werden, werden Stack Frames gebraucht.
 
 {{< codeWide >}}
 main:
@@ -532,7 +532,7 @@ frame pointer-->+---------------+
                 +---------------+
 {{< /codeWide >}}
 
-`frame pointer` zeigt die Adresse auf die zurück gesprungen werden soll.
+`frame pointer` zeigt die Adresse, auf die zurückgesprungen werden soll.
 
 Der Frame besteht immer aus den 3 Angaben von `variablen`, `return adresse` und `Parametern`.
 

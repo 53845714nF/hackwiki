@@ -10,7 +10,7 @@ showInMenu: false
 tags: ["DevOps", "Git"]
 ---
 
-[Die Blog-post ist mit hilfe von ChatGPT entstanden.]
+[Der Blogpost ist mithilfe von ChatGPT entstanden.]
 
 ## Die Brücke zwischen Entwicklung und Betrieb 🌉
 
@@ -44,10 +44,10 @@ DevOps löst diese Herausforderungen, indem es die Teams zusammenbringt und den 
 
 **Einige der größten Vorteile von DevOps sind:**
 
-- **Schnellere Markteinführung da Funktionen und Updates schneller veröffentlicht werden können.**
+- **Schnellere Markteinführung, da Funktionen und Updates schneller veröffentlicht werden können.**
 - **Höhere Softwarequalität durch automatisiertes Testen.**
 - **Erhöhte Flexibilität durch agile Reaktion auf Marktveränderungen und Kundenfeedback.**
-- **Bessere Zusammenarbeit zwischen Entwicklung und Betrieb Teams.**
+- **Bessere Zusammenarbeit zwischen Entwicklungs- und Betriebsteams.**
 
 ## Die DevOps-Toolchain ⛓️
 
@@ -86,4 +86,4 @@ Durch die Automatisierung und die enge Zusammenarbeit von Entwicklung und Betrie
 Für alle, die mit Softwareentwicklung und IT-Betrieb zu tun haben, ist es ratsam, sich intensiver mit DevOps zu beschäftigen.
 Es bietet nicht nur einen Weg, um die Effizienz zu steigern, sondern auch, um langfristig wettbewerbsfähig zu bleiben.
 
-Bei Fragen und Anmerkungen gerne Melden per Mail, LinkedIn oder Github Issue.
+Bei Fragen und Anmerkungen gerne melden per Mail, LinkedIn oder GitHub Issue.

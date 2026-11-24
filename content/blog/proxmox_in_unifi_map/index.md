@@ -11,7 +11,7 @@ tags: ["Proxmox", "Network", "Unifi", "HomeLab", "Virtualization", "Saltstack"]
 ---
 
 {{< notificationBlue >}}
-Die hier gezeigte Methode ist nicht so Stabil. Teilweise verschieben sich Maschinen. Zu Beginn muss häufig der Unifi Controller neu gestartet werden.
+Die hier gezeigte Methode ist nicht so stabil. Teilweise verschieben sich Maschinen. Zu Beginn muss häufig der Unifi Controller neu gestartet werden.
 {{< /notificationBlue >}}
 
 Seit einiger Zeit nutze ich Proxmox und Unifi in meinem Netzwerk.
@@ -52,7 +52,7 @@ install_lldpd:
 
 Diese Automatisierung erleichtert es mir, sicherzustellen, dass alle meine Maschinen einen laufenden LLDP-Daemon haben.
 
-Sehr hilfreicher command: 
+Sehr hilfreicher Command: 
 {{< codeWide >}}
 lldpcli show neighbors
 {{< /codeWide >}}

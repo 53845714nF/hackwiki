@@ -10,7 +10,7 @@ showInMenu: false
 tags: ["programming"]
 ---
 
-As it is common when learning a new programming language to write a "Hello, World" program, here is that Hallowelt for my first blogpost.
+As it is common to write a "Hello, World" program when learning a new programming language, here is the Hello World for my first blog post.
 
 {{< tabsCode
 	    file1="/content/blog/hallowelt/python.md" language1="python" title1="Python" icon1="python"

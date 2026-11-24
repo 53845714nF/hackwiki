@@ -5,17 +5,17 @@ draft: false
 hideLastModified: true
 summaryImage: "img/clean_code.png"
 keepImageRatio: true
-summary: "Mitschriften The Morpheus Clean Code. Beschreibt die Regel um einen sauberen und strukturierten Code zu erzeugen."
+summary: "Mitschriften The Morpheus Clean Code. Beschreibt die Regeln, um einen sauberen und strukturierten Code zu erzeugen."
 showInMenu: false
 tags: ["Programmieren"]
 ---
 
-## Mitschriften von Clean Code Tutorial von The Morpheus Tutorials
+## Mitschriften vom Clean-Code-Tutorial von The Morpheus Tutorials
 
 [Link zur Playlist](https://www.youtube.com/playlist?list=PLNmsVeXQZj7ryyZikMDPxxyYxEKtKn0ji)
 
 ### 1. Einführung
-Sind  Richtlinien für das saubere Programmieren.
+Sind Richtlinien für das saubere Programmieren.
 
 #### Warum?
 - Leserlich
@@ -25,8 +25,8 @@ Sind  Richtlinien für das saubere Programmieren.
 - Bessere Wartbarkeit
 
 #### Uncle Bob formatting
-Die Reihenfolge der Attribute und Methoden sind wichtig.
-Es sollte versucht werden, Public Attribute zu vermeiden. Dafür sollten getter und setter Methoden angelegt werden.
+Die Reihenfolge der Attribute und Methoden ist wichtig.
+Es sollte versucht werden, Public Attribute zu vermeiden. Dafür sollten Getter- und Setter-Methoden angelegt werden.
 
 Ideale Reihenfolge:
 {{< codeWide >}}
@@ -59,7 +59,7 @@ Darum mit ``this`` auf Objekte der Instanz zugreifen.
 ### 3. Prinzip der kleinsten Überraschung
 
 #### Vorhersehbarkeit von Programmablauf
-Das was in den Methodenname steht, sollte auch ausgeführt werden. Und nicht noch x-beliebige andere Aufgaben erfüllen.
+Das, was im Methodennamen steht, sollte auch ausgeführt werden. Und nicht noch x-beliebige andere Aufgaben erfüllen.
 
 Negativbeispiel:
 
@@ -78,9 +78,9 @@ class A {
 }
 {{< /codeWide >}}
 
-#### Logische Aufbau
-Also bei Aufzählungen sollte die Reihenfolge beachtet werden. Bei Wochentagen  z.B.: Montag, Dienstag ... etc.
-Auch Teile, die nicht erwartet werden, sollten raus gelassen werden, bei einer Aufzählung von Wochentagen sollte kein  ```"Frei"``` dabei sein.
+#### Logischer Aufbau
+Also bei Aufzählungen sollte die Reihenfolge beachtet werden. Bei Wochentagen z.B.: Montag, Dienstag ... etc.
+Auch Teile, die nicht erwartet werden, sollten weggelassen werden. Bei einer Aufzählung von Wochentagen sollte kein ```"Frei"``` dabei sein.
 Auch wenn ```"Frei"``` der Tag ist, wo nicht gearbeitet wird.
 
 Negativbeispiel:
@@ -126,7 +126,7 @@ class Waffenstillstand {
 }
 {{< /codeWide >}}
 
-Weitere interessante Benennung sind Doppelungen von Namen der Klasse sowie des Attributs und Methoden.
+Weitere interessante Benennungen sind Doppelungen von Namen der Klasse sowie des Attributs und Methoden.
 
 Negativbeispiel:
 
@@ -149,24 +149,24 @@ class Konto {
 {{< /codeWide >}}
 
 ### 4. Kommentare
-Zu Wenig ist zu wenig und zuviel ist zuviel.
+Zu wenig ist zu wenig und zu viel ist zu viel.
 
 #### Angebracht
  - Bei schwer verständlichen Programmteilen. 
- - Bei Verhalten, wenn es zu Beispiel, die Laufzeit betrifft.
- - Gedanken, wenn man für diese Lange braucht 
- - Bei Regular Expression, was dieser tut.
+ - Bei Verhalten, wenn es zum Beispiel die Laufzeit betrifft.
+ - Gedanken, wenn man für diese lange braucht 
+ - Bei Regular Expressions, was diese tun.
  - TODOs kennzeichnen 
 
 #### Unangebracht 
  - Sinnlos z.B. wenn der Name einer Funktion zum Satz formuliert wird 
  - Nicht bei Codeteilen, die als eigene Funktion ausgelagert werden müssten
 
-### 5. DRY: Dont repeat yourself
+### 5. DRY: Don't repeat yourself
 Viele Fehler entstehen durch "Kopieren" und "Einfügen".
-Ersetzen und durch Prozeduren/Funktionen.
+Ersetzen durch Prozeduren/Funktionen.
 
-### 6. YAGNI: You aint gonna need it 
+### 6. YAGNI: You ain't gonna need it 
 Du wirst es nicht brauchen.
 
 Negativbeispiel:
@@ -177,7 +177,7 @@ class Konto {
 }
 {{< /codeWide >}}
 
-Die Methode ``indieSchweizueberweisung``kann bei dem ersten Erscheinen eines Programmes für eine Bank überflüssig sein.
+Die Methode ``indieSchweizueberweisung``kann bei dem ersten Erscheinen eines Programms für eine Bank überflüssig sein.
 
 ### 7. SOLID Single Responsibility
 
@@ -190,7 +190,7 @@ class myConnector {
 }
 {{< /codeWide >}}
 
-Eine ``send()`` sowie eine ``receive()`` Methode müssten in eine Separate Klasse ausgelagert werden.
+Eine ``send()`` sowie eine ``receive()`` Methode müssten in eine separate Klasse ausgelagert werden.
 
 {{< codeWide >}}
 class Communicator{
@@ -199,10 +199,10 @@ class Communicator{
 }
 {{< /codeWide >}}
 
-Grob kann man sagen, eine Klasse nicht mehr als so ca. 200 Zeilen beinhalten sollte, oder um die 15 Methoden.
+Grob kann man sagen, dass eine Klasse nicht mehr als ca. 200 Zeilen beinhalten sollte, oder um die 15 Methoden.
 
 ### 8. SOLID Open Closed Prinzip
-Open for extension closed for modification
+Open for extension, closed for modification
 Es kann erweitert werden, aber es muss dazu nicht verändert werden.
 
 Negativbeispiel:
@@ -218,7 +218,7 @@ for Form f in FormListe{
 {{< /codeWide >}}
 
 Die ``switch case `` Verzweigung muss jedes Mal neu angepasst werden,
-wenn diese Art der Implementierung in der Code Bases öfter auftritt, muss das an jeder Stelle noch mal geändert werden. Darum sollte die  Klasse ``Form `` eine Methode ``draw()`` zur Verfügung stellen 
+wenn diese Art der Implementierung in der Codebase öfter auftritt, muss das an jeder Stelle noch mal geändert werden. Darum sollte die Klasse ``Form `` eine Methode ``draw()`` zur Verfügung stellen 
 
 {{< codeWide >}}
 class Form{
@@ -229,9 +229,9 @@ for Form f in FormList:
 	f.draw();
 {{< /codeWide >}}
 
-Die Unterklasse z.B. ``Kreis`` werden dann dazu gezwungen, eine Implementierung von ``draw()`` zu übernehmen.
+Die Unterklassen, z.B. ``Kreis``, werden dann dazu gezwungen, eine Implementierung von ``draw()`` zu übernehmen.
 
-### 9. SOLID  Liskovsches Substitutionsprinzip
+### 9. SOLID Liskovsches Substitutionsprinzip
 
 Vererbung, die nicht funktioniert:
 {{< codeWide >}}
@@ -245,7 +245,7 @@ class Quadrat extends Rechteck{
 }
 {{< /codeWide >}}
 
-Jedes Quadrat ist ein Rechteck, funktioniert in der  Mathematik, aber nicht im programmiertechnischen Sinn.
+Jedes Quadrat ist ein Rechteck, funktioniert in der Mathematik, aber nicht im programmiertechnischen Sinn.
 Die Klasse ``Quadrat `` kann nicht von ``Rechteck`` erben, weil die Höhe immer gleich der Breite ist.
 
 Andersherum geht das:
@@ -268,12 +268,12 @@ class Rechteck extends Quadrat{
 }
 {{< /codeWide >}}
 
-In diesem Beispiel muss die Methode ``flaeche()`` noch Überschrieben werden.
+In diesem Beispiel muss die Methode ``flaeche()`` noch überschrieben werden.
 
 ### 10. SOLID Interface Segregation
 Wenn von einem Interface geerbt wird, muss es auch gebraucht werden.
 
-Negativ Beispiel:
+Negativbeispiel:
 {{< codeWide >}} 
 interface Worker{
 	eat();
@@ -291,7 +291,7 @@ class Robot implements Worker{
 }
 {{< /codeWide >}}
 
-Die Methode ``eat()`` wird an die Klasse Robot mitgegeben, dies muss dann überschrieben werden und leer gelassen bleiben (Toter Code).
+Die Methode ``eat()`` wird an die Klasse Robot mitgegeben, dies muss dann überschrieben und leer gelassen werden (toter Code).
 Besser wären in diesem Fall zwei Interfaces ``Eats`` und ``Work``.
 
 {{< codeWide >}} 
@@ -319,33 +319,33 @@ In Software haben wir mehrere Schichten:
 
 ![Software Schichten ](img/Software_Schichten.png)
 
-Eine ``CopyPast`` Interface braucht z.B. zwei weitere Klassen namens ``ReadUserInput`` und ``WriteFile``.
-Das ``CopyPast`` ist aus einer sehr hohen Schicht (fast in der GUI Schicht). Die Klassen ``ReadUserInput`` und ``WriteFile`` sind in einer niedrigeren Schicht (``WriteFile`` ist in der Persistenz Schicht).``CopyPast`` hängt in diesem Fall von den beiden Klassen ab, jedoch möchte man das Umgekehrte erreichen. Um das zu bewerkstelligen wird nun eine Klasse erstellt, die sich in einer höhren Schicht befindet. In unserem Beispiel ``Reader`` Klasse für ``ReadTextInput`` und eine ``Writer`` Klasse für ``WriteFile``.
+Ein ``CopyPast`` Interface braucht z.B. zwei weitere Klassen namens ``ReadUserInput`` und ``WriteFile``.
+Das ``CopyPast`` ist aus einer sehr hohen Schicht (fast in der GUI Schicht). Die Klassen ``ReadUserInput`` und ``WriteFile`` sind in einer niedrigeren Schicht (``WriteFile`` ist in der Persistenz Schicht). ``CopyPast`` hängt in diesem Fall von den beiden Klassen ab, jedoch möchte man das Umgekehrte erreichen. Um das zu bewerkstelligen, wird nun eine Klasse erstellt, die sich in einer höheren Schicht befindet. In unserem Beispiel eine ``Reader`` Klasse für ``ReadTextInput`` und eine ``Writer`` Klasse für ``WriteFile``.
 
 ### 12. SLA: Single Level of Abstraction
 
-Methode hat eine Abstraktionsebene in der geblieben werden soll. Diese Abstraktionsebene sollten von Methode zu Methode abnehmen. Von der Abstrakteste Methode ruft nur Methoden auf, die von aussen für niemanden sichtbar sind. In diesen unteren Methoden verbergen dann die eigentlichen Rechenoperationen.
+Eine Methode hat eine Abstraktionsebene, in der geblieben werden soll. Diese Abstraktionsebene sollte von Methode zu Methode abnehmen. Die abstrakteste Methode ruft nur Methoden auf, die von außen für niemanden sichtbar sind. In diesen unteren Methoden verbergen sich dann die eigentlichen Rechenoperationen.
 
 ### 13. Refactoring und Pfadfinderregel
 
 #### Pfadfinderregel
-Man möchte den Code immer sauberer verlassen als man ihn Vorgefunden hat.
+Man möchte den Code immer sauberer verlassen, als man ihn vorgefunden hat.
 
 #### Refactoring
 
-##### Methoden Verändern
-Nach aussen sollen sich Methoden nicht ändern.
-Was tun, wenn ein Parameter gebraucht wird, den es vorher nicht gab, einfache Lösung einsetzten default Parameter.
+##### Methoden verändern
+Nach außen sollen sich Methoden nicht ändern.
+Was tun, wenn ein Parameter gebraucht wird, den es vorher nicht gab? Einfache Lösung: Default-Parameter einsetzen.
 
  - Lange Methoden -> Verwenden von Abstraktionsebenen
  - Doppelten Code -> Auslagern in Methoden
  - Feature Envy ~~getA().getB().attr~~ -> Methode extrahieren 
  - Data Klasse (Haben nur Daten ohne Funktionen) -> aufteilen in Klassen, die dann auch Methoden brauchen.
- - Gott Klasse (Vielzuviel aufeinmal) -> auslagern in verschiedene Klassen
+ - Gott Klasse (viel zu viel auf einmal) -> auslagern in verschiedene Klassen
 
 ##### Testfälle
-Nur mit Test Fallen bearbeiten, sonst besteht die Gefahr den Code zu zerstören, ohne es mitzubekommen.
+Nur mit Testfällen bearbeiten, sonst besteht die Gefahr, den Code zu zerstören, ohne es mitzubekommen.
 
 Immer wenn du deinen eigenen Code nicht mehr verstehst, solltest du ihn überarbeiten.
 
-Ordentlichkeit vor Performance erst aufräumen, dann schnell machen.
+Ordentlichkeit vor Performance: erst aufräumen, dann schnell machen.

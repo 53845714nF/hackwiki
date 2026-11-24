@@ -16,7 +16,7 @@ Hetzner has changed its DNS service. Use cert-manager-webhook-hetzner now.
 
 I have been running a k3s cluster for some time and now I want to expand my Ingress resource to allow accessing my applications with valid Let's Encrypt certificates.
 The DNS Challenge for Let's Encrypt seems to be the ideal solution for this, as it does not require opening ports to the outside world, thus maintaining the security of my network.
-In this article, I'll walk you through step-by-step on how to set up the DNS Challenge for Let's Encrypt in your k3s cluster, using the Hetzner DNS provider.
+In this article, I'll walk you step by step through how to set up the DNS Challenge for Let's Encrypt in your k3s cluster, using the Hetzner DNS provider.
 
 ## Requirements 📋
   - k3s cluster
@@ -29,7 +29,7 @@ First, we need to create the DNS entries for our domain. These entries can point
 
 ![DNS entries](img/hetzner.png)
 
-Although this may seem unusual at first and poses a certain security risk in the DNS system - known as DNS rebinding attacks. Most routers provide protection against rebinding, preventing external requests from being forwarded to the local IP address.
+This may seem unusual at first, and it does pose a certain security risk in the DNS system, known as DNS rebinding attacks. Most routers provide protection against rebinding, preventing external requests from being forwarded to the local IP address.
 
 To configure the DNS records, you may need to disable the rebinding protection in your router. Please note that you should only enter your domain there, as wildcards can pose a security risk. In the user interface of the Fritzbox, you can find the rebinding protection under:
 
@@ -44,7 +44,7 @@ Next, we need to install cert-manager, which is essentially a standard in the Ku
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.yaml
 {{< /codeWide >}}
 
-An element that's not entirely standard is the [Cert Manager Webook Hetzner](https://github.com/vadimkim/cert-manager-webhook-hetzner) project, which enables communication with the Hetzner DNS provider.
+An element that's not entirely standard is the [Cert Manager Webhook Hetzner](https://github.com/vadimkim/cert-manager-webhook-hetzner) project, which enables communication with the Hetzner DNS provider.
 
 To do this, we'll use helm, a package manager for Kubernetes:
 {{< codeWide >}}

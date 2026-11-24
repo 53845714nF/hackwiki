@@ -10,7 +10,7 @@ showInMenu: false
 tags: ["Hardware", "Microcontroller"]
 ---
 
-Hello, in this post it's about flashing MicroPython firmware onto a China clone of the PyBoard. It is a clone with the STM32F405RGT6 chip.
+Hello, this post is about flashing MicroPython firmware onto a China clone of the PyBoard. It is a clone with the STM32F405RGT6 chip.
 
 Today, probably very few people still use this board. ESP32 and RP2040 are far more well-known competitors here.
 But for people like me who own the board and wonder how to flash new firmware onto the chip, I have created a short how-to.
@@ -21,7 +21,7 @@ The hardware:
 
 To flash the firmware, we need:
 
-- The PyBoard Clone
+- The PyBoard clone
 - A MicroUSB cable
 - Jumper wires to short the boot pin
 
@@ -31,9 +31,9 @@ Now we need to bring the board into the so-called bootloader mode. For this, the
 
 ![pic2](img/board_flash.jpg)
 
-Now connect the board to our PC via USB. `dfu-util` should be able to detect the board.
+Now connect the board to your PC via USB. `dfu-util` should be able to detect the board.
 
-Now we can save the firmware on the board. (I would definitely do this, I have already needed this backup).
+Now we can save the firmware on the board. (I would definitely do this; I have already needed this backup.)
 
 {{< codeWide >}}
 sudo dfu-util --alt 0 --upload pyboard-original.dat -s:524288
@@ -56,7 +56,7 @@ sudo apt install git build-essential gcc-arm-none-eabi \
     cmake ninja-build
 {{< /codeWide >}}
 
-Now the Micropython Git repository needs to be downloaded.
+Now the MicroPython Git repository needs to be downloaded.
 
 {{< codeWide >}}
 git clone https://github.com/micropython/micropython

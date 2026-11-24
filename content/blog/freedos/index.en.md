@@ -32,7 +32,7 @@ In contrast, FreeDOS operates without this separation. Every process can access 
 
 ## QBasic and the Parallel Port
 
-One interesting example of how easy hardware access used to be is working with the parallel port. I found a great [Youtube Video](https://www.youtube.com/watch?v=7D-JES4BnTw) that demonstrates how to control the parallel port with basic QBasic code.
+One interesting example of how easy hardware access used to be is working with the parallel port. I found a great [YouTube video](https://www.youtube.com/watch?v=7D-JES4BnTw) that demonstrates how to control the parallel port with basic QBasic code.
 
 Nowadays, accessing hardware directly without special permissions or drivers would be unthinkable. But with FreeDOS, it’s very straightforward.
 

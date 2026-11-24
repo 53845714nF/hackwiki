@@ -74,7 +74,7 @@ Below are three examples: the Digispark Board, the WiFi Duck, and the Cactus WHI
 
 ### Digispark Board
 
-[Digispark Board](img/digispark.jpg)
+![Digispark Board](img/digispark.jpg)
 
 This is a very cheap USB stick equipped with an ATtiny85, a small and low-power microcontroller from Atmel (now Microchip). The device is slow with its keystrokes and quite noticeable, but it’s a good, affordable introduction to keystroke injection attacks.
 Check out this video from [Null Byte](https://www.youtube.com/watch?v=A3cB9BDE6XM) on how to program it.
@@ -84,9 +84,9 @@ Check out this video from [Null Byte](https://www.youtube.com/watch?v=A3cB9BDE6X
 First, you need to install the Arduino IDE.
 In the preferences, add the following URL: `http://digistump.com/package_digistump_index.json`
 
-Then, install the Digistump AVR Board in the board manager.
+Then, install the Digistump AVR Boards in the board manager.
 Unfortunately, Ducky Script isn’t supported directly, so you have to program the board in the Arduino IDE.
-You can find examples online, such as on [Github](https://github.com/CedArctic/DigiSpark-Scripts).
+You can find examples online, such as on [GitHub](https://github.com/CedArctic/DigiSpark-Scripts).
 
 Here’s the Ducky Script converted into Arduino code:
 
@@ -156,7 +156,7 @@ However, they’re a fun and simple introduction to keystroke injection attacks.
 ![WiFi Duck Board](img/wifi_duck.jpg)
 
 The WiFi Duck, developed by [Spacehuhn](https://github.com/spacehuhn), uses two microcontrollers: an Atmega32u4, which impersonates a keyboard, and an ESP8266, which provides Wi-Fi capabilities for remote control.
-Installation is done via the Arduino IDE, and the instructions are well documented on the project’s [Github](https://github.com/SpacehuhnTech/WiFiDuck#atmega32u4-development-boards) page.
+Installation is done via the Arduino IDE, and the instructions are well documented on the project’s [GitHub](https://github.com/SpacehuhnTech/WiFiDuck#atmega32u4-development-boards) page.
 You can flash this firmware onto various sticks, or create a custom board to connect the necessary chips.
 
 #### Web Interface
@@ -184,7 +184,7 @@ However, using a [Malduino](https://maltronics.com/collections/malduinos/product
 ![Cactus WHID](img/Cactus_WHID.jpg)
 
 The [Cactus WHID](https://github.com/whid-injector/WHID) is another USB stick that functions similarly to the WiFi Duck, using an Atmega32u4 for keystroke injection and an ESP-12S (similar to the ESP8266) for Wi-Fi.
-It comes with its own firmware, which I wanted to try out, but dose not work.
+It comes with its own firmware, which I wanted to try out, but it does not work.
 
 There is a Duckuino that works much better for me.
 

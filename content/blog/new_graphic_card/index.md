@@ -5,13 +5,13 @@ draft: false
 hideLastModified: true
 summaryImage: "img/graphic_card.jpg"
 keepImageRatio: true
-summary: "Wie man Grafikarte in Proxmox einrichtet?"
+summary: "Wie richtet man eine Grafikkarte in Proxmox ein?"
 showInMenu: false
 tags: ["Homelab", "Proxmox", "Containers", "Hardware", "Virtualization"]
 ---
 
 
-Seit nunmehr als fünf Jahren läuft mein Homeserver größtenteils durchgängig. Unter normalen Umständen wäre ein Hardware-Update denkbar. Leider sind die Preise aufgrund der hohen Nachfrage durch KI-Rechenzentren so stark gestiegen, dass sich dies auf fast alle anderen Hardwarekomponenten auswirkt.
+Seit nunmehr über fünf Jahren läuft mein Homeserver größtenteils durchgängig. Unter normalen Umständen wäre ein Hardware-Update denkbar. Leider sind die Preise aufgrund der hohen Nachfrage durch KI-Rechenzentren so stark gestiegen, dass sich dies auf fast alle anderen Hardwarekomponenten auswirkt.
 
 Ich betreibe seit Kurzem eine Jellyfin-Instanz auf meinem Server. Für das Transcoding benötige ich eine Grafikkarte.
 

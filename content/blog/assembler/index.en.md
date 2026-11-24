@@ -127,7 +127,7 @@ Link the program: `gcc example.o -o example`
 {{< /codeWide >}}
 
 - ALU, Clock, Register = CPU
-- Speicher = RAM
+- Memory = RAM
 - Input = Keyboard, Hard Drive
 - Output = Hard Drive, Graphics Card, Monitor
 - Control Unit = Simplified Mainboard
@@ -143,7 +143,7 @@ int 	0x80
 
 `ebx` and `eax` are registers. Variables are placed in them.
 
-The `int  $0x80` tells the Linux kernel to execute the syscall that is in `%eax`. In this case the first one, which stands for close.
+The `int $0x80` tells the Linux kernel to execute the syscall that is in `%eax`. In this case the first one, which stands for close.
 
 ### 4. Abstracted Memory
 {{< codeWide >}}
@@ -168,12 +168,12 @@ Line 1: loads content from address (`%ebx`) into register `%eax`.
 
 `esi` = for string operations
 
-### 5. Moving Files
+### 5. Moving Data
 `movb $0, %eax`
 
 `movb` -> move 8 bit
 
-`movvw` -> move 16 bit
+`movw` -> move 16 bit
 
 `movl` -> move 32 bit
 
@@ -238,7 +238,7 @@ myporc:
             +---------------+
 {{< /codeWide >}}
 
-The Instruction Pointer goes down. The Stack Pointer goes up. The Instruction Pointer is supposed to call the function myproc. Before it does so, the address+1 is written onto the stack (implicit). To come back later.
+The Instruction Pointer goes down. The Stack Pointer goes up. The Instruction Pointer is supposed to call the function myproc. Before it does so, the address+1 is written onto the stack (implicit), in order to return later.
 
 {{< codeWide >}}
             +---------------+
@@ -261,7 +261,7 @@ The Instruction Pointer goes down. The Stack Pointer goes up. The Instruction Po
 At the end of the procedure, the Instruction Pointer (`eip`) hits `ret`, meaning it should continue where it stopped before. The value `implicit` is popped from the stack and written into `eip`.
 So it goes back up.
 
-Important that this is properly terminated here.
+It is important that the program terminates properly here.
 
 ### 8. Entry Points and Outputs
 {{< codeWide >}}
@@ -297,7 +297,7 @@ With `int $0x80` a Syscall is called, the parameters for this are in the registe
 
 `eax` -> Syscall (4 for write)
 
-`ebx` -> Output (1 for stout, i.e., Commandline)
+`ebx` -> Output (1 for stdout, i.e., command line)
 
 `ecx` -> Text (msg)
 
@@ -441,7 +441,7 @@ Loop:
 
 `loop` -> Loop, is executed until `ecx` = 0, decreases `ecx` by 1
 
-`loope` -> equals (if the Zero Bit was set to Null, meaning the last call resulted in Zero.) (`ecx` must be greater than Zero.)
+`loope` -> equals (if the Zero Bit was set, meaning the last call resulted in Zero.) (`ecx` must be greater than Zero.)
 
 `loopz` -> same as `loope`
 

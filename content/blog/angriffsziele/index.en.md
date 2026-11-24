@@ -10,14 +10,14 @@ showInMenu: false
 tags: ["Hacking"]
 ---
 
-Yes, admitted, they are probably protection goals in reverse, but I still want to quickly give an overview.
+Yes, admittedly, they are probably protection goals in reverse, but I still want to quickly give an overview.
 
 ## Data Abuse 📧
 Misuse of data.
 A small example? A phishing email with the goal of luring an unsuspecting user to a fake website (preferably PayPal or their own bank).
 By the way, two violations of authenticity already occur here: a fake email and a fake website.
 
-The abuse occurs when the data obtained is sold and traded further. Attackers often work quite division of labor here.
+The abuse occurs when the data obtained is sold and traded further. Attackers often divide the work among themselves.
 
 ## Data Manipulation 🪄📂
 With data manipulation, the integrity of the entire data is lost, meaning one's own data can no longer be trusted.
@@ -27,7 +27,7 @@ It enables attackers to extort their victims. This can bring companies to the br
 A data leak can lead to a loss of reputation and consequently a loss of customers.
 Here, confidentiality is violated as a protection goal, as is the privacy of the users themselves.
 
-Particularly explosive was the publication of stolen user data from Ashley Madison in 2015.
+A particularly explosive case was the publication of stolen user data from Ashley Madison in 2015.
 The portal was an online dating portal specializing in affairs. With the publication of user data, some suicides occurred.
 
 ## Denial-of-Service Attacks 🔫

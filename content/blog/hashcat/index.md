@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/hashcat.webp"
 keepImageRatio: true
-summary: "Cracken von Passwort Hashes am Beispiel von VeraCrypt."
+summary: "Cracken von Passwort-Hashes am Beispiel von VeraCrypt."
 showInMenu: false
 tags: ["Hacking"]
 ---
@@ -22,7 +22,7 @@ Zunächst erstellen wir einen VeraCrypt-File-Container.
 Die Verschlüsselungsmethode wird auf AES belassen,
 und als Hash-Algorithmus verwenden wir SHA-512 – beides Standardwerte bei VeraCrypt.
 
-![VeraCrypt Screenshot, der die Verschlüsslung zeigt](img/veracrypt1.png)
+![VeraCrypt Screenshot, der die Verschlüsselung zeigt](img/veracrypt1.png)
 
 Nun kommt der entscheidende Punkt: Wir wählen absichtlich ein schwaches Passwort.
 VeraCrypt warnt uns zu Recht, dass dieses anfällig für Brute-Force-Angriffe ist.
@@ -52,18 +52,18 @@ Hashcat bietet verschiedene Angriffsmethoden, die man mit dem Parameter `-a` bzw
 Ich habe zwei Methoden ausprobiert: Wörterbuch-Angriffe und Brute-Force-Angriffe.
 Es gibt noch weitere, wie zum Beispiel die Kombination von Wörterbuch-Angriffen mit Regeln (etwa: "Am Ende muss ein Sonderzeichen stehen").
 
-#### Wörterbuch Attacken 📖
+#### Wörterbuch-Attacken 📖
 
 Ein Wörterbuch-Angriff basiert auf einer Liste von potenziellen Passwörtern, die der Angreifer durchprobiert.
 In Kali Linux gibt es viele solcher Listen, die bekannteste ist `rockyou.txt`, die aus realen Passwort-Leaks stammt und häufig genutzte Passwörter enthält.
 
-Es gibt auch Tools, um eigene Wörterlisten zu erstellen. Zwei davon möchte ich kurz vorstellen:
+Es gibt auch Tools, um eigene Wörterlisten zu erstellen. Drei davon möchte ich kurz vorstellen:
 
 1. `Crunch`: Mit diesem Tool kann man definieren, wie die Wortliste aussehen soll – etwa die Länge der Passwörter und welche Zeichen enthalten sein sollen.
 
 2. `Cewl`: Dieses [Tool](https://github.com/digininja/CeWL) durchsucht Webseiten und generiert daraus Wortlisten. Clever, denn manche Firmen nutzen tatsächlich Begriffe wie ihren Firmennamen als Passwort. 🤔
 
-3. `cupp`: Das [Common User Password Profiler](https://github.com/Mebus/cupp) generiert individuelle Wörterlisten, auf Basis persönlicher Informationen (wie Geburtsdatum, Namen von Haustieren oder Kindern).
+3. `cupp`: Der [Common User Password Profiler](https://github.com/Mebus/cupp) generiert individuelle Wörterlisten auf Basis persönlicher Informationen (wie Geburtsdatum, Namen von Haustieren oder Kindern).
 
 Jetzt zur eigentlichen Attacke mit Hashcat:
 
@@ -79,8 +79,8 @@ Jetzt zur eigentlichen Attacke mit Hashcat:
 Ein Brute-Force-Angriff testet systematisch alle möglichen Passwortkombinationen.
 Diese Methode ist extrem rechenintensiv und meistens nicht erfolgreich, es sei denn, das Passwort ist sehr kurz.
 
-Ìst das rabiate Ausprobieren aller möglichen Textverbindungen.
-Dies Attacke ist natürlich rechenintensiver und wird hier in einem echten Fall, wohl nicht von Erfolg gekrönt sein.
+Es ist das rabiate Ausprobieren aller möglichen Zeichenkombinationen.
+Diese Attacke ist natürlich rechenintensiver und wird in einem echten Fall wohl nicht von Erfolg gekrönt sein.
 
 `hashcat -a 3 -m 13722 test ?l?l?l?l?l --increment --increment-min 5`
 

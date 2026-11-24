@@ -12,20 +12,20 @@ tags: ["HomeLab"]
 
 ## Der Home Server 🏠🖥️
 
-Fangen wir erst mal mit dem "Home" an, offensichtlich ist das Englisch für "Zu Hause". Und darum geht es, einen Server für zu Hause ein Platz für alle seine Daten die nicht irgendwo in der Cloud liegen. ☁️
+Fangen wir erst mal mit dem "Home" an, offensichtlich ist das Englisch für "Zu Hause". Und darum geht es: einen Server für zu Hause, einen Platz für alle seine Daten, die nicht irgendwo in der Cloud liegen. ☁️
 
-Doch was verbirgt sich nun hinter dem Bergriff "Server"?
+Doch was verbirgt sich nun hinter dem Begriff "Server"?
 
 Vereinfacht ein Gerät, das für andere im Netz bestimmte Aufgaben übernimmt.
-Also häufig irgendeine Art von Computer beziehungsweise Hardware NAS. Einer der häufigste Probleme dürfte wohl das Speichern und Bereitstellen von Daten sein. 💾
+Also häufig irgendeine Art von Computer beziehungsweise Hardware NAS. Eines der häufigsten Probleme dürfte wohl das Speichern und Bereitstellen von Daten sein. 💾
 
-Der Home Server wird also für den privaten Einsatz genutzt und ist somit im produktiven Einsatz. Des weiteren kann man sagen, dass er oft nur einen bis wenige Dienste beherbergt.
+Der Home Server wird also für den privaten Einsatz genutzt und ist somit im produktiven Einsatz. Des Weiteren kann man sagen, dass er oft nur einen bis wenige Dienste beherbergt.
 
 ### Zusammenfassung
 
 - Häufig ein Rechner 🖥️
 - Weniger Dienste 🖨️💾🎬
-- Im produktiver Einsatz 🏋
+- Im produktiven Einsatz 🏋
 
 # Das Home Lab 🏠🔬🧪
 
@@ -58,6 +58,6 @@ Recht unspektakulär, aber das sind meine Babys:
 Ich möchte eine kleine Blogreihe starten, in der ich zeige, wie mein "Home Lab" aufgebaut ist.
 
 Als Erstes kommt Hardware und Software, ein kurzer Einblick, was VMs und Container sind, sowie meine Backup-Lösung.
-Dann natürlich noch einige Dienste, die ich darauf betrieben werden.
-Um einen kleinen Überblick zu geben, ein Versionsverwaltungs, Cloud, Dokumentation, VPN, Config-Management, Monitoring und natürlich darf die Hausautomatisierung nicht fehlen.
-Auch die die Absicherung dieser System spielt hier eine Rolle.
+Dann natürlich noch einige Dienste, die ich darauf betreibe.
+Um einen kleinen Überblick zu geben, eine Versionsverwaltung, Cloud, Dokumentation, VPN, Config-Management, Monitoring und natürlich darf die Hausautomatisierung nicht fehlen.
+Auch die Absicherung dieser Systeme spielt hier eine Rolle.

@@ -21,9 +21,9 @@ The book is a fictionalized dual biography of the mathematician Carl Friedrich G
 
 ## My Python implementation
 
-During my training, I wrote two Python implementations of how to solve this problem. Here's the link to the Gitlab repository: [https://git.aei.mpg.de/sfeustel/ci-cd-python-unittest](https://git.aei.mpg.de/sfeustel/ci-cd-python-unittest).
+During my training, I wrote two Python implementations of how to solve this problem. Here's the link to the GitLab repository: [https://git.aei.mpg.de/sfeustel/ci-cd-python-unittest](https://git.aei.mpg.de/sfeustel/ci-cd-python-unittest).
 
-### Once the cumbersome way with a classic For Loop
+### Once the cumbersome way with a classic for loop
 
 {{< code language="python" >}}
 def loop(number):

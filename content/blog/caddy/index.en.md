@@ -5,13 +5,13 @@ draft: false
 hideLastModified: true
 summaryImage: "img/logo.jpg"
 keepImageRatio: true
-summary: "Tip of the hat Reverse Proxy: Caddy"
+summary: "Tool tip for reverse proxies: Caddy"
 showInMenu: false
 tags: ["Network", "LetsEncrypt"]
 ---
 
-Actually, Caddy deserves its own post, but it's so simple that I just wanted to mention it in case someone doesn't know it.
-Caddy is a Reverse Proxy, similar to Nginx or Apache, but it can be configured very easily. It can automatically provide HTTPS (let's encrypt). It offers many features, such as File Server, Load Balancing, and much more.
+Actually, Caddy doesn't deserve its own post because it's so simple, but I wanted to mention it in case someone doesn't know it.
+Caddy is a Reverse Proxy, similar to Nginx or Apache, but it can be configured very easily. It can automatically provide HTTPS (Let's Encrypt). It offers many features, such as File Server, Load Balancing, and much more.
 
 The installation is incredibly simple. Under Debian, this is done with `sudo apt install caddy`.
 

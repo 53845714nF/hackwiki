@@ -10,7 +10,7 @@ showInMenu: false
 tags: ["Hacking", "Microcontroller", "CTF"]
 ---
 
-Some time ago, I solved the "Photo Manager" task from the RHME2 (2016) CTF. [Link Github Gist](https://gist.github.com/53845714nF/7ad4c6eb0c38aae9a725e54859f1b8f2)
+Some time ago, I solved the "Photo Manager" task from the RHME2 (2016) CTF. [Link GitHub Gist](https://gist.github.com/53845714nF/7ad4c6eb0c38aae9a725e54859f1b8f2)
 
 Now, I wanted to try something with more hardware involvement.
 
@@ -33,7 +33,7 @@ For the CTF, the hex files are flashed directly onto the Arduino using the follo
 
 `avrdude -c arduino -p atmega328p -P /dev/ttyUSB* -b115200 -u -V -U flash:w:CHALLENGE.hex`
 
-Unfortunately, this didn't work for me with the built-in USB port. So, I used the ISP interfaces. To communicate with them, I used a USBasp.
+Unfortunately, this didn't work for me with the built-in USB port. So, I used the ISP interface. To communicate with it, I used a USBasp.
 
 ![A USBasp connected to the Arduino Nano](img/usbasp.jpg)
 
@@ -93,7 +93,7 @@ That's roughly what's happening in my head. A programmer would see that we're st
 ## Setting Up the Attacker System 🏹
 I initially wanted to try programming the Pico myself, but I came across this blog: [Deralchemist Blog](https://deralchemist.wordpress.com/2021/05/28/raspberry-pico-voltage-glitcher)
 
-Apparently, someone had the same idea as me and also released their software on [Github](https://github.com/MKesenheimer/PicoGlitcher). It consists of firmware for the Pico and a Python script to control the pulse.
+Apparently, someone had the same idea as me and also released their software on [GitHub](https://github.com/MKesenheimer/PicoGlitcher). It consists of firmware for the Pico and a Python script to control the pulse.
 
 ### Firmware
 Here is a brief description of how to build the firmware and transfer it to the Pico:
@@ -128,7 +128,7 @@ In the video, you can see the voltage briefly increasing, which is exactly what 
 `./controller.py /dev/ttyACM0 --timeout 0.01 -p 10 10 1 -d 10 15 1`
 
 ## Connecting the Two Microcontrollers 👫
-This was probably the most challenging part for me. Fortunately, I received help from the [Potsdammer Chaostreff](https://www.ccc-p.org/).
+This was probably the most challenging part for me. Fortunately, I received help from the [Potsdam Chaostreff](https://www.ccc-p.org/).
 
 Thanks to [Christoph](https://github.com/chsterz) for providing me with one of his transistors. And a big thanks to [tz](https://github.com/123TzTz321), who helped me a lot with assembling and measuring the transistors.
 
@@ -140,7 +140,7 @@ The left image shows the two measurement probes of our experiment. The yellow ca
 
 Here's the complete setup again:
 
-(On the left side, there's a 1KΩ resistor, and the other two are 15Ω)
+(On the left side, there's a 1kΩ resistor, and the other two are 15Ω)
 
 In reality:
 
@@ -173,7 +173,7 @@ He used GPIO26 on the Pico as the glitch output. He connected the glitch output 
 
 ![Fikret's setup](img/fikret_construction.jpg)
 
-He also used different software, PicoGlitcher by kholia (No longer available), which was a fork of the tool I used.
+He also used different software, PicoGlitcher by kholia (no longer available), which was a fork of the tool I used.
 
 He started the software with the following command:
 

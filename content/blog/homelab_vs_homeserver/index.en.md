@@ -35,7 +35,7 @@ It is often used to try out new tools and test procedures.
 
 - Several computers 🖥️🖥️
 - Many different services
-- Does not run productively or encapsulated 🚧
+- Does not run productively or is isolated from production 🚧
 - Often with extra network components 🕸️
 
 ## My Setup

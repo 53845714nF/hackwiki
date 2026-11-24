@@ -12,10 +12,10 @@ tags: ["CTF", "Forensics"]
 
 
 
-CTF stands for Capture the Flag, the goal of the game is to get all the flags, the CTF consisted of a Memory File and 4
+CTF stands for Capture the Flag. The goal of the game is to get all the flags. The CTF consisted of a memory file and 4
 questions/tasks that served as flags.
 
-The Mini Memory CTF comes from the YouTuber 13Cube, the idea is to learn
+The Mini Memory CTF comes from the YouTuber 13Cubed, the idea is to learn
 how to use volatility or other memory analysis tools in a game-like
 way.
 
@@ -78,7 +78,7 @@ also reveals processes running in the background. We also filter for svchost.
     0x0000c20c6bcd1400 svchost.exe        2888    804 0x0000000097500002 2018-08-01 19:24:32 UTC+0000   2018-08-01 19:24:38 UTC+0000
 {{< /codeWide >}}
 
-We can see that the majority of processes have PID 804 as their parent process, which is also completely fine. If we look a little closer, we find out that this is the service.exe. But what about the process with PID 4824?
+We can see that the majority of processes have PID 804 as their parent process, which is also completely fine. If we look a little closer, we find out that this is the services.exe. But what about the process with PID 4824?
 
 Let's grep for 4824: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_15063 psscan | grep -i 4824`
 
@@ -182,15 +182,15 @@ The flag is then: `3a19697f29095bc289a96e4504679680`
 
 #### Flag Number 3:
 
-Which Mac Address is the Default Gateway of the machine? (The flag is
-the MD5 hash of the Mac Address, uppercase with hyphens
+What is the MAC address of the machine's default gateway? (The flag is
+the MD5 hash of the MAC address, uppercase with hyphens
 separating.)
 
-We know that the Mac Address is in the Registry, which we can get from the Memory Dump:
+We know that the MAC address is in the registry, which we can get from the Memory Dump:
 
-This is done with the `dumpregestry` plugin: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_17134 dumpregistry --dump-dir=/opt/volatility/test_memory/program/`
+This is done with the `dumpregistry` plugin: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_17134 dumpregistry --dump-dir=/opt/volatility/test_memory/program/`
 
-Note: I always used the wrong profile before. That wasn't the problem either, but for the `dumpregistry` plugin the
+Note: I always used the wrong profile before. That wasn't a problem before, but for the `dumpregistry` plugin the
 correct profile must be used.
 
 A bunch of files are created:
@@ -216,9 +216,9 @@ a plugin still needs to be chosen, in our case `software`, then
 click `Rip it`. Now a readable file is created where we can grep
 for "mac" or "DefaultGateway".
 
-![The Mac Address of the Default Gateway](img/mac.png)
+![The MAC address of the default gateway](img/mac.png)
 
-Tada the Mac Address of the Default Gateway.
+Tada, the MAC address of the default gateway.
 
 Create flag with: `echo -n '00-50-56-FE-D8-07'| md5sum`
 
@@ -227,7 +227,7 @@ And our flag is: `6496d43b622a2ad241b4d08699320f4e`.
 #### Flag Number 4:
 
 Find the full path of the browser cache created when visiting
-`www.13cubed.com.` The path starts with `User\`. (Flag is the MD5 hash of the path in uppercase)
+`www.13cubed.com.` The path starts with `User\`. (The flag is the MD5 hash of the path in uppercase)
 
 In the NTFS (New Technology File System) there is a Master
 File Table (MFT), in this table you find information about the
@@ -236,8 +236,8 @@ new files are saved, the storage location is also recorded here.
 It is a central file index similar to an index directory in a
 book. Metadata is also captured here.
 
-Slowly we understood that everything needed to work is hidden
-in the memory, so is the Master File
+By now we have understood that everything needed to work is hidden
+in the memory, and so is the Master File
 Table. And also here, Volatility comes with a suitable plugin to
 get this, it's called mftparser.
 
@@ -283,7 +283,7 @@ uppercase string from lowercase strings.
 
 It looks like this: `less output_mft | cut -d ' ' -f 19 | ag 'Users' | ag 'cubed' |ag '.htm'| ruby -e 'print gets.upcase'`
 
-Output:`USERS\CTF\APPDATA\LOCAL\PACKAGES\MICROS~1.MIC\AC\#!001\MICROS~1\CACHE\AHF2COV9\13CUBED[1].HTM`
+Output: `USERS\CTF\APPDATA\LOCAL\PACKAGES\MICROS~1.MIC\AC\#!001\MICROS~1\CACHE\AHF2COV9\13CUBED[1].HTM`
 
 Create the MD5 hash, and done: `5a15514f0d84962682e3a6d76b197c38`
 
@@ -299,15 +299,15 @@ So there must be something in the file that invalidates the integrity of the str
 ![Two hexdumps shown one below the other, differing by a 0a.](img/hexdump.png)
 
 A non-visible ASCII character snuck in, in
-this case a 0a which corresponds to a `Line Feed`, or today
-known as the name `new line`.
+this case a 0a, which corresponds to a `Line Feed`, today
+better known as `new line`.
 
-Note with larger hex files it is often hard to spot differences, so pipe both hexdumps to a file and use `vimdiff hex_file.a hex_file.b` to compare.
+Note: With larger hex files it is often hard to spot differences, so pipe both hexdumps to a file and use `vimdiff hex_file.a hex_file.b` to compare.
 
 ![Shows the vimdiff tool](img/vimdiff.png)
 
 Here the difference between the two files is already shown in the
-program (in the picture blue).
+program (shown in blue in the picture).
 
 Quick but inelegant solution. The gsub method (stands for global
 substitute) in Ruby allows us to replace parts of strings based on a
@@ -315,8 +315,8 @@ pattern. Thanks to Stack Overflow you quickly get the pattern
 to solve our problem:
 `less output_mft | cut -d ' ' -f 19 | ag 'Users' | ag 'cubed' |ag '.htm'| ruby -e 'print gets.upcase.gsub(/[^[:print:]]/,\'\')'| md5sum`
 
-Note with tr (translate or delete characters) you can also solve this
-problem:`tr -d '[:cntrl:]'`
+Note: With tr (translate or delete characters) you can also solve this
+problem: `tr -d '[:cntrl:]'`
 
 With `:cntrl:` you can delete the control characters.
 

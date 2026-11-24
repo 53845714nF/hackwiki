@@ -10,7 +10,7 @@ showInMenu: false
 tags: ["Hacking"]
 ---
 
-A classic of IT security are protection goals, sometimes also called security objectives.
+A classic of IT security is the set of protection goals, sometimes also called security objectives.
 
 Recently, I read something about protection goals again in a book (Introduction to Kali Linux Penetration Testing and Ethical Hacking with Linux).
 
@@ -19,28 +19,28 @@ The book provides an overview of the Kali Linux operating system and also explai
 {{< /book >}}
 
 The book speaks of the CIA Triad, that is:
-  - Confidentiality (Confidentiality)
-  - Integrity (Integrity)
-  - Availability (Availability)
+  - Confidentiality
+  - Integrity
+  - Availability
 
 I know four or seven goals, but the CIA Triad sounds much cooler. 😎
 
 ## Authenticity
 Here it's about knowing who I am communicating with. The authenticity of my counterpart.
-A good example of this are digital signatures, such as those used in https.
+A good example of this is digital signatures, such as those used in HTTPS.
 Here I can see who the website belongs to.
 
 ## Integrity
 Here it's about ensuring that data cannot be altered.
 The simplest way to do this is to run a one-way function (hash function) over the file. This generates a code (hash).
-This must happen after the file is created and again after an upload/download. Because errors can always occur during transmission, or the data can be manipulated by an attacker.
+This must happen after the file is created and again after an upload/download, because errors can always occur during transmission, or the data can be manipulated by an attacker.
 
 ## Confidentiality
 It must be ensured that secrets remain secret. This applies to all secrets, whether private or business-related.
 
 ## Availability
 As the name suggests, if I have systems, I want them to be available too.
-What can also be considered an availability failure is of course a failure of an automated backup. Because the backup process is not ensured.
+What can also be considered an availability failure is of course a failure of an automated backup, because the backup process is not ensured.
 Even when the backup is not needed.
 
 ### Size Estimation

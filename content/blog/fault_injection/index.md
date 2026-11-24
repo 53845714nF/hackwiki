@@ -5,12 +5,12 @@ draft: false
 hideLastModified: true
 summaryImage: "img/fault_injection.webp"
 keepImageRatio: true
-summary: "Lösung der RHME2 Hardware CTF Challange 'Fiesta' mit Hilfe einer einfachen Fault Injection."
+summary: "Lösung der RHME2 Hardware CTF Challenge 'Fiesta' mithilfe einer einfachen Fault Injection."
 showInMenu: false
 tags: ["Hacking", "Mikrocontroller", "CTF"]
 ---
 
-Vor einiger Zeit habe ich schon einmal die Aufgabe "Photo Manager" vom RHME2 (2016) CTF gelöst. [Link Github Gist](https://gist.github.com/53845714nF/7ad4c6eb0c38aae9a725e54859f1b8f2)
+Vor einiger Zeit habe ich schon einmal die Aufgabe "Photo Manager" vom RHME2 (2016) CTF gelöst. [Link GitHub Gist](https://gist.github.com/53845714nF/7ad4c6eb0c38aae9a725e54859f1b8f2)
 
 Nun wollte ich mich mal an etwas mit mehr Hardwarebezug wagen.
 
@@ -18,7 +18,7 @@ Nun wollte ich mich mal an etwas mit mehr Hardwarebezug wagen.
 
 {{< yt 6Pf3pY3GxBM >}} | {{< yt _E0PWQvW-14 >}}
 
-Das erste Video stammt von LiveOverflow. Er zeigt, wie man mit Hilfe eines FPGA Boards eine Fault Injection auf das Challenge "Fiesta" vom RHME2 CTF durchführt. Das zweite stammt von Stacksmashing. Hier zeigt er, wie er mit Hilfe eines Raspberry Pico eine Fault Injection auf ein Apple AirTag durchführt, um an die Firmware des Tags zu gelangen.
+Das erste Video stammt von LiveOverflow. Er zeigt, wie man mithilfe eines FPGA-Boards eine Fault Injection auf die Challenge "Fiesta" vom RHME2 CTF durchführt. Das zweite stammt von Stacksmashing. Hier zeigt er, wie er mithilfe eines Raspberry Pico eine Fault Injection auf einen Apple AirTag durchführt, um an die Firmware des Tags zu gelangen.
 
 In mir kam die Idee auf, man könnte ja beides verbinden, also den Raspberry Pico gegen den Arduino Nano antreten lassen. ⚔️
 
@@ -26,14 +26,14 @@ In mir kam die Idee auf, man könnte ja beides verbinden, also den Raspberry Pic
 ## Kurze Theorie 👨‍🏫
 Die Grundidee ist es, der CPU für wenige Augenblicke den Strom zu entziehen und zu hoffen, dass sie sich während dieser Zeit verrechnet bzw. dass sie einzelne Instruktionen überspringt.
 
-## Aufsetzen des Zielsystem 🎯
+## Aufsetzen des Zielsystems 🎯
 Das Ziel ist ein Arduino Nano. Das Herzstück ist der Mikrocontroller ATmega328, derselbe Chip, der auch auf dem Arduino Uno verwendet wurde und mittlerweile in Hunderten von Projekten Verwendung findet.
 
 Für das CTF werden die Hex-Dateien direkt auf den Arduino geflasht mit folgendem Befehl:
 
 `avrdude -c arduino -p atmega328p -P /dev/ttyUSB* -b115200 -u -V -U flash:w:CHALLENGE.hex`
 
-Leider funktionierte das bei mir nicht auf Anhieb mit dem eingebauten USB-Port. Ich habe dann die ISP-Schnittstellen verwendet. Um damit zu kommunizieren, habe ich einen USBasp benutzt.
+Leider funktionierte das bei mir nicht auf Anhieb mit dem eingebauten USB-Port. Ich habe dann die ISP-Schnittstelle verwendet. Um damit zu kommunizieren, habe ich einen USBasp benutzt.
 
 ![Ein USBasp verbunden mit dem Arduino Nano](img/usbasp.jpg)
 
@@ -49,10 +49,10 @@ SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", SYSFS{idVendor}=="16c0", SYSFS{idP
 
 Führen Sie dann Folgendes aus:
 
-`sudo /etc/init.d/udev restart` oder den Rechner Neustarten.
+`sudo /etc/init.d/udev restart` oder den Rechner neu starten.
 
 Dies ist notwendig, damit das Betriebssystem den USB-Stick erkennt und wir mit ihm interagieren können.
-Man kann nun das Hex File mit folgenden Befehl flashen:
+Man kann nun das Hex File mit folgendem Befehl flashen:
 
 `avrdude -c usbasp -p atmega328p -P usb -b115200 -u -V -U flash:w:fiesta.hex`
 
@@ -90,10 +90,10 @@ Serial.print("FLAG");
 Das geht so ungefähr in meinem Kopf vor. Ein Programmierer würde sehen, dass wir durch das `while(true)` in einer Endlosschleife stecken und diese nicht verlassen können. Da in dem CTF jedoch immer von Fault Injection die Rede ist, heißt es, dass wir an dieser Stelle glitchen müssen. Ich denke, die Entwickler des CTFs haben noch einige Mechanismen verwendet, die das Glitchen erleichtern, da es eine einfache Challenge ist.
 
 
-## Aufsetzen des Angreifersystem 🏹
+## Aufsetzen des Angreifersystems 🏹
 Eigentlich wollte ich mich selbst einmal daran versuchen, den Pico zu programmieren. Aber durch ein wenig Recherche bin ich auf folgenden Blog gestoßen: [Deralchemist Blog](https://deralchemist.wordpress.com/2021/05/28/raspberry-pico-voltage-glitcher/)
 
-Anscheinend hatte jemand bereits die gleiche Idee wie ich und er hat seine Software auch auf [Github](https://github.com/MKesenheimer/PicoGlitcher) veröffentlicht. Sie besteht aus einer Firmware für den Pico und einem Python-Skript, mit dem der Puls gesteuert werden kann.
+Anscheinend hatte jemand bereits die gleiche Idee wie ich und er hat seine Software auch auf [GitHub](https://github.com/MKesenheimer/PicoGlitcher) veröffentlicht. Sie besteht aus einer Firmware für den Pico und einem Python-Skript, mit dem der Puls gesteuert werden kann.
 
 ### Firmware
 Hier ist kurz beschrieben, wie man die Firmware erstellt und auf den Pico überträgt:
@@ -105,7 +105,7 @@ Für uns heißt es, das Repo zu klonen:
 
 `git clone https://github.com/MKesenheimer/PicoGlitcher.git`
 
-Ein `build` Ordner erstellen dann `cmake ..` und dann `make` .
+Einen `build` Ordner erstellen, dann `cmake ..` und dann `make`.
 
 Ich hatte ein kleines Problem mit dem Pico SDK. Ich musste einmal ins pico-sdk Verzeichnis wechseln:
 
@@ -130,7 +130,6 @@ Im Video ist zu sehen, wie die Spannung einen kurzen Moment ansteigt, genau das,
 `./controller.py /dev/ttyACM0 --timeout 0.01 -p 10 10 1 -d 10 15 1`
 
 ## Verbindung der beiden Mikrocontroller 👫
-Der für mich wahrscheinlich schwierigste Part. Zu Glück hatte ich hier Hilfe aus dem 
 Das war wahrscheinlich der schwierigste Teil für mich. Glücklicherweise hatte ich hier Hilfe aus dem [Potsdamer Chaostreff](https://www.ccc-p.org/).
 
 Danke an [Christoph](https://github.com/chsterz), der mir einen seiner Transistoren gesponsert hat. Und großes Dankeschön an [tz](https://github.com/123TzTz321), der mir kräftig beim Verbauen und Messen der Transistoren geholfen hat.
@@ -141,11 +140,11 @@ Es wurde ein `BC547C` NPN Bipolartransistor verwendet. Beim Aufbau mussten wir s
 
 Das linke Bild zeigt die beiden Messspitzen unseres Versuchs. Das gelbe Kabel geht an den Pin des Pico, hier wird der Puls gemessen.
 Der blaue Jumper geht an den Ausgang des Transistors. Auf dem rechten Bild sieht man, dass der gelbe Graph nach oben geht und damit den Transistor schaltet. 
-Der hier in blau eingezeichnete Graph geht kurzzeitig auf Ground.
+Der hier in Blau eingezeichnete Graph geht kurzzeitig auf Ground.
 
 Hier noch einmal der komplette Aufbau:
 
-(Auf der Linken Seite ist ein Widerstand mit 1KΩ die andern beiden betragen 15Ω)
+(Auf der linken Seite ist ein Widerstand mit 1kΩ, die anderen beiden betragen 15Ω)
 
 In der Realität:
 
@@ -173,13 +172,13 @@ Ach ja, das Wichtigste... die Flagge 🚩
 ## Leseranmerkungen 📝
 Mich hat es sehr gefreut, dass mich Feedback von [Fikret Garipay](https://www.linkedin.com/in/fikretgaripay/) erreicht hat.
 
-Er den Versuch nachgebaut und hat folgende Anmerkungen:
+Er hat den Versuch nachgebaut und hat folgende Anmerkungen:
 
-Als glitch output hat er den GPIO26 am Pico verwendet. Er hat den glitch output mit einem 47Ω Widerstand mit dem Base von `BC548` (sehr ähnlich zum `BC547C`) verbunden. Er hat den Emitter mit Ground verbunden und den Collector mit dem 5V input. Als er den 5V input vom Pico verwendet hat, hat er auch einen 47Ω Widerstand verwendet.
+Als Glitch-Output hat er den GPIO26 am Pico verwendet. Er hat den Glitch-Output mit einem 47Ω Widerstand mit der Basis vom `BC548` (sehr ähnlich zum `BC547C`) verbunden. Er hat den Emitter mit Ground verbunden und den Kollektor mit dem 5V-Input. Als er den 5V-Input vom Pico verwendet hat, hat er auch einen 47Ω Widerstand verwendet.
 
 ![Aufbau von Fikret](img/fikret_construction.jpg)
 
-Er hat auch ein andere Software verwendet, den PicoGlitcher von kholia (Nicht mehr Verfügbar) dies war ein fork von dem Tool was ich verwendet hatte. 
+Er hat auch eine andere Software verwendet, den PicoGlitcher von kholia (nicht mehr verfügbar). Dies war ein Fork von dem Tool, das ich verwendet hatte. 
 
 
 Er hat die Software mit folgendem Befehl gestartet:

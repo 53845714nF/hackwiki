@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/digitale_unabhänigkeit.png"
 keepImageRatio: true
-summary: "Woher kommt meine Software? Wie unabhänig bin ich von auslänischen Unternehmen?"
+summary: "Woher kommt meine Software? Wie unabhängig bin ich von ausländischen Unternehmen?"
 showInMenu: false
 tags: [""]
 ---
@@ -39,7 +39,7 @@ Ich nutze:
 
 Einzige Ausnahmen: Monitore und Bildschirme von einem großen südkoreanischen Unternehmen mit "S". 🇰🇷
 
-## Betribsysteme
+## Betriebssysteme
 Auf meinen Laptops und Desktops verwende ich:
   - [Linux Mint](https://www.linuxmint.com/) 🇮🇪
   - [Manjaro](https://manjaro.org/) 🇩🇪
@@ -47,9 +47,9 @@ Auf meinen Laptops und Desktops verwende ich:
 In virtuellen Maschinen und Containern setze ich häufig auf [Debian](https://www.debian.org/).
 Hier ist die Zuordnung schwierig: Obwohl Debian rechtlich in den USA sitzt, wird es weltweit von Freiwilligen entwickelt.
 
-Auf meinem Smartphone läuft [Grapheneos](https://grapheneos.org/), das seinen Ursprung in Kanada hat. 🇨🇦
+Auf meinem Smartphone läuft [GrapheneOS](https://grapheneos.org/), das seinen Ursprung in Kanada hat. 🇨🇦
 
-## Software im Altag
+## Software im Alltag
 
 ### Office
   - Für formatierte Texte nutze ich [Overleaf](https://www.overleaf.com). 🇬🇧
@@ -61,7 +61,7 @@ Auf meinem Smartphone läuft [Grapheneos](https://grapheneos.org/), das seinen U
   - Empfehlenswert ist außerdem [Mailbox.org](https://mailbox.org/en/), ein deutscher Anbieter. 🇩🇪
 
 ### Soziale Netzwerke
-  - Ich bin auf [Linkedin](https://www.linkedin.com) und [Github](https://github.com/) aktiv – beide US-Unternehmen. 🇺🇸
+  - Ich bin auf [LinkedIn](https://www.linkedin.com) und [GitHub](https://github.com/) aktiv – beide US-Unternehmen. 🇺🇸
   - Europäische Alternativen wären [Xing](https://www.xing.com/) und [Codeberg](https://codeberg.org), beide aus Deutschland 🇩🇪 – aber dort fehlt oft der Netzwerkeffekt.
 
 ### Chat
@@ -85,7 +85,7 @@ Heute verwende ich jedoch fast ausschließlich VS Code von Microsoft 🇺🇸 �
 Ich verwende [Firefox](https://www.mozilla.org/en-US/firefox/new/) – aber auch hier sind alle großen Alternativen aus den USA. 🇺🇸
 
 ### Video-Streaming
-Auch wenn ich Frontends wie [NewPipe](https://github.com/TeamNewPipe/NewPipe) oder [Grajay](https://grayjay.app/) nutze, bleibt YouTube die unangefochtene Nummer eins.
+Auch wenn ich Frontends wie [NewPipe](https://github.com/TeamNewPipe/NewPipe) oder [Grayjay](https://grayjay.app/) nutze, bleibt YouTube die unangefochtene Nummer eins.
 Konkurrenz? Kaum – und wenn, dann auch meist aus den USA. 🇺🇸
 
 ### Karten & Reisen
@@ -137,7 +137,7 @@ Ich setze auf:
   - [Matrix](https://matrix.org/) – dezentrales Chatprotokoll 🇬🇧
 
 
-## Fatzit
+## Fazit
 Ich war selbst überrascht, wie viele deutsche (und europäische) Alternativen ich bereits verwende – oder zumindest kenne.
 
 Die großen US-Softwareunternehmen nutze ich meist nur wegen des Netzwerkeffekts: Man ist dort, wo auch alle anderen sind.

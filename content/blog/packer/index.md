@@ -10,7 +10,7 @@ showInMenu: false
 tags: ["Packer", "IaC", "DevOps"]
 ---
 
-[Die Blog-post ist mit hilfe von ChatGPT entstanden.]
+[Der Blogpost ist mithilfe von ChatGPT entstanden.]
 
 In der heutigen IT-Landschaft, in der Cloud- und Container-Technologien eine immer größere Rolle spielen,
 ist die Automatisierung von Infrastruktur und deren Provisionierung entscheidend.
@@ -60,9 +60,9 @@ Du könntest zum Beispiel Tests auf der Maschine durchführen oder das Image an 
 
 ## Packer auf Proxmox
 
-Hashicorp bietet ein Plugin für Proxmox an, es heißt [packer-plugin-proxmox](https://github.com/hashicorp/packer-plugin-proxmox).
-Auf Grundlage dessen gibt es mein Projekt [packer-proxmox-debian](https://github.com/53845714nF/packer-proxmox-debian) welches ein Debian Template in Proxmox erstellt.
-Mit hilfe eines `cloud-init` lässt sich dann auch ein Salt Minion in diesem installieren.
+HashiCorp bietet ein Plugin für Proxmox an, es heißt [packer-plugin-proxmox](https://github.com/hashicorp/packer-plugin-proxmox).
+Auf Grundlage dessen gibt es mein Projekt [packer-proxmox-debian](https://github.com/53845714nF/packer-proxmox-debian), welches ein Debian Template in Proxmox erstellt.
+Mithilfe von `cloud-init` lässt sich dann auch ein Salt Minion in diesem installieren.
 
 
 ## Fazit

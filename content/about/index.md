@@ -10,16 +10,16 @@ Hallo, ich bin Sebastian, Informatiker mit einem abgeschlossenen Bachelor-Studiu
 sowie einer Berufsausbildung als Fachinformatiker für Systemintegration.
 Derzeit mache ich mein Masterstudium in Informatik.
 
-### Mein Master Studium
+### Mein Masterstudium
 
-Mein Masterstudium absolviere ich derzeit, ebenso wie meinen Bachelor, an der  [Hochschule Brandenburg](https://www.th-brandenburg.de/startseite/)
+Mein Masterstudium absolviere ich derzeit, ebenso wie meinen Bachelor, an der [Hochschule Brandenburg](https://www.th-brandenburg.de/startseite/)
 
 ##### Projekte während meines Masterstudiums:
 - Full-Stack-Webanwendung EventTom (1. Semester): [EventTom](https://github.com/53845714nF/EventTom) ist eine Webanwendung zur Verwaltung und zum Verkauf von Tickets für Events.
 Sie entstand im Rahmen des Moduls Softwarearchitektur und Qualitätssicherung und wurde mit **FastAPI** und **Vue** entwickelt.
-- Breitstellung von Eventtom (1. Semester): Im Modul Cloud Computing – Entwicklung und Betrieb wurde die Bereitstellung von EventTom mithilfe von **Terraform** und **GitHub Actions** auf **AWS** automatisiert.
+- Bereitstellung von EventTom (1. Semester): Im Modul Cloud Computing – Entwicklung und Betrieb wurde die Bereitstellung von EventTom mithilfe von **Terraform** und **GitHub Actions** auf **AWS** automatisiert.
 - Clusterbildung von Malware (2. Semester): Ein Verfahren wurde untersucht, das Malware-Familien in Cluster einordnet. Der Opcode der Malware wurde mithilfe eines Embedding-Sprachmodells in Vektoren überführt und in einer Vektordatenbank (**Weaviate**) gespeichert. Auf dieser Datengrundlage ließen sich einfache Cluster bilden. [Malwareuniverse](https://www.malwareuniverse.org/)
-- Entwicklung eines Sprachbots (2. Semester): Mit hilfe des Microsoft Botbuilder Framework wurde ein Bot entwickelt der auf Sprache und Text reagieren kann. Dieser wurde auf **Azure** betrieben.
+- Entwicklung eines Sprachbots (2. Semester): Mithilfe des Microsoft Botbuilder Framework wurde ein Bot entwickelt, der auf Sprache und Text reagieren kann. Dieser wurde auf **Azure** betrieben.
 
 ##### Forensik
 Im Modul IT- und Medienforensik habe ich forensische Untersuchungsmethoden erlernt.
@@ -37,7 +37,7 @@ Zusätzlich Einführung in Konzepte der Quantenkryptographie und quantensichere 
 ##### Forschung
 Zuarbeit für das folgende Paper: [Attributierung von Stego-Malware Vorfällen mittels Open Source Intelligence](https://doi.org/10.18420/sicherheit2026_11)
 
-### Mein Bachelor Studium
+### Mein Bachelorstudium
 
 Mein Bachelorstudium absolvierte ich an der [Hochschule Brandenburg](https://www.th-brandenburg.de/startseite/), hier erhielt ich fundierte Einblicke in verschiedene Kernbereiche der Informatik, darunter Logik, Algorithmen und Datenstrukturen, Datenbanken sowie Programmierung.
 Die Schwerpunkte lagen dabei auf den Programmiersprachen wie **Java**, **JavaScript**, **C** und **ARM Assembler**.
@@ -55,7 +55,7 @@ Die Schwerpunkte lagen dabei auf den Programmiersprachen wie **Java**, **JavaScr
 - Bierdatenbank (4. Semester): Erstellung einer [Bierdatenbank](https://github.com/53845714nF/Best_Beers) mit **Django** und **Python**.
 - Bildersuchmaschine (4. Semester): Entwicklung einer Bildersuchmaschine mit der Vektordatenbank **Weaviate** und **Flask** in einem Gruppenprojekt.
 - Fiktiver Webshop (5. Semester): Entwicklung eines fiktiven Webshops mit **Spring** und **React** in einer weiteren Gruppenarbeit.
-- 2D Rätselspiel (5. Semester): Mit einem Kommilitonen entstand eine 2D-Top-Down-Rätselspiel mit der **Godot-Engine**.
+- 2D Rätselspiel (5. Semester): Mit einem Kommilitonen entstand ein 2D-Top-Down-Rätselspiel mit der **Godot-Engine**.
 - Solaranlagen-Nutzungs-Webapp (5. Semester): In einem weiteren Gruppenprojekt entwickelten wir eine Webanwendung zur Optimierung der Nutzung von Solaranlagen unter Verwendung von **Flask**, **Golang**, **Keycloak**, **PVGIS** und **Next.js**.
 
 Viele dieser Projekte setzten auf **Docker** und **GitHub Actions** zur Automatisierung.
@@ -73,7 +73,7 @@ Mein Praktikum absolvierte ich bei [KDAB](https://www.kdab.com/), einem Unterneh
 
 ##### Bachelorarbeit: 
 In meiner Bachelorarbeit habe ich statische Schwachstellenscanner für OCI-basierte Containerimages anhand einer eigens entwickelten Webanwendung verglichen.
-Die [Anwendung](https://github.com/53845714nF/MarketMinder) bestand aus einem **Flask-Backend** (mit flask-restful, flask-sqlalchemy und flask-migrate) sowie einem **React-Frontend** in **TypeScript** (unter Verwendung von Material-UI und react-query). Anhand diese Anwendung wurden die folgenden Scanner verglichen: 
+Die [Anwendung](https://github.com/53845714nF/MarketMinder) bestand aus einem **Flask-Backend** (mit flask-restful, flask-sqlalchemy und flask-migrate) sowie einem **React-Frontend** in **TypeScript** (unter Verwendung von Material-UI und react-query). Anhand dieser Anwendung wurden die folgenden Scanner verglichen: 
 Trivy, Clair, Grype, Snyk, Threat Mapper, Veinmind-tools, OpenSCAP, Dagda, Docker Scout und Vesta.
 Die Ergebnisse der Scanner wurden dann mithilfe von **Python** und **Matplotlib** ausgewertet. ([Zum Code der Auswertung](https://github.com/53845714nF/analysis_market_minder)). Die Arbeit ist unter [https://doi.org/10.25933/opus4-3202](https://doi.org/10.25933/opus4-3202) verfügbar.
 
@@ -103,21 +103,21 @@ Im dritten Jahr führte ich das Schwachstellenmanagement-Tool **Greenbone** ein 
 
 In meiner Abschlussarbeit befasste ich mich mit der Migration von **VMware** zu **Proxmox VE**.
 
-### Mein Schulzeit
-Während meiner Schulzeit habe ich im Informatikunterrichts einfache GUI-Anwendungen mit Hilfe von **Delphi** entwickelt.
+### Meine Schulzeit
+Während meiner Schulzeit habe ich im Informatikunterricht einfache GUI-Anwendungen mit Hilfe von **Delphi** entwickelt.
 
-Zudem erstellte ich eine [Webseite einer fiktive Webagentur](https://think.hackwiki.de/) unter Verwendung von **HTML**, **CSS** und **JavaScript** als Teil eines Wahlfachs zur Webseitenentwicklung.
+Zudem erstellte ich eine [Webseite einer fiktiven Webagentur](https://think.hackwiki.de/) unter Verwendung von **HTML**, **CSS** und **JavaScript** als Teil eines Wahlfachs zur Webseitenentwicklung.
 
 ### Meine privaten Projekte
-- [packer-proxmox-debian](https://github.com/53845714nF/packer-proxmox-debian) ein Packer Config das ein Debain Template für Proxmox erstellt.
+- [packer-proxmox-debian](https://github.com/53845714nF/packer-proxmox-debian) eine Packer-Config, die ein Debian-Template für Proxmox erstellt.
 - [Dinofind](https://github.com/53845714nF/dinofind) eine reverse Bildersuchmaschine.
 - [steganoai](https://steganoai.hackwiki.de/), eine Webseite zum Aufspüren von Steganografie in von ChatGPT erstellten Texten.
-- [hasura-jwt](https://github.com/53845714nF/hasura-jwt) ein Programm das JWTs für Hasura ausstellt.
-- [time2boot](https://github.com/53845714nF/time2boot) ein Arduino Projekt der ein Computer zur bestimmten Zeit startet.
-- [vuln2pve](https://github.com/53845714nF/vuln2pve) ein Script das VMs von Vulnhub auf Proxmox herunterlädt.
+- [hasura-jwt](https://github.com/53845714nF/hasura-jwt) ein Programm, das JWTs für Hasura ausstellt.
+- [time2boot](https://github.com/53845714nF/time2boot) ein Arduino-Projekt, das einen Computer zu einer bestimmten Zeit startet.
+- [vuln2pve](https://github.com/53845714nF/vuln2pve) ein Script, das VMs von Vulnhub auf Proxmox herunterlädt.
 
 ### Privates
 - 👯 Ich treffe mich mit Freunden im [Chaostreff Potsdam](https://www.ccc-p.org/) 🚀 und in der [Brandenburger Linux User Group](https://www.bralug.de/) 🐧.
 - 📣 Ehrenamtlicher Pressesprecher der Bralug
-- ⚡ Fun fact: Ich liebe schwimmen 🏊‍♂️.
-- 📝 Schreibe auf diesen Blog, wenn ich die Zeit finde.
+- ⚡ Fun fact: Ich liebe Schwimmen 🏊‍♂️.
+- 📝 Schreibe auf diesem Blog, wenn ich die Zeit finde.

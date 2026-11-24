@@ -1,5 +1,5 @@
 ---
-title: "Distrobuilder für Lxc 📦"
+title: "Distrobuilder für LXC 📦"
 date: 2024-03-10T19:16:43+01:00
 draft: false
 hideLastModified: true
@@ -12,7 +12,7 @@ tags: ["Proxmox", "Containers", "Virtualization", "DevOps"]
 
 Hast du dich jemals gefragt, wie man eigene Images für LXC erstellt und diese dann in Proxmox integriert?
 Obwohl ich bereits einige Zeit mit LXC gearbeitet habe, bin ich nie wirklich dazu gekommen, mein eigenes Image zu erstellen.
-Neugierig geworden, begab ich mich auf die Suche und stieß auf [Distrobuilder](https://github.com/lxc/distrobuilder) – ein Tool zum Erstellen von Images für LXC und LXD, das in Golang geschrieben ist. Es bietet auch die Möglichkeit VM zu erstellen, dies habe ich gleich mitprobiert.
+Neugierig geworden, begab ich mich auf die Suche und stieß auf [Distrobuilder](https://github.com/lxc/distrobuilder) – ein Tool zum Erstellen von Images für LXC und LXD, das in Golang geschrieben ist. Es bietet auch die Möglichkeit, VMs zu erstellen, dies habe ich gleich mitprobiert.
 
 
 ## Installation ✨
@@ -44,10 +44,10 @@ Mit folgendem Befehl erstellte ich den Container:
 pct create 107 ./rootfs.tar.xz --unprivileged 1 --ostype unmanaged --hostname openwrt -net0 name=eth0 -net1 name=eth1 --storage local-lvm
 {{< /codeWide >}}
 
-Nach einigen Einstellungen an den Netzwerkschnittstellen und der Container war einsatzbereit und konnte gestartet werden.
+Nach einigen Einstellungen an den Netzwerkschnittstellen war der Container einsatzbereit und konnte gestartet werden.
 
 ## VM erstellen 🔨
-Bevor mit der erstellung von VM begonnen werden kann müssen Debian noch die Pakete `btrfs-progs` und `qemu-utils` installiert werde:
+Bevor mit der Erstellung von VMs begonnen werden kann, müssen unter Debian noch die Pakete `btrfs-progs` und `qemu-utils` installiert werden:
 
 {{< codeWide >}}
 apt install btrfs-progs qemu-utils
@@ -60,7 +60,7 @@ Im Template-Verzeichnis führte ich dann den folgenden Befehl aus:
 sudo /home/rar/go/bin/distrobuilder build-incus --vm ubuntu.yaml -o image.release=jammy 
 {{< /codeWide >}}
 
-Dieses Befehl erstellt die Dateien: `disk.qcow2` und `incus.tar.xz`.
+Dieser Befehl erstellt die Dateien: `disk.qcow2` und `incus.tar.xz`.
 Die Datei `disk.qcow2` kann dann mit `scp` oder `rsync` auf den Proxmox-Server kopiert werden.
 
 {{< codeWide >}}
@@ -68,7 +68,7 @@ qm create 390
 qm importdisk 390 ubuntu.qcow2 local-lvm -format qcow2
 {{< /codeWide >}}
 
-Wichtig ist es die Festplatte im System hinzuzufügen (`Harware` -> `Edit` -> `Add`) und UEFI zu verwenden:
+Wichtig ist es, die Festplatte im System hinzuzufügen (`Hardware` -> `Edit` -> `Add`) und UEFI zu verwenden:
 
 ![Hardware](img/Hardware.png)
 
@@ -82,7 +82,7 @@ Danach startet die VM wie gewollt:
 
 ### OpenWrt VM erstellen 
 
-Mit folgenden Befehl lässt sich ein OpenWrt VM erstellen:
+Mit folgendem Befehl lässt sich eine OpenWrt-VM erstellen:
 {{< codeWide >}}
 distrobuilder build-incus --vm images/openwrt.yaml -o image.release=23.05
 {{< /codeWide >}}

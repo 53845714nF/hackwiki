@@ -15,7 +15,7 @@ tags: ["Programming"]
 [Link to playlist](https://www.youtube.com/playlist?list=PLNmsVeXQZj7ryyZikMDPxxyYxEKtKn0ji)
 
 ### 1. Introduction
-Clean Code are guidelines for clean programming.
+Clean Code is a set of guidelines for clean programming.
 
 #### Why?
 - Readable
@@ -113,7 +113,7 @@ class Waffenstillstand {
 }
 {{< /codeWide >}}
 
-Another interesting naming is duplications of the class name and the attribute and method names.
+Another interesting naming issue is the duplication of the class name and the attribute and method names.
 
 Negative example:
 
@@ -303,9 +303,9 @@ The `CopyPast` is in a very high layer (almost in the GUI layer). The classes `R
 ### 12. SLA: Single Level of Abstraction
 A method should stay at one level of abstraction. This abstraction level should decrease from method to method. The most abstract method calls only methods that are invisible to anyone outside. In these lower methods, the actual computational operations are hidden.
 
-### 13. Refactoring and Pathfinder Rule
+### 13. Refactoring and Boy Scout Rule
 
-#### Pathfinder Rule
+#### Boy Scout Rule
 You want to leave the code cleaner than you found it.
 
 #### Refactoring

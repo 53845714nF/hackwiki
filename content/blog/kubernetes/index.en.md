@@ -61,7 +61,7 @@ Key features of Deployments:
 - **Scaling**: Deployments make it easy to scale an application by adjusting the number of Pods, either manually or automatically, based on load.
 
 Here is an example of deploying a simple application:
-{{< codeFile file="/content/blog/kubernetes/deploment.yml" language="yml" title="Deployment" icon="yml">}}
+{{< codeFile file="/content/blog/kubernetes/deployment.yml" language="yml" title="Deployment" icon="yml">}}
 
 ## Service
 A **Service** provides **network access** to a Deployment. Since Pods are dynamic and their IP addresses constantly change as they are created, deleted, and restarted, a Service offers stability by assigning a persistent IP address and **DNS name** to access the Deployment.
@@ -71,7 +71,7 @@ A **Service** provides **network access** to a Deployment. Since Pods are dynami
 Key features of Kubernetes Services:
 
 - **Stable network address**: A Service provides a stable IP address and DNS entry, ensuring the Pods remain accessible even when their underlying IP addresses change.
- - **Load balancing**: Services automatically distribute incoming traffic across Pods belonging to the same group, improving availability and resource utilization.
+- **Load balancing**: Services automatically distribute incoming traffic across Pods belonging to the same group, improving availability and resource utilization.
 - **Service types**:
   - `ClusterIP`: Makes the Service accessible internally within the Kubernetes cluster via an internal IP address.
   - `NodePort`: Exposes the Service externally via a specific port on all cluster nodes.
@@ -136,7 +136,7 @@ Key features of Secrets:
   - `TLS`: Stores a TLS certificate and associated private key.
 - **Secure delivery**: Secrets can be passed to Pods in different ways:
   - **Environment variables**: Pods can access Secrets as environment variables at runtime.
-  - **Volumes*: Secrets can be mounted as files within a Pod's filesystem.
+  - **Volumes**: Secrets can be mounted as files within a Pod's filesystem.
 - **Dynamic updates**: If a Secret is updated, Kubernetes can apply these changes to connected Pods automatically, depending on the configuration and mounting strategy.
 - **Access restriction**: Through Role-Based Access Control (RBAC), access to Secrets can be restricted so that only authorized users and applications can access them.
 

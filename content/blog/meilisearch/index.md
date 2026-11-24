@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/search.webp"
 keepImageRatio: true
-summary: "Ein kurzer Einblick in Meilisearch, und das Syncen von Postgres Daten."
+summary: "Ein kurzer Einblick in Meilisearch und das Syncen von Postgres Daten."
 showInMenu: false
 tags: ["Search", "Saltstack"]
 ---
@@ -53,7 +53,7 @@ Ich habe ein Projekt, das auf Postgres basiert, und ich wollte Meilisearch darin
 
 Bei der Installation von Meilisync gibt es einiges zu beachten, und das möchte ich hier mal aufzeigen.
 
-### Vorbedingungen von Postgres  🐘
+### Vorbedingungen von Postgres 🐘
 Es ist wichtig, dass die Datenbank so konfiguriert ist, dass sie die WAL-Protokollierung unterstützt. Das bedeutet, dass die Datenbank so konfiguriert sein muss, dass sie die Änderungen protokolliert, die an den Daten vorgenommen werden. Das ist notwendig, damit Meilisync die Änderungen an den Datenbanken verfolgen kann.
 
 Dafür muss die `postgresql.conf` angepasst werden:
@@ -69,7 +69,7 @@ Folgendes muss hinzugefügt werden:
   - max_wal_senders = 10
 
 ### Installieren von wal2json 📦
-Außerdem muss das wal2json-Plugin installiert werden. Das ist ein Plugin, das die Änderungen an den Datenbanken in JSON-Format protokolliert. Das ist notwendig, damit Meilisync die Änderungen an den Datenbanken verfolgen kann.
+Außerdem muss das wal2json-Plugin installiert werden. Das ist ein Plugin, das die Änderungen an den Datenbanken im JSON-Format protokolliert. Das ist notwendig, damit Meilisync die Änderungen an den Datenbanken verfolgen kann.
 
 Ich musste ein wenig suchen, um das Paket zu finden, aber unter Debian 12 ist es `postgresql-15-wal2json`. Das kann einfach mit apt installiert werden: `apt install postgresql-15-wal2json`
 
@@ -81,7 +81,7 @@ Ich möchte Meilisync in einer virtuellen Umgebung installieren, um die Abhängi
 
 Python 3.11 kann unter Debian 12 mit `apt install python3.11-venv` installiert werden.
 
-Nun kann ich meilisync installieren dafür gehe ich ins `opt` Verzeichnis und erstelle ein Verzeichnis für meilisync. Dann erstelle ich eine virtuelle Umgebung und installiere meilisync.
+Nun kann ich meilisync installieren. Dafür gehe ich ins `opt` Verzeichnis und erstelle ein Verzeichnis für meilisync. Dann erstelle ich eine virtuelle Umgebung und installiere meilisync.
 
 {{< codeWide >}}
 cd opt 

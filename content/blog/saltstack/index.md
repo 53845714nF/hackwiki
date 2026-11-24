@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/logo.png"
 keepImageRatio: true
-summary: "Ein kurzer Blick zu Salt ein Konfigurationsmanagement Tool."
+summary: "Ein kurzer Blick auf Salt, ein Konfigurationsmanagement-Tool."
 showInMenu: false
 tags: ["Saltstack", "IaC", "DevOps"]
 ---
@@ -34,12 +34,12 @@ Es gibt zwei grundlegende Interaktionsmodelle:
 
 ## Salt Master
 
-Der Master gibt die Richtung vor und verwaltet die Anweisungen der Minions.Standardmäßig liegen diese Konfigurationen unter `/srv/salt/`.
+Der Master gibt die Richtung vor und verwaltet die Anweisungen der Minions. Standardmäßig liegen diese Konfigurationen unter `/srv/salt/`.
 Alternativ lässt sich auch eine Git-Anbindung einrichten, wobei darauf zu achten ist, GitPython als `gitfs` Provider zu verwenden, nicht `pygit2`.
 
 **Installation (Beispiel Debian 12):**
 
-Hier nur kurz gezeigt, wie das unter Debian 10 geht (als root ausführen): 
+Hier nur kurz gezeigt, wie das unter Debian 12 geht (als root ausführen): 
 
 1. GPG-Schlüssel herunterladen und hinzufügen:
 {{< codeWide >}}
@@ -91,7 +91,7 @@ apt-get install salt-minion
 
 5. Konfiguration anpassen, falls nötig.
 
-6. Den Dienst neustarten:
+6. Den Dienst neu starten:
 {{< codeWide >}}
 systemctl restart salt-minion
 {{< /codeWide >}}
@@ -129,7 +129,7 @@ und der breiten Betriebssystemunterstützung ist es ein unverzichtbares Tool fü
 
 ## Weitere gute Quellen
 
-- Ein [Blog](https://thorstenkramm.gitbook.io/saltstack/) von Thorsten Kramm der den Einstieg in Salt erleichtert.
+- Ein [Blog](https://thorstenkramm.gitbook.io/saltstack/) von Thorsten Kramm, der den Einstieg in Salt erleichtert.
 - Die offizielle [Salt Dokumentation](https://docs.saltproject.io/en/latest/topics/tutorials/).
 - Ein [Vortrag](https://www.youtube.com/watch?v=8ytAHUGponk) zu Salt Stack von Thorsten Kramm. (Leider schon sehr alt.)
 

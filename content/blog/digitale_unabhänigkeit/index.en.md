@@ -59,7 +59,7 @@ On my smartphone, [GrapheneOS](https://grapheneos.org/) is installed, which orig
   - Also recommended is [Mailbox.org](https://mailbox.org/en/), a German provider. 🇩🇪
 
 ### Social Networks
-  - I am active on [LinkedIn](https://www.linkedin.com) and [Github](https://github.com/) – both US companies. 🇺🇸
+  - I am active on [LinkedIn](https://www.linkedin.com) and [GitHub](https://github.com/) – both US companies. 🇺🇸
   - European alternatives would be [Xing](https://www.xing.com/) and [Codeberg](https://codeberg.org), both from Germany 🇩🇪 – but the network effect is often missing there.
 
 ### Chat
@@ -83,8 +83,8 @@ However, today I almost exclusively use VS Code from Microsoft 🇺🇸 – beca
 I use [Firefox](https://www.mozilla.org/en-US/firefox/new/) – but even here all the major alternatives are from the USA. 🇺🇸
 
 ### Video Streaming
-Even though I use frontends like [NewPipe](https://github.com/TeamNewPipe/NewPipe) or [Grajay](https://grayjay.app/), YouTube remains the undisputed number one.
-Competition? Rarely – and when, then mostly from the USA. 🇺🇸
+Even though I use frontends like [NewPipe](https://github.com/TeamNewPipe/NewPipe) or [Grayjay](https://grayjay.app/), YouTube remains the undisputed number one.
+Competition? Hardly any – and if there is, it's mostly from the USA. 🇺🇸
 
 ### Maps & Travel
 For hotel bookings I often use [Booking.com](https://www.booking.com/). 🇳🇱

@@ -1,5 +1,5 @@
 ---
-title: "Talos Frankenstein for SOPINE board"
+title: "Talos Frankenstein for SOPINE Board"
 date: 2026-10-23T09:57:04+02:00
 draft: false
 hideLastModified: true

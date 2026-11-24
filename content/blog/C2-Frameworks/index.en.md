@@ -29,13 +29,13 @@ It is fascinating to look at the evolution of these tools.
 In the late 90s, communication still ran as plaintext over public IRC servers.
 Today, modern frameworks use legitimate cloud services for disguise.
 
-A real game-changer are **Beacon Object Files (BOFs)**. Instead of placing traitorous `.exe` or `.dll` files on the victim's hard drive, BOFs are loaded directly into the memory of the Beacon process at runtime.
+A real game-changer is **Beacon Object Files (BOFs)**. Instead of placing telltale `.exe` or `.dll` files on the victim's hard drive, BOFs are loaded directly into the memory of the Beacon process at runtime.
 This makes them ideal and extremely OPSEC-friendly for post-exploitation tasks like host enumeration or reading routing tables.
 
 ### The Tools of the Professionals
 In my lecture, I took a closer look at various frameworks and demonstrated them in live demos:
-* **Cobalt Strike:** The commercial "gold standard" used by both Red Teams and real Advanced Persistent Threats (APTs)[cite: 294, 307].
-* **Empire:** A well-known Open-Source Framework (PowerShell-based) with the sleek WebUI client *Starkiller*.
+* **Cobalt Strike:** The commercial "gold standard" used by both Red Teams and real Advanced Persistent Threats (APTs).
+* **Empire:** A well-known open-source framework (PowerShell-based) with the sleek WebUI client *Starkiller*.
 * **Havoc:** A modern framework with a Go server and C++ GUI client, which of course also supports BOFs (COFF Loader).
 * **Sliver:** Developed in Golang, an extremely popular alternative to Cobalt Strike, which particularly shines through strong multiplayer capabilities and CLI focus.
 
@@ -49,8 +49,8 @@ To conclude, we looked at how frameworks like Sliver hide their communication in
 
 ### Demo Videos
 
-For the lecture, I prepared various demos, however, without commentary.
-Since I commented on them live during the lecture, I don't want to withhold them.
+For the lecture, I prepared various demos; however, they have no commentary,
+since I commented on them live during the lecture. Still, I don't want to withhold them.
 They provide a good insight into the functionality and operation of the frameworks.
 
 The first video shows how to establish a connection to a target system with Empire (4min):

@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/hacker.jpg"
 keepImageRatio: true
-summary: "In diesen Post möchte ich den Begriff des Hacker ein Wenig mehr beleuchten."
+summary: "In diesem Post möchte ich den Begriff des Hackers ein wenig mehr beleuchten."
 showInMenu: false
 tags: ["Hacking"]
 ---
@@ -16,7 +16,7 @@ Mein Lieblingszitat stammt von Wau Holland, dem Gründer des Chaos Computer Club
 
 Ich möchte zwei Beispiele nennen, die mir in den letzten Jahren begegnet sind:
 
-## 3D-Druck auf Mate Flaschen 🍾
+## 3D-Druck auf Mate-Flaschen 🍾
 
 ![3D-Drucker, der auf einer Mate-Flasche druckt, anstatt auf einem Druckbett.](img/mate_3d.jpg)
 
@@ -24,9 +24,9 @@ Das erste Beispiel habe ich auf dem [Chaos Communication Congress](https://de.wi
 
 Die Idee ist recht kreativ, aber auch für den technischen Aufwand benötigt man viel Erfahrung. Für dieses Projekt wurde sogar ein eigener G-Code-Generator geschrieben.
 
-## Schreibmaschine mir Netzwerkanschluss 🖨️
+## Schreibmaschine mit Netzwerkanschluss 🖨️
 
-![Modell der Erika 3004, die ASCII-Art druckt kann.](img/erika_3004.jpg)
+![Modell der Erika 3004, die ASCII-Art drucken kann.](img/erika_3004.jpg)
 
 Das zweite Projekt habe ich im [Potsdamer Chaostreff](https://www.ccc-p.org/) gefunden. Dabei wurde der Anschluss einer alten DDR-Schreibmaschine Reverse-Engineered, sodass man über das Netzwerk Text an die Schreibmaschine senden und ausdrucken kann.
 

@@ -19,7 +19,8 @@ In today’s fast-paced software development world, efficiency is key. Companies
 ## What is DevOps?
 
 DevOps is more than just a technical approach—it’s a culture and philosophy. It aims to bridge the gap between development and operations teams to deliver software faster, more efficiently, and more securely. By fostering collaboration between these teams and using automation tools, the quality of software improves while speeding up delivery.
-Core Principles of DevOps
+
+## Core Principles of DevOps
 
 1. **Collaboration and Communication**: Teams work together toward the common goal of delivering software faster and better. Close collaboration helps reduce misunderstandings and bottlenecks.
 2. **Continuous Integration and Delivery (CI/CD)**: CI/CD pipelines allow code to be tested and integrated regularly, ensuring quick deployment to production environments.

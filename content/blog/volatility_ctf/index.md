@@ -12,31 +12,31 @@ tags: ["CTF", "Forensik"]
 
 
 
-CTF steht für Capture the Flag, Ziel des Spieles ist es alle Flaggen zu bekommen, das CTF bestand aus einer Memory Datei sowie 4
+CTF steht für Capture the Flag, Ziel des Spieles ist es, alle Flaggen zu bekommen, das CTF bestand aus einer Memory Datei sowie 4
 Fragen/Aufgaben, welche als Flaggen fungierten.
 
-Das Mini Memory CTF stammt von dem Youtuber 13Cube, die Idee ist es den
+Das Mini Memory CTF stammt von dem YouTuber 13Cubed, die Idee ist es, den
 Umgang mit volatility oder anderen Memory Analyse Werkzeugen spielerisch
 zu lernen.
 
-[Link zu Ankündigungsvideo](https://www.youtube.com/watch?v=JuEv8UleO0U&t=)
+[Link zum Ankündigungsvideo](https://www.youtube.com/watch?v=JuEv8UleO0U&t=)
 
 [Aufgaben und Lösungen des CTF](img/mini_memory_ctf_solutions_guide.pdf)
 
 #### Flagge Nummer 1:
 
-Welcher laufende Prozess ist bösartig? Nennen sie den Md5 Hash der
+Welcher laufende Prozess ist bösartig? Nennen Sie den MD5-Hash der
 Prozess Id.
 
 Die allgegenwärtige Windows svchost.exe ist ein beliebter Prozess, um
 Malware zu verstecken. Ein normales System hat viele dieser
-`svshost.exe` Prozesse am Laufen. Dieser ist immer ein Kindprozess von
+`svchost.exe` Prozesse am Laufen. Dieser ist immer ein Kindprozess von
 services.exe und liegt in dem Verzeichnis: %SYSTEMROOT%  System32 .
 
-Als erstes führen wir diesen Command aus: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_15063 psscan | grep -i svchost`
+Als Erstes führen wir diesen Command aus: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_15063 psscan | grep -i svchost`
 
 Es wird das Profil Win10x64_15063 benutzt, zudem nutzen wir das Plugin `psscan`, welches ähnlich zu `pslist` ist. Jedoch offenbart uns `psscan`
-auch Prozesse, die im Hintergrund laufen. Des weiteren filtern wir auch nach svchost.
+auch Prozesse, die im Hintergrund laufen. Des Weiteren filtern wir auch nach svchost.
 
 {{< codeWide >}}
     Volatility Foundation Volatility Framework 2.6.1
@@ -78,10 +78,10 @@ auch Prozesse, die im Hintergrund laufen. Des weiteren filtern wir auch nach svc
     0x0000c20c6bcd1400 svchost.exe        2888    804 0x0000000097500002 2018-08-01 19:24:32 UTC+0000   2018-08-01 19:24:38 UTC+0000
 {{< /codeWide >}}
 
-Wir können sehen, die Mehrheit der Prozesse, hat die PID 804 als Elternprozess, dies ist auch völlig in Ordnung. Wenn wir ein wenig
-gucken, kriegen wir heraus, dass es sich hierbei um die service.exe handelt. Doch was ist mit den Prozess mit der PID 4824?
+Wir können sehen, die Mehrheit der Prozesse hat die PID 804 als Elternprozess, dies ist auch völlig in Ordnung. Wenn wir ein wenig
+gucken, kriegen wir heraus, dass es sich hierbei um die services.exe handelt. Doch was ist mit dem Prozess mit der PID 4824?
 
-Grepen wir nach der der 4824: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_15063 psscan | grep -i 4824`
+Grepen wir nach der 4824: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_15063 psscan | grep -i 4824`
 
 {{< codeWide >}}
     Volatility Foundation Volatility Framework 2.6.1
@@ -117,7 +117,7 @@ Grepen wir nach der der 4824: `vol -f /opt/volatility/test_memory/ctf/memdump.me
     0x0000c20c6e5ca200 notepad.exe        8800   4824 0x0000000024400002 2018-08-01 20:10:19 UTC+0000   2018-08-01 20:10:21 UTC+0000
 {{< /codeWide >}}
 
-Gleich in der ersten Zeile sehen wir, dass die 4824 die `explorer.exe` ist, diese hat jedoch nicht die Aufgabe eine svchost.exe auszuführen.
+Gleich in der ersten Zeile sehen wir, dass die 4824 die `explorer.exe` ist, diese hat jedoch nicht die Aufgabe, eine svchost.exe auszuführen.
 
 
 Nun suchen wir nach der 4824 und svchost: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_15063 psscan | grep -i 4824 | grep svchost`
@@ -134,29 +134,29 @@ Nun suchen wir nach der 4824 und svchost: `vol -f /opt/volatility/test_memory/ct
     0x0000c20c6ddad580 svchost.exe        8560   4824 0x00000000b2200002 2018-08-01 20:13:10 UTC+0000
 {{< /codeWide >}}
 
-An der letzten Spalte sehen wir, wann die Prozesse zuletzt gelaufen sind, nur der Letzte ist noch immer im Memory. Der Prozess den wir
-suchen, der mit der pid von 8560. Noch schnell den Md5 wert bilden und
+An der letzten Spalte sehen wir, wann die Prozesse zuletzt gelaufen sind, nur der Letzte ist noch immer im Memory. Der Prozess, den wir
+suchen, ist der mit der PID 8560. Noch schnell den MD5-Wert bilden und
 fertig. `echo -n "8560" | md5sum`
 
 Die erste Flagge ist `bc05ca60f2f0d67d0525f41d1d8f8717`.
 
 #### Flagge Nummer 2:
 
-Finden sie den bösartigen Prozess und dumpen sie sein Memory. In diesem finden sie eine 32-Character lange Flage.
+Finden Sie den bösartigen Prozess und dumpen Sie sein Memory. In diesem finden Sie eine 32 Zeichen lange Flagge.
 
 Memory Dump des Prozesses erstellen mit diesem Command: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_15063 memdump -p 8560 --dump-dir=/opt/volatility/test_memory/program/ `
 
-Mit `strings` in dem file nach Strings gucken:`strings 8560.dmp`
+Mit `strings` in dem file nach Strings gucken: `strings 8560.dmp`
 
-Hier gibt es dann einen großen Output ungefähr 2695470 Zeilen lang ist.
+Hier gibt es dann einen großen Output, der ungefähr 2695470 Zeilen lang ist.
 Wenn man sich das Writeup durchliest, wird es eigentlich noch schlimmer,
-selbst wenn man nach einen 32-Character langen String sucht (Vermutlich
+selbst wenn man nach einem 32-Character langen String sucht (Vermutlich
 ein MD5-Hash) wird man bitter enttäuscht. Die Lösung ist ein Base64
 encodeter MD5-Hash, was die Suche noch schwieriger gestaltet. Ich hab
-auch auf Youtube gefragt, ob es da andere Ansätze gibt, dies zu lösen, denn
+auch auf YouTube gefragt, ob es da andere Ansätze gibt, dies zu lösen, denn
 so geht es eigentlich nicht.
 
-Also wenn man weiß, dass man nach base64  gucken muss, kann man die Suche ein wenig eingrenzen:
+Also wenn man weiß, dass man nach Base64 gucken muss, kann man die Suche ein wenig eingrenzen:
 `strings -n 32 8560.dmp | grep -E '"[A-Za-z0-9+/]{4}*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)"' | uniq | head -n 15`
 
 Der Output sieht dann so aus:
@@ -184,13 +184,13 @@ Die Flagge ist dann: `3a19697f29095bc289a96e4504679680`
 
 #### Flagge Nummer 3:
 
-Welche Mac Adresse ist der Default Gateway der Maschine? (Die Flagge ist
-der MD5-Hash der Mac Adresse, groß geschrieben mit Bindestrich
+Welche MAC-Adresse hat das Default Gateway der Maschine? (Die Flagge ist
+der MD5-Hash der MAC-Adresse, großgeschrieben mit Bindestrich
 getrennt.)
 
-Wir wissen, dass die Mac-Adresse befindet sich in den Registry, diese können wir aus dem Memory Dumpe gewinnen:
+Wir wissen, dass sich die MAC-Adresse in der Registry befindet, diese können wir aus dem Memory Dump gewinnen:
 
-Das geschieht mit dem Plugin `dumpregestry`: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_17134 dumpregistry --dump-dir=/opt/volatility/test_memory/program/`
+Das geschieht mit dem Plugin `dumpregistry`: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_17134 dumpregistry --dump-dir=/opt/volatility/test_memory/program/`
 
 Hinweis: Ich hab davor immer das falsche Profil verwendet. Das war auch
 vorher nicht das Problem, doch bei dem `dumpregistry` Plugin muss das
@@ -198,10 +198,10 @@ richtige Profil verwendet werden.
 
 Es entstehen eine Menge von Dateien:
 
-![EIN Terminal das einige Registry Files zeigt.](img/reg-files.png)
+![Ein Terminal, das einige Registry Files zeigt.](img/reg-files.png)
 
-Diese sind alles nur Binär Dateien, wir können diese nicht ohne weiteres
-lesen, darum gib es ein Tool, dass sich RegRipper nennt. Mit diesen
+Diese sind alles nur Binärdateien, wir können diese nicht ohne Weiteres
+lesen, darum gibt es ein Tool, das sich RegRipper nennt. Mit diesem
 können wir den Inhalt lesbar machen.
 
 
@@ -215,39 +215,39 @@ Ende.
 ![](img/regripper.png)
 
 In `Hive File` schmeißen wir unser `.reg` File, als `Report File` geben
-wir die Datei an, in die später unser lesbarer Text drin steht. Danach
+wir die Datei an, in der später unser lesbarer Text steht. Danach
 muss noch ein Plugin gewählt werden, in unserem Fall `software`, dann
 noch auf `Rip it` klicken. Nun entsteht ein lesbares File, in dem nach
 "mac" oder "DefaultGateway" gegrept werden kann.
 
 ![](img/mac.png)
 
-Tada die Mac-Adresse des Default Gateway.
+Tada, die MAC-Adresse des Default Gateways.
 
-Fagge erstellen mit: `echo -n '00-50-56-FE-D8-07'| md5sum`
+Flagge erstellen mit: `echo -n '00-50-56-FE-D8-07'| md5sum`
 
 Und unsere Flagge ist: `6496d43b622a2ad241b4d08699320f4e`.
 
 #### Flagge Nummer 4:
 
 Finden Sie den vollständigen Pfad des Browser-Caches, der beim Besuch
-erstellt wurde von `www.13cubed.com.` Der Pfad beginnt mit `User\`. (Flagge ist der MD5-Hash des Pfads in Großbuchstaben)
+erstellt wurde von `www.13cubed.com.` Der Pfad beginnt mit `User\`. (Die Flagge ist der MD5-Hash des Pfads in Großbuchstaben)
 
 Beim NTFS-Filesystem (New Technology File System) gibt es eine Master
-File Table (MFT) in dieser Tabelle, findet man Informationen über die
-Position eines Sektors und welche Informationen dort abgelegt sind. Bei
-Speichern von neue Dateien wird der Speicherort auch hier eingetragen.
-Es ein zentraler Datei-Index ähnlich wie ein Index-Verzeichnis in einem
+File Table (MFT), in dieser Tabelle findet man Informationen über die
+Position eines Sektors und welche Informationen dort abgelegt sind. Beim
+Speichern von neuen Dateien wird der Speicherort auch hier eingetragen.
+Es ist ein zentraler Datei-Index ähnlich wie ein Index-Verzeichnis in einem
 Buch. Auch Metadaten werden hier erfasst.
 
-So langsam haben wir verstanden, dass alles was zum arbeiten gebraucht wird,
-sich im Arbeitsspeicher verbirgt, so ist er auch mit der Master File
+So langsam haben wir verstanden, dass alles, was zum Arbeiten gebraucht wird,
+sich im Arbeitsspeicher verbirgt, so ist es auch mit der Master File
 Table. Und auch hier kommt volatility mit einem passenden Plugin, um
-dieses heraus zu bekommen, es nennt sich mftparser.
+dieses herauszubekommen, es nennt sich mftparser.
 
 Der Command sieht wie folgt aus: `vol -f /opt/volatility/test_memory/ctf/memdump.mem --profile=Win10x64_15063 mftparser > output_mft`
 
-Der Output diese Command ist eine lange Liste mit Einträgen, die in etwa
+Der Output dieses Commands ist eine lange Liste mit Einträgen, die in etwa
 so aussehen:
 {{< codeWide >}}
     $STANDARD_INFORMATION
@@ -280,49 +280,49 @@ Der Output sieht dann so aus:
     2018-08-01 19:37:05 UTC+0000 2018-08-01 19:37:05 UTC+0000   2018-08-01 19:37:05 UTC+0000   2018-08-01 19:37:05 UTC+0000   Users\CTF\AppData\Local\Packages\MICROS~1.MIC\AC\#!001\MICROS~1\Cache\IQDBNKYD\13Cubed[1].png
 {{< /codeWide >}}
 
-Wie cuten dann den Path hinter raus, und grepen dann noch nach ".htm"
-weil wir ja wissen das es sich um eine Website handelt. Mit Ruby haben
-wir Möglichkeit, die Methode "upcase"aufzurufen, diese erstellt aus
-klein geschriebenen Strings einen groß geschrieben String.
+Wir cuten dann den Path hinten raus und grepen dann noch nach ".htm",
+weil wir ja wissen, dass es sich um eine Website handelt. Mit Ruby haben
+wir die Möglichkeit, die Methode "upcase" aufzurufen, diese erstellt aus
+kleingeschriebenen Strings einen großgeschriebenen String.
 
 Sieht dann so aus: `less output_mft | cut -d ' ' -f 19 | ag 'Users' | ag 'cubed' |ag '.htm'| ruby -e 'print gets.upcase'`
 
-Output:`USERS\CTF\APPDATA\LOCAL\PACKAGES\MICROS~1.MIC\AC\#!001\MICROS~1\CACHE\AHF2COV9\13CUBED[1].HTM`
+Output: `USERS\CTF\APPDATA\LOCAL\PACKAGES\MICROS~1.MIC\AC\#!001\MICROS~1\CACHE\AHF2COV9\13CUBED[1].HTM`
 
 So MD5-Hash erstellen, und Sache erledigt: `5a15514f0d84962682e3a6d76b197c38`
 
-Und gleich das falsches Ergebnis in Lösungs Writeup ist
+Und gleich das falsche Ergebnis, im Lösungs-Writeup ist
 es: `b5bdd048030cd26ab2d0e7f7e351224d`
 
 Kurze Fehlersuche mit
 `echo -n "USERS\CTF\APPDATA\LOCAL\PACKAGES\MICROS~1.MIC\AC\#!001\MICROS~1\CACHE\AHF2COV9\13CUBED[1].HTM" | md5sum`
 kommen wir auch auf diesen Hash.
 
-Es scheint also, was im File zu stecken, was die Integrität der Strings
+Es scheint also etwas im File zu stecken, was die Integrität der Strings
 ungültig macht. Gucken wir mit `hexdump -C` nach.
 
-![Zeigt zwei Hexdumps untereinander, welches sich durch ein 0a unterscheiden.](img/hexdump.png)
+![Zeigt zwei Hexdumps untereinander, die sich durch ein 0a unterscheiden.](img/hexdump.png)
 
 Hier hat sich doch ein non visible ascii character eingeschlichen, in
 diesem Fall ein 0a was dem `Line Feed` entspricht, oder heute
 bekannt unter dem Namen `new line`.
 
-Hinweis bei größeren Hex Files fällt es oft schwer gleich Unterschiede festzustellen, darum dann beide Hexdumps in ein File pipen
+Hinweis: Bei größeren Hex Files fällt es oft schwer, gleich Unterschiede festzustellen, darum dann beide Hexdumps in ein File pipen
 und mit `vimdiff hex_file.a hex_file.b` angucken. 
 
 ![Zeigt das Tool vimdiff](img/vimdiff.png)
 
 Hier ist der Unterschied der beiden Dateien schon im Programm
-dargestellt (Im Bild blau).
+dargestellt (im Bild blau).
 
 Schnelle aber unelegante Lösung. Die Methode gsub (steht für global
-substitute) in Ruby ermöglicht es uns Teile von Strings anhand eines
-Musters zu ersetzen. Dank Stack Overflow bekommt man schnell das Muster
+substitute) in Ruby ermöglicht es uns, Teile von Strings anhand eines
+Musters zu ersetzen. Dank Stack Overflow bekommt man schnell das Muster,
 um unser Problem zu lösen:
 `less output_mft | cut -d ' ' -f 19 | ag 'Users' | ag 'cubed' |ag '.htm'| ruby -e 'print gets.upcase.gsub(/[^[:print:]]/,\'\')'| md5sum`
 
-Hinweis mit tr (translate or delete characters) kann man auch dieses
-Problem lösen:`tr -d '[:cntrl:]' `
+Hinweis: Mit tr (translate or delete characters) kann man auch dieses
+Problem lösen: `tr -d '[:cntrl:]' `
 
 Mit `:cntrl:` kann man die control characters löschen.
 

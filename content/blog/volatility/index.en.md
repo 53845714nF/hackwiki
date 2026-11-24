@@ -23,7 +23,7 @@ For now, however, the memory of the affected system must first be saved.
 ## Creating a Memory Dump
 
 To examine the memory, we first need an image of the current memory. There are various tools
-under Linux, e.g.: LiMe or Img. These tools require root or
+under Linux, e.g.: LiME or Img. These tools require root or
 administrator privileges to function. Also keep in mind that RAM
 can be very large these days; sufficient storage space must be available. For desktop systems, 16 GB is no longer
 uncommon, and for servers we quickly reach one to several terabytes.
@@ -44,9 +44,9 @@ Thunderbolt 3, PCIe, and USB-C.
 Great lecture by Ulf Frisk at the 34C3:
   - [Lecture at 34C3](https://www.youtube.com/watch?v=XcEYkcwbRX8)
   - [German translation of lecture at 34C3](https://www.youtube.com/watch?v=DJSRVaj4nQc)
-  - [Github of Ulf Frisk](https://github.com/ufrisk)
+  - [GitHub of Ulf Frisk](https://github.com/ufrisk)
 
-The German translation is a bit rough, if you are fluent in English, you should rather watch the English one.
+The German translation is a bit rough; if you are fluent in English, you should rather watch the English one.
 
 ### LiME
 
@@ -54,7 +54,7 @@ The tool has to be compiled itself, which can alter the state of the
 memory of the system being tested, so it should be compiled externally
 (if possible).
 
-[Link to Github: LiME](https://github.com/504ensicsLabs/LiME)
+[Link to GitHub: LiME](https://github.com/504ensicsLabs/LiME)
 
 Downloading the tool:
 
@@ -91,7 +91,7 @@ strip --strip-unneeded lime.ko
 mv lime.ko lime-4.15.0-88-generic.ko
 {{< /codeWide >}}
 
-For using LiMe, a kernel module is created. This module
+For using LiME, a kernel module is created. This module
 is tailored to the current kernel of the machine it was built
 on. The module will not work under other kernel versions.
 
@@ -109,7 +109,7 @@ The `path` specifies where the memory image should go.
 
 ### Img
 
-[Link to Github: Img](https://github.com/halpomeranz/lmg)
+[Link to GitHub: Img](https://github.com/halpomeranz/lmg)
 
 I have not tested the tool yet, but it is supposed to be quite good.
 
@@ -118,7 +118,7 @@ I have not tested the tool yet, but it is supposed to be quite good.
 A simple command-line tool under Windows is called DumpIt, with it
 the entire memory of a system can be imaged.
 
-[Link to Github DumpIt.exe](https://github.com/thimbleweed/All-In-USB/tree/master/utilities/DumpIt)
+[Link to GitHub DumpIt.exe](https://github.com/thimbleweed/All-In-USB/tree/master/utilities/DumpIt)
 
 ## Analyzing with Volatility
 
@@ -127,7 +127,7 @@ Under Linux, it is recommended to use the Git version (it makes creating profile
 
 [Stand-Alone version on the website](https://www.volatilityfoundation.org/releases)
 
-[Link to Github Volatility](https://github.com/volatilityfoundation/volatility)
+[Link to GitHub Volatility](https://github.com/volatilityfoundation/volatility)
 
 ### Installation under Linux
 
@@ -144,9 +144,9 @@ Note that distorm3 is required, simply install it with pip: ```pip2 install dist
 To understand what all the data means, Volatility needs some
 information about the system from which the memory image comes. These
 are called Profiles. Under Linux, these profiles must be created
-yourself.[Link to the Volatility Wiki](https://github.com/volatilityfoundation/volatility/wiki/Linux#Linux-Profiles)
+yourself. [Link to the Volatility Wiki](https://github.com/volatilityfoundation/volatility/wiki/Linux#Linux-Profiles)
 
-Under Debian and Ubuntu, `dwarfdump` is required:```sudo apt install dwarfdump```
+Under Debian and Ubuntu, `dwarfdump` is required: ```sudo apt install dwarfdump```
 
 First, read the current kernel with: ```uname -r```
 
@@ -234,7 +234,7 @@ In Volatility there are commands specialized for Linux or Mac
 memory images.
 These can be displayed with: ```python vol.py --info | grep -i linux```
 
-#### Also here a small excerpt
+#### Here, too, a small excerpt
 {{< codeWide >}}
      linux_apihooks             - Checks for userland apihooks
      linux_arp                  - Print the ARP table
@@ -311,30 +311,30 @@ Volatility is a framework, meaning the tool can be easily extended. You just nee
 
 Example from volatility-plugins
 
-[Link to Github volatility-plugins](https://github.com/superponible/volatility-plugins)
+[Link to GitHub volatility-plugins](https://github.com/superponible/volatility-plugins)
 
 This is a small collection of plugins. Unfortunately, they only work
 under Windows profiles and do not support Linux profiles.
 
 There are many more plugins, but it is a bit hard to find them. A good starting point is the
-Volatility Contest, where plugins have been awarded recently.
+Volatility Contest, where recent plugins are awarded.
 
-[Website to the Volatility Contest](https://www.volatilityfoundation.org/contest)
+[Website of the Volatility Contest](https://www.volatilityfoundation.org/contest)
 
 ### Detecting Rootkits on Linux
 
 To get an overview of whether a computer is infected with a rootkit,
 Volatility can sometimes be very helpful. For this, Volatility offers
-several ways to detect them. The command `linux_check_idt`.
-It shows the Interrupt-Descriptor-Table, and if an entry has been redirected (Hooked), it speaks for a manipulated system.
+several ways to detect them, for example the command `linux_check_idt`.
+It shows the Interrupt Descriptor Table, and if an entry has been redirected (hooked), this indicates a manipulated system.
 
 #### Test on Ubuntu 14.04 with Rootkit
 
 The test system is an Ubuntu 14.04 server version with a 4.4.0-142-generic Linux Kernel.
 
-This rootkit was installed on it: [Test Rootkit from Github](https://github.com/nurupo/rootkit)
+This rootkit was installed on it: [Test Rootkit from GitHub](https://github.com/nurupo/rootkit)
 
-After that, a memory image was created with LiMe as well as the corresponding profile.
+After that, a memory image was created with LiME as well as the corresponding profile.
 
 With `linux_hidden_modules` we can now search for hidden kernel modules:
 
@@ -357,7 +357,7 @@ you need to know the internal structure of Windows very well.
 
 Stuxnet is a computer worm allegedly created by the NSA in collaboration with Israel to weaken the Iranian nuclear program.
 It uses several Windows vulnerabilities and is designed to infect control systems of industrial companies from Siemens and Simatic S7.
-A deep analysis would go too far here, so only briefly shown how it can be detected.
+A deep analysis would go too far here, so I will only briefly show how it can be detected.
 
 To find out what OS it is, we use
 `imageinfo`: ```vol -f test_memory/stuxnet.vmem imageinfo ```
@@ -425,7 +425,7 @@ For clarity, the affected processes are shown again:
          ↳lsass(1928)
 {{< /codeWide >}}
 
-The `lass` process with PID 680 is, as expected, a child process of `winlogon`, which looks like a normal Windows process.
+The `lsass` process with PID 680 is, as expected, a child process of `winlogon`, which looks like a normal Windows process.
 The other two processes with PIDs 868 and 1928 are not child processes of `winlogon` but of `services`, so something is fishy here.
 
 A cool feature of Volatility is that it can export process executables,

@@ -15,7 +15,7 @@ tags: ["Programming", "Git", "HomeLab", "DevOps"]
 Git is currently the dominant version control tool in the market.
 The main idea behind it is to manage the state of various versions of source code.
 A full Git tutorial would be too lengthy for a blog post, so instead, I'll point you to a good resource.
-The comprehensive manual available at: [Pro Git Book](https://git-scm.com/book/en/v2).
+The comprehensive manual is available at: [Pro Git Book](https://git-scm.com/book/en/v2).
 
 Another key feature of Git is that it's a distributed system.
 It allows every user to create their own repository and sync it with others.
@@ -29,7 +29,7 @@ The first service I installed on my home server was Gitea.
 
 It's lightweight, consumes minimal resources, and its web interface is quite user-friendly, making it the perfect choice for me.
 My initial Gitea installation ran inside an LXC container with Alpine Linux.
-Using Alpine’s package manager, installing gitea was straightforward.
+Using Alpine’s package manager, installing Gitea was straightforward.
 
 However, I aim to create a homogeneous server environment, meaning all servers should run Debian 11 on LXC.
 As a result, the Alpine container had to go, and I needed to migrate my Git server.

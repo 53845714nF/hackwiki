@@ -60,7 +60,7 @@ Clicking on a machine provides further information.
 
 ## Containers vs VMs
 
-![Zeigt die Unterschiede zwischen KVM und Containern](img/lxc_vs_kvm.png)
+![Shows the differences between KVM and containers](img/lxc_vs_kvm.png)
 
 Containers and VMs are two different types of virtualization.
 Containers are lightweight and share the host's kernel, while VMs are more isolated and have their own kernel.
@@ -95,24 +95,24 @@ Proxmox supports various network configurations, including classic Linux configu
 
 ## Storage 💾
 Proxmox supports various storage types, including local storage, network storage, and distributed storage. 
-This connections are possible, including CIFS, NFS, iSCSI, and Ceph.
+Possible connections include CIFS, NFS, iSCSI, and Ceph.
 
   - **CIFS**: Proxmox supports SMB Version 2 and 3. But it is described as slow.
   - **NFS**: All NFS (Network File System) versions are supported. The fourth is said to be the fastest. I find it simple, fast, and practical.
   - **iSCSI**: For iSCSI, there are two ways to set it up:
     - The first is to pass the LUN (Logical Unit Number) to the VMs.
-    - The second way is to include the ISCSI and then format it in LVM, ZFS, or Directory. This is more complex.
+    - The second way is to include the iSCSI and then format it in LVM, ZFS, or Directory. This is more complex.
   - **Ceph**: Ceph is a distributed file system based on object storage. It is very complex and is used more in large environments.
 
 ## Migration from ESXi 🚚
 Proxmox VE provides a tool to migrate virtual machines from VMware ESXi to Proxmox VE.
-This is done by converting the VMWare virtual disk to a Proxmox compatible format.
+This is done by converting the VMware virtual disk to a Proxmox-compatible format.
 
 1. Copy `.vmdk` files to Proxmox
 2. Convert `.vmdk` files to `qcow2` format: `qemu-img convert -f vmdk ten4sg.vmdk -O qcow2 /var/lib/vz/images/123/ten4sg`
-3. Create VM preferably in the web interface
+3. Create VM, preferably in the web interface
 4. Attach with: `qm importdisk 123 ten4sg local-1-HDD --format qcow2`
-5. Mount and delete old disk also in the web interface.
+5. Mount and delete old disk, also in the web interface.
 
 I have written a script that downloads VMs from [vulnhub](https://www.vulnhub.com/)
 and imports them into Proxmox.

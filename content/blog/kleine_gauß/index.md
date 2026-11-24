@@ -10,10 +10,10 @@ showInMenu: false
 tags: ["Programmieren"]
 ---
 
-Ich musste schon wieder schmunzeln. Als bei meiner Einführungswoche an der Hochschule, der kleine Gauß oder eher bekannt als Gaußsche Summenformel das Thema der ersten 
+Ich musste schon wieder schmunzeln, als bei meiner Einführungswoche an der Hochschule der kleine Gauß, eher bekannt als Gaußsche Summenformel, das Thema der ersten 
 Mathematik-Vorbereitung war.
 
-In meiner Schulzeit hatte ich den Film die "Die Vermessung der Welt" gesehen, in dem es eine Szene gibt, in der genau die Geschichte des kleinen Gauß aufgezeigt wird.
+In meiner Schulzeit hatte ich den Film "Die Vermessung der Welt" gesehen, in dem es eine Szene gibt, in der genau die Geschichte des kleinen Gauß aufgezeigt wird.
 Es ist ein sehr interessanter Film und es lohnt sich, ihn einmal anzugucken.
 
 ## Der Film basiert auf diesem Buch:
@@ -22,7 +22,7 @@ Das Thema ist die fiktive Doppelbiografie des Mathematikers Carl Friedrich Gauß
 {{< /book >}}
 
 ## Meine Python Implementierung
-In meiner Ausbildung habe ich dann zwei Wege in Python programmiert, wie dieses Problem gelöst werden kann. [Link zum Gitlab](https://git.aei.mpg.de/sfeustel/ci-cd-python-unittest)
+In meiner Ausbildung habe ich dann zwei Wege in Python programmiert, wie dieses Problem gelöst werden kann. [Link zum GitLab](https://git.aei.mpg.de/sfeustel/ci-cd-python-unittest)
 
 ### Einmal der umständliche Weg mit einer klassischen For Loop:
 {{< code language="python" >}}
@@ -48,7 +48,7 @@ def loop(number):
     return ergebnis
 {{< /code >}}
 
-### Und der Weg mit Anwendung der Gaußsche Summenformel:
+### Und der Weg mit Anwendung der Gaußschen Summenformel:
 {{< code language="python" >}}
 def formula(number):
     """
@@ -72,7 +72,7 @@ Es ist ein cooler und einfacher Weg, seinen Code zu optimieren. Soweit ich weiß
 
 Daneben kann man die Formel gut gebrauchen, um beim Kartenspiel Rommé die Punktesumme zu berechnen:
 
-Beispiel: Man hat im Blatt eine 5, 6, 7, 8, und 9 der gleichen Farbe.
+Beispiel: Man hat im Blatt eine 5, 6, 7, 8 und 9 der gleichen Farbe.
 
 Der geübte Spieler schlussfolgert sogleich: Für die Punktsumme nehme ich den Wert der mittleren Karte (7) mal die Anzahl (5), also `7*5==35`.
 

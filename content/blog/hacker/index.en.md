@@ -16,7 +16,7 @@ My favorite quote comes from Wau Holland, the founder of the Chaos Computer Club
 
 I want to give two examples that I have come across in recent years:
 
-## 3D printing on Mate bottles 🍾
+## 3D Printing on Mate Bottles 🍾
 
 ![3D printer that prints on a Mate bottle instead of a print bed.](img/mate_3d.jpg)
 
@@ -24,7 +24,7 @@ I found the first example at the [Chaos Communication Congress](https://en.wikip
 
 The idea is quite creative, but a lot of experience is required for the technical effort. For this project, a custom G-code generator was even written.
 
-## Typewriter with network connection 🖨️
+## Typewriter with Network Connection 🖨️
 
 ![Model of the Erika 3004, which can print ASCII art.](img/erika_3004.jpg)
 

@@ -14,7 +14,7 @@ tags: ["Proxmox", "Network", "Unifi", "HomeLab", "Virtualization", "Saltstack"]
 The method shown here is not very stable. Machines sometimes shift position. The Unifi controller often needs to be restarted at the beginning.
 {{< /notificationBlue >}}
 
-I've been using Proxmox and Unifi in my network.
+I've been using Proxmox and Unifi in my network for a while.
 Anyone who uses Unifi is likely familiar with the Unifi Map.
 
 ## Issue with the Map ⚠️

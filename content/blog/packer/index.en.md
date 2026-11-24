@@ -12,7 +12,7 @@ tags: ["IaC", "DevOps"]
 
 [This blog post was created with the help of ChatGPT.]
 
-n today’s IT landscape, where cloud and container technologies are playing an increasingly important role, automating infrastructure and its provisioning is essential. This is where HashiCorp’s [Packer](https://github.com/hashicorp/packer) comes in—a powerful open-source tool that automates the creation of machine images.
+In today’s IT landscape, where cloud and container technologies are playing an increasingly important role, automating infrastructure and its provisioning is essential. This is where HashiCorp’s [Packer](https://github.com/hashicorp/packer) comes in—a powerful open-source tool that automates the creation of machine images.
 
 In this blog post, I’ll provide an overview of Packer, explain how it works, and show you how to use it within your infrastructure.
 

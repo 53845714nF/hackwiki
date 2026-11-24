@@ -28,7 +28,7 @@ Zum Schluss gab es noch einen kleinen Ausblick auf Themen wie das Benchmarking v
 
 ## Download Folien und Arbeitsmaterial
 
-* [Vortrags Folien](data/Vektordatenbanken.pdf)
+* [Vortragsfolien](data/Vektordatenbanken.pdf)
 * [Arbeitsblatt](data/Vektordatenbanken_Arbeitsblatt.pdf)
 * [Musterlösung](data/Vektordatenbanken_Arbeitsblatt_Lösung.pdf)
 

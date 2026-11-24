@@ -1,5 +1,5 @@
 ---
-title: "Graphics card for home server"
+title: "Graphics Card for Home Server"
 date: 2026-10-23T10:03:13+02:00
 draft: false
 hideLastModified: true

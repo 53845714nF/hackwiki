@@ -11,7 +11,7 @@ tags: ["LetsEncrypt", "Kubernetes", "DNSChallenge", "Fritzbox"]
 ---
 
 {{< notificationBlue >}}
-Hetzner hat seine DNS Dienst geädert. Nutze jetzt cert-manager-webhook-hetzner.
+Hetzner hat seinen DNS-Dienst geändert. Nutze jetzt cert-manager-webhook-hetzner.
 {{< /notificationBlue >}}
 
 Seit einiger Zeit betreibe ich ein k3s Cluster und möchte nun meine Ingress Ressource erweitern,
@@ -25,33 +25,33 @@ wobei ich den DNS Provider Hetzner DNS verwende.
   - k3s Cluster
     - kubectl
     - helm
-  - DNS Provider (In meinem Fall Hetzner DNS, der Provider muss die API zur Verfügung stellen um die DNS Einträge zu ändern)
+  - DNS Provider (In meinem Fall Hetzner DNS, der Provider muss die API zur Verfügung stellen, um die DNS Einträge zu ändern)
 
 ## Einrichtung des DNS Namens 📡
 Zunächst müssen wir die DNS Einträge für unsere Domain erstellen. Diese Einträge können auf eine lokale IP Adresse zeigen.
 
 ![DNS Einträge](img/hetzner.png)
 
-Das ist im ersten moment vielleicht komisch da man annehmen könnte das sowas nicht funktioniert.
-Und ja das birgt ein gewisses sicherheitsrisiko im DNS System. Diese Attacken heißen DNS-Rebinding-Angriff.
-Als Angreifer könnte ich eine Domain auf eine lokale IP Adresse zeigen lassen und so versuchen auf die lokale IP Adresse zuzugreifen.
-Es ist aber immer noch notwendig die Seite des Angreifers zu besuchen.
-Daher gibt es bei den meisten Routern einen Rebound Schutz. Dieser verhindert das Anfragen von außen auf die lokale IP Adresse weitergeleitet werden. 
+Das ist im ersten Moment vielleicht komisch, da man annehmen könnte, dass so etwas nicht funktioniert.
+Und ja, das birgt ein gewisses Sicherheitsrisiko im DNS System. Diese Attacken heißen DNS-Rebinding-Angriffe.
+Als Angreifer könnte ich eine Domain auf eine lokale IP Adresse zeigen lassen und so versuchen, auf die lokale IP Adresse zuzugreifen.
+Es ist aber immer noch notwendig, die Seite des Angreifers zu besuchen.
+Daher gibt es bei den meisten Routern einen Rebound Schutz. Dieser verhindert, dass Anfragen von außen auf die lokale IP Adresse weitergeleitet werden. 
 
-Sie müssen dies nun für ihre Domain im Router den Rebound Schutz deaktivieren. 
-Bitte beachten Sie das sie dort nur ihre Domain eintragen wildcards könnten ein Sicherheitsrisiko darstellen.
+Sie müssen nun für Ihre Domain im Router den Rebound Schutz deaktivieren. 
+Bitte beachten Sie, dass Sie dort nur Ihre Domain eintragen, Wildcards könnten ein Sicherheitsrisiko darstellen.
 
-Unter der Fritzbox finden sie den Rebound Schutz unter:
+Unter der Fritzbox finden Sie den Rebound Schutz unter:
 
 `Heimnetzwerk` -> `Netzwerk` -> `Netzwerkeinstellungen` -> `Rebound Schutz`
 
 ![Benutzeroberfläche der Fritzbox](img/fritz_box.png)
 
-(Mir ist bewusst das man die DNS Einträge einsehen kann, trotzdem habe ich sie unkenntlich gemacht da sie hierfür nicht relevant sind.)
+(Mir ist bewusst, dass man die DNS Einträge einsehen kann, trotzdem habe ich sie unkenntlich gemacht, da sie hierfür nicht relevant sind.)
 
 ## Installation von cert-manager
 
-Als nächstes müssen wir den cert-manager installieren, der quasi ein Standard in der Kubernetes Welt zur Verwaltung von Zertifikaten ist
+Als Nächstes müssen wir den cert-manager installieren, der quasi ein Standard in der Kubernetes-Welt zur Verwaltung von Zertifikaten ist.
 
 {{< codeWide >}}
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.yaml
@@ -66,7 +66,7 @@ helm repo add cert-manager-webhook-hetzner https://vadimkim.github.io/cert-manag
 helm install --namespace cert-manager cert-manager-webhook-hetzner cert-manager-webhook-hetzner/cert-manager-webhook-hetzner --set groupName=hackwiki.de
 {{< /codeWide >}}
 
-## Erstellen des Cluster Issuer
+## Erstellen des Cluster Issuers
 Um die DNS Challenge nutzen zu können, müssen wir einen Cluster Issuer erstellen.
 
 {{< codeWide >}}

@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/freedos.webp"
 keepImageRatio: true
-summary: "Ein Blick auf FreeDOS. Verdeutlicht wie einfach es ist direkt auf die Hardware zuzugreifen."
+summary: "Ein Blick auf FreeDOS. Verdeutlicht, wie einfach es ist, direkt auf die Hardware zuzugreifen."
 showInMenu: false
 tags: [""]
 ---
@@ -38,7 +38,7 @@ Jeder Prozess kann direkt auf die Hardware zugreifen, was zwar flexibel ist, abe
 
 Ein interessantes Beispiel dafür, wie einfach es früher war, auf die Hardware zuzugreifen,
 ist der Umgang mit dem Parallelport.
-Ich habe ein cooles [Youtube Video](https://www.youtube.com/watch?v=7D-JES4BnTw) gefunden, das zeigt,
+Ich habe ein cooles [YouTube Video](https://www.youtube.com/watch?v=7D-JES4BnTw) gefunden, das zeigt,
 wie man mit einfachem QBasic den Parallelport steuern kann.
 
 Heutzutage wäre es undenkbar, ohne spezielle Berechtigungen oder Treiber direkt auf die Hardware zuzugreifen.
@@ -47,7 +47,7 @@ Doch bei FreeDOS ist das ganz einfach.
 Hier eine Anleitung, wie du mit FreeDOS und QBasic den Parallelport steuern kannst:
 
 1. Mit Rufus FreeDOS auf einen USB-Stick kopieren.
-2. [QBasic](https://www.qbasic.net/de/qbasic-downloads/compiler/qbasic-compiler.htm) (Version 7.1) herunterladen  und auf den Stick packen.
+2. [QBasic](https://www.qbasic.net/de/qbasic-downloads/compiler/qbasic-compiler.htm) (Version 7.1) herunterladen und auf den Stick packen.
 3. Das Zielsystem vom USB-Stick booten.
 4. Ins QBasic-Verzeichnis wechseln: `cd bin`
 5. QBasic starten: `qbx`
@@ -69,10 +69,10 @@ Die `888` steht für den Parallelport.
 Der Aufbau sieht so aus: Jumper verbinden die Datenleitungen des Parallelports mit dem positiven Ende einer LED. 
 Alle LEDs sind mit `GND` vom Parallelport verbunden.
 
-Hier zwei Fotos des Aufbaues:
+Hier zwei Fotos des Aufbaus:
 
 ![Zeigt ein Mainboard mit USB-Stick und LEDs vor dem Parallelport](img/aufbau.jpg) | ![Nahaufnahme der LEDs](img/aufbau2.jpg)
 
 Und hier ein kurzes Video, das den Zählvorgang zeigt:
 
-[![Video zeigt den Aufbau mit Zählendem Computer](img/thump.png)](img/working.mp4)
+[![Video zeigt den Aufbau mit zählendem Computer](img/thump.png)](img/working.mp4)

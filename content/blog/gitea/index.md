@@ -5,35 +5,35 @@ draft: false
 hideLastModified: true
 summaryImage: "img/gitea.webp"
 keepImageRatio: true
-summary: "Den eigene Git-Service einrichten. Und die Migration von Alpine zu Debian."
+summary: "Den eigenen Git-Service einrichten. Und die Migration von Alpine zu Debian."
 showInMenu: false
 tags: ["Programmieren", "Git", "HomeLab", "DevOps"]
 ---
 
 ## Vorwort zu Git
-Git ist das mittlerweile marktbeherrschende Versionsverwaltung Tool. Die grobe Idee ist es, Zustände von verschiedenen Versionen des Quellcodes zu verwalten.
-Ein Git Tutorial wäre für einen Blog Post aber zu lang, darum verweise ich hier mal auf ein paar gute Quellen. 
-Die erste ist eine gute YouTube Einsteiger Reihe, zu finden unter: [Git und Github Tutorials Deutsch](https://www.youtube.com/playlist?list=PLNmsVeXQZj7rbmmqb1Lt_RGU4DEhelTrR). Das zweite ist das ausführliche Handbuch, dies gibt es unter: [Pro Git Buch](https://git-scm.com/book/de/v2).
+Git ist das mittlerweile marktbeherrschende Versionsverwaltungstool. Die grobe Idee ist es, Zustände von verschiedenen Versionen des Quellcodes zu verwalten.
+Ein Git-Tutorial wäre für einen Blogpost aber zu lang, darum verweise ich hier mal auf ein paar gute Quellen. 
+Die erste ist eine gute YouTube-Einsteigerreihe, zu finden unter: [Git und Github Tutorials Deutsch](https://www.youtube.com/playlist?list=PLNmsVeXQZj7rbmmqb1Lt_RGU4DEhelTrR). Das zweite ist das ausführliche Handbuch, dies gibt es unter: [Pro Git Buch](https://git-scm.com/book/de/v2).
 
-Eine weitere Eigenschaft von Git ist es, ein verteiltes System zu sein. Es besteht die Möglichkeit, das jeder sein eigenes Repository eröffnet und dies mit anderen Repositorys abgleicht.
-In der Regel hat man aber ein Zentralen Server auf dem das Hauptrepository abgelegt wird. Häufig verfügen diese Server noch über eine einfache Web UI, um Interaktionen mit dem Repo zu erleichtern.
-Der wohl größte Vertreter dieser Art von Software ist wohl [Github](https://github.com/). Weitere sind [Gitlab](https://about.gitlab.com) und [Gitea](https://gitea.io/en-us/).
+Eine weitere Eigenschaft von Git ist es, ein verteiltes System zu sein. Es besteht die Möglichkeit, dass jeder sein eigenes Repository eröffnet und dies mit anderen Repositorys abgleicht.
+In der Regel hat man aber einen zentralen Server, auf dem das Hauptrepository abgelegt wird. Häufig verfügen diese Server noch über eine einfache Web UI, um Interaktionen mit dem Repo zu erleichtern.
+Der wohl größte Vertreter dieser Art von Software ist wohl [GitHub](https://github.com/). Weitere sind [GitLab](https://about.gitlab.com) und [Gitea](https://gitea.io/en-us/).
 
 ## Meine Vorgeschichte mit Gitea 🕰️
 Der erste Dienst, den ich auf meinem Home Server installiert habe, war nun also ein Gitea.
 
-Es ist schlank, verbraucht wenig Ressourcen und die Web Oberfläche sieht auch gut aus. Also Ideal für mich.
-Meine erste Installation von gitea bestand aus einem LXC Container mit Alpine Linux. Mit dem Paketmanager von Alpine ließ sich das Paket `gitea` einfach installieren.
-Da ich nun eine homogene Serverlandschaft anstrebe, sprich alle Server sollen mit Debian 11 auf LXC laufen. Musste nun der Alpine Container weichen. 
+Es ist schlank, verbraucht wenig Ressourcen und die Weboberfläche sieht auch gut aus. Also ideal für mich.
+Meine erste Installation von Gitea bestand aus einem LXC Container mit Alpine Linux. Mit dem Paketmanager von Alpine ließ sich das Paket `gitea` einfach installieren.
+Da ich nun eine homogene Serverlandschaft anstrebe, sprich alle Server sollen mit Debian 11 auf LXC laufen, musste nun der Alpine Container weichen. 
 
-Es stand mir jetzt die Migration meines Git Server bevor. Leider pakettiert gitea seine Software nicht für Debian. Die Installation ist somit ein wenig schwieriger als unter Alpine.
+Es stand mir jetzt die Migration meines Git-Servers bevor. Leider paketiert Gitea seine Software nicht für Debian. Die Installation ist somit ein wenig schwieriger als unter Alpine.
 Gitea selbst ist in [Golang](https://go.dev/) geschrieben und es wird ein static link Binary zur Verfügung gestellt. Dies kann gedownloadet werden, doch der Rest muss vom Admin selbst angepasst werden.
 
 ## Installation von Gitea unter Debian
 
 Hier gebe ich die Installation unter Debian schemenhaft an:
 
-**Update und "Dependencys":**
+**Update und "Dependencies":**
 {{< codeWide >}}
 apt -y update
 apt -y install git vim bash-completion
@@ -107,18 +107,18 @@ systemctl status gitea
 {{< /codeWide >}}
 
 **Zusätzliche Rechte für Gitea**
-Ist wichtig da der Dienst sonst nicht startet.
+Ist wichtig, da der Dienst sonst nicht startet.
 
 {{< codeWide >}}
 setcap 'cap_net_bind_service=+ep' /usr/local/bin/gitea
 {{< /codeWide >}}
 
 ## Migration
-Die Migration umfasste zwei Teile ein Backup der Daten und ein Backup der Datenbank
-Die Daten waren hauptsächlich der Repos, die auf den neuen Server kopiert werden mussten.
-Gegebenenfalls müssen noch Linux Rechte angepasst werden, falls sich der User der Gitea ausführt, geändert hat. 
+Die Migration umfasste zwei Teile: ein Backup der Daten und ein Backup der Datenbank.
+Die Daten waren hauptsächlich die Repos, die auf den neuen Server kopiert werden mussten.
+Gegebenenfalls müssen noch Linux Rechte angepasst werden, falls sich der User, der Gitea ausführt, geändert hat. 
 
-Ich hatte auch noch den Fall, daß ich git hooks anpassen musste, da sich das Verzeichnis in dem Gitea liegt verändert hat.
+Ich hatte auch noch den Fall, dass ich Git Hooks anpassen musste, da sich das Verzeichnis, in dem Gitea liegt, verändert hat.
 Hierfür folgenden Command benutzen:
 {{< codeWide >}}
 grep -r "/usr/bin/gitea" . | cut -d : -f1 | xargs sed -i 's#/usr/bin/gitea#/usr/local/bin/gitea#g' 
@@ -126,5 +126,5 @@ grep -r "/usr/bin/gitea" . | cut -d : -f1 | xargs sed -i 's#/usr/bin/gitea#/usr/
 
 Die Datenbank war ein SQLite, diese ließ sich auch anstandslos dumpen und wieder einspielen. 
 
-Abschließend kann man sagen, die Migration war schwieriger als erwartet aber kein Hexenwerk. 
-Ich bin zufrieden, daß ich nun ein Gitea mir Debian 11 unter der Haube besitze. 😄
+Abschließend kann man sagen, die Migration war schwieriger als erwartet, aber kein Hexenwerk. 
+Ich bin zufrieden, dass ich nun ein Gitea mit Debian 11 unter der Haube besitze. 😄

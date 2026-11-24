@@ -54,7 +54,7 @@ I have a project based on Postgres and I wanted to use Meilisearch in it. Fortun
 During the installation of meilisync, there are a few things to consider, and I wanted to highlight them here.
 
 ### Postgres Prerequisites 🐘
-t's important that the database is configured to support Write-Ahead Logging (WAL). This means the database must be configured to log the changes made to the data. This is necessary for meilisync to track changes to the databases.
+It's important that the database is configured to support Write-Ahead Logging (WAL). This means the database must be configured to log the changes made to the data. This is necessary for meilisync to track changes to the databases.
 
 To do this, the `postgresql.conf` file must be modified:
 

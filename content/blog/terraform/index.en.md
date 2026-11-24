@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/terraform.webp"
 keepImageRatio: true
-summary: "A first insight into Terraform with the interaction to Digital Ocean."
+summary: "A first insight into Terraform and its interaction with DigitalOcean."
 showInMenu: false
 tags: ["Terraform", "DevOps", "IaC"]
 ---
@@ -126,7 +126,7 @@ terraform apply
 terraform show
 {{< /codeWide >}}
 
-- Um alle erstellten Ressourcen wieder zu löschen:
+- To delete all created resources again:
 {{< codeWide >}}
 terraform destroy
 {{< /codeWide >}}

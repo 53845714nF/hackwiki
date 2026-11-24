@@ -5,7 +5,7 @@ draft: false
 hideLastModified: true
 summaryImage: "img/vol.png"
 keepImageRatio: true
-summary: "Analyse des Arbeitsspeicher mit Volatility"
+summary: "Analyse des Arbeitsspeichers mit Volatility"
 showInMenu: false
 tags: ["Forensik"]
 ---
@@ -15,8 +15,8 @@ Hier wird der Umgang mit Volatility 2 gezeigt. Aktuell ist mittlerweile Volatili
 {{< /notificationBlue >}}
 
 Wer nach einem Einbruch den Arbeitsspeicher eines Rechners untersuchen
-muss, darf sich der tatkräftigen Unterstützung des Python-Framework
-Volatility erfreuen. In diesem Post geht es noch um Volatility 2 mittlerweile gibt es die dreier Version.
+muss, darf sich der tatkräftigen Unterstützung des Python-Frameworks
+Volatility erfreuen. In diesem Post geht es noch um Volatility 2, mittlerweile gibt es die Version 3.
 Hier hat sich einiges verändert, so ist zum Beispiel das Erstellen von Profilen nicht mehr notwendig.
 
 Vorerst muss jedoch der Arbeitsspeicher des betroffenen Systems gespeichert werden.
@@ -24,32 +24,32 @@ Vorerst muss jedoch der Arbeitsspeicher des betroffenen Systems gespeichert werd
 ## Memory Speicherauszug (Dump) erstellen
 
 Um den Arbeitsspeicher zu untersuchen, brauchen wir erst einmal ein
-Abbild des aktuellen Arbeitsspeichers. Hier gib es verschiedene Tools
-unter Linux z.B.: LiMe oder Img. Diese Tools brauchen Root bzw.
-Administratorrechte um zu funktionieren. Bedenke auch, dass RAM
+Abbild des aktuellen Arbeitsspeichers. Hier gibt es verschiedene Tools
+unter Linux, z.B.: LiME oder Img. Diese Tools brauchen Root bzw.
+Administratorrechte, um zu funktionieren. Bedenke auch, dass RAM
 heutzutage groß sein kann, hier muss natürlich genügend Speicherplatz
-zur Verfügung stehen. Bei Desktop Systemen sind 16 GB keine Seltenheit
+zur Verfügung stehen. Bei Desktop-Systemen sind 16 GB keine Seltenheit
 mehr und bei Servern kommen wir schnell an die ein bis mehrere Terabyte
 ran.
 
 ### Integritätsprüfung
 
-Auch wichtig zu beachten ist, dass wir kein Hash vom RAM machen können,
+Auch wichtig zu beachten ist, dass wir keinen Hash vom RAM machen können,
 da dieser sich kontinuierlich ändert (sollte logisch sein, nur so zur
-Info). Nach dem Erstellen eines Abbildes, ist es möglich eine Checksumme
+Info). Nach dem Erstellen eines Abbildes ist es möglich, eine Checksumme
 über dieses zu bilden.
 
 ### Direct Memory Access (DMA)
 
-Eine Methode die vielleicht nicht unerwähnt bleiben solle, ist die des
+Eine Methode, die vielleicht nicht unerwähnt bleiben sollte, ist die des
 DMA. Hierbei werden Schwachstellen der Hardware ausgenutzt, um an den
-Inhalt des Arbeitsspeicher zu gelangen, in der Vergangenheit häufig bei
-Thunderbold3, PCIe und USB-C.
+Inhalt des Arbeitsspeichers zu gelangen, in der Vergangenheit häufig bei
+Thunderbolt 3, PCIe und USB-C.
 
 Guter Vortrag von Ulf Frisk auf dem 34C3:
   - [Vortrag auf dem 34C3](https://www.youtube.com/watch?v=XcEYkcwbRX8)
-  - [Deutsche Übersetzung von Vortrag auf dem 34C3](https://www.youtube.com/watch?v=DJSRVaj4nQc)
-  - [Github von Ulf Frisk](https://github.com/ufrisk)
+  - [Deutsche Übersetzung vom Vortrag auf dem 34C3](https://www.youtube.com/watch?v=DJSRVaj4nQc)
+  - [GitHub von Ulf Frisk](https://github.com/ufrisk)
 
 
 Die deutsche Übersetzung stockt ein wenig, wer des Englischen mächtig ist, sollte lieber diese gucken.
@@ -57,10 +57,10 @@ Die deutsche Übersetzung stockt ein wenig, wer des Englischen mächtig ist, sol
 ### LiME
 
 Das Tool muss selbst kompiliert werden, das kann den Zustand des
-Arbeitsspeichers, des zu testenden System verändern, darum sollte es
-extern kompiliert werden (Sofern möglich).
+Arbeitsspeichers des zu testenden Systems verändern, darum sollte es
+extern kompiliert werden (sofern möglich).
 
-[Link zum Github: LiME](https://github.com/504ensicsLabs/LiME)
+[Link zum GitHub: LiME](https://github.com/504ensicsLabs/LiME)
 
 Herunterladen des Tools:
 
@@ -97,7 +97,7 @@ strip --strip-unneeded lime.ko
 mv lime.ko lime-4.15.0-88-generic.ko
 {{< /codeWide >}}
 
-Für das Nutzen von LiMe wird also ein Kernel Modul erstellt. Dies Modul
+Für das Nutzen von LiME wird also ein Kernel Modul erstellt. Dieses Modul
 richtet sich nach dem aktuellen Kernel der Maschine, auf dem es gebaut
 wurde. Das Modul läuft also nicht unter anderen Kernel Versionen.
 
@@ -111,29 +111,29 @@ Besser ist das Format `lime` dies kann auch von Volatility interpretiert werden:
 
 ```sudo insmod lime-4.15.0-88-generic.ko 'path=../Linux64.mem format=lime'```
 
-Das `path` gibt an wo das Memory Abbild hin soll.
+Das `path` gibt an, wo das Memory Abbild hin soll.
 
 ### Img
 
-[Link zum Github: Img](https://github.com/halpomeranz/lmg)
+[Link zum GitHub: Img](https://github.com/halpomeranz/lmg)
 
 Ich habe das Tool noch nicht getestet, doch es soll recht gut sein.
 
 ### DumpIt.exe
 
 Ein einfaches Command Line Tool unter Windows nennt sich DumpIt, mit ihm
-lässt sich auch der gesammte Arbeitsspeicher eines Systems abbilden.
+lässt sich auch der gesamte Arbeitsspeicher eines Systems abbilden.
 
-[Link zum Github DumpIt.exe](https://github.com/thimbleweed/All-In-USB/tree/master/utilities/DumpIt)
+[Link zum GitHub DumpIt.exe](https://github.com/thimbleweed/All-In-USB/tree/master/utilities/DumpIt)
 
 ## Volatility zur Analyse
 
 Volatility kann als Stand-Alone Version und als Git-Version installiert werden.
-Unter Linux ist es zu empfehlen, die Git Version zu nehmen (Macht das Erstellen von Profilen einfacher).
+Unter Linux ist es zu empfehlen, die Git Version zu nehmen (macht das Erstellen von Profilen einfacher).
 
 [Stand-Alone Version auf der Webseite](https://www.volatilityfoundation.org/releases)
 
-[Link zum Github Volatility](https://github.com/volatilityfoundation/volatility)
+[Link zum GitHub Volatility](https://github.com/volatilityfoundation/volatility)
 
 ### Installation unter Linux
 
@@ -143,15 +143,15 @@ cd /opt
 sudo git clone https://github.com/volatilityfoundation/volatility.git>
 {{< /codeWide >}}
 
-Hinweis, es wird distorm3 benötigt, einfach mit pip Installieren: ```pip2 install distorm3```
+Hinweis: Es wird distorm3 benötigt, einfach mit pip installieren: ```pip2 install distorm3```
 
 ### Erstellen von Profilen
 Um zu verstehen, was all die Daten bedeuten, braucht Volatility einige
-Informationen über das System von dem das Memory Abbild stammt. Diese
+Informationen über das System, von dem das Memory Abbild stammt. Diese
 nennen sich dann Profile. Unter Linux müssen diese Profile selbst
-erstellt werden.[Link zum Volatility Wiki](https://github.com/volatilityfoundation/volatility/wiki/Linux#Linux-Profiles)
+erstellt werden. [Link zum Volatility Wiki](https://github.com/volatilityfoundation/volatility/wiki/Linux#Linux-Profiles)
 
-Unter Debian und Ubuntu wird `dwarfdump` benötigt:```sudo apt install dwarfdump```
+Unter Debian und Ubuntu wird `dwarfdump` benötigt: ```sudo apt install dwarfdump```
 
 Erstmal den aktuellen Kernel auslesen mit: ```uname -r``` 
 
@@ -184,7 +184,7 @@ adding: module.dwarf (deflated 91%)
 adding: boot/System.map-4.15.0-88-generic (deflated 79%)
 {{< /codeWide >}}
 
-Die erstellte .zip Datei dann in das Verzeichnis: `/volatility/plugins/overlays/linux`
+Die erstellte .zip Datei dann in das Verzeichnis `/volatility/plugins/overlays/linux` kopieren.
 
 Gucken, ob das Profil von volatility erkannt wurde:
 
@@ -309,38 +309,38 @@ Der Output von diesem sieht dann in etwa so aus:
 {{< /codeWide >}}
 
 Damit können wir annehmen, dass es sich hier um ein WinXPSP2x86 handelt.
-Sprich ein Windows XP Service pack 2 auf einer x86 Prozessorarchitektur.
+Sprich ein Windows XP Service Pack 2 auf einer x86 Prozessorarchitektur.
 
 ### Plugins
 
-Bei volatility handelt es sich um ein Framework, dass heißt das Tool lässt sich einfach erweitern. Es müssen nur .py Dateien in
+Bei volatility handelt es sich um ein Framework, das heißt, das Tool lässt sich einfach erweitern. Es müssen nur .py Dateien in
 `/volatility/plugins` kopiert werden.
 
 Beispiel von volatility-plugins
 
-[Link zu Github volatility-plugins](https://github.com/superponible/volatility-plugins)
+[Link zu GitHub volatility-plugins](https://github.com/superponible/volatility-plugins)
 
 Hier handelt es sich um eine kleine Sammlung von Plugins. Diese
 funktionieren leider nur unter Windows Profilen und unterstützen keine
 Linux Profile.
 
-Es gibt noch viele weitere Plugins, es ist jedoch ein wenig schwer, diese zu finden. Eine gute Anlaufstelle ist des weiteren der
-Volatility Contest, bei dem werden plugins der letzten Zeit ausgezeichnet wurden.
+Es gibt noch viele weitere Plugins, es ist jedoch ein wenig schwer, diese zu finden. Eine gute Anlaufstelle ist des Weiteren der
+Volatility Contest, bei dem Plugins der letzten Zeit ausgezeichnet wurden.
 
 [Website zum Volatility Contest](https://www.volatilityfoundation.org/contest)
 
 ### Rootkits unter Linux erkennen
 
-Ein Überblick zu verschaffen, ob der Rechner mit einem Rootkit infiziert
+Um sich einen Überblick zu verschaffen, ob der Rechner mit einem Rootkit infiziert
 ist, kann Volatility manchmal ganz hilfreich sein. Auch hierfür bietet Volatility
-einige Möglichkeiten, dies zu erkennen. Der Command `linux_check_idt`.
-Es zeigt die Interrupt-Descriptor-Tabelle, wenn hier ein Eintrag umgeleitet (Hooked) ist, spricht einiges für ein manipuliertes System.
+einige Möglichkeiten, dies zu erkennen, z.B. den Command `linux_check_idt`.
+Er zeigt die Interrupt-Descriptor-Tabelle, wenn hier ein Eintrag umgeleitet (Hooked) ist, spricht einiges für ein manipuliertes System.
 
 #### Test auf Ubuntu 14.04 mit Rootkit
 
-Test System ist ein Ubuntu 14.04 in der Server Version mit einem 4.4.0-142-generic Linux Kernel.
+Das Testsystem ist ein Ubuntu 14.04 in der Server Version mit einem 4.4.0-142-generic Linux Kernel.
 
-Auf diesem wurde dieses Rootkit installiert: [Test Rootkit von Github](https://github.com/nurupo/rootkit)
+Auf diesem wurde dieses Rootkit installiert: [Test Rootkit von GitHub](https://github.com/nurupo/rootkit)
 
 Danach wurde ein Memory Abbild mit LiMe erstellt sowie das entsprechende Profil.
 
@@ -358,16 +358,16 @@ In diesem Fall fällt das rootkit natürlich sehr schnell auf:
 
 ### Malware unter Windows erkennen
 
-Das Erkennen von Windows Maleware ist nochmal ein wenig aufwendiger, da
-man sich sehr gut, mit der Internen Struktur von Windows auskennen muss.
+Das Erkennen von Windows Malware ist nochmal ein wenig aufwendiger, da
+man sich sehr gut mit der internen Struktur von Windows auskennen muss.
 
 #### Beispiel eines Stuxnet Befalls an einem Windows XP Rechner
 
-Stuxnet ist ein Computerwurm, der mutmaßlich von der NSA in Zusammenarbeit mit Israel geschaffen wurde, um das Iranisches Atomprogramm zu schwächen.
-Dieser benutze mehrere Schwachstellen in Windows und er ist auf das Befallen von Steuerungssysteme von Industrieanlagen der Firmen Siemens und Simatic S7 ausgelegt. 
-Eine tiefgehende Analyse würde hier jedoch zu weit führen, hier nur kurz gezeigt, wie dieser erkannt werden kann.
+Stuxnet ist ein Computerwurm, der mutmaßlich von der NSA in Zusammenarbeit mit Israel geschaffen wurde, um das iranische Atomprogramm zu schwächen.
+Dieser benutzte mehrere Schwachstellen in Windows und ist auf das Befallen von Steuerungssystemen von Industrieanlagen der Firmen Siemens und Simatic S7 ausgelegt. 
+Eine tiefgehende Analyse würde hier jedoch zu weit führen, hier wird nur kurz gezeigt, wie dieser erkannt werden kann.
 
-Um raus zu kriegen, um welches OS, es sich handelt, benutzen wir
+Um rauszukriegen, um welches OS es sich handelt, benutzen wir
 `imageinfo`: ```vol -f test_memory/stuxnet.vmem imageinfo ```
 
 Wir wissen jetzt, dass es sich um Windows XP Service Pack 2 auf einem x86 Prozessor handelt, dies wird in der späteren Analyse noch wichtig sein.
@@ -415,15 +415,15 @@ Der Output sieht dann so aus:
 {{< /codeWide >}}
 
 Es fällt auf, dass die `lsass.exe` dreimal vorhanden ist, mit den Pids 680, 868 und 1928. Das `lsass` steht für Local Security Authority
-Subsystem Service diese Prozess ist für Authentifizierung von Nutzern in Windows zuständig. Er sorgt dafür, die Gültigkeit des Benutzeraccounts
-an dem Windows zu prüfen. Er darf nur einmal ausgeführt werden. Daran merken wir, dass hier was nicht stimmt. Nicht selten versuchen Schadcode
-Hersteller, sich hinter interne Prozesse zu verstecken. Das macht das
+Subsystem Service, dieser Prozess ist für die Authentifizierung von Nutzern in Windows zuständig. Er sorgt dafür, die Gültigkeit des Benutzeraccounts
+an dem Windows zu prüfen. Er darf nur einmal ausgeführt werden. Daran merken wir, dass hier was nicht stimmt. Nicht selten versuchen Schadcode-
+Hersteller, sich hinter internen Prozesse zu verstecken. Das macht das
 Erkennen selbst für erfahrene Nutzer schwer und kann gleichzeitig für
 Verunsicherungen bei unerfahrenen Nutzern sorgen.
 
-Wichtig ist es jetzt, zu wissen, dass `lass` ein parent process (dt.
+Wichtig ist es jetzt, zu wissen, dass `lsass` einen parent process (dt.
 Elternprozess) mit dem Namen `winlogon` hat, dies gilt für Windows XP.
-Ab Windows Vista und folgende heißt dieser Prozess `wininit`.
+Ab Windows Vista und folgenden heißt dieser Prozess `wininit`.
 
 Zur Übersicht sind die betroffenen Prozesse nochmal dargestellt:
 {{< codeWide >}}
@@ -436,11 +436,11 @@ Zur Übersicht sind die betroffenen Prozesse nochmal dargestellt:
          ↳lsass(1928)
 {{< /codeWide >}}
 
-Der `lass` Prozess mit der Pid 680 ist, wie erwartet ein Kindprozess von `winlogon`, dies sieht so aus, als wäre es ein normaler Prozess vom
-Windows aus. Die anderen beide Prozesse mit den Pids 868 und 1928 sind keine Kindprozesse von `winlogon` sondern von `services`, hier ist also was faul.
+Der `lsass` Prozess mit der Pid 680 ist, wie erwartet, ein Kindprozess von `winlogon`, dies sieht so aus, als wäre es ein normaler Prozess vom
+Windows aus. Die anderen beiden Prozesse mit den Pids 868 und 1928 sind keine Kindprozesse von `winlogon`, sondern von `services`, hier ist also was faul.
 
-Cooles Feature von Volatility ist das Executables von Prozessen
-exportiert werden kann, dies geht mit `procdump`.
+Cooles Feature von Volatility ist, dass Executables von Prozessen
+exportiert werden können, dies geht mit `procdump`.
 
 ```vol -f test_memory/stuxnet.vmem --profile=WinXPSP2x86 procdump -p 668,1928 --dump-dir=test_memory/program/```
 

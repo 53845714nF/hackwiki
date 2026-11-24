@@ -10,23 +10,23 @@ showInMenu: false
 tags: ["Kubernetes", "DevOps"]
 ---
 
-[Die Blog-post ist mit hilfe von ChatGPT entstanden.]
+[Der Blogpost ist mithilfe von ChatGPT entstanden.]
 
 Kubernetes hat sich als Standardplattform für die Orchestrierung von Containern etabliert.
 Doch um die volle Leistung dieser Plattform auszuschöpfen, ist es essenziell, die verschiedenen Ressourcentypen zu verstehen, die Kubernetes bietet.
 In diesem Beitrag konzentriere ich mich darauf, einige der wichtigsten Ressourcen zu beschreiben. 
-Ich werde ihre jeweiligen Funktionen beleuchten, wie sie zusammenarbeiten, um eine skalierbare und flexible Umgebung für moderne Anwendungen zu schaffen.
+Ich werde ihre jeweiligen Funktionen beleuchten und wie sie zusammenarbeiten, um eine skalierbare und flexible Umgebung für moderne Anwendungen zu schaffen.
 
 ## Namespace
-Der einfachste Ressourcentypen ist wohl der **Namespace**, er ist eine logische Trennungseinheit, die dazu dient, Ressourcen innerhalb eines Clusters zu isolieren und zu organisieren.
-Er ermöglicht es, verschiedene Umgebungen oder Teams innerhalb desselben Kubernetes-Clusters zu betreiben, ohne das sie sich gegenseitig beeinflussen.
+Der einfachste Ressourcentyp ist wohl der **Namespace**, er ist eine logische Trennungseinheit, die dazu dient, Ressourcen innerhalb eines Clusters zu isolieren und zu organisieren.
+Er ermöglicht es, verschiedene Umgebungen oder Teams innerhalb desselben Kubernetes-Clusters zu betreiben, ohne dass sie sich gegenseitig beeinflussen.
 Namespaces sind besonders nützlich, wenn mehrere Projekte oder Anwendungen in einem Cluster verwaltet werden.
 
 Wichtige Merkmale von Namespaces:
 
 - **Ressourcentrennung**: Namespaces trennen die Ressourcen (wie Pods, Services, Deployments) innerhalb eines Clusters logisch voneinander ab. Dies erlaubt es, verschiedene Anwendungen oder Umgebungen (z. B. Entwicklung, Test, Produktion) sicher zu isolieren.
 - **Namenskonflikte verhindern**: Da Ressourcen wie Pods und Services innerhalb eines Namespaces einen eindeutigen Namen haben müssen, verhindern Namespaces Namenskonflikte zwischen gleichnamigen Ressourcen in unterschiedlichen Projekten oder Abteilungen.
-- **Ressourcenkontingente (Resource Quotas)**: Kubernetes ermöglicht es, Ressourcenkontingente für Namespaces festzulegen. Damit kann die maximale Menge an CPU, Speicher oder anderen Ressourcen begrenzt werden, die innerhalb eines bestimmten Namespaces verwendet werden dürfen. Ein Namespaces unterstützt somit, die **Mehrmandantenfähigkeit** von Kubernetes-Clustern.
+- **Ressourcenkontingente (Resource Quotas)**: Kubernetes ermöglicht es, Ressourcenkontingente für Namespaces festzulegen. Damit kann die maximale Menge an CPU, Speicher oder anderen Ressourcen begrenzt werden, die innerhalb eines bestimmten Namespaces verwendet werden dürfen. Ein Namespace unterstützt somit die **Mehrmandantenfähigkeit** von Kubernetes-Clustern.
 
 - **Zugriffssteuerung**: Namespaces können in Kombination mit **Role-Based Access Control (RBAC)** verwendet werden, um den Zugriff auf bestimmte Ressourcen auf Team- oder Projektbasis zu beschränken. Dadurch können bestimmte Benutzer oder Gruppen nur auf Ressourcen in ihrem eigenen Namespace zugreifen.
 
@@ -66,7 +66,7 @@ Hier das Deployment einer einfachen Anwendung:
 {{< codeFile file="/content/blog/kubernetes/deployment.yml" language="yml" title="Deployment" icon="yml">}}
 
 ## Service
-Ein **Service** ermöglicht es **Netzwerkzugriff** auf ein Deployment zu gewährleisten.
+Ein **Service** ermöglicht es, **Netzwerkzugriff** auf ein Deployment zu gewährleisten.
 Da Pods dynamisch erstellt, gelöscht und neu gestartet werden können, ändert sich ihre IP-Adresse ständig.
 Ein Service schafft hier Beständigkeit, indem er eine stabile **IP-Adresse** und einen **DNS-Namen** zur Verfügung stellt,
 unter dem das Deployment erreichbar ist.
@@ -87,7 +87,7 @@ Diese Adresse ändert sich nicht, selbst wenn die zugrundeliegenden Pods aktuali
 
 Ein Kubernetes-Service ist also entscheidend, um Pods beständig und zuverlässig über das Netzwerk zugänglich zu machen, selbst wenn sich ihre IP-Adressen im Cluster dynamisch ändern.
 
-Hier ein Bespiel eines LoadBalancer Services:
+Hier ein Beispiel eines LoadBalancer Services:
 {{< codeFile file="/content/blog/kubernetes/service.yml" language="yml" title="Service" icon="yml">}}
 
 ## Ingress
@@ -148,7 +148,7 @@ Wichtige Merkmale von Secrets:
 - **Dynamische Aktualisierung**: Wenn ein Secret aktualisiert wird, kann Kubernetes diese Änderungen automatisch auf die verbundenen Pods anwenden, je nach Konfiguration und Mount-Strategie.
 - **Zugriffsbeschränkung**: Über Role-Based Access Control (RBAC) kann der Zugriff auf Secrets eingeschränkt werden, sodass nur berechtigte Benutzer und Anwendungen auf sie zugreifen können.
 
-Beispiel für die Erstellung eines Secret:
+Beispiel für die Erstellung eines Secrets:
 {{< codeFile file="/content/blog/kubernetes/secret.yml" language="yml" title="Secret" icon="yml">}}
 
 ## Cron Job
@@ -173,4 +173,4 @@ Wichtige Merkmale eines CronJobs in Kubernetes:
 Beispiel für einen CronJob:
 {{< codeFile file="/content/blog/kubernetes/cron.yml" language="yml" title="Cron Job" icon="yml">}}
 
-Bei Fragen und Anmerkungen gerne Melden per Mail, LinkedIn oder Github Issue.
+Bei Fragen und Anmerkungen gerne melden per Mail, LinkedIn oder GitHub Issue.

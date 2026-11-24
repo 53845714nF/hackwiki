@@ -25,7 +25,7 @@ and use SHA-512 as the hashing algorithm, which is VeraCrypt's default.
 Here’s the key part: we’ll deliberately choose a weak password.
 VeraCrypt, rightfully so, warns us that this password is susceptible to brute-force attacks.
 
-![VeraCrypt screenshot showing that weak password warning](img/veracrypt2.png)
+![VeraCrypt screenshot showing the weak password warning](img/veracrypt2.png)
 
 ## A Quick Overview 👨‍🏫
 
