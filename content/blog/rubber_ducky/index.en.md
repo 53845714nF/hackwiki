@@ -23,7 +23,7 @@ It sends pre-defined keystrokes that an attacker designs.
 To craft these inputs, there's a dedicated scripting language called Ducky Script, which most of these devices support.
 
 There are already numerous pre-built Ducky Scripts available online, with the most well-known source being Hak5’s [repository](https://github.com/hak5/usbrubberducky-payloads).
-You can also use an online [generator](https://ducktoolkit.com).
+You can also use an online [generator](https://payloadstudio.com/login/).
 However, in my experience, these scripts don’t work out-of-the-box and often need to be adapted to the specific system they’re targeting.
 
 ## Reverse Shell 🐚

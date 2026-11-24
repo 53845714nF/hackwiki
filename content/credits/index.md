@@ -8,6 +8,6 @@ summary: "Danksagung"
 
 Dieser Blog wurde mit [Hugo](https://gohugo.io/) erstellt.
 
-Als Theme wurde [hugo-refresh](https://github.com/PippoRJ/hugo-refresh) verwendet, es wurde von Roberto Jordaney erstellt. ([Robertos Blog](https://rjordaney.is/))
+Als Theme wurde [hugo-refresh](https://github.com/PippoRJ/hugo-refresh) verwendet, es wurde von Roberto Jordaney erstellt.
 
 Das Homepage-Bild wurde von Erik Kosmala erstellt. ([Eriks Instagram](https://www.instagram.com/ulrich62kuenstler/))

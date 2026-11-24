@@ -17,7 +17,7 @@ Die erste ist eine gute YouTube-Einsteigerreihe, zu finden unter: [Git und Githu
 
 Eine weitere Eigenschaft von Git ist es, ein verteiltes System zu sein. Es besteht die Möglichkeit, dass jeder sein eigenes Repository eröffnet und dies mit anderen Repositorys abgleicht.
 In der Regel hat man aber einen zentralen Server, auf dem das Hauptrepository abgelegt wird. Häufig verfügen diese Server noch über eine einfache Web UI, um Interaktionen mit dem Repo zu erleichtern.
-Der wohl größte Vertreter dieser Art von Software ist wohl [GitHub](https://github.com/). Weitere sind [GitLab](https://about.gitlab.com) und [Gitea](https://gitea.io/en-us/).
+Der wohl größte Vertreter dieser Art von Software ist wohl [GitHub](https://github.com/). Weitere sind [GitLab](https://about.gitlab.com) und [Gitea](https://about.gitea.com/).
 
 ## Meine Vorgeschichte mit Gitea 🕰️
 Der erste Dienst, den ich auf meinem Home Server installiert habe, war nun also ein Gitea.

@@ -4,7 +4,6 @@
 
 You can find a live demo of the original Fresh theme [here](https://themes.gohugo.io/theme/hugo-fresh/) or a demo of the Hugo ReFresh theme [here](https://themes.gohugo.io/theme/hugo-refresh/).
 
-You can find another example of ReFresh theme in [my personal website](https://rjordaney.is/). 
 
 ![ReFresh theme logo](images/screenshot.png)
 
@@ -82,7 +81,6 @@ E.g.: set `assetDir: "static"` to the set the default folder the `static` folder
 
 ## List of shortcodes you can use in your articles with description:
 
-A live example of these shortcodes can be found [here](https://rjordaney.is/miscellaneous/example/).
 
 <details>
 <summary> title1.html, title2.html, title3.html, title4.html, title5.html, title6.html </summary>
@@ -266,7 +264,6 @@ The parameter **alt2** is the alt property of the left image.<br>
 
 With a small screen these images will be shown one on top of the other.
 
-See example of use [here](https://rjordaney.is/lectures/basic_buffer_overflow/)
 
 </details>
 
@@ -309,7 +306,6 @@ The parameter **size** is used to specify the size of the book in pixel "width" 
 E.g.: "300x" means 300px of width.<br> 
 E.g.: "x300" means 300px of height. <br>
 
-See example of use [here](https://rjordaney.is/miscellaneous/ml_books/)
 
 </details>
 
@@ -326,7 +322,6 @@ Text of the exercise.
 
 This shortcode has no parameters.
 
-See example of use [here](https://rjordaney.is/code_exercises/staircase_n_steps/)
 
 </details>
 
@@ -360,7 +355,6 @@ There are 6 tabs supported at this moment
 
 * the icons parameters are **icon1**, **icon2**, **icon3**, **icon4**, **icon5**, **icon6** 
 
-See example of use [here](https://rjordaney.is/code_exercises/staircase_n_steps/)
 
 </details>
 
@@ -409,7 +403,6 @@ This shortcode has 2 parameters:
 
 * **id** to set a id of the html `code` element
 
-See an example of usage [here](https://rjordaney.is/lectures/basic_buffer_overflow/)
 
 </details>
 
@@ -441,7 +434,6 @@ Usage example:
 The **first parameter** will appear in the right coloured part of the shortcode.<br>
 The **second parameter** will appear in the middle part of the shortcode.<br>
 
-See example of usage [here](https://rjordaney.is/miscellaneous/ctf_resources/)
 
 </details>
 

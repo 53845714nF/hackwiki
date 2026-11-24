@@ -18,7 +18,7 @@ Danach kam die Generation von Sticks, die WLAN an Bord hatten. Und nun werden di
 Die Grundidee ist es, ein USB-Gerät zu haben, das sich am Zielrechner als Tastatur ausgibt. Dieses macht dann Eingaben, die von Angreifern erstellt wurden.
 Um diese Eingaben zu gestalten, gibt es eine eigene Scriptsprache, diese heißt Ducky Script. Die meisten dieser Geräte unterstützen diese dann.
 
-Es gibt schon einige fertige Ducky Scripts im Internet, der bekannteste Anlaufpunkt ist das [Repository](https://github.com/hak5/usbrubberducky-payloads) von Hak5 selbst. Es gibt auch einen Online-[Generator](https://ducktoolkit.com). Aus meiner Erfahrung funktionieren diese nicht Out-of-the-box. Diese müssen für das jeweilige System angepasst werden.
+Es gibt schon einige fertige Ducky Scripts im Internet, der bekannteste Anlaufpunkt ist das [Repository](https://github.com/hak5/usbrubberducky-payloads) von Hak5 selbst. Es gibt auch einen Online-[Generator](https://payloadstudio.com/login/). Aus meiner Erfahrung funktionieren diese nicht Out-of-the-box. Diese müssen für das jeweilige System angepasst werden.
 
 
 ### Reverse Shell 🐚
